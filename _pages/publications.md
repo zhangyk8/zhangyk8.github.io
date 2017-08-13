@@ -13,7 +13,7 @@ author_profile: true
 
 {% assign my_variable = false %}
 {% if my_variable != true %}
-The publications will be coming soon.
+My publications will be coming soon.
 {% else %}
 
 {% for post in site.publications reversed %}
