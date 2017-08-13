@@ -11,6 +11,11 @@ author_profile: true
 
 {% include base_path %}
 
+{% assign my_variable = false %}
+{% if my_variable == true %}
+
 {% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %}
+
+{% endif %}
