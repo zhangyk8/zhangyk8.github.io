@@ -232,7 +232,17 @@ defaults:
       layout: talk
       author_profile: true
       share: true
-
+      
+  # _awards
+  - scope:
+      path: ""
+      type: awards
+    values:
+      layout: single
+      author_profile: true
+      share: true
+      comment: true
+      
 # Sass/SCSS
 sass:
   sass_dir: _sass
