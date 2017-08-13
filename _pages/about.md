@@ -15,8 +15,8 @@ I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majo
 Education
 ======
 
-| : Status       :  | : Time   : |      :        Institution and Location          :                                   |
-| : --------  :     | : ------ : | :  --------------------------------------------------------------                :  |
+| Status        | Time   |             Institution and Location                                         |
+| :---------:     | :------: | :--------------------------------------------------------------:     |
 | B.S. in Mathematics and Applied Mathematics |  August 2014 -- Present  | [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Guangzhou, China  |
 | Exchange Student in Mathematics and Statistics | Fall 2016  | [University of California, Berkeley](http://www.berkeley.edu/), United States  |
 
