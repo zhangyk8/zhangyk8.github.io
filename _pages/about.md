@@ -14,10 +14,11 @@ I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majo
 
 Education
 ======
-* B.S. in Mathematics and Applied Mathematics
-Sun Yat-sen University, Guangzhou, China    August 2014 -- Present
-* Exchange Student in Mathematics and Statistics (BISP Program)
-University of California, Berkeley     Fall 2016
+
+| Status            | Time  |                Institution and Location                                                |
+| --------         | ------ | ------------------------------------------------------------                           |
+| B.S. in Mathematics and Applied Mathematics |  August 2014 -- Present  | Sun Yat-sen University, Guangzhou, China  |
+| Exchange Student in Mathematics and Statistics | Fall 2016  | University of California, Berkeley, United States    |
 
 
 Getting started
