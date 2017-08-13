@@ -4,7 +4,7 @@ main:
     url: /cv/
     
   - title: "Awards"
-    url:/awards/
+    url:/awards/ 
 
   - title: "Publications"
     url: /publications/
