@@ -20,5 +20,12 @@ Education
 | B.S. in Mathematics and Applied Mathematics |  August 2014 -- Present  | [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Guangzhou, China  |
 | Exchange Student in Mathematics and Statistics | Fall 2016  | [University of California, Berkeley](http://www.berkeley.edu/), United States  |
 
+[interests]  
+interests = [    "Artificial Intelligence",    "Computational Linguistics",    "Information Retrieval"  ]
+
+[[education.courses]]  course = "PhD in Artificial Intelligence"  institution = "Stanford University"  year = 2012
+[[education.courses]]  course = "MEng in Artificial Intelligence"  institution = "Massachusetts Institute of Technology"  year = 2009
+[[education.courses]]  course = "BSc in Artificial Intelligence"  institution = "Massachusetts Institute of Technology"  year = 2008
+
 
 
