@@ -13,7 +13,7 @@ Education
 ======
 * B.S. in Mathematics and Applied Mathematics, Sun Yat-sen University, Aug.2014 -- Present
 * Exchange Student in Mathematics and Statistics, University of California, Berkeley, Fall 2016
-
+* Honor Student in Applied Mathematics Group, [Yat-sen Honor School](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
 
 Research Experience
 ======
