@@ -8,26 +8,17 @@ redirect_from:
   - /about.html
 ---
 
-widget = "about"
-
 Biography
 ======
 I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majoring in Mathematics and Applied Mathematics. Meanwhile, I am also an honor student at [Yat-Sen Honor School](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an independent institution of the university providing outstanding students from Math, Physics, Chemistry, and Biology with educational fundings and honor courses. 
 
 Education
 ======
+* B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Present
+* Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
+* Honor Student in Applied Mathematics Group, [Yat-sen Honor School](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
 
-| Status        | Time   |             Institution and Location                                         |
-| :---------:     | :------: | :--------------------------------------------------------------:     |
-| B.S. in Mathematics and Applied Mathematics |  August 2014 -- Present  | [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Guangzhou, China  |
-| Exchange Student in Mathematics and Statistics | Fall 2016  | [University of California, Berkeley](http://www.berkeley.edu/), United States  |
 
-[interests]  
-interests = [    "Artificial Intelligence",    "Computational Linguistics",    "Information Retrieval"  ]
-
-[[education.courses]]  course = "PhD in Artificial Intelligence"  institution = "Stanford University"  year = 2012
-[[education.courses]]  course = "MEng in Artificial Intelligence"  institution = "Massachusetts Institute of Technology"  year = 2009
-[[education.courses]]  course = "BSc in Artificial Intelligence"  institution = "Massachusetts Institute of Technology"  year = 2008
 
 
 
