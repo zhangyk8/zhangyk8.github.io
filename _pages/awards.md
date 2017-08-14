@@ -7,6 +7,5 @@ author_profile: true
 
 Scholarships
 ====
-First year
 
-Short description of portfolio item number 1<br/><img src='/images/500x300.png'>
+A plotting about the prize that I have been awarded each year<br/><img src='/images/scholarship.JPG'>
