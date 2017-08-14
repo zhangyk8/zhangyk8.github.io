@@ -22,12 +22,14 @@ Research Experience
   * Duties included: Learning and implementing Bayesian networks
   * Supervisor: Professor Jiming Liu
   
+
 Teaching
 ======
    <ul>{% for post in site.teaching %}
       {% include archive-single-cv.html %}
    {% endfor %}</ul>
   
+
 Skills
 ======
 * Latex
