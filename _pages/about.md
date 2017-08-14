@@ -8,6 +8,8 @@ redirect_from:
   - /about.html
 ---
 
+widget = "about"
+
 Biography
 ======
 I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majoring in Mathematics and Applied Mathematics. Meanwhile, I am also an honor student at [Yat-Sen Honor School](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an independent institution of the university providing outstanding students from Math, Physics, Chemistry, and Biology with educational fundings and honor courses. 
