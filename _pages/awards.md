@@ -8,4 +8,5 @@ author_profile: true
 Scholarships
 ====
 
-A plotting about the prize that I have been awarded each year<br/><img src='/images/scholarship.JPG'>
+A plotting about the prize that I have been awarded each year. <br/>
+<img src='/images/scholarship.JPG'>
