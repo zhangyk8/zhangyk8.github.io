@@ -18,7 +18,7 @@ Education
 Research Experience
 ======
 * Summer 2017: Summer PhD Research Experience Programme
-  * Hong Kong Baptist University, Department of Computer Science
+  * Hong Kong Baptist University, Department of Computer Science
   * Duties included: Learning and implementing Bayesian networks
   * Supervisor: Professor Jiming Liu
   
