@@ -17,7 +17,7 @@ A plotting referring to the prizes that I have been awarded each year. <br/>
   * _The only awarded student among roughly 1000 students in our department_
 * Shenzhen Financial Institute(SFI) Scholarship(Academic), **Prize: 10000 RMB**, 2017
   * _One of the only two students among more than 300 junior (Year 3) students in our department_
-  * Awarded by The Chinese University of Hong Kong, Shenzhen
+  * _Awarded by The Chinese University of Hong Kong, Shenzhen_
   
 
 Awards
