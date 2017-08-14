@@ -5,8 +5,7 @@ permalink: /honors/
 author_profile: true
 ---
 
-Scholarships
-======
+## Scholarships
 
 A plotting referring to the prizes that I have been awarded each year. <br/>
 <img src='/images/scholarship.JPG'>
@@ -20,8 +19,8 @@ A plotting referring to the prizes that I have been awarded each year. <br/>
   * _Awarded by The Chinese University of Hong Kong, Shenzhen_
   
 
-Awards
-======
+## Awards
+
 * Interdisciplinary Contest In Modeling, **Meritorious Winner**, 2016
 * Mathematical Contest In Modeling, **Honorable Mention**, 2017
 * National Undergraduate Mathematics Competition of China, **Second Prize of Math Category**, 2015
