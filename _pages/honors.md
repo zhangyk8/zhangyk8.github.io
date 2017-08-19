@@ -25,4 +25,4 @@ A plotting referring to the prizes that I have been awarded each year. <br/>
 * Mathematical Contest In Modeling, **Honorable Mention**, 2017
 * National Undergraduate Mathematics Competition of China, **Second Prize of Math Category**, 2015
 * SYSU Freshman Soccer Cup, **Second Place**, 2015
-  * _I Played as the Captain and led our team to the final_
+  * _I played as the Captain and led our team to the final_
