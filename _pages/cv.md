@@ -13,13 +13,13 @@ Education
 ======
 * B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Present
 * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
-* Honor Student in Applied Mathematics Group, [Yat-sen Honor School](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
+* Honor Student in Applied Mathematics Group, [Yat-sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
 
 Research Experience
 ======
 * Summer 2017: Summer PhD Research Experience Programme
-  * Hong Kong Baptist University, Department of Computer Science
-  * Duties included: Learning and implementing Bayesian networks
+  * Department of Computer Science, Hong Kong Baptist University
+  * Duties included: Proposed an innovative cluster-based algorithm for learning the structure of Bayesian networks
   * Supervisor: Professor Jiming Liu
   
 
