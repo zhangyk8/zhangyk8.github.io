@@ -19,7 +19,7 @@ Research Experience
 ======
 * Summer 2017: Summer PhD Research Experience Programme
   * Department of Computer Science, Hong Kong Baptist University
-  * Duties included: Proposed an innovative cluster-based algorithm for learning the structure of Bayesian networks
+  * Duties included: Proposed an innovative cluster-based algorithm for learning the structures of Bayesian networks
   * Supervisor: Professor Jiming Liu
   
 
