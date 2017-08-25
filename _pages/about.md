@@ -9,7 +9,6 @@ redirect_from:
 ---
 
 
-======
 I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majoring in Mathematics and Applied Mathematics. Meanwhile, I am also an honor student at [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of the university. This program provides the outstanding students from Math, Physics, Chemistry, and Biology with educational fundings, honor courses, and research training opportunities. 
 
 Education
