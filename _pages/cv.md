@@ -1,3 +1,4 @@
+
 ---
 layout: archive
 title: "CV"
@@ -35,6 +36,7 @@ Skills
 * Latex
 * Programming
   * R
+  * Matlab
   * C and C++
   * Mathematica
   * Python
