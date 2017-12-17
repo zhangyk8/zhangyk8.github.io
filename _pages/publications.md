@@ -11,7 +11,7 @@ author_profile: true
 
 {% include base_path %}
 
-{% if my_variable != true %}
+{% if my_variable == true %}
 My publications will be coming soon.
 {% else %}
 
