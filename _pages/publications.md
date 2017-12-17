@@ -1,4 +1,4 @@
-https://zhangyk8.github.io/publications/AAAIStudentAbstract.pdf---
+---
 layout: archive
 title: "Publications"
 permalink: /publications/
