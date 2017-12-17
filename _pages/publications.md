@@ -12,6 +12,9 @@ author_profile: true
 
 {% include base_path %}
 
+
+$link-color: #52adc8
+
 {% if my_variable == true %}
 My publications will be coming soon.
 {% else %}
