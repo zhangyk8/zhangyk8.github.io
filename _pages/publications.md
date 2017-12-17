@@ -5,9 +5,10 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
+<!--{% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
+-->
 
 {% include base_path %}
 
@@ -15,8 +16,15 @@ author_profile: true
 My publications will be coming soon.
 {% else %}
 
-{% for post in site.publications reversed %}
+<!--{% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %}
+-->
+
+## Conference
+
+1. **Y. Zhang**, Y. Liu, Y. Liu (2018) [Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy]() _In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18) Health Intelligence Workshop Program (Accepted)_
+
+2. **Y. Zhang**, J. Liu, Y. Liu (2018) [Bayesian Network Structure Learning: The Two-step Clustering-based Algorithm]() _In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18) Student Abstract and Poster Program (Accepted)_
 
 {% endif %}
