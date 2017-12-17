@@ -10,8 +10,8 @@ author_profile: true
 {% endif %}
 -->
 
-{% include base_path %}
-
+<!--{% include base_path %}
+-->
 
 $link-color: #52adc8
 
