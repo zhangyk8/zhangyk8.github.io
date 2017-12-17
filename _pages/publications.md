@@ -5,15 +5,12 @@ permalink: /publications/
 author_profile: true
 ---
 
-{% if author.googlescholar %}
+<!--{% if author.googlescholar %}
   You can also find my articles on <u><a href="{{author.googlescholar}}">my Google Scholar profile</a>.</u>
 {% endif %}
-
-
-<!--{% include base_path %}
 -->
 
-$link-color: #52adc8
+{% include base_path %}
 
 {% if my_variable == true %}
 My publications will be coming soon.
