@@ -17,7 +17,8 @@ Education
 
 Research Experience
 ======
-* Summer 2017: Summer PhD Research Experience Program  * Department of Computer Science, Hong Kong Baptist University
+* Summer 2017: Summer PhD Research Experience Program  
+  * Department of Computer Science, Hong Kong Baptist University
   * Duties included: 
     1. Implemented the Grow-shink (constrain-based) Bayesian networks structure learning algorithm in order to discover the causal structure between demographic features and 2016 presidential election results on the county level
     2. Proposed a _two step clustering-based_ strategy for Bayesian network structure learning (See publications for details)
