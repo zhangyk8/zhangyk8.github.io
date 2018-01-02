@@ -1,6 +1,6 @@
 ---
 title: "Matlab Experiments"
-excerpt: "Here are some experimental reports of a Matlab course at SYSU<br/><img src='/images/Matlab1.png'>"
+excerpt: "Here are some experimental reports of a Matlab course at SYSU<br/><img src='/images/Matlab2.png'>"
 collection: portfolio
 ---
 
