@@ -21,7 +21,7 @@ author_profile: true
 * SYSU Outstanding Student Scholarship (First Prize), **Prize: 4000 RMB**, 2017.9
 * Kwang-Hua Education Scholarship, **Prize: 3000 RMB**, 2017.12
   * _The only awarded student among roughly 1000 students in our department_
-  * _Awarded by the Kwang-Hua Education Foundation_
+  * _Awarded by the Kwang-Hua Education Foundation_
 
 ## Awards
 
