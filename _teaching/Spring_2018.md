@@ -3,7 +3,7 @@ title: "Matrix Analysis and its Applications"
 collection: teaching
 type: "Undergraduate Honor Course"
 permalink: /teaching/spring_2018
-venue: "Sun Yat-sen University, School of Mathematics"
+venue: "School of Mathematics, Sun Yat-sen University"
 date: 2018-3-6
 location: "Guangzhou, China"
 ---
