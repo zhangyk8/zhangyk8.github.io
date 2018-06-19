@@ -1,0 +1,114 @@
+\documentclass[12pt]{article}
+\usepackage[utf8]{inputenc}
+\usepackage[english]{babel}
+
+\usepackage{geometry}
+ \geometry{
+ a4paper,
+ total={170mm,250mm},
+ left=31mm,
+ right=31mm,
+ top=34mm,
+ bottom=29mm
+ }
+
+\usepackage{amsfonts,amsmath}
+\usepackage{mathtools}
+\usepackage{graphicx}
+\usepackage{amssymb}
+\usepackage{amsthm}
+\usepackage{tikz-cd}
+\usepackage{mathrsfs}
+\usepackage{subcaption}
+\usepackage{multicol}
+\usepackage[colorinlistoftodos]{todonotes}
+\usepackage{enumitem}
+\usepackage{hyperref}
+\usepackage{url}
+\hypersetup{
+   colorlinks=true,
+    linkcolor=blue,
+    citecolor=red,
+    urlcolor=cyan,
+}
+%\usepackage{yfonts}
+\usepackage{mathdots}
+
+\usepackage{fancyhdr}
+\pagestyle{fancy}
+\fancyhf{}
+\rhead{\textit{Your name}}
+\lhead{\small Your title}
+\cfoot{\thepage}
+
+\setcounter{MaxMatrixCols}{20} % Enable us to create matrices with more than 10 columns
+
+
+\title{Your title}
+
+\author{\textit{Your name}\footnote{Your institution}}
+
+\date{\today}
+
+\setlength{\footnotesep}{0.5cm}
+\setlength{\skip\footins}{1cm}
+
+\newtheorem{thm}{Theorem}[section]
+\newtheorem{lem}[thm]{Lemma}
+\newtheorem{cor}[thm]{Corollary}
+\newtheorem{prop}[thm]{Proposition}
+\newtheorem{defn}[thm]{Definition}
+\newtheorem{obs}[thm]{Observation}
+\theoremstyle{definition}
+\newtheorem{eg}[thm]{Example}
+\newtheorem{ex}[thm]{Exercise}
+
+
+\begin{document}
+\maketitle
+
+\begin{abstract}
+A concise summary of the whole reading report and main findings
+\end{abstract}
+
+\section{Introduction}
+
+A brief overview of the subject or research field that you are going to discuss.
+
+\section{Background}
+
+\begin{defn}
+A list of vectors $x_1,...,x_k\in \mathbf{C}^n$ is \emph{orthogonal} if $x_i^*x_j=0$ for all $i\neq j, i,j\in\{1,...,k\}$. If, in addition, $x_i^*x_i=1$ for all $i=1,...,k$ (that is, the vectors are \emph{normalized}), then the list is \emph{orthonormal}.
+\end{defn}
+
+\begin{eg}[normalization]
+\label{Normalization}
+If $y_1,...,y_k\in \mathbf{C}^n$ are orthogonal and nonzero, the vectors $x_1,...,x_k$ defined by $x_i=(y_i^*y_i)^{-\frac{1}{2}}y_i, i=1,...,k$ are orthonormal.
+\end{eg}
+
+\begin{thm}
+Every orthogonal list of vectors in $\mathbf{C}^n$ is linearly independent.
+\end{thm}
+\begin{proof}
+Suppose that $\{y_1,...,y_k\}$ is an orthogonal set. Normalize them as Example \ref{Normalization} did and obtain an orthonormal list of vectors $\{x_1,...,x_k\}$. Assume that $0=\alpha_1x_1+\cdots+\alpha_k x_k$. Then $0=(\alpha_1x_1+\cdots+\alpha_k x_k)^*(\alpha_1x_1+\cdots+\alpha_k x_k)=\sum\limits_{i,j} \bar{\alpha}_i \alpha_j x_i^*x_j= \sum\limits_{i=1}^k |\alpha_i|^2 x_i^*x_i=\sum\limits_{i=1}^k |\alpha_i|^2$ because the vectors $x_i$ are orthonormal. Thus, all $\alpha_i=0$ and hence $\{x_1,...,x_k\}$ is a linearly independent set, which in turn means that $\{y_1,...,y_k\}$ is linearly independent.
+\end{proof}
+
+\section{Method and Evaluation}
+
+Main section of the reading report. It contains your solutions to the exercises, your methodology to address the problem, and your experimental results.
+
+\section{Conclusions}
+
+Summarize what you have written in previous sections and discuss your understandings of possible future research directions.
+
+
+\vspace{1cm}
+\begin{thebibliography}{00}
+
+\bibitem{Horn} Roger A. Horn, Charles R. Johnson (2012) {\em Matrix Analysis, Second Edition.} Cambridge University Press.
+
+% \bibitem{PowerIterWiki} Wikipedia: The Free Encyclopedia \textbf{\em Power iteration.} URL: \url{https://en.wikipedia.org/wiki/Power_iteration} Retrieved 12 April, 2018.
+
+\end{thebibliography}
+
+\end{document}
