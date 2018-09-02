@@ -11,9 +11,10 @@ redirect_from:
 
 Education
 ======
-* B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Present
+* M.S. in Statistics, [University of Washington in Seattle](http://www.washington.edu/), Sep.2018 -- Present
+* B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Jun.2018
 * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
-* Honor Student in Applied Mathematics Group, [Yat-sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
+* Honor Student in Applied Mathematics Group, [Yat-sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Jun.2018
 
 Research Experience
 ======
@@ -24,7 +25,7 @@ Research Experience
     2. Proposed a _two step clustering-based_ strategy for Bayesian network structure learning (See publications for details)
   * Supervisor: Professor Jiming Liu
   
-* Sep 2017 - Present: Multi-model Brain-inspired Intelligence Laboratory
+* Sep 2017 - Dec 2017: Multi-model Brain-inspired Intelligence Laboratory
   * School of Electronics and Information Technology, Sun Yat-sen University
   * Duties included:
     1. Conducted a nested 3-fold cross-validation based on the rank of cognitive scores to determine the optimal parameters for the elastic-net model
@@ -41,6 +42,7 @@ Teaching
 Skills
 ======
 * LaTeX
+* Linux
 * Programming
   * R
   * Matlab
