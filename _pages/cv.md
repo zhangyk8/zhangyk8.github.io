@@ -32,18 +32,26 @@ Research Experience
     2. Quantified accuracies of the prediction by computing the normalized MAE (Mean Absolute Errors) and Pearson’s correlations
     3.  Further improved the prediction results via random forests and random kNN (k-Nearest Neighbors) models
 
-Teaching
+Teaching Experience
 ======
    <ul>{% for post in site.teaching %}
       {% include archive-single-cv.html %}
    {% endfor %}</ul>
-  
+   
+Work Experience
+======
+* May 2018 - Aug 2018: Data Analysis Intern in Cyber Laboratory
+  * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
+  * Duties included:
+    1. Designed a sentimental word-matching algorithm and constructed a Recurrent Neural Network with gated recurrent units for Chinese Textual Sentiment Analysis (targeting at consumers’ comments on online shopping websites)
+    2. Proposed a weighted version of the bigram model to uncover latent correlations between any two words with a pre-speciﬁed window size (like TextRank Algorithm) from unstructured Chinese textual data and visualized them via Python (“networkx” package)
+    3. Reﬁned data cleaning processes with parallel programming skills, visualized textual data with R and Python, and maintained the server of our laboratory (under Linux environment)
 
 Skills
 ======
 * LaTeX
 * Linux
-* Programming
+* Computer Programming
   * R
   * Matlab
   * Python
