@@ -9,11 +9,12 @@ redirect_from:
 ---
 
 
-I am currently a senior undergraduate (Year 4) at  Sun Yat-Sen University , majoring in Mathematics and Applied Mathematics. Meanwhile, I am also an honor student at [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of the university. This program provides the outstanding students from Math, Physics, Chemistry, and Biology with educational fundings, honor courses, and research training opportunities. 
+I am currently a first-year Statistics master student at University of Washington in Seattle. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with Highest University Distinction at Sun Yat-Sen University (SYSU). Meanwhile, I was also honored as a successful graduate from [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of SYSU. 
 
 Education
 ======
-* B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Present
+* M.S. in Statistics, [University of Washington in Seattle](http://www.washington.edu/), Sep.2018 -- Present
+* B.S. in Mathematics and Applied Mathematics, [Sun Yat-sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Jun.2018
 * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
 * Honor Student in Applied Mathematics Group, [Yat-sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Present
 
