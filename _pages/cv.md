@@ -46,9 +46,9 @@ Skills
 * Programming
   * R
   * Matlab
+  * Python
   * C and C++
   * Mathematica
-  * Python
 * Language
   * Chinese Mandarin (Native)
   * Cantonese (Native)
