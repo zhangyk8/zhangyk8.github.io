@@ -25,7 +25,7 @@ Research Experience
     2. Proposed a _two step clustering-based_ strategy for Bayesian network structure learning (See publications for details)
   * Supervisor: Professor Jiming Liu
   
-* Sep 2017 - Dec 2017: Multi-model Brain-inspired Intelligence Laboratory
+* Sep 2017 - Nov 2017: Multi-model Brain-inspired Intelligence Laboratory
   * School of Electronics and Information Technology, Sun Yat-sen University
   * Duties included:
     1. Conducted a nested 3-fold cross-validation based on the rank of cognitive scores to determine the optimal parameters for the elastic-net model
@@ -50,7 +50,7 @@ Work Experience
 Skills
 ======
 * LaTeX
-* Linux
+* Linux (Ubuntu)
 * Computer Programming
   * R
   * Matlab
