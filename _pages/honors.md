@@ -12,16 +12,16 @@ author_profile: true
 -->
 
 * SYSU Outstanding Student Scholarship (Second Prize), **Prize: 1500 RMB**, 2015.9
-* SYSU Outstanding Student Scholarship (First Prize), **Prize: 2000 RMB**, 2016.9
+* SYSU Outstanding Student Scholarship (First Prize), **Prize: 2000 RMB + 4000 RMB**, 2016.9 & 2017.9
 * AEON Donation Scholarship for Excellent Students, **Prize: 5000 RMB**, 2016.12
   * _The only awarded student among roughly 1000 students in our department_
 * Shenzhen Financial Institute (SFI) Scholarship (Academic), **Prize: 10000 RMB**, 2017.5
   * _One of the only two students among more than 300 junior (Year 3) students in our department_
   * _Awarded by The Chinese University of Hong Kong, Shenzhen_
-* SYSU Outstanding Student Scholarship (First Prize), **Prize: 4000 RMB**, 2017.9
 * Kwang-Hua Education Scholarship, **Prize: 3000 RMB**, 2017.12
   * _The only awarded student among roughly 1000 students in our department_
   * _Awarded by the Kwang-Hua Education Foundation_
+ * Best Undergraduate Thesis Award, **Prize: 500 RMB**, 2018.6
 
 ## Awards
 
