@@ -27,4 +27,8 @@ My publications will be coming soon.
 
 2. **Yikun Zhang**, Jiming Liu, Yang Liu (2018) <A href="https://zhangyk8.github.io/publications/AAAIStudentAbstract.pdf" style="color: #52adc8; text-decaration=underline"> Bayesian Network Structure Learning: The Two-step Clustering-based Algorithm </A>  _In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18) Student Abstract and Poster Program_, pp. 8183-8184  <u style="color: #52adc8"><A href="https://zhangyk8.github.io/publications/poster_SA.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A></u>
 
+## Dissertation
+
+Undergraduate Thesis: **Yikun Zhang** (2018) <A href="https://zhangyk8.github.io/publications/Thesis.pdf" style="color: #52adc8; text-decoration=underline"> Bayesian Network Structure Learning: The Two-Step Clustering-Based Strategy and Algorithm Combination </A>
+
 {% endif %}
