@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I am currently a first-year Statistics master student at University of Washington in Seattle. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with Highest University Distinction at Sun Yat-Sen University (SYSU). Meanwhile, I was also honored as a successful graduate by [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of SYSU. 
+I am currently a second-year Statistics master student at University of Washington in Seattle. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with Highest University Distinction at Sun Yat-Sen University (SYSU). Meanwhile, I was also honored as a successful graduate by [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of SYSU. 
 
 Education
 ======
