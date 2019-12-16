@@ -7,9 +7,9 @@ permalink: /portfolio/
 ---
 
 Out of the night that covers me <br/>
- &nbsp  Black as the pit from pole to pole, <br/>
+    Black as the pit from pole to pole, <br/>
 I thank whatever gods may be<br/>
-  For my unconquerable soul.<br/>
+    For my unconquerable soul.<br/>
   
 <br/>
 In the fell clutch of circumstance,<br/>
