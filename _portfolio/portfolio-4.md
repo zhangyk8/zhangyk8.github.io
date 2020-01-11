@@ -19,7 +19,6 @@ Instead, you called for the best Captain that I have ever met <br/>
 To teach me a philosophy of YOU: <br/>
 
 **Sometimes, passing backward is poised for a better step-forward.** <br/>
-<br/>
 
 As a reward for your great kindness, <br/>
 I trained myself harder <br/>
@@ -60,7 +59,7 @@ But no one can fight against the stream of time. <br/>
 _This year is all I have left to give. <br/>
 My heart can take the pounding <br/>
 My mind can handle the grind <br/>
-But my body knows it’s time to say goodbye. (Adopted from a letter written by Kobe Bryant on [The Players' Tribune](https://www.theplayerstribune.com/en-us/articles/dear-basketball)_ <br/>
+But my body knows it’s time to say goodbye. (Adopted from a letter written by Kobe Bryant on [The Players' Tribune](https://www.theplayerstribune.com/en-us/articles/dear-basketball))_ <br/>
 
 We both know this farewell is not the ultimate terminal of our lives <br/>
 But a starting point of a new journey. <br/>
