@@ -33,7 +33,7 @@ Teaching Experience
    
 Work Experience
 ======
-* May 2018 - Aug 2018: Data Analysis Intern in Cyber Laboratory
+* May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
 Skills
