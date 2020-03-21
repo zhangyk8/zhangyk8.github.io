@@ -2,7 +2,7 @@
 title: "My Dear Soccer"
 excerpt: "A poem summarizing my soccer journey one year before my final retirement"
 collection: portfolio
-permanent link: /portfolio-4/
+permanent link: /portfolio-3/
 ---
 <br/>
 
