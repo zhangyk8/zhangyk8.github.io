@@ -1,7 +1,7 @@
 ---
 layout: archive
 title: ""
-permalink: /cv/
+permalink: /bio/
 author_profile: true
 redirect_from:
   - /resume
@@ -18,12 +18,12 @@ Education
 
 Research Experience
 ======
-* Summer 2017: Summer PhD Research Experience Program  
-  * Department of Computer Science, Hong Kong Baptist University
-  * Duties included: 
-    1. Implemented the Grow-shink (constrain-based) Bayesian networks structure learning algorithm in order to discover the causal structure between demographic features and 2016 presidential election results on the county level
-    2. Proposed a _two step clustering-based_ strategy for Bayesian network structure learning (See publications for details)
-  * Supervisor: Professor Jiming Liu
+* Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
+  * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
+  * Advisor: Dr. Yen-Chi Chen
+* Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
+  * Research Focus: Bayesian Network Structure Learning
+  * Supervisor: Prof. Jiming Liu
 
 Teaching Experience
 ======
@@ -44,7 +44,6 @@ Skills
   * R
   * Matlab
   * Python
-  * C and C++
   * Mathematica
 * Language
   * Chinese Mandarin (Native)
