@@ -14,13 +14,13 @@ Education
 * M.S. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep.2018 -- Mar.2020
 * B.S. in Mathematics and Applied Mathematics, [Sun Yat-Sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Jun.2018
 * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
-* Honor Student in Applied Mathematics Group, [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-sen University, Sep.2015 -- Jun.2018
+* Honor Student in Applied Mathematics Group, [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-Sen University, Sep.2015 -- Jun.2018
 
 Research Experience
 ======
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
   * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
-  * Advisor: Dr. Yen-Chi Chen
+  * Advisor: Prof. Yen-Chi Chen
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
   * Supervisor: Prof. Jiming Liu
