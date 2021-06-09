@@ -20,7 +20,7 @@ Research Experience
 ======
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
   * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
-  * Advisor: Prof. [Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
+  * Advisor: Prof. Yen-Chi Chen
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
   * Supervisor: Prof. Jiming Liu
