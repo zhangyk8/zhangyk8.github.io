@@ -4,9 +4,7 @@ collection: talks
 permalink: /talks/talk-2
 type: "Invited/Contributed Talks"
 excerpt: ""
-venue: "Geometric Data Analysis Reading Group, University of Washington (Virtual)"
-date: 2020-11-23
+venue: "Geometric Data Analysis Reading Group, University of Washington (Nov 2020, Virtual) & JSM 2021 (Aug, 2021)"
 location: "Seattle, USA"
 ---
 
-This is a description of your talk, which is a markdown files that can be all markdown-ified like any other post. Yay markdown!
