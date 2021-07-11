@@ -4,7 +4,7 @@ collection: talks
 permalink: /talks/talk-2
 type: "Invited/Contributed Talks"
 excerpt: ""
-venue: "Geometric Data Analysis Reading Group, University of Washington (Nov 2020, Virtual) & JSM 2021 (Aug, 2021)"
+venue: "Geometric Data Analysis Reading Group, University of Washington (Nov 2020, Virtual) & JSM 2021 (Aug 2021, Virtual)"
 location: "Seattle, USA"
 ---
 
