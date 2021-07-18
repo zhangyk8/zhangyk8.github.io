@@ -34,6 +34,8 @@ Supplement Series_, 249(1):3.
 
 \[8\] D. M. Wilkinson, C. Maraston, D. Goddard, D. Thomas, and T. Parikh (2017). Firefly (fitting iteratively for likelihood analysis): a full spectral fitting code. _Monthly Notices of the Royal Astronomical Society_, 472(4):4297–4326.
 
+Talk Slides: [Slides at SHAO](https://zhangyk8.github.io/talks/Cosmic_Filaments.pdf)
+
 <!---
 Code Link: [GitHub: EuDirSCMS](https://github.com/zhangyk8/EuDirSCMS).
 -->
