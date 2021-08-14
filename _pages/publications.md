@@ -27,7 +27,7 @@ My publications will be coming soon.
 Linear Convergence of the Subspace Constrained Mean Shift Algorithm: From Euclidean to Directional Data </A> _arXiv: 2104.14977_ [<u style="color: #52adc8"><A href="https://github.com/zhangyk8/EuDirSCMS" style="color: #52adc8; text-decoration=underline"> Code </A></u>] [<u style="color: #52adc8"><A href="https://zhangyk8.github.io/publications/bib_files/DirSCMS2021.bib" style="color: #52adc8; text-decoration=underline"> bib </A></u>]
 
 2. **Yikun Zhang**, Yen-Chi Chen (2021) <A href="https://arxiv.org/abs/2101.10058" style="color: #52adc8; text-decoration=underline"> 
-The EM Perspective of Directional Mean Shift Algorithm </A> _arXiv: 2101.10058_ [<u style="color: #52adc8"><A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A></u>] [<u style="color: #52adc8"><A href="https://zhangyk8.github.io/publications/bib_files/DirMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> bib </A></u>]
+The EM Perspective of Directional Mean Shift Algorithm </A> _arXiv: 2101.10058_ [<u style="color: #52adc8"><A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A></u>] [<u style="color: #52adc8"><A href="https://zhangyk8.github.io/publications/bib_files/DMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> bib </A></u>]
 
 ## Journals
 
