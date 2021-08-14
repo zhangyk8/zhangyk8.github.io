@@ -31,7 +31,7 @@ The EM Perspective of Directional Mean Shift Algorithm </A> _arXiv: 2101.10058_ 
 
 ## Journals
 
-1. **Yikun Zhang**, Yen-Chi Chen (2020+) <A href="https://arxiv.org/abs/2010.13523" style="color: #52adc8; text-decoration=underline"> Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data </A> _To appear in the Journal of Machine Learning Research_. [<u style="color: #52adc8"><A href="https://github.com/zhangyk8/DirMS" style="color: #52adc8; text-decoration=underline"> Code </A></u>] [<u style="color: #52adc8"><A href="https://zhangyk8.github.io/talks/DirMS_Slides.pdf" style="color: #52adc8; text-decoration=underline"> Talk Slides </A></u>]
+1. **Yikun Zhang**, Yen-Chi Chen (2021) <A href="https://jmlr.org/papers/v22/20-1194.html" style="color: #52adc8; text-decoration=underline"> Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data </A> _Journal of Machine Learning Research_ **22**(154): 1-92. [<A href="https://arxiv.org/abs/2010.13523" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<u style="color: #52adc8"><A href="https://github.com/zhangyk8/DirMS" style="color: #52adc8; text-decoration=underline"> Code </A></u>] [<u style="color: #52adc8"><A href="https://zhangyk8.github.io/talks/DirMS_Slides.pdf" style="color: #52adc8; text-decoration=underline"> Talk Slides </A></u>]
 
 ## Conferences
 
