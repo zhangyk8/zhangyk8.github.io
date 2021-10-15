@@ -4,8 +4,7 @@ title: "Biographical Sketch"
 permalink: /bio/
 author_profile: true
 redirect_from:
-  - /bio/
-  - /bio.html
+  - resume
 ---
 
 {% include base_path %}
