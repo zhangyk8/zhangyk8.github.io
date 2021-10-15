@@ -3,8 +3,6 @@ layout: archive
 title: "Biographical Sketch"
 permalink: /bio/
 author_profile: true
-redirect_from:
-  - resume
 ---
 
 {% include base_path %}
