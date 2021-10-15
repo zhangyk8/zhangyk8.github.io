@@ -6,9 +6,8 @@ collection: portfolio
 permanent link: /portfolio-3/
 author_profile: false
 ---
-<br/>
 
-My dear Soccer, <br/>
+Dear Soccer, <br/>
 
 Thank you for accompanying me in the last decade, <br/>
 During which joy interwove with tears. <br/>
