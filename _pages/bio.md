@@ -8,14 +8,14 @@ author_profile: true
 {% include base_path %}
 
 Education
-======
+-----------
 * M.S. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep.2018 -- Mar.2020
 * B.S. in Mathematics and Applied Mathematics, [Sun Yat-Sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug.2014 -- Jun.2018
 * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
 * Honor Student in Applied Mathematics Group, [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), Sun Yat-Sen University, Sep.2015 -- Jun.2018
 
 Research Experience
-======
+-----------
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
   * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
   * Advisor: Prof. [Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
@@ -24,18 +24,18 @@ Research Experience
   * Supervisor: Prof. Jiming Liu
 
 Teaching Experience
-======
+-----------
    <ul>{% for post in site.teaching %}
       {% include archive-single-cv.html %}
    {% endfor %}</ul>
    
 Work Experience
-======
+-----------
 * May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
 Scholarships
-======
+-----------
 * Best Undergraduate Thesis Award, <!--**Prize: 500 RMB**--> 2018.6
 * Kwang-Hua Education Scholarship, <!--**Prize: 3000 RMB**--> 2017.12
   * _The only awarded student among roughly 1000 students in our department_
@@ -50,8 +50,7 @@ Scholarships
 
 
 Awards
-======
-
+-----------
 * Mathematical Contest In Modeling, **Honorable Mention**, 2017
 * Interdisciplinary Contest In Modeling, **Meritorious Winner**, 2016
 * National Undergraduate Mathematics Competition of China, **Second Prize of Math Category**, 2015
@@ -59,7 +58,7 @@ Awards
   * _I played as the Captain and led our team to the final_ (I no longer play any offical soccer match starting from the beginning of 2020; see my <A href="https://zhangyk8.github.io/portfolio/portfolio-3/" style="color: #52adc8; text-decoration=underline">retirement letter</A>. However, I am still willing to participate in some noncompetitive soccer games in my spare time.)
 
 Skills
-======
+-----------
 * LaTeX
 * Linux (Ubuntu)
 * Computer Programming
