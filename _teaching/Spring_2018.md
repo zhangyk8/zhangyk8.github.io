@@ -1,4 +1,5 @@
 ---
+layout: splash
 title: "Matrix Analysis and its Applications"
 collection: teaching
 type: "Undergraduate Honor Course"
