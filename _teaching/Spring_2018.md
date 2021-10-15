@@ -9,8 +9,6 @@ date: 2018-3-6
 location: "Guangzhou, China"
 ---
 
-## Matrix Analysis and its Applications
-
 Course Website: <A href="https://zhangyk8.github.io/teaching/matrix_analysis" style="color: #52adc8; text-decoration=underline"> Matrix Analysis and its Applications, Spring 2018</A>
 
 ### Course Descriptions
