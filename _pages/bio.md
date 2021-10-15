@@ -51,10 +51,10 @@ Scholarships
 
 Awards
 -----------
-* Mathematical Contest In Modeling, **Honorable Mention**, 2017
-* Interdisciplinary Contest In Modeling, **Meritorious Winner**, 2016
-* National Undergraduate Mathematics Competition of China, **Second Prize of Math Category**, 2015
-* SYSU Freshman Soccer Cup, **Second Place**, 2015
+* Mathematical Contest In Modeling, _Honorable Mention_, 2017
+* Interdisciplinary Contest In Modeling, _Meritorious Winner_, 2016
+* National Undergraduate Mathematics Competition of China, _Second Prize of Math Category_, 2015
+* SYSU Freshman Soccer Cup, _Second Place_, 2015
   * _I played as the Captain and led our team to the final_ (I no longer play any offical soccer match starting from the beginning of 2020; see my <A href="https://zhangyk8.github.io/portfolio/portfolio-3/" style="color: #52adc8; text-decoration=underline">retirement letter</A>. However, I am still willing to participate in some noncompetitive soccer games in my spare time.)
 
 Skills
