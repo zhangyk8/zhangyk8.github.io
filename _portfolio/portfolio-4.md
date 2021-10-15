@@ -1,10 +1,12 @@
 ---
+layout: splash
 title: "Resonance"
 excerpt: "Some thoughtful excerpts and sayings that encourage me"
 collection: portfolio
 permanent link: /portfolio-4/
 ---
-<br/>
+
+<h1>Resonance</h1>
 
 Notes: The title "Resonance" of this page is inspired and adopted from a probabilistic philosophy book entitled with [Resonance. From Probability to Epistemology and Back](https://www.worldscientific.com/worldscibooks/10.1142/p1073) and authored by Professor [Krzysztof Burdzy](https://sites.math.washington.edu/~burdzy/), who opened a new door of probability theory and Brownian motion for me.
 <br/>
