@@ -1,4 +1,5 @@
 ---
+layout: splash
 title: "Cosmic Filament Detection Through Directional Density Ridges"
 collection: talks
 permalink: /talks/talk-3
@@ -8,14 +9,16 @@ venue: "Astrostatistics Club, Shanghai Astronomical Observatory, CAS (July 2021)
 location: "Shanghai, China"
 ---
 
-## Talk Abstract
+## Cosmic Filament Detection Through Directional Density Ridges
+
+### Talk Abstract
 
 On megaparsec scales, matter in our Universe is not uniformly distributed but rather forms a complicated large-scale network structure called the cosmic web \[3\]. Such large-scale structure consists of four distinct substructures: dense clusters, interconnected one-dimensional filaments, widespread two-dimensional sheets, and vast near-empty voids. Among them, filament structures are of great research interest as they physically dominate the cosmic web and provide valuable information about the formation and evolution of nearby galaxies \[4\].
 
 In this talk, we will present the methodology of recovering filaments from galaxy samples in the Sloan Digital Sky Survey (SDSS-IV) \[5\] through directional density ridges, which can be practically identified via our _Directional Subspace Constrained Mean Shift_ (DirSCMS) algorithm \[1,2\]. Compared to previous filament detection algorithms \[6,7\], the DirSCMS algorithm takes into account the nonlinear geometry of a celestial sphere on which the galaxy samples lie and thus potentially yields less biased estimators of the underlying filament structures. The correlations between some natural properties of galaxies fitted by the Firefly stellar population model \[8\] and their distances to our detected filaments will be studied. If time permits, we will also discuss how to incorporate galaxy properties into the filament detection via a weighted DirSCMS algorithm and address some missing data issues along this process. The talk is based on my recent works with [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/index.html).
 
 
-### Paper References: 
+### Paper References
 
 \[1\] **Yikun Zhang** and Yen-Chi Chen (2021). Linear Convergence of the Subspace Constrained Mean Shift Algorithm: From Euclidean to Directional Data. [arXiv preprint: 2104.14977](https://arxiv.org/abs/2104.14977).
 
