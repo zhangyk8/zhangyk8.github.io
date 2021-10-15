@@ -9,7 +9,11 @@ redirect_from:
 ---
 
 
-I am a recent M.S. graduate from Department of Statistics at the University of Washington, Seattle, where I was elected as the Master Student Representative. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). Meanwhile, I was also honored as a successful graduate by [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , which is an elite liberal undergraduate institution of SYSU. 
+I am a recent M.S. graduate from Department of Statistics at the University of Washington, Seattle, where I was elected as the Master Student Representative. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). Meanwhile, I was also honored as a successful graduate by [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx) , an elite liberal undergraduate institution of SYSU. 
+
+Research Interests
+======
+My current theoretical research interests are on kernel smoothing, density ridge estimation, and optimization on nonlinear manifolds. On the applied side, I work on detecting and understanding cosmic filaments in a statistically motivated way.
 
 Education
 ======
