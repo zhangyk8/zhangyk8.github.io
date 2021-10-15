@@ -1,7 +1,7 @@
 ---
 layout: splash
 title: "Resonance"
-excerpt: "Some thoughtful excerpts and sayings that encourage me"
+excerpt: "Some thoughtful excerpts and sayings that encourage me."
 collection: portfolio
 permanent link: /portfolio-4/
 ---
