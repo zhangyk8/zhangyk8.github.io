@@ -13,7 +13,7 @@ I am a recent M.S. graduate from Department of Statistics at the University of W
 
 Research Interests
 -----------
-My current theoretical research interests are on kernel smoothing, density ridge estimation, and optimization on nonlinear manifolds. On the applied side, I work on detecting and understanding cosmic filaments in a statistically motivated way.
+My current theoretical research interests are on kernel smoothing, nonparametric statistics, and optimization on nonlinear manifolds. On the applied side, I work on detecting and understanding cosmic filaments in a statistically motivated way.
 
 Education
 -----------
