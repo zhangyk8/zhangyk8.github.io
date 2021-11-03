@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 excerpt: ""
-venue: "Astrostatistics Club, Shanghai Astronomical Observatory, CAS (July 2021)"
+venue: "Astrostatistics Club, Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021)"
 location: "Shanghai, China"
 ---
 
