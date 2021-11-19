@@ -17,8 +17,9 @@ Structure learning is a fundamental and challenging issue in dealing with Bayesi
 
 <br>
 
-Paper Reference: **Yikun Zhang**, Yang Liu, Jiming Liu (2018) <A href="https://zhangyk8.github.io/publications/AAAIWorkshop.pdf" style="color: #52adc8; text-decoration=underline"> Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy </A>  _In Proceedings of the Workshops of the Thirty-Second (AAAI-18) Conference on Artificial Intelligence, New Orleans, Louisiana, USA_, pages 530-537 URL: <A href="https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/" style="text-decoration=underline"> https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/ </A>.
-
 Talk Slides: [PDF](https://zhangyk8.github.io/publications/Workshop_Talk.pdf)
 
-Code Link: [GitHub: TSCB-strategy](https://github.com/zhangyk8/TSCB-strategy).
+Code Link on GitHub: [TSCB-strategy](https://github.com/zhangyk8/TSCB-strategy).
+
+Paper Reference: **Yikun Zhang**, Yang Liu, Jiming Liu (2018) <A href="https://zhangyk8.github.io/publications/AAAIWorkshop.pdf" style="color: #52adc8; text-decoration=underline"> Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy </A>  _In Proceedings of the Workshops of the Thirty-Second (AAAI-18) Conference on Artificial Intelligence, New Orleans, Louisiana, USA_, pages 530-537 URL: <A href="https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/" style="text-decoration=underline"> https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/ </A>.
+
