@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I am a recent M.S. graduate from Department of Statistics at the University of Washington, Seattle, where I was elected as the Master Student Representative. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). During my undergraduate, I was also selected as an honor student by [Yat-Sen Honor College](http://yss.sysu.edu.cn/EnVersion/Index.aspx), an elite liberal undergraduate institution of SYSU. 
+I am a recent M.S. graduate from the Department of Statistics at the University of Washington (UW), Seattle, where I was elected as the Master Student Representative. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). During my undergraduate, I was also selected as an honor student by the Yat-Sen Honor College, an elite liberal undergraduate institution of SYSU. 
 
 Research Interests
 -----------
