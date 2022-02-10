@@ -45,4 +45,4 @@ The EM Perspective of Directional Mean Shift Algorithm </A> _arXiv: 2101.10058_ 
 
 1. **Yikun Zhang**, Fengjie Chen (2019) <A href="https://zhangyk8.github.io/portfolio/Lecture_Notes/STAT548_Report.pdf" style="color: #52adc8; text-decoration=underline"> Overlapping Community Detection via Edge-Space Representation </A>.
 
-{% endif %}
+
