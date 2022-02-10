@@ -11,10 +11,6 @@ author_profile: false
 
 {% include base_path %}
 
-{% if my_variable == true %}
-My publications will be coming soon.
-{% else %}
-
 <!--{% for post in site.publications reversed %}
   {% include archive-single.html %}
 {% endfor %}
