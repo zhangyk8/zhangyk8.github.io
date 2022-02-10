@@ -2,7 +2,7 @@
 layout: splash
 title: "Matlab Experiments"
 excerpt: "Here are some mathematical experiments of a Matlab course at SYSU.<br/><img src='/images/Matlab2.png'>"
-date: 2018-01-21
+# (date: 2018-01-21)
 collection: portfolio
 ---
 
