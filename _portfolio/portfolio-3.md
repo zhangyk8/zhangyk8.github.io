@@ -2,7 +2,7 @@
 layout: splash
 title: "My Dear Soccer"
 excerpt: "A poem summarizing my soccer journey one year before my final retirement."
-date: 2020-01-03
+# (date: 2020-01-03)
 collection: portfolio
 permanent link: /portfolio-3/
 author_profile: false
