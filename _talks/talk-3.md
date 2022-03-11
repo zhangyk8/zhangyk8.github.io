@@ -6,8 +6,7 @@ permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
 excerpt: ""
-venue: "Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021); Cosmic Cartography, 2022 (Virtual)"
-location: "Shanghai, China; Kashiwa, Japan"
+venue: "Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021); Cosmic Cartography, 2022 at Kashiwa, Japan (Virtual)"
 ---
 
 ## Cosmic Filament Detection Through Directional Density Ridges
