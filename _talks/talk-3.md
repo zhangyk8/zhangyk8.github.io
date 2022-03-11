@@ -4,10 +4,10 @@ title: "Cosmic Filament Detection Through Directional Density Ridges"
 collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
-date: 2021-07-19
+date: 2021-07-19; 2022-03-11
 excerpt: ""
-venue: "Astrostatistics Club, Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021)"
-location: "Shanghai, China"
+venue: "Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021); Cosmic Cartography, 2022 (Virtual)"
+location: "Shanghai, China; Kashiwa, Japan"
 ---
 
 ## Cosmic Filament Detection Through Directional Density Ridges
