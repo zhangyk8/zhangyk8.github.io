@@ -13,5 +13,20 @@ Notes: The title "Resonance" of this page is inspired and adopted from a probabi
 <br/>
 <br/>
 
-1. A very inspiring and encouraging poem written by William Ernest Henley: [Invictus](https://www.poetryfoundation.org/poems/51642/invictus). 
+1. "If you want something, work for it."
+   * I learned this proverb from my college English textbook for freshmen. It encouraged me to work hard for what I was eager to achieve as I just started my college. 
+
+2. "Prepare to win."
+   * I first came across this quote from my college English for sophomores. Later, I realized that a motivational American author ["Zig" Ziglar](https://en.wikipedia.org/wiki/Zig_Ziglar) as well as a famous football player and couch [Paul "Bear" Bryant](https://en.wikipedia.org/wiki/Bear_Bryant) also made some similar remarks before. 
+   * The quote taught me that the most important part of winning is not the victory itself but how one was bracing for it. The preparation process does matter. It was the spiritual impetus in my college sophomore year. 
+
+3. "What doesn't defeat you only makes you stronger."
+   * It is a popular aphorism originated from the 19th century German philosopher [Friedrich Nietzsche](https://en.wikipedia.org/wiki/Friedrich_Nietzsche). An American singer [Kelly Clarkson](https://en.wikipedia.org/wiki/Kelly_Clarkson) even owns a song with an analogous title.
+   * The aphorism became the motto for my college junior year, when I first left my country with my clumsy English and studied abroad at UC Berkeley for one semester.
+
+4. "If a thing is worth doing, it is worth doing well."
+   * This saying is modified from a quotation "If a thing is worth doing, it is worth doing badly" in a commentary book [What's Wrong with the World](https://www.chesterton.org/store/product/whats-wrong-with-the-world-2/) written by one of the twentieth century’s most memorable and prolific writers [G. K. Chesterton](https://en.wikipedia.org/wiki/G._K._Chesterton). The original quotation emanates a sense of paradox and abstruseness, reflecting Chesterton's standing of the amateur against the professional; see the detailed interpretation [here](https://www.chesterton.org/a-thing-worth-doing/).
+   * It served as the central beacon for my college senior year, especially when I prepared for my second time to study abroad as a graduate student at the University of Washington.
+
+5. A very inspiring and encouraging poem written by William Ernest Henley: [Invictus](https://www.poetryfoundation.org/poems/51642/invictus). 
    * It also empowered Nelson Mandela, a former President of South Africa and Nobel Peace Prize Laureate, to get through the darkest moment in his life.
