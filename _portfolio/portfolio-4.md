@@ -29,4 +29,5 @@ Notes: The title "Resonance" of this page is inspired and adopted from a probabi
    * It served as the central beacon for my college senior year, especially when I prepared for my second time to study abroad as a graduate student at the University of Washington.
 
 5. A very inspiring and encouraging poem written by William Ernest Henley: [Invictus](https://www.poetryfoundation.org/poems/51642/invictus). 
-   * It also empowered Nelson Mandela, a former President of South Africa and Nobel Peace Prize Laureate, to get through the darkest moment in his life.
+   * The poem empowered Nelson Mandela, a former President of South Africa and Nobel Peace Prize Laureate, to get through the darkest moment in his life.
+   * It also supports me whenever my research life does not go well. 
