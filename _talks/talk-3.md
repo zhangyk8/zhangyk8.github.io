@@ -18,7 +18,7 @@ On megaparsec scales, matter in our Universe is not uniformly distributed but ra
 In this talk, we will present the methodology of recovering filaments from galaxy samples in the Sloan Digital Sky Survey (SDSS-IV) \[5\] through directional density ridges, which can be practically estimated via our proposed _Directional Subspace Constrained Mean Shift_ (DirSCMS) algorithm \[1,2\]. Compared to previous filament detection algorithms \[6,7\], the DirSCMS algorithm takes into account the nonlinear geometry of a celestial sphere on which the galaxy samples lie and thus potentially yields less biased estimators of the underlying filament structures. The correlations between some natural properties of galaxies fitted by the Firefly stellar population model \[8\] and their distances to our detected filaments will be studied. If time permits, we will also discuss how to incorporate galaxy properties into the filament detection via a weighted DirSCMS algorithm and address some missing data issues along this process. The talk is based on my recent works with [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/index.html).
 
 
-Talk Slides: [Slides at SHAO](https://zhangyk8.github.io/talks/Cosmic_Filaments.pdf), [Slides at Kavli IPMU](https://zhangyk8.github.io/talks/
+Talk Slides: [Slides at SHAO](https://zhangyk8.github.io/talks/Cosmic_Filaments.pdf), [Slides at Kavli IPMU](https://zhangyk8.github.io/talks/Cosmic_Web_Survey_Geo.pdf).
 
 <!---
 Code Link: [GitHub: EuDirSCMS](https://github.com/zhangyk8/EuDirSCMS).
