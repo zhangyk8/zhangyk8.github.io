@@ -24,6 +24,6 @@ Talk Slides: [Long Slides](https://zhangyk8.github.io/talks/DirMS_Slides.pdf)
 
 Code Link on GitHub: [DirMS](https://github.com/zhangyk8/DirMS).
 
-Paper Reference: **Yikun Zhang**, Yen-Chi Chen. Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data. _To appear in the Journal of Machine Learning Research_ [arXiv preprint: 2010.13523](https://arxiv.org/abs/2010.13523).
+Paper Reference: **Yikun Zhang**, Yen-Chi Chen. Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data. _Journal of Machine Learning Research_, 22(154): 1-92. [arXiv preprint: 2010.13523](https://arxiv.org/abs/2010.13523).
 
 
