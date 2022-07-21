@@ -5,9 +5,10 @@ permalink: /publications/
 author_profile: false
 ---
 
-{% if author.googlescholar %}
+<!--{% if author.googlescholar %}
   See the citation statistics on <a href="{{author.googlescholar}}" style="color: #52adc8; text-decoration=underline">my Google Scholar profile</a>.
 {% endif %}
+-->
 
 {% include base_path %}
 
