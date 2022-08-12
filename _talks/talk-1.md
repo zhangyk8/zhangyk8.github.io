@@ -6,7 +6,7 @@ permalink: /talks/talk-1
 type: "Invited Talk"
 date: 2018-02-03
 excerpt: ""
-venue: "AAAI-18 Health Intelligence Workshop (Feb 2018)"
+venue: "- AAAI-18 Health Intelligence Workshop (Feb 2018)"
 location: "New Orleans, USA"
 ---
 
