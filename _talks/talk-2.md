@@ -6,10 +6,7 @@ permalink: /talks/talk-2
 type: ""
 date: 2020-11-23
 excerpt: "- Geometric Data Analysis Reading Group, University of Washington (Nov 2020, Virtual) 
-        - JSM 2021 (Aug 2021, Virtual)"
-venue: "- Geometric Data Analysis Reading Group, University of Washington (Nov 2020, Virtual) 
-        - JSM 2021 (Aug 2021, Virtual)"
-location: "Seattle, USA"
+          - JSM 2021 (Aug 2021, Virtual), Seattle USA"
 ---
 
 ## Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data
