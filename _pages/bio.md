@@ -21,7 +21,7 @@ Research Experience
   * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
   * Advisor: Prof. [Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
 * Jun. 2021 - Jul. 2022: Visiting Research Student at Shanghai Astronomical Observatory
-  * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometry
+  * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
   * Host: Prof. [Rafael S. de Souza](https://www.rafaelsdesouza.com/)
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
