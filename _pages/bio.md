@@ -65,10 +65,11 @@ Skills
 -----------
 * LaTeX
 * Linux (Ubuntu)
+* SQL
 * Computer Programming
+  * Python
   * R
   * Matlab
-  * Python
   * Mathematica
 * Language
   * Chinese Mandarin (Native)
