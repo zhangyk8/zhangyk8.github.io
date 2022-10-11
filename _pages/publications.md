@@ -19,9 +19,6 @@ author_profile: false
 
 ## Preprints
 
-3. **Yikun Zhang**, Rafael S. de Souza, and Yen-Chi Chen (2022) <A href="https://arxiv.org/abs/2207.07001" style="color: #52adc8; text-decoration=underline"> 
-SCONCE: A cosmic web finder for spherical and conic geometries </A> _arXiv: 2207.07001_ [<A href="https://pypi.org/project/sconce-scms/0.1.2/" style="color: #52adc8; text-decoration=underline"> Python Package </A>] [<A href="https://sconce-scms.readthedocs.io/en/latest/" style="color: #52adc8; text-decoration=underline"> Package Documentation </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/SCONCE2022.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
-
 2. **Yikun Zhang**, Yen-Chi Chen (2021) <A href="https://arxiv.org/abs/2110.08505" style="color: #52adc8; text-decoration=underline"> 
 Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Shift Approach </A> _arXiv: 2110.08505_ [<A href="https://github.com/zhangyk8/ProdSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DLSCMSProd2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
@@ -29,6 +26,9 @@ Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Sh
 The EM Perspective of Directional Mean Shift Algorithm </A> _arXiv: 2101.10058_ [<A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 ## Journals
+
+3. **Yikun Zhang**, Rafael S. de Souza, and Yen-Chi Chen (2022) <A href="https://doi.org/10.1093/mnras/stac2504" style="color: #52adc8; text-decoration=underline"> 
+SCONCE: A Cosmic Web Finder for Spherical and Conic Geometries </A> _Monthly Notices of the Royal Astronomical Society_, **517**(1): 1197–1217. [<A href="https://arxiv.org/abs/2207.07001" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://pypi.org/project/sconce-scms/0.1.2/" style="color: #52adc8; text-decoration=underline"> Python Package </A>] [<A href="https://sconce-scms.readthedocs.io/en/latest/" style="color: #52adc8; text-decoration=underline"> Package Documentation </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/SCONCE2022.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 2. **Yikun Zhang**, Yen-Chi Chen (2022) <A href="https://doi.org/10.1093/imaiai/iaac005" style="color: #52adc8; text-decoration=underline"> 
 Linear Convergence of the Subspace Constrained Mean Shift Algorithm: From Euclidean to Directional Data </A> _Information and Inference: A Journal of the IMA_, iaac005 [<A href="https://arxiv.org/abs/2104.14977" style="color: #52adc8; text-decoration=underline"> Arxiv Version </A>] [<A href="https://github.com/zhangyk8/EuDirSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DirSCMS2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
