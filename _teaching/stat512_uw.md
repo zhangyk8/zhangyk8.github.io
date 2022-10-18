@@ -18,5 +18,5 @@ location: "Seattle, WA, USA"
 ### Quiz Session Notes
 
 - [Quiz Session 1: Review of Prerequisites](file_stat512/Quiz1_09_28.pdf)
-- [Quiz Session 2: Independence and Conditional Independence](file_stat512/Quiz2_Solution.pdf)
+- [Quiz Session 2: Independence and Conditional Independence](file_stat512/Quiz2_solution.pdf)
 - [Quiz Session 3: Convergence of Random Variables and Hypergeometric Distribution](file_stat512/Quiz3_solution.pdf)
