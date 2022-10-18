@@ -8,6 +8,8 @@ venue: "Department of Statistics, University of Washington (Autumn 2022)"
 location: "Seattle, WA, USA"
 ---
 
+<p></p>
+
 ### Lecture Notes
 
 - <A href="http://faculty.washington.edu/yenchic/20A_stat512.html" style="color: #52adc8; text-decoration=underline"> Current Version </A> written by <A href="http://faculty.washington.edu/yenchic/index.html" style="color: #52adc8; text-decoration=underline"> Prof. Yen-Chi Chen</A>; 
