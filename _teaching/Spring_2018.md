@@ -5,7 +5,7 @@ collection: teaching
 type: "Undergraduate Honor Course"
 permalink: /teaching/spring_2018
 venue: "School of Mathematics, Sun Yat-sen University"
-date: 2018-3-6
+date: Spring 2018
 location: "Guangzhou, China"
 ---
 
