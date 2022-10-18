@@ -5,7 +5,7 @@ collection: teaching
 type: "Master-level statistical inference course"
 permalink: /teaching/stat512_uw
 venue: "Department of Statistics, University of Washington"
-date: 2022-10-16
+date: Autumn 2022
 location: "Seattle, WA, USA"
 ---
 
