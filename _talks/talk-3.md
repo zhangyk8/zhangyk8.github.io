@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
-excerpt: "- Cosmic Cartography, 2022 at Kashiwa, Japan (March 2022, Virtual)
+excerpt: "- School of Mathematics, Sun Yat-Sen University, Guangzhou, China (Sep 2022)
+
+          - Cosmic Cartography, 2022 at Kashiwa, Japan (March 2022, Virtual)
 
           - Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021)"
 ---
