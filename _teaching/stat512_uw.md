@@ -30,4 +30,5 @@ STAT 512 is the first course of the statistical inference sequence for first-yea
 - [Quiz Session 3: Convergence of Random Variables and Hypergeometric Distribution](file_stat512/Quiz3_solution.pdf)
 - [Quiz Session 4: Practice Midterm Problems](file_stat512/Quiz4_solution.pdf)
 - [Quiz Session 5: Thinning Properties]() (The file will be provided after the course is done.)
+- [Quiz Session 6: Multinomial Distribution and MLE for Simple Linear Regression](file_stat512/Quiz6_solution.pdf)
 - [Quiz Session 9: Revenue Maximizing Auction](file_stat512/Quiz9_solution.pdf)
