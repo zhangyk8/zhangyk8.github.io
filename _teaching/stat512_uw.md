@@ -12,7 +12,7 @@ location: "Seattle, WA, USA"
 
 ### Course Description
 
-STAT 512 is the first course of the statistical inference sequence for first-year PhD and master students in Statistics at the University of Washington. It roughly covers Chapter 1-5 of [Statistical Inference, Second Edition](http://home.ustc.edu.cn/~zt001062/MaStmaterials/George%20Casella&Roger%20L.Berger--Statistical%20Inference.pdf) written by George Casella and Roger L. Burger with some possible discussions on selected contents in Chapter 7 and 10, and STAT 513 covers the rest of the book. Generally, the instructor wrote his own notes for teaching the course; see below. The quiz sessions led by the TA (more precisely, Student Instructor) are designed for 
+STAT 512 is the first course of the statistical inference sequence for first-year PhD and master students in Statistics and Biostatistics departments at the University of Washington. It roughly covers Chapter 1-5 of [Statistical Inference, Second Edition](http://home.ustc.edu.cn/~zt001062/MaStmaterials/George%20Casella&Roger%20L.Berger--Statistical%20Inference.pdf) written by George Casella and Roger L. Burger with some possible discussions on selected contents in Chapter 7 and 10, and STAT 513 covers the rest of the book. Generally, the instructor wrote his own notes for teaching the course; see below. The quiz sessions led by the TA (more precisely, Student Instructor) are designed for 
 - reviewing some key concepts in the lectures;
 - discussing important concepts that supplement the lectures;
 - going through some exercises that help strengthen the understanding of lecture materials or providing insights into other related study fields.
