@@ -33,3 +33,4 @@ STAT 512 is the first course of the statistical inference sequence for first-yea
 - [Quiz Session 6: Multinomial Distribution and MLE for Simple Linear Regression](file_stat512/Quiz6_solution.pdf)
 - [Quiz Session 7: Exponential Families](file_stat512/Quiz7_solution.pdf)
 - [Quiz Session 8: Revenue Maximizing Auction](file_stat512/Quiz8_solution.pdf)
+- [Quiz Session 9: Final Review](file_stat512/Quiz9_review.pdf)
