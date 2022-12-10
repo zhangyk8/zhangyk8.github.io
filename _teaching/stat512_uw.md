@@ -34,3 +34,4 @@ STAT 512 is the first course of the statistical inference sequence for first-yea
 - [Quiz Session 7: Exponential Families](file_stat512/Quiz7_solution.pdf)
 - [Quiz Session 8: Revenue Maximizing Auction](file_stat512/Quiz8_solution.pdf)
 - [Quiz Session 9: Final Review](file_stat512/Quiz9_review.pdf)
+- [Quiz Session 10: Practice Final Problems](file_stat512/Quiz10_solution.pdf)
