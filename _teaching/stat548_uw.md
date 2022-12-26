@@ -12,6 +12,12 @@ location: "Seattle, WA, USA"
 
 ### Course Description
 
+CSE547 / STAT548 is a graduate-level machine learning course jointly offered by Paul G. Allen School of Computer Science & Engineering and Department of Statistics at the University of Washington. It covers practical tools and machine learning algorithms for analyzing large-scale or online data; see the course website below for detailed topics and slides created by the instructor. Besides maintaining the course logistics throughout the quarter, the TAs will
+- hold recitation sessions for Spark, Probability and Proof Techniques, and Linear Algebra;
+- hold weekly hour office;
+- grade homework assignments;
+- answer questions on course discussion platform.
+
 ### Course Website
 
 [CSE547/STAT548: Machine Learning for Big Data (Winter 2023)](https://courses.cs.washington.edu/courses/cse547/23wi/)
