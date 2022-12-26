@@ -18,5 +18,5 @@ location: "Seattle, WA, USA"
 
 ### Recitation Notes
 
-- [Probability and Proof Techniques](file_stat548/Quiz1_09_28.pdf)
-- [Linear Algebra](file_stat548/Quiz2_solution.pdf)
+- [Probability and Proof Techniques](file_stat548/CS547_Proof_Probability_new.pdf)
+- [Linear Algebra](file_stat548/CS547_LinAlg_review_new.pdf)
