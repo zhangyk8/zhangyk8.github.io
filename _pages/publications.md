@@ -45,8 +45,9 @@ Linear Convergence of the Subspace Constrained Mean Shift Algorithm: From Euclid
 
   Undergraduate Thesis: **Yikun Zhang** (2018) <A href="https://zhangyk8.github.io/publications/Thesis.pdf" style="color: #52adc8; text-decoration=underline"> Bayesian Network Structure Learning: The Two-Step Clustering-Based Strategy and Algorithm Combination </A>.
 
+<!--
 ## Technical Report
 
 1. **Yikun Zhang**, Fengjie Chen (2019) <A href="https://zhangyk8.github.io/portfolio/Lecture_Notes/STAT548_Report.pdf" style="color: #52adc8; text-decoration=underline"> Overlapping Community Detection via Edge-Space Representation </A>.
-
+-->
 
