@@ -16,6 +16,7 @@ CSE547 / STAT548 is a graduate-level machine learning course jointly offered by 
 - hold recitation sessions for Spark, Probability and Proof Techniques, and Linear Algebra;
 - hold weekly hour office;
 - grade homework assignments;
+- provide detailed feedback on the final projects;
 - answer questions on course discussion platform.
 
 ### Course Website
