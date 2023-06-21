@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
-excerpt: "- School of Mathematics, Sun Yat-Sen University, Guangzhou, China (Sep 2022)
+excerpt: "- Clubear Online Seminar Series (狗熊会); [Recording in Chinese](https://www.xiong99.com.cn/p/t_pc/course_pc_detail/video/v_64873594e4b0b2d1c4238cc9) (Jun 2023)
+
+          - School of Mathematics, Sun Yat-Sen University, Guangzhou, China (Sep 2022)
 
           - Cosmic Cartography, 2022 at Kashiwa, Japan (March 2022, Virtual)
 
