@@ -9,11 +9,11 @@ redirect_from:
 ---
 
 
-I am a Ph.D. student in the Department of Statistics at the University of Washington (UW), Seattle, where I am fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/). During 2019-2020, I served as the Master Student Representative for [UW STAT](https://stat.uw.edu/). Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). During my undergraduate, I was also an honor student in the Yat-Sen Honor College, an elite liberal undergraduate institution of SYSU. 
+I am a Ph.D. student in the Department of Statistics at the University of Washington (UW), Seattle, where I am fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and [Prof. Alexander Giessing](https://agiessing.github.io/). During 2019-2020, I served as the Master Student Representative for [UW STAT](https://stat.uw.edu/). Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics with the highest University Distinction at Sun Yat-Sen University (SYSU). During my undergraduate, I was also an honor student in the Yat-Sen Honor College, an elite liberal undergraduate institution of SYSU. 
 
 Research Interests
 -----------
-My current theoretical research interests are on kernel smoothing, nonparametric statistics, and optimization on nonlinear manifolds. On the applied side, I work on detecting and understanding cosmic filaments in a statistically motivated way.
+My current theoretical research interests are on kernel smoothing, nonparametric statistics, optimization on nonlinear manifolds, and high-dimensional missing data. On the applied side, I work on detecting and understanding cosmic filaments in a statistically motivated way.
 
 Education
 -----------
