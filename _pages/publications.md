@@ -18,6 +18,8 @@ author_profile: false
 -->
 
 ## Preprints
+3. **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen (2023) <A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> 
+Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> _arXiv: 2309.06429_ [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 2. **Yikun Zhang**, Yen-Chi Chen (2021) <A href="https://arxiv.org/abs/2110.08505" style="color: #52adc8; text-decoration=underline"> 
 Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Shift Approach </A> _arXiv: 2110.08505_ [<A href="https://github.com/zhangyk8/ProdSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DLSCMSProd2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
