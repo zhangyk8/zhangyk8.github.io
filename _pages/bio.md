@@ -18,8 +18,9 @@ Education
 Research Experience
 -----------
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
-  * Research Focus: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
-  * Advisor: Prof. [Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
+  * Research Focus 1: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
+  * Research Focus 2: High-Dimensional Statistical Inference with Incomplete Data
+  * Advisors: Prof. [Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and Prof. [Alexander Giessing](https://agiessing.github.io/)
 * Jun. 2021 - Jul. 2022: Visiting Research Student at Shanghai Astronomical Observatory
   * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
   * Host: Prof. [Rafael S. de Souza](https://www.rafaelsdesouza.com/)
