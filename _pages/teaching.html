@@ -11,7 +11,7 @@ author_profile: false
 <big> <i> Instructor:</i> </big>
 {% include base_path %}
 
-{% for post in site.teaching.instructor reversed %}
+{% for post in site.categories.instructor %}
   {% include archive-single.html %}
 {% endfor %}
 
@@ -19,10 +19,8 @@ author_profile: false
 <big> <i> Teaching Assistant:</i> </big>
 {% include base_path %}
 
-{% for post in site.teaching reversed %}
-  {% if post.path contains 'teaching-assistant' %}
-     {% include archive-single.html %}
-  {% endif %}
+{% for post in site.categories.teaching-assistant %}
+  {% include archive-single.html %}
 {% endfor %}
 
 <br>
