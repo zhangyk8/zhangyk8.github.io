@@ -30,11 +30,6 @@ Research Experience
 
 Teaching Experience
 -----------
-* **Instructor:**
-  <ul>{% for post in site.instructor %}
-      {% include archive-single-cv.html %}
-   {% endfor %}</ul>
-* **Teaching Assistant:**
    <ul>{% for post in site.teaching %}
       {% include archive-single-cv.html %}
    {% endfor %}</ul>
