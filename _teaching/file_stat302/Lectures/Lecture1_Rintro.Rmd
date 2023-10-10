@@ -1,0 +1,905 @@
+---
+title: "STAT 302 Statistical Computing"
+subtitle: "Lecture 1: Introduction and R Basics"
+author: "Yikun Zhang"
+date: "*Autumn 2023*"
+output:
+  xaringan::moon_reader:
+    css: ["uw.css", "fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: tomorrow-night-bright
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["center","top"]
+---
+
+```{r setup, include=FALSE, purl=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "##")
+library(kableExtra)
+```
+
+
+# Outline
+
+1. Course Overview
+
+2. Introduction to R, RStudio, and R Markdown
+
+3. Elementary Operations in R
+
+4. Data Types in R
+
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
+
+---
+class: inverse
+
+# Part 1: Course Overview and Logistics
+
+---
+
+# What Is Statistical Computing?
+--
+
+<p align="center">
+Answer: A computing program that does Statistics!
+</p>
+<p align="center">
+Well! Let's see some "official answers"...
+</p>
+
+--
+From ChatGPT:
+<p align="center">
+<img src="./figures/stat_comp_chatgpt.png" alt="stat comp" width="800"/>
+</p>
+
+---
+
+# What Is Statistical Computing?
+
+<p align="center">
+<img src="./figures/stat_comp_wiki.png" alt="stat comp" width="750"/>
+</p>
+
+--
+
+Statistical computing is a course with intensive programming tasks that are related to Statistics.
+
+--
+
+<p align="left">
+<b>
+In other words, there will be a lot of coding in this course!!
+</b>
+</p>
+
+---
+
+# Why Do We Learn Statistical Computing?
+
+--
+
+- We want to utilize (big) data to address scientific questions.
+
+<p align="center">
+<img src="./figures/big-data.png" alt="big data" width="650"/>
+</p>
+<p align="center">
+<font size="4">Cited from 
+<a href="https://bleuwire.com/5-biggest-big-data-challenges/">https://bleuwire.com/5-biggest-big-data-challenges/</a>.</font>
+</p>
+
+---
+
+# Why Do We Learn Statistical Computing?
+
+**An Example From My Research**: Cosmic Web Detection with Observed Galaxies in the Sloan Digital Sky Survey.
+
+<p align="center">
+<img src="./figures/cosmic_web_stellar.png" width="750"/>
+</p>
+<p align="center">
+<font size="4">See my paper at
+<a href="https://doi.org/10.1093/mnras/stac2504">MNRAS</a> and our <a href="https://doi.org/10.5281/zenodo.6244866">cosmic web catalog</a> (i.e., a well-documented dataset). </font>
+</p>
+
+--
+
+One scientific question that we address here is "*how is the stellar mass of a galaxy correlated with its distance to nearby cosmic web structures?*"
+
+---
+
+# Why Do We Learn Statistical Computing?
+
+- We need to conduct simulation studies to validate our statistical theory and methodology.
+
+--
+
+  - For example, we can verify the asymptotic normality of our proposed statistical estimator with finite samples.
+
+<p align="center">
+<img src="./figures/cirsym_lasso_bias_expl_x4_beta1.png" alt="lasso" width="750"/>
+</p>
+<p align="center">
+<font size="4">See my recent paper 
+<a href="https://arxiv.org/abs/2309.06429">https://arxiv.org/abs/2309.06429</a>. </font>
+</p>
+
+---
+
+# Why Do We Learn Statistical Computing?
+
+- Mastering statistical computing skills can give us better jobs.
+
+--
+
+<p align="center">
+<img src="./figures/rank.png" width="600" height="250"/>
+</p>
+
+<p align="center">
+<img src="./figures/job_money.png" width="500" height="150"/>
+</p>
+<p align="center">
+<font size="4">Sources from US News in 2021. </font>
+</p>
+
+---
+
+# Syllabus
+
+<p align="center">
+<img src="./figures/syllabus.png" width="700"/>
+</p>
+
+Let's spend some time going over the [Course Syllabus](https://canvas.uw.edu/courses/1662584/assignments/syllabus).
+
+---
+
+# Canvas Discussion
+
+* It is worth up to 2% extra credit on the final grade.
+
+* Only substantive and helpful questions will be counted.
+
+
+.pull-left[
+### Bad questions:
+
+* How do you do Problem 2?
+
+* Here's my code and it's broken. How can I fix it?
+]
+
+--
+
+.pull-right[
+### Good questions:
+* Here's a snippet of code that I used for Problem 2: 
+<br/>`formatted code snippet`
+<br/>It returned the following error:
+<br/>`formatted error message`
+<br/>Does anyone know why? I already tried...
+
+* I don't understand the concept from Slide 18 today. Could anyone elaborate on why...?
+]
+
+---
+
+# Canvas Discussion
+
+* It is worth up to 2% extra credit on the final grade.
+
+* Only substantive and helpful answers will be counted.
+
+.pull-left[
+### Bad or null answers:
+* Here's my solution:
+<br/>`formatted code snippet`
+
+* The grader is wrong. You should ask the grader to add your points back... (*However, you are encouraged to point out my mistakes and typos during lectures or on the discussion board.*)
+]
+
+--
+
+.pull-right[
+### Good answers:
+* This error message occurs because your variable is a string instead of a numeric.
+Have you tried checking...?
+
+* I think that Slide 18 in Lecture 2 will address your questions.
+]
+
+---
+
+# Why R?
+
+R is a programming language developed by statisticians for statistical computing.
+
+### Pros:
+* R is open-source and has a community of developers and users.
+* It is convenient for statistical analysis and data visualization...
+
+<p align="center">
+<img src="./figures/language.png" width="300"/>
+</p>
+
+--
+
+### Cons:
+* R is slow unless we use parallel computing packages or [Rcpp](https://www.rcpp.org/).
+* It is not very popular outside of the statistical community.
+
+---
+
+# Why R?
+
+.pull-left[
+Windows Interface
+
+<p align="center">
+<img src="./figures/window_R.png" width="330"/>
+</p>
+
+]
+
+.pull-right[
+
+Linux/Unix Terminal
+
+<p align="center">
+<img src="./figures/Linux_R.png" width="380"/>
+</p>
+
+]
+
+--
+
+It is not convenient to write programs with thousands of R code lines directly in the R interface!
+
+---
+
+# Why RStudio?
+
+Luckily, we have [RStudio](https://posit.co/download/rstudio-desktop/), an integrated development environment (IDE) designed for writing and running R programming.
+--
+
+* We recommend to first install R. Then, Rstudio will automatically locate the R directory in our computer.
+
+* It helps us organizes R scripts, files, plots, code console, etc.
+
+* It provides helpful interactive graphical interface.
+
+--
+
+* And more essentially, it has R Markdown integration.
+
+For the rest of the course, we will use Rstudio to write our code and finish homework/lab assignments.
+
+---
+
+
+# RStudio Interface
+
+By default...
+
+* *Top left*: Editor panel. Browse and edit scripts or data with tabs.
+
+* *Top right*: List of objects in the Environment (recall `ls()`), code history, etc.
+
+* *Bottom left*: Console for running R code line-by-line (`>` prompt)
+
+* *Bottom right*: Files, plots, packages, help files, etc.
+
+If the Edit window is not open, then choose File -> New File -> Choose R Script.
+
+---
+
+# Editor
+
+* Our important code should be written here (**not** the console).
+
+* Primarily used for writing and editing .R or .Rmd scripts.
+  
+* Try opening a file now using *File > New File > R Script*, write two lines of simple code, such as `1 + 3` or `a = 6`.
+
+* Click `Run` in the bar above the script. What happens?
+
+* Click on one of the lines of code. Press `Ctrl`/`⌘` + `Enter`. What happens?
+
+--
+
+.center[**Important:** Every part of our R workflow belongs in this window!]
+
+---
+
+# Console and Environment/History
+
+#### Console
+
+* It gives us an easy way to run and test individual lines of code.
+
+* Nothing that we run here will be saved after we close Rstudio (unless you save the R history)!
+
+--
+
+#### Environment/History
+
+* The variables that we defined can be seen in the _Environment_ tab.
+
+* Click on the _History_ tab to see what it contains. Try searching!
+
+* Select a line from the _History_ tab and click `To Source`. What happens?
+ - It is useful for adding lines that we tested in our Console to our R scripts.
+
+---
+
+# Files, Plots, Packages, Help
+
+* _Files_ tab is used to browse the files on our computer.
+
+  * Open files/data, move files that we are working with, etc.
+  
+  * **Use caution!** Changing files here is the same as changing them on our computer. If we delete something, it's gone!
+  
+* _Plots_ tab is used to display plots that we create in R.
+
+* _Help_ tab is used to browse the documentations of functions. We can explore these by preceding a function name with `?`. 
+
+  Try `?sqrt` to see its user documentation. (If we are unsure about any function, ask R in this way!)
+
+* _Packages_ tab shows all the packages that we currently have installed. (We will discuss more about it later.)
+
+---
+
+# Why R Markdown?
+
+[R Markdown](https://rmarkdown.rstudio.com/) is a markup language for combining R code with text.
+
+* It facilitates the creations of those neat HTML files, PDF documents, slides (like the one I am using), webpages, books, etc.
+
+--
+
+* And more importantly, it is required for our lab and homework assignments!
+
+---
+
+# Create an R Markdown File
+
+Let's try creating an R Markdown file:
+
+1. Choose *File > New File > R Markdown...*.
+
+2. Make sure *PDF Output* is selected and click OK.
+
+3. Save the file in your new folder, call it `stat302_test1.Rmd`.
+
+4. Click the *Knit* button
+  * After it is done, browse to the file location using the `Files` tab. What have been added?
+
+Note: The PDF output requires an installation of $\LaTeX$; see the instructions [here](https://bookdown.org/yihui/rmarkdown/installation.html).
+
+---
+
+# R Markdown Syntax
+
+.pull-left[
+
+## Output
+
+**bold/strong emphasis**
+
+*italic/normal emphasis*
+
+.forcehead[Header]
+## Subheader
+### Subsubheader
+
+]
+
+.pull-right[
+## Syntax
+
+<pre>
+**bold/strong emphasis**
+
+*italic/normal emphasis*
+
+# Header
+
+## Subheader
+
+### Subsubheader
+
+</pre>
+]
+
+---
+
+# R Markdown Syntax
+
+.pull-left[
+## Output
+
+1. Ordered list Item 1
+1. Item 2
+  1. Even with sub-item 1
+  2. Sub-item 2
+
+* Unordered lists Item 1
+* Item 2
+  + Sub-item
+
+[URL link](http://www.uw.edu)
+
+![Insert pictures](http://depts.washington.edu/uwcreate/img/UW_W-Logo_smallRGB.gif)
+]
+
+.pull-right[
+
+## Syntax
+
+<div style="width:400px;overflow:auto">
+<pre>
+1. Ordered list Item 1
+1. Item 2
+  1. Even with sub-item 1
+  2. Sub-item 2
+
+* Unordered lists Item 1
+* Item 2
+  + Sub-item
+
+[URL link](http://www.uw.edu)
+
+![Insert pictures](http://depts.washington.edu/uwcreate/img/UW_W-Logo_smallRGB.gif)
+</div>
+</pre>
+]
+
+---
+
+# R Markdown Syntax
+
+.pull-left[
+## Output 
+
+You can put some math $y= \left( \frac{5}{3} \right)^2$ right up in there.
+
+
+$$\frac{1}{n} \sum_{i=1}^{n} x_i = \bar{x}_n$$
+
+Or a sentence with `code-looking font`.
+
+
+Or a block of code:
+
+```
+y <- 1:5
+z <- y^2
+```
+]
+
+.pull-right[
+
+## Syntax
+
+<div style="width:400px;overflow:auto">
+<pre>
+You can put some math $y= \left(\frac{5}{3} 
+\right)^2$ right up in there
+
+$$\frac{1}{n} \sum_{i=1}^{n}
+x_i = \bar{x}_n$$
+
+Or a sentence with `code-looking font`.
+
+Or a block of code:
+
+    ```
+    y <- 1:5
+    z <- y^2
+    ```
+</pre>
+]
+</div>
+
+---
+
+# R Code Within R Markdown
+
+As in Lab 1, we can run and execute R code within R Markdown. 
+To do so, we need to encase our code as follows.
+
+
+    `r ''````{r, eval = TRUE, echo = TRUE}
+    # Your code goes here!
+    ```
+
+We can click the green triangle in the corner to evaluate that code chunk to preview the results without compiling the entire document.
+
+---
+
+# Useful Code Chunk Parameters
+
+Parameters go into the opening brackets `{r}` and are separated by commas. Here are some useful options:
+
+* `echo=FALSE`: Hide R code but keep results.
+
+* `eval=FALSE`: Do not execute the R code.
+
+* `include=FALSE`: Hide all outputs for this chunk (It is useful to load packages at the beginning of your document).
+
+* `cache=TRUE`: Store the results of the chunk, and only re-run if the chunk is changed. (It is useful for files that take a while to compile).
+
+* `fig.height=5, fig.width=5`: Modify the dimensions of any plots that are generated in the chunk (units are in inches).
+
+Note: See the [R Markdown Reference Guide](https://www.rstudio.com/wp-content/uploads/2015/03/rmarkdown-reference.pdf) for a complete list of knitr chunk options.
+
+---
+class: inverse
+
+# Part 2: R Basics
+
+---
+
+# R as a Calculator
+
+* **Binary (Arithmetic) Operators** take two arguments. For instance, +, -, *, /, %% (for mod), %/%(integer division), and ^ (exponentiation).
+
+```{r}
+# Addition
+6 + 1
+```
+
+```{r}
+# Subtraction
+9 - 16.6
+```
+
+```{r}
+# Multiplication
+6 * 3
+```
+
+---
+
+# R as a Calculator
+
+* **Binary (Arithmetic) Operators** take two arguments. For instance, +, -, *, /, %% (for mod), %/% (integer division), and ^ (exponentiation).
+
+```{r}
+# Division
+10 / 3
+```
+
+```{r}
+# Mod
+10 %% 3
+```
+
+```{r}
+# Integer division
+10 %/% 3
+```
+
+---
+
+# R as a Calculator
+
+* **Binary (Arithmetic) Operators** take two arguments. For instance, +, -, *, /, %% (for mod), %/% (integer division), and ^ (exponentiation).
+
+```{r}
+# Exponentiation
+3^4
+```
+
+```{r}
+# Exponentiation (same as the syntax in Python)
+3**4
+```
+
+* **Unitary (Arithmetic) Operators** take only one argument. For example, - is for arithmetic negation.
+
+---
+
+# R as a Calculator
+
+* We can also use some build-in functions in R to calculate more advanced math functions.
+
+```{r}
+# Exponentiation with natural basis "e"
+exp(3)
+```
+
+```{r}
+# Trigonometric functions
+sin(pi)
+cos(2*pi)
+```
+
+---
+
+# R as a Calculator
+
+```{r}
+# Square root
+sqrt(5)
+```
+
+```{r}
+# Logarithm with natural base
+log(10)
+```
+
+```{r}
+# Logarithm with base 10
+log(10, base=10)
+
+# Ask R (in the console) if we are unsure of 
+# any function and its arguments
+?log
+```
+
+---
+
+# Comparison Operators
+
+```{r}
+# Strictly greater than
+6 > 3
+# Greater than or equal to
+6 >= 6
+```
+
+```{r}
+# Equal to
+5 == 3
+5 == 2 + 3
+```
+
+---
+
+# Comparison Operators
+
+```{r}
+# Not equal to
+6 != 3
+```
+
+```{r}
+# Strictly less than
+6 < 6
+# Less than or equal to
+6 <= 6
+```
+
+---
+
+# Logical Operators
+
+* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+
+```{r}
+# AND
+(6 < 5) & (1 < 3)
+```
+
+```{r}
+# AND
+(6 < 9) & (1 <= 3)
+```
+
+---
+
+# Logical Operators
+
+* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+
+```{r}
+# OR
+(6 < 5) | (1 < 3)
+```
+
+```{r}
+# OR
+(6 < 5) | (1 <= -3)
+```
+
+```{r eval=FALSE}
+# Combine AND with OR operators
+(6 < 5) & (7 > 2) | (1 <= 3)
+```
+
+--
+
+```{r echo=FALSE}
+# Combine AND with OR operators
+(6 < 5) & (7 > 2) | (1 <= 3)
+```
+
+
+---
+
+# Logical Operators
+
+* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+
+```{r}
+# Logical negation
+!(6 < 5)
+```
+
+```{r}
+# Logical negation
+!(6 < 9)
+```
+
+---
+class: inverse
+
+# Part 3: Data Types in R
+
+---
+
+# Functional Programming
+
+Functional programming in R comprises two basic types of things/objects: **data** and **functions**.
+--
+
+* **Data** are things like 8, "James", *NA*, and 
+$$\begin{bmatrix} 
+1 & 3 & 6\\
+4 & 7 & -1\\
+\end{bmatrix}.$$
+
+--
+
+* **Functions** are some programs that turns input objects, or *arguments*, into an output object or a return value (possibly with side effects), according to a definite rule. 
+
+--
+
+* Good programming is writing functions to correctly and efficiently transform inputs into outputs. (We will discuss functions later...)
+  - <font size="4"> The principle of good programming is to take a big transformation and break it down into smaller ones so that we can efficiently implement these smaller tasks (using built-in functions). </font>
+
+---
+
+# Data Types
+
+At the base level, all data can represented in binary format, by **bits** (i.e., TRUE/FALSE, YES/NO, 1/0). However, basic data types in R are:
+
+- **Booleans** are direct binary values: `TRUE` or `FALSE` in R.
+
+- **Integers** are whole numbers (positive, negative or zero), represented by a fixed-length block of bits.
+
+- **Floating point numbers** are (some approximations) to rational numbers, i.e., $p/q$ where $p,q$ are both integers. 
+
+- **Complex numbers** are numbers like 1+2i.
+
+- **Characters** are fixed-length blocks of bits, with special coding; **strings** are sequences of characters.
+
+- **Missing or ill-defined values**: `NA`, `NaN`, etc.
+
+---
+
+# Data Types (Examples)
+
+```{r}
+?typeof()
+
+typeof(TRUE)
+
+# By default, R stores numeric values as 64 floating points.
+typeof(6)
+
+# We can coerce it into integer as follows.
+typeof(as.integer(6))
+
+typeof(as.integer(6.5))
+```
+
+---
+
+# Data Types (Examples)
+
+```{r}
+as.integer(6.6)
+
+# It rounded a floating point number 6.5 to the largest 
+# integer that is less than 6.5.
+floor(6.6)
+
+typeof("7")
+
+length("7112")
+```
+
+---
+
+# Data Types (Examples)
+
+```{r}
+is.character("7")
+
+is.na(6.6)
+
+is.na(NA)
+
+?NaN
+```
+
+* We can also use the build-in function `class()` to determine the data type of an object.
+
+---
+
+# Variables in R
+
+- With the preceding arithmetic operations, it is difficult for us to utilize the outputs.
+
+--
+
+- To better keep track of the intermediate results, we can assign the (outputs of) expressions to some **named variables**.
+
+- Naming variables is the first step towards abstraction in functional programming.
+
+--
+
+```{r}
+a = 1 + 2
+course_code = "STAT 302"
+dept = paste("Statistics", "Data Science")
+
+# List all the variables that we have defined
+ls()
+```
+
+Note: `<-` and `=` are both valid assignment operators.
+
+---
+
+# Variables in R
+
+* A variable in R has its name and value.
+
+* We can access a variable by its name.
+
+```{r}
+# Access variable `a`
+a
+
+# Check the data type of `course_code`
+class(course_code)
+
+# Remove a variable (from R memory)
+rm("a")
+```
+
+Note: We can also keep track of all the defined variables in the _Environment_ tab (**Top right** in Rstudio). 
+
+---
+
+# Rules for Variable's Name
+
+* A variable's name must follow some rules:
+
+  - It cannot start with a digit or underscore `_`.
+  
+  - It may contain characters, digits, and some punctuation (period `.` and underscore `_` are allowed, while others are generally prohibited).
+  
+  - It is case-sensitive.
+  
+--
+
+```{r}
+w2v = 1 + 4
+W2v = "word to vector"
+w2v == W2v
+```
+
+---
+# Reminder
+
+Submit Lab 1 on Canvas by the end of Thursday (October 5)!!
