@@ -1,34 +1,24 @@
-<!DOCTYPE html>
-<html lang="" xml:lang="">
-  <head>
-    <title>STAT 302 Statistical Computing</title>
-    <meta charset="utf-8" />
-    <meta name="author" content="Yikun Zhang" />
-    <script src="libs/header-attrs/header-attrs.js"></script>
-    <link rel="stylesheet" href="uw.css" type="text/css" />
-    <link rel="stylesheet" href="fonts.css" type="text/css" />
-  </head>
-  <body>
-    <textarea id="source">
-class: center, top, title-slide
-
-.title[
-# STAT 302 Statistical Computing
-]
-.subtitle[
-## Lecture 4: Data Manipulation and Visualization
-]
-.author[
-### Yikun Zhang
-]
-.date[
-### <em>Autumn 2023</em>
-]
-
+---
+title: "STAT 302 Statistical Computing"
+subtitle: "Lecture 4: Data Manipulation and Visualization"
+author: "Yikun Zhang"
+date: "*Autumn 2023*"
+output:
+  xaringan::moon_reader:
+    css: ["uw.css", "fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: tomorrow-night-bright
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["center","top"]
 ---
 
-
-
+```{r setup, include=FALSE, purl=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "##")
+library(kableExtra)
+```
 
 # Outline
 
@@ -41,7 +31,7 @@ class: center, top, title-slide
 4. Data Visualization via `ggplot2`
 
 
-&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. &lt;/font&gt;
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
 
 ---
 class: inverse
@@ -58,9 +48,9 @@ R packages contain code, data, and documentation in a standardized collection fo
 
   - These packages implement miscellaneous statistical methods using functions in R, which makes our programming and data analysis easier.
   
-&lt;p align="center"&gt;
-&lt;img src="./figures/DebiasInfer.png" width="800"/&gt;
-&lt;/p&gt;
+<p align="center">
+<img src="./figures/DebiasInfer.png" width="800"/>
+</p>
 
 ---
 
@@ -68,8 +58,7 @@ R packages contain code, data, and documentation in a standardized collection fo
 
 If a package is officially available on [CRAN](https://cran.r-project.org/web/packages/available_packages_by_name.html), like most packages we will use for this course, we can install it using
 
-
-```r
+```{r eval=FALSE}
 install.packages("PACKAGE_NAME_IN_QUOTES")
 ```
 
@@ -83,8 +72,7 @@ Or we can use the "_Packages_" tab in the lower right panel and click the "_Inst
 
 Occasionally, we may want to install an R package from a `.tar.gz` file downloaded from CRAN or elsewhere:
 
-
-```r
+```{r eval=FALSE}
 install.packages("pkgname.tar.gz", repos = NULL, type ="source")
 ```
 
@@ -95,8 +83,7 @@ install.packages("pkgname.tar.gz", repos = NULL, type ="source")
 
 After a package is installed, we can load it into our current R session using `library()`:
 
-
-```r
+```{r eval=FALSE}
 library(PACKAGE_NAME)
 # or 
 library("PACKAGE_NAME")
@@ -108,7 +95,7 @@ library("PACKAGE_NAME")
 
 - In `.Rmd` files, we can load all the required packages in the opening chunk and set the parameter `include = FALSE` to hide the messages and code.
 
-    ```{r, include = FALSE}
+    `r '' ````{r, include = FALSE}
     ```
 
 ---
@@ -117,23 +104,20 @@ library("PACKAGE_NAME")
 
 There is an `install_github()` function to install R packages hosted on GitHub in the `devtools` package, though it requests developer's name.
 
-
-```r
+```{r eval=FALSE}
 library(devtools)
 install_github("DeveloperName/PackageName")
 ```
 
 - Here is an example where we don't have to load the `devtools` package.
 
-
-```r
+```{r eval=FALSE}
 devtools::install_github("zhangyk8/Debias-Infer", subdir = "R_Package")
 ```
 
 The `githubinstall` package provides a function `githubinstall()`, which does not need developer's name.
 
-
-```r
+```{r eval=FALSE}
 library(githubinstall)
 githubinstall("PackageName")
 ```
@@ -159,8 +143,7 @@ The `tidyverse` is a coherent collection of packages in R for data science (and 
 
 We can install all of them using
 
-
-```r
+```{r eval=FALSE}
 install.packages("tidyverse")
 ```
 
@@ -178,7 +161,7 @@ Note: We only need to do this once!
     
 - The functions are powerful and fast when working with data frames and lists (matrices, not so much, yet!).
 
-- Pipes (`%&gt;%` operator) allows us to fluidly glue functionality together 
+- Pipes (`%>%` operator) allows us to fluidly glue functionality together 
 
   - At its best, tidyverse code can be read like a story using the pipe operator!
 
@@ -188,23 +171,8 @@ Note: We only need to do this once!
 
 We can load all the `tidyverse` packages into our current R session using
 
-
-```r
+```{r}
 library(tidyverse)
-```
-
-```
-## ── Attaching core tidyverse packages ──────────────────────── tidyverse 2.0.0 ──
-## ✔ dplyr     1.1.3     ✔ readr     2.1.4
-## ✔ forcats   1.0.0     ✔ stringr   1.5.0
-## ✔ ggplot2   3.4.3     ✔ tibble    3.2.1
-## ✔ lubridate 1.9.2     ✔ tidyr     1.3.0
-## ✔ purrr     1.0.2     
-## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
-## ✖ dplyr::filter()     masks stats::filter()
-## ✖ dplyr::group_rows() masks kableExtra::group_rows()
-## ✖ dplyr::lag()        masks stats::lag()
-## ℹ Use the conflicted package (&lt;http://conflicted.r-lib.org/&gt;) to force all conflicts to become errors
 ```
 
 ---
@@ -227,26 +195,25 @@ Recall that packages encapsulated functions written by different R developers.
 
 - The main structure used by these packages is the data frame (or tibble, but we won't go there).
 
-- Learning pipes `%&gt;%` will facilitate learning the `dplyr` and `tidyr` verbs (functions).
+- Learning pipes `%>%` will facilitate learning the `dplyr` and `tidyr` verbs (functions).
 
 - The functions in `dplyr` are analogous to SQL counterparts, so learning `dplyr` will get some SQL syntax for free!
 
 ---
 
-# Learning Pipes `%&gt;%`
+# Learning Pipes `%>%`
 
 Piping at its most basic level:
 
-  - _It uses the `%&gt;%` operator to take the output from a previous function call and "pipe" it through to the next function, in order to form a flow of results._
+  - _It uses the `%>%` operator to take the output from a previous function call and "pipe" it through to the next function, in order to form a flow of results._
 
 This can really help with the readability of code when we use multiple nested functions!
 
-- **Shortcut for typing `%&gt;%`:** use `ctrl + shift + m` in RStudio.
+- **Shortcut for typing `%>%`:** use `ctrl + shift + m` in RStudio.
 
 Note: In Linux and other related systems, we also have pipes, as in:
 
-
-```bash
+```{bash eval=FALSE}
 ls -l | grep tidy | wc -l
 ```
 
@@ -254,89 +221,60 @@ ls -l | grep tidy | wc -l
 
 # The Logics of Pipes with Single Arguments
 
-Passing a single argument through pipes, we interpret the following code as `\(h(g(f(x)))\)`.
+Passing a single argument through pipes, we interpret the following code as $h(g(f(x)))$.
 
-
-```r
-x %&gt;% f %&gt;% g %&gt;% h
+```{r eval=FALSE}
+x %>% f %>% g %>% h
 ```
 
-Note: In our mind, when we see the `%&gt;%` operator, we should read this as "and then".
+Note: In our mind, when we see the `%>%` operator, we should read this as "and then".
 
-Example: We can write `exp(1)` with pipes as `1 %&gt;% exp`, and `log(exp(1))` as `1 %&gt;% exp %&gt;% log`.
+Example: We can write `exp(1)` with pipes as `1 %>% exp`, and `log(exp(1))` as `1 %>% exp %>% log`.
 
-
-```r
-1 %&gt;% exp
-```
-
-```
-## [1] 2.718282
-```
-
-```r
-1 %&gt;% exp %&gt;% log
-```
-
-```
-## [1] 1
+```{r}
+1 %>% exp
+1 %>% exp %>% log
 ```
 
 ---
 
 # The Logics of Pipes with Multiple Arguments
 
-For multi-arguments functions, we interpret the following code as `\(f(x,y)\)`.
+For multi-arguments functions, we interpret the following code as $f(x,y)$.
 
-
-```r
-x %&gt;% f(y)
+```{r eval=FALSE}
+x %>% f(y)
 ```
 
 Example: We can subset top 1 row of the `mcars` data frame using
 
-
-```r
+```{r}
 # Syntax in basic R
 head(mtcars, 1)
-```
 
-```
-##           mpg cyl disp  hp drat   wt  qsec vs am gear carb
-## Mazda RX4  21   6  160 110  3.9 2.62 16.46  0  1    4    4
-```
-
-```r
 # Pipes syntax
-mtcars %&gt;% head(1)
-```
-
-```
-##           mpg cyl disp  hp drat   wt  qsec vs am gear carb
-## Mazda RX4  21   6  160 110  3.9 2.62 16.46  0  1    4    4
+mtcars %>% head(1)
 ```
 
 ---
 
 # The Logics of Pipes with Multiple Arguments
 
-The command `x %&gt;% f(y)` can be equivalently written in **dot notation** as:
+The command `x %>% f(y)` can be equivalently written in **dot notation** as:
 
-
-```r
-x %&gt;% f(., y)
+```{r eval=FALSE}
+x %>% f(., y)
 ```
 
 What is the advantage of using dots? 
 
 - Sometimes we may want to pass in a variable as the second or third (say, not first) argument to a function, with a pipe. As in:
 
-
-```r
-x %&gt;% f(y, .)
+```{r eval=FALSE}
+x %>% f(y, .)
 ```
 
-which is equivalent to `\(f(y,x)\)`.
+which is equivalent to $f(y,x)$.
 
 ---
 
@@ -344,33 +282,20 @@ which is equivalent to `\(f(y,x)\)`.
 
 Let's interpret the following code without executing it first.
 
-
-```r
+```{r eval=FALSE}
 state_df = data.frame(state.x77)
-state.region %&gt;% 
-  tolower %&gt;%
+state.region %>% 
+  tolower %>%
   tapply(state_df$Income, ., summary)
 ```
 
 --
 
-
-```
-## $`north central`
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    4167    4466    4594    4611    4694    5107 
-## 
-## $northeast
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    3694    4281    4558    4570    4903    5348 
-## 
-## $south
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    3098    3622    3848    4012    4316    5299 
-## 
-## $west
-##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
-##    3601    4347    4660    4703    4963    6315
+```{r echo=FALSE}
+state_df = data.frame(state.x77)
+state.region %>% 
+  tolower %>%
+  tapply(state_df$Income, ., summary)
 ```
 
 ---
@@ -379,21 +304,24 @@ state.region %&gt;%
 
 Let's interpret the following code without executing it first.
 
-
-```r
+```{r eval=FALSE}
 x = "Data Manipulation with Pipes"
-x %&gt;% 
-  strsplit(split = " ") %&gt;% 
-  .[[1]] %&gt;% # indexing 
-  nchar %&gt;% 
+x %>% 
+  strsplit(split = " ") %>% 
+  .[[1]] %>% # indexing 
+  nchar %>% 
   max 
 ```
 
 --
 
-
-```
-## [1] 12
+```{r echo=FALSE}
+x = "Data Manipulation with Pipes"
+x %>% 
+  strsplit(split = " ") %>% 
+  .[[1]] %>% # indexing 
+  nchar %>% 
+  max 
 ```
 
 ---
@@ -422,29 +350,11 @@ Some of the most important `dplyr` verbs (functions):
 
 The `filter()` function is to subset rows based on a condition.
 
-
-```r
+```{r}
 # Built in data frame of cars data, 32 cars x 11 variables
-mtcars %&gt;% head(2)
-```
+mtcars %>% head(2)
 
-```
-##               mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Mazda RX4      21   6  160 110  3.9 2.620 16.46  0  1    4    4
-## Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4
-```
-
-```r
-mtcars %&gt;% filter((mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
-```
-
-```
-##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Hornet 4 Drive      21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Valiant             18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## Dodge Challenger    15.5   8  318 150 2.76 3.520 16.87  0  0    3    2
+mtcars %>% filter((mpg >= 20 & disp >= 200) | (drat <= 3))
 ```
 
 ---
@@ -453,18 +363,8 @@ mtcars %&gt;% filter((mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
 
 An alternative approach using `subset()` function: 
 
-
-```r
-subset(mtcars, (mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
-```
-
-```
-##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Hornet 4 Drive      21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Valiant             18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## Dodge Challenger    15.5   8  318 150 2.76 3.520 16.87  0  0    3    2
+```{r}
+subset(mtcars, (mpg >= 20 & disp >= 200) | (drat <= 3))
 ```
 
 ---
@@ -473,18 +373,8 @@ subset(mtcars, (mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
 
 An alternative approaches using a basic R syntax:
 
-
-```r
-mtcars[(mtcars$mpg &gt;= 20 &amp; mtcars$disp &gt;= 200) | (mtcars$drat &lt;= 3), ]
-```
-
-```
-##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Hornet 4 Drive      21.4   6  258 110 3.08 3.215 19.44  1  0    3    1
-## Valiant             18.1   6  225 105 2.76 3.460 20.22  1  0    3    1
-## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## Dodge Challenger    15.5   8  318 150 2.76 3.520 16.87  0  0    3    2
+```{r}
+mtcars[(mtcars$mpg >= 20 & mtcars$disp >= 200) | (mtcars$drat <= 3), ]
 ```
 
 ---
@@ -493,19 +383,9 @@ mtcars[(mtcars$mpg &gt;= 20 &amp; mtcars$disp &gt;= 200) | (mtcars$drat &lt;= 3)
 
 - The `group_by()` function is to define groups of rows according to a column or specific condition.
 
-
-```r
+```{r}
 # Grouped by number of cylinders
-mtcars %&gt;% group_by(cyl) %&gt;% head(2)
-```
-
-```
-## # A tibble: 2 × 11
-## # Groups:   cyl [1]
-##     mpg   cyl  disp    hp  drat    wt  qsec    vs    am  gear  carb
-##   &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt; &lt;dbl&gt;
-## 1    21     6   160   110   3.9  2.62  16.5     0     1     4     4
-## 2    21     6   160   110   3.9  2.88  17.0     0     1     4     4
+mtcars %>% group_by(cyl) %>% head(2)
 ```
 
 Note: The `group_by()` function doesn't actually change anything about the way that the data frame looks. Only difference is that when it prints, we know the groups.
@@ -516,29 +396,12 @@ Note: The `group_by()` function doesn't actually change anything about the way t
 
 The `summarize()` function is to apply computations across groups of rows.
 
-
-```r
+```{r}
 # Ungrouped
 summarize(mtcars, mpg_avg = mean(mpg), hp_avg = mean(hp))
-```
 
-```
-##    mpg_avg   hp_avg
-## 1 20.09062 146.6875
-```
-
-```r
 # Grouped by number of cylinders
 summarize(group_by(mtcars, cyl), mpg_avg = mean(mpg), hp_avg = mean(hp))
-```
-
-```
-## # A tibble: 3 × 3
-##     cyl mpg_avg hp_avg
-##   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-## 1     4    26.7   82.6
-## 2     6    19.7  122. 
-## 3     8    15.1  209.
 ```
 
 Can we rewrite the above code using pipes?
@@ -549,20 +412,10 @@ Can we rewrite the above code using pipes?
 
 The `summarize()` function is to apply computations across groups of rows.
 
-
-```r
-mtcars %&gt;% 
-  group_by(cyl) %&gt;% 
+```{r}
+mtcars %>% 
+  group_by(cyl) %>% 
   summarize(mpg_avg = mean(mpg), hp_avg = mean(hp))
-```
-
-```
-## # A tibble: 3 × 3
-##     cyl mpg_avg hp_avg
-##   &lt;dbl&gt;   &lt;dbl&gt;  &lt;dbl&gt;
-## 1     4    26.7   82.6
-## 2     6    19.7  122. 
-## 3     8    15.1  209.
 ```
 
 Note: Using the `group_by()` function makes the difference here.
@@ -573,31 +426,14 @@ Note: Using the `group_by()` function makes the difference here.
 
 The `arrange()` function is to order rows by value of a column.
 
-
-```r
-mtcars %&gt;% 
-  arrange(mpg) %&gt;% 
+```{r}
+mtcars %>% 
+  arrange(mpg) %>% 
   head(3)
-```
 
-```
-##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
-```
-
-```r
 # Base R syntax
 mpg_inds = order(mtcars$mpg)
 head(mtcars[mpg_inds, ], 3)
-```
-
-```
-##                      mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Cadillac Fleetwood  10.4   8  472 205 2.93 5.250 17.98  0  0    3    4
-## Lincoln Continental 10.4   8  460 215 3.00 5.424 17.82  0  0    3    4
-## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
 ```
 
 ---
@@ -606,32 +442,14 @@ head(mtcars[mpg_inds, ], 3)
 
 We can also do it in a descending order.
 
-
-```r
-mtcars %&gt;% 
-  arrange(desc(mpg)) %&gt;% 
+```{r}
+mtcars %>% 
+  arrange(desc(mpg)) %>% 
   head(3)
-```
 
-```
-##                 mpg cyl disp hp drat    wt  qsec vs am gear carb
-## Toyota Corolla 33.9   4 71.1 65 4.22 1.835 19.90  1  1    4    1
-## Fiat 128       32.4   4 78.7 66 4.08 2.200 19.47  1  1    4    1
-## Honda Civic    30.4   4 75.7 52 4.93 1.615 18.52  1  1    4    2
-```
-
-```r
 # Base R
 mpg_inds_decr = order(mtcars$mpg, decreasing = TRUE)
 head(mtcars[mpg_inds_decr, ], 4)
-```
-
-```
-##                 mpg cyl disp  hp drat    wt  qsec vs am gear carb
-## Toyota Corolla 33.9   4 71.1  65 4.22 1.835 19.90  1  1    4    1
-## Fiat 128       32.4   4 78.7  66 4.08 2.200 19.47  1  1    4    1
-## Honda Civic    30.4   4 75.7  52 4.93 1.615 18.52  1  1    4    2
-## Lotus Europa   30.4   4 95.1 113 3.77 1.513 16.90  1  1    5    2
 ```
 
 ---
@@ -640,20 +458,10 @@ head(mtcars[mpg_inds_decr, ], 4)
 
 We can order by multiple columns as well.
 
-
-```r
-mtcars %&gt;% 
-  arrange(desc(gear), desc(hp)) %&gt;%
+```{r}
+mtcars %>% 
+  arrange(desc(gear), desc(hp)) %>%
   head(5)
-```
-
-```
-##                 mpg cyl  disp  hp drat    wt qsec vs am gear carb
-## Maserati Bora  15.0   8 301.0 335 3.54 3.570 14.6  0  1    5    8
-## Ford Pantera L 15.8   8 351.0 264 4.22 3.170 14.5  0  1    5    4
-## Ferrari Dino   19.7   6 145.0 175 3.62 2.770 15.5  0  1    5    6
-## Lotus Europa   30.4   4  95.1 113 3.77 1.513 16.9  1  1    5    2
-## Porsche 914-2  26.0   4 120.3  91 4.43 2.140 16.7  0  1    5    2
 ```
 
 ---
@@ -662,63 +470,30 @@ mtcars %&gt;%
 
 The `select()` function is to pick out given columns.
 
-
-```r
-mtcars %&gt;% 
-  select(cyl, disp, hp) %&gt;% 
+```{r}
+mtcars %>% 
+  select(cyl, disp, hp) %>% 
   head(3)
 ```
 
-```
-##               cyl disp  hp
-## Mazda RX4       6  160 110
-## Mazda RX4 Wag   6  160 110
-## Datsun 710      4  108  93
-```
 
-
-
-```r
+```{r}
 # Base R
 head(mtcars[, c("cyl", "disp", "hp")], 3)
-```
-
-```
-##               cyl disp  hp
-## Mazda RX4       6  160 110
-## Mazda RX4 Wag   6  160 110
-## Datsun 710      4  108  93
 ```
 
 ---
 
 # Some Handy `select()` Helpers
 
-
-```r
-mtcars %&gt;% 
-  select(starts_with("d")) %&gt;% 
+```{r}
+mtcars %>% 
+  select(starts_with("d")) %>% 
   head(3)
-```
 
-```
-##               disp drat
-## Mazda RX4      160 3.90
-## Mazda RX4 Wag  160 3.90
-## Datsun 710     108 3.85
-```
-
-```r
 # Base R
 d_colnames = grep(x = colnames(mtcars), pattern = "^d")
 head(mtcars[, d_colnames], 3)
-```
-
-```
-##               disp drat
-## Mazda RX4      160 3.90
-## Mazda RX4 Wag  160 3.90
-## Datsun 710     108 3.85
 ```
 
 Note: We need to use the [regular expression](https://cran.r-project.org/web/packages/stringr/vignettes/regular-expressions.html) under the base R syntax.
@@ -727,31 +502,14 @@ Note: We need to use the [regular expression](https://cran.r-project.org/web/pac
 
 # Some Handy `select()` Helpers
 
-
-```r
-mtcars %&gt;% 
-  select(ends_with('t')) %&gt;% 
+```{r}
+mtcars %>% 
+  select(ends_with('t')) %>% 
   head(3)
-```
 
-```
-##               drat    wt
-## Mazda RX4     3.90 2.620
-## Mazda RX4 Wag 3.90 2.875
-## Datsun 710    3.85 2.320
-```
-
-```r
-mtcars %&gt;% 
-  select(contains('ar')) %&gt;% 
+mtcars %>% 
+  select(contains('ar')) %>% 
   head(3)
-```
-
-```
-##               gear carb
-## Mazda RX4        4    4
-## Mazda RX4 Wag    4    4
-## Datsun 710       4    1
 ```
 
 More details about these `select()` helper functions can be found in [this web page](https://dplyr.tidyverse.org/reference/select.html#useful-functions).
@@ -762,9 +520,8 @@ More details about these `select()` helper functions can be found in [this web p
 
 The `mutate()` function is to create new columns.
 
-
-```r
-mtcars = mtcars %&gt;% 
+```{r}
+mtcars = mtcars %>% 
   mutate(hp_wt = hp/wt, 
          mpg_wt = mpg/wt)
 
@@ -775,9 +532,8 @@ mtcars$mpg_wt = mtcars$mpg/mtcars$wt
 
 The newly created variables can be used immediately.
 
-
-```r
-mtcars = mtcars %&gt;% 
+```{r}
+mtcars = mtcars %>% 
   mutate(hp_wt_again = hp/wt,
          hp_wt_cyl = hp_wt_again/cyl) 
 
@@ -792,9 +548,8 @@ mtcars$hp_wt_cyl = mtcars$hp_wt_again/mtcars$cyl
 
 The `mutate_at()` function is to apply a function to one or several columns.
 
-
-```r
-mtcars = mtcars %&gt;% 
+```{r}
+mtcars = mtcars %>% 
   mutate_at(c("hp_wt", "mpg_wt"), log) 
 
 # Base R
@@ -838,38 +593,13 @@ There are many other verbs, such as `spread()`, `gather()`, `nest()`, `unnest()`
 
 # `pivot_longer()` Function
 
-
-```r
+```{r message=FALSE}
 # devtools::install_github("rstudio/EDAWR")
 library(EDAWR) # Load some nice data sets
 EDAWR::cases
-```
 
-```
-##   country  2011  2012  2013
-## 1      FR  7000  6900  7000
-## 2      DE  5800  6000  6200
-## 3      US 15000 14000 13000
-```
-
-```r
-EDAWR::cases %&gt;% 
+EDAWR::cases %>% 
   pivot_longer(names_to = "year", values_to = "n", cols = 2:4) 
-```
-
-```
-## # A tibble: 9 × 3
-##   country year      n
-##   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
-## 1 FR      2011   7000
-## 2 FR      2012   6900
-## 3 FR      2013   7000
-## 4 DE      2011   5800
-## 5 DE      2012   6000
-## 6 DE      2013   6200
-## 7 US      2011  15000
-## 8 US      2012  14000
-## 9 US      2013  13000
 ```
 
 ---
@@ -880,26 +610,10 @@ Here, we transposed columns 2:4 into a "year" column and put the corresponding c
 
 - The `pivot_longer()` function did all the heavy lifting of the transposing work, and we just had to specify the output.
 
-
-```r
+```{r}
 # Different approach to do the same thing
-EDAWR::cases %&gt;% 
+EDAWR::cases %>% 
   pivot_longer(names_to = "year", values_to = "n", -country) 
-```
-
-```
-## # A tibble: 9 × 3
-##   country year      n
-##   &lt;chr&gt;   &lt;chr&gt; &lt;dbl&gt;
-## 1 FR      2011   7000
-## 2 FR      2012   6900
-## 3 FR      2013   7000
-## 4 DE      2011   5800
-## 5 DE      2012   6000
-## 6 DE      2013   6200
-## 7 US      2011  15000
-## 8 US      2012  14000
-## 9 US      2013  13000
 ```
 
 
@@ -911,33 +625,10 @@ Here, we transposed to a wide format by "size" and tabulated the corresponding "
 
 - Note that `pivot_wider()` and `pivot_longer()` are inverses.
 
-
-```r
+```{r}
 EDAWR::pollution
-```
-
-```
-##       city  size amount
-## 1 New York large     23
-## 2 New York small     14
-## 3   London large     22
-## 4   London small     16
-## 5  Beijing large    121
-## 6  Beijing small     56
-```
-
-```r
-EDAWR::pollution %&gt;% 
+EDAWR::pollution %>% 
   pivot_wider(names_from = "size", values_from = "amount")
-```
-
-```
-## # A tibble: 3 × 3
-##   city     large small
-##   &lt;chr&gt;    &lt;dbl&gt; &lt;dbl&gt;
-## 1 New York    23    14
-## 2 London      22    16
-## 3 Beijing    121    56
 ```
 
 ---
@@ -977,15 +668,12 @@ Base R has a set of powerful plotting tools:
 
 To make a scatter plot of one variable versus another, we use `plot()`.
 
-
-```r
+```{r fig.width=6.5, fig.align='center', fig.height=5.5}
 set.seed(123)
 x = sort(runif(50, min=-2, max=2))
 y = x^3 + rnorm(50)
 plot(x, y)
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-39-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -993,12 +681,9 @@ plot(x, y)
 
 The `type` argument controls the plot type. Default is "p" for points; set it to "l" for lines. If we want both points and lines, set it to "b".
 
-
-```r
+```{r fig.width=6.5, fig.align='center', fig.height=5.5}
 plot(x, y, type="b")
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
 
 More details can be found by `?plot`.
 
@@ -1008,12 +693,9 @@ More details can be found by `?plot`.
 
 The `main` argument controls the title; `xlab` and `ylab` are the x and y labels.
 
-
-```r
+```{r fig.width=6.5, fig.align='center', fig.height=5.5}
 plot(x, y, main="A noisy cubic", xlab="My x variable", ylab="My y variable")
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1021,12 +703,9 @@ plot(x, y, main="A noisy cubic", xlab="My x variable", ylab="My y variable")
 
 We use the `pch` argument to control point type.
 
-
-```r
+```{r fig.width=7, fig.align='center', fig.height=6}
 plot(x, y, pch = 19) # Filled circles
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1034,12 +713,9 @@ plot(x, y, pch = 19) # Filled circles
 
 We use the `lty` argument to control the line type, and `lwd` to control the line width.
 
-
-```r
+```{r fig.width=6.5, fig.align='center', fig.height=5.5}
 plot(x, y, type="l", lty=2, lwd=3) # Dashed line, 3 times as thick
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1053,12 +729,9 @@ We use the `col` argument to control the color. It can be:
 
 The function `colors()` returns a string vector of the available colors
 
-
-```r
+```{r fig.width=6.5, fig.align='center', fig.height=5.5}
 plot(x, y, pch=19, col="red")
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1066,8 +739,7 @@ plot(x, y, pch=19, col="red")
 
 To set up a plotting grid of arbitrary dimension, we use the `par()` function with the argument `mfrow`. 
 
-
-```r
+```{r fig.align='center'}
 par(mfrow=c(2,2)) # Grid elements are filled by row
 plot(x, y, main="Red cubic", pch=20, col="red")
 plot(x, y, main="Blue cubic", pch=20, col="blue")
@@ -1075,16 +747,13 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
-
 ---
 
 # Margins of the Plots
 
 Default margins in R are large (and ugly); to change them, we use the `par()` function with the argument `mar`.
 
-
-```r
+```{r fig.align='center'}
 par(mfrow = c(2,2), mar = c(4,4,2,0.5))
 plot(x, y, main="Red cubic", pch=20, col="red")
 plot(x, y, main="Blue cubic", pch=20, col="blue")
@@ -1092,24 +761,14 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
-
 ---
 
 # Saving Plots
 
 We use the `pdf()` function to save a pdf file of our plot in the current R working directory.
 
-
-```r
+```{r}
 getwd() # This is where the pdf will be saved
-```
-
-```
-## [1] "/media/yikun/Disk_D1/Graduate School/STAT 302/Lectures"
-```
-
-```r
 pdf(file="noisy_cubics.pdf", height=7, width=7) # Height, width are in inches
 par(mfrow=c(2,2), mar=c(4,4,2,0.5))
 plot(x, y, main="Red cubic", pch=20, col="red")
@@ -1143,8 +802,7 @@ Note: We should pay attention to **layers**---they work just like we are paintin
 
 Recall that we can plot a histogram of a numeric vector using `hist()`.
 
-
-```r
+```{r fig.width=7, fig.align='center', fig.height=6}
 king_lines = readLines("https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/Data/king.txt")
 king_words = strsplit(paste(king_lines, collapse=" "),
                       split="[[:space:]]|[[:punct:]]")[[1]]
@@ -1153,23 +811,18 @@ king_wlens = nchar(king_words)
 hist(king_wlens)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /&gt;
-
 ---
 
 # Adding a Histogram to the Existing Plot
 
 To add a histogram to an existing plot (say, another histogram), we use `hist()` with `add=TRUE`.
 
-
-```r
+```{r fig.width=7, fig.align='center', fig.height=6}
 hist(king_wlens, col="pink", freq=FALSE, breaks=0:20, 
      xlab="Word length", main="King word lengths")
 hist(king_wlens + 5, col=rgb(0,0.5,0.5,0.5), 
      freq=FALSE, breaks=0:20, add=TRUE)
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1177,23 +830,10 @@ hist(king_wlens + 5, col=rgb(0,0.5,0.5,0.5),
 
 To estimate a density from a numeric vector, we use the `density()` function.
 
-
-```r
+```{r}
 density_est = density(king_wlens, adjust=1.5) # 1.5 times the default bandwidth
 class(density_est)
-```
-
-```
-## [1] "density"
-```
-
-```r
 names(density_est)
-```
-
-```
-## [1] "x"         "y"         "bw"        "n"         "call"      "data.name"
-## [7] "has.na"
 ```
 
 ---
@@ -1202,14 +842,11 @@ names(density_est)
 
 The `density()` function returns a list that has components `x` and `y`, so we can call `lines()` directly on the returned object.
 
-
-```r
+```{r fig.width=7, fig.align='center', fig.height=6}
 hist(king_wlens, col="pink", freq=FALSE, breaks=0:20, 
      xlab="Word length", main="King word lengths")
 lines(density_est, lwd=3)
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1217,26 +854,11 @@ lines(density_est, lwd=3)
 
 To plot a heatmap of a numeric matrix, we use the `image()` function.
 
-
-```r
+```{r}
 # Here, %o% gives for outer product
 (mat = 1:5 %o% 6:10) 
-```
-
-```
-##      [,1] [,2] [,3] [,4] [,5]
-## [1,]    6    7    8    9   10
-## [2,]   12   14   16   18   20
-## [3,]   18   21   24   27   30
-## [4,]   24   28   32   36   40
-## [5,]   30   35   40   45   50
-```
-
-```r
 image(mat) # Red means low, white means high
 ```
-
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1244,37 +866,34 @@ image(mat) # Red means low, white means high
 
 The orientation of `image()` is to plot the heatmap according to the following order, in terms of the matrix elements:
 
-`$$\begin{array}{cccc} 
-(1,\text{ncol}) &amp; (2, \text{ncol}) &amp; \ldots &amp; (\text{nrow},\text{ncol}) \\
-\vdots &amp; &amp; &amp; \\
-(1,2) &amp; (2,2) &amp; \ldots &amp; (\text{nrow},2) \\
-(1,1) &amp; (2,1) &amp; \ldots &amp; (\text{nrow},1) 
-\end{array}$$`
+$$\begin{array}{cccc} 
+(1,\text{ncol}) & (2, \text{ncol}) & \ldots & (\text{nrow},\text{ncol}) \\
+\vdots & & & \\
+(1,2) & (2,2) & \ldots & (\text{nrow},2) \\
+(1,1) & (2,1) & \ldots & (\text{nrow},1) 
+\end{array}$$
 
 This is a *90 degrees counterclockwise* rotation of the "usual" printed order for a matrix:
 
-`$$\begin{array}{cccc} 
-(1,1) &amp; (1,2) &amp; \ldots &amp; (1,\text{ncol}) \\
-(2,1) &amp; (2,2) &amp; \ldots &amp; (2,\text{ncol}) \\
-\vdots &amp; &amp; &amp; \\
-(\text{nrow},1) &amp; (\text{nrow},2) &amp; \ldots &amp; (\text{nrow},\text{ncol}) 
-\end{array}$$`
+$$\begin{array}{cccc} 
+(1,1) & (1,2) & \ldots & (1,\text{ncol}) \\
+(2,1) & (2,2) & \ldots & (2,\text{ncol}) \\
+\vdots & & & \\
+(\text{nrow},1) & (\text{nrow},2) & \ldots & (\text{nrow},\text{ncol}) 
+\end{array}$$
 
 ---
 
 # Orientation of `image()`
 
-Therefore, if we want the displayed heatmap to follow the usual order, we must rotate the matrix** `\(90^{\circ}\)` clockwise **before passing it in to `image()` (Equivalently, reverse the row order and take the transpose).
+Therefore, if we want the displayed heatmap to follow the usual order, we must rotate the matrix** $90^{\circ}$ clockwise **before passing it in to `image()` (Equivalently, reverse the row order and take the transpose).
 
-
-```r
+```{r}
 clockwise90 = function(a) { 
   t(a[nrow(a):1,]) 
 } # Handy rotate function
 image(clockwise90(mat))
 ```
-
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1282,14 +901,11 @@ image(clockwise90(mat))
 
 The default is to use a red-to-white color scale in `image()`, but the `col` argument can take any vector of colors. Built-in functions `gray.colors()`, `rainbow()`, `heat.colors()`, `topo.colors()`, `terrain.colors()`, `cm.colors()` all return contiguous color vectors of given lengths.
 
-
-```r
+```{r}
 phi = dnorm(seq(-2,2,length=50))
 normal.mat = phi %o% phi
 image(normal.mat, col=terrain.colors(20)) # Terrain colors
 ```
-
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1297,13 +913,10 @@ image(normal.mat, col=terrain.colors(20)) # Terrain colors
 
 To draw contour lines from a numeric matrix, we use the `contour()` function; to add contours to an existing plot (says, a heatmap), we use `contour()` with `add=TRUE`.
 
-
-```r
+```{r echo=TRUE}
 image(normal.mat, col=terrain.colors(20))
 contour(normal.mat, add=TRUE)
 ```
-
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 
 ---
 class: inverse
@@ -1333,15 +946,17 @@ First, let's initialize a plot. We use the `data` parameter to tell `ggplot` wha
 * It should be tidy data, in either a `data.frame` or `tibble`!
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 library(gapminder)
-*ggplot(data = gapminder)
+ggplot(data = gapminder) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+library(gapminder)
+ggplot(data = gapminder) 
+```
 ]
 
 ---
@@ -1353,15 +968,17 @@ Add an aesthetic using `aes()` within the initial `ggplot()` call.
 * It controls our axes variables as well as graphical parameters such as color, size, shape.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
-*      aes(x = year, y = lifeExp))
+       aes(x = year, y = lifeExp)) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp)) #<<
+```
 ]
 
 ---
@@ -1374,16 +991,19 @@ Now `ggplot` knows what to plot, but it doesn't know how to plot it yet. Let's a
 
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp)) +
-* geom_point()
+  geom_point() #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp)) +
+  geom_point() #<<
+```
 ]
 
 ---
@@ -1393,16 +1013,19 @@ ggplot(data = gapminder,
 Let's make our points smaller and red.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp)) +
-* geom_point(color = "red", size = 0.75)
+  geom_point(color = "red", size = 0.75) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp)) +
+  geom_point(color = "red", size = 0.75) #<<
+```
 ]
 
 ---
@@ -1412,16 +1035,19 @@ ggplot(data = gapminder,
 Let's try switching them to lines.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp)) +
-* geom_line(color = "red", linewidth = 0.75)
+  geom_line(color = "red", linewidth = 0.75) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp)) +
+  geom_line(color = "red", linewidth = 0.75) #<<
+```
 ]
 
 ---
@@ -1431,17 +1057,21 @@ ggplot(data = gapminder,
 We want lines connected by country, not just in the order that they appear in the data.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp,
-*          group = country)) +
+           group = country)) + #<<
   geom_line(color = "red", linewidth = 0.5) 
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp,
+           group = country)) + #<<
+  geom_line(color = "red", linewidth = 0.5) 
+```
 ]
 
 ---
@@ -1458,18 +1088,23 @@ We can color by continent to explore differences across continents.
 
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp,
            group = country,
-*          color = continent)) +
-* geom_line(linewidth = 0.5)
+           color = continent)) + #<<
+  geom_line(linewidth = 0.5)  #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp,
+           group = country,
+           color = continent)) + #<<
+  geom_line(linewidth = 0.5) #<<
+```
 ]
 
 ---
@@ -1485,19 +1120,27 @@ Let's add another layer for the trend lines by continent!
 * We don't want error bars, so we will remove `se`.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp,
            group = country,
            color = continent)) + 
   geom_line(linewidth = 0.5) +
-* geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess")
+  geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp,
+           group = country,
+           color = continent)) + 
+  geom_line(linewidth = 0.5) +
+  geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, #<<
+              color = "black", #<<
+              method = "loess") #<<
+```
 ]
 
 ---
@@ -1509,20 +1152,30 @@ The plot is cluttered and hard to read. Let's try separating by continents using
 * We use `facet_wrap`, which takes in a **formula** object and uses a tilde `~` with the variable name.
 
 .pull-left[
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp,
            group = country,
            color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") +
-* facet_wrap(~ continent)
+  facet_wrap(~ continent) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = year, y = lifeExp,
+           group = country,
+           color = continent)) + 
+  geom_line(linewidth = 0.5) +
+  geom_smooth(aes(group = continent), 
+              se = FALSE, linewidth = 1.5, 
+              color = "black", 
+              method = "loess") +
+  facet_wrap(~ continent) #<<
+```
 ]
 
 ---
@@ -1535,35 +1188,31 @@ Now, we formalize the labels on our plot using `labs()`.
 
 * Unfortunately, we should do this in every graph that we present! It is unlikely that the text styling of our data frame matches our output. Changing the labels improves human readability!
 
-
-```r
+```{r, eval=FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, 
               color = "black", method = "loess") +
   facet_wrap(~ continent) +
-* labs(title = "Life expectancy over time by continent",
-*      x = "Year", y = "Life Expectancy", legend = "Continent")
+  labs(title = "Life expectancy over time by continent", #<<
+       x = "Year", y = "Life Expectancy", legend = "Continent") #<<
 ```
 
 ---
 
 # Step-by-step Practice with `ggplot2` 
 
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, 
               color = "black", method = "loess") +
   facet_wrap(~ continent) +
-* labs(title = "Life expectancy over time by continent",
-*      x = "Year", y = "Life Expectancy", legend = "Continent")
+  labs(title = "Life expectancy over time by continent", #<<
+       x = "Year", y = "Life Expectancy", legend = "Continent") #<<
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-75-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1576,8 +1225,7 @@ Let's center our title by adjusting `theme()`.
 * `hjust` is our horizontal alignment, we set it to one half
 
 
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1585,8 +1233,8 @@ ggplot(data = gapminder,
   facet_wrap(~ continent) +
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy", legend = "Continent") +
-* theme(plot.title = element_text(hjust = 0.5, face = "bold",
-*                                 size = 14))
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", #<<
+                                  size = 14)) #<<
 ```
 
 ---
@@ -1596,8 +1244,7 @@ ggplot(data = gapminder,
 Indeed, the legend is redundant. Let's remove it.
 
 .middler[
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1605,10 +1252,8 @@ ggplot(data = gapminder,
   facet_wrap(~ continent) +
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy", legend = "Continent") +
-* theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none")
+  theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none") #<<
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-77-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -1620,8 +1265,7 @@ If we don't like the default gray background, then we always remove it by `theme
 
 * There are several other theme options! (Use `?theme_bw` to look them up.)
 
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1630,15 +1274,14 @@ ggplot(data = gapminder,
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none") +
-* theme_bw()
+  theme_bw() #<<
 ```
 
 ---
 
 # Step-by-step Practice with `ggplot2` 
 
-
-```r
+```{r fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1647,10 +1290,8 @@ ggplot(data = gapminder,
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy") +
   theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none") +
-* theme_bw()
+  theme_bw() #<<
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-79-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1662,8 +1303,7 @@ We can increase all of our text proportionally using `base_size` within `theme_b
 
 * We don't need to manually adjust our title size. This will scale everything automatically.
 
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1671,8 +1311,8 @@ ggplot(data = gapminder,
   facet_wrap(~ continent) +
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy") +
-* theme_bw(base_size = 16) +
-* theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+  theme_bw(base_size = 16) + #<<
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"), #<<
         legend.position = "none") 
 ```
 
@@ -1680,8 +1320,7 @@ ggplot(data = gapminder,
 
 # Step-by-step Practice with `ggplot2`
 
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1689,12 +1328,10 @@ ggplot(data = gapminder,
   facet_wrap(~ continent) +
   labs(title = "Life expectancy over time by continent", 
        x = "Year", y = "Life Expectancy") +
-* theme_bw(base_size = 16) +
-* theme(plot.title = element_text(hjust = 0.5, face = "bold"),
+  theme_bw(base_size = 16) + #<<
+  theme(plot.title = element_text(hjust = 0.5, face = "bold"), #<<
         legend.position = "none") 
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-81-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1703,8 +1340,7 @@ ggplot(data = gapminder,
 
 Now, our text is in a good size, but it overlaps. We consider rotating our text.
 
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1715,15 +1351,14 @@ ggplot(data = gapminder,
   theme_bw(base_size = 16) + 
   theme(plot.title = element_text(hjust = 0.5, face = "bold"), 
         legend.position = "none",
-*       axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) #<< 
 ```
 
 ---
 
 # Step-by-step Practice with `ggplot2`
 
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1734,10 +1369,8 @@ ggplot(data = gapminder,
   theme_bw(base_size = 16) + 
   theme(plot.title = element_text(hjust = 0.5, face = "bold"), 
         legend.position = "none",
-*       axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
+        axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1)) #<< 
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-83-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1745,8 +1378,7 @@ ggplot(data = gapminder,
 
 Lastly, let's space out our panels by adjusting `panel.spacing.x`.
 
-
-```r
+```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1758,15 +1390,14 @@ ggplot(data = gapminder,
   theme(plot.title = element_text(hjust = 0.5, face = "bold"), 
         legend.position = "none",
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
-*       panel.spacing.x = unit(0.75, "cm"))
+        panel.spacing.x = unit(0.75, "cm")) #<<
 ```
 
 ---
 
 # Step-by-step Practice with `ggplot2`
 
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
@@ -1778,10 +1409,8 @@ ggplot(data = gapminder,
   theme(plot.title = element_text(hjust = 0.5, face = "bold"), 
         legend.position = "none",
         axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1),
-*       panel.spacing.x = unit(0.75, "cm"))
+        panel.spacing.x = unit(0.75, "cm")) #<<
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-85-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1789,9 +1418,8 @@ ggplot(data = gapminder,
 
 When the entire plot is ready, we can also store it as an object.
 
-
-```r
-lifeExp_plot &lt;- ggplot(data = gapminder,
+```{r}
+lifeExp_plot <- ggplot(data = gapminder,
        aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") +
@@ -1811,12 +1439,9 @@ lifeExp_plot &lt;- ggplot(data = gapminder,
 
 Then, we can plot it by just calling our object.
 
-
-```r
+```{r, fig.height=5, fig.width=7, fig.align='center', message = FALSE}
 lifeExp_plot
 ```
-
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-87-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1826,8 +1451,7 @@ We can also save it in our `figures` subfolder using `ggsave()`.
 
 * Set `height` and `width` parameters to automatically resize the image
 
-
-```r
+```{r, eval = FALSE}
 ggsave(filename = "figures/lifeExp_plot.pdf", plot = lifeExp_plot,
        height = 5, width = 7)
 ```
@@ -1844,24 +1468,26 @@ It will lead to lower quality and non-reproducible figures!
 * It is very common that we have to Google how to adjust certain things all the time.
 * So does the creator of `ggplot2`:
 
-&lt;p align="center"&gt;
-&lt;img src="./figures/hadley.png" width="750"/&gt;
-&lt;/p&gt;
+<p align="center">
+<img src="./figures/hadley.png" width="750"/>
+</p>
 
 ---
 
 # A Simpler Example: Histogram
 
 .pull-left[
-
-```r
-*ggplot(data = gapminder,
-*      aes(x = lifeExp))
+```{r, eval = FALSE}
+ggplot(data = gapminder, #<<
+       aes(x = lifeExp)) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-90-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, #<<
+       aes(x = lifeExp)) #<<
+```
 ]
 
 ---
@@ -1869,33 +1495,19 @@ It will lead to lower quality and non-reproducible figures!
 # A Simpler Example: Histogram
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder,
        aes(x = lifeExp)) + 
-* geom_histogram()
+  geom_histogram() #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-92-1.png)&lt;!-- --&gt;
-]
-
----
-
-# A Simpler Example: Histogram
-
-.pull-left[
-
-```r
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
 ggplot(data = gapminder,
        aes(x = lifeExp)) + 
-* geom_histogram(binwidth = 1)
+  geom_histogram() #<<
 ```
-]
-
-.pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-94-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1903,17 +1515,42 @@ ggplot(data = gapminder,
 # A Simpler Example: Histogram
 
 .pull-left[
+```{r, eval = FALSE}
+ggplot(data = gapminder,
+       aes(x = lifeExp)) + 
+  geom_histogram(binwidth = 1) #<<
+```
+]
 
-```r
+.pull-right[
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = lifeExp)) + 
+  geom_histogram(binwidth = 1) #<<
+```
+]
+
+---
+
+# A Simpler Example: Histogram
+
+.pull-left[
+```{r, eval = FALSE}
 ggplot(data = gapminder, aes(x = lifeExp)) + 
   geom_histogram(binwidth = 1, 
-*                color = "black",
-*                fill = "lightblue")
+                 color = "black", #<<
+                 fill = "lightblue") #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-96-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = lifeExp)) + 
+  geom_histogram(binwidth = 1, 
+                 color = "black", #<<
+                 fill = "lightblue") #<<
+```
 ]
 
 ---
@@ -1921,18 +1558,24 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 # A Simpler Example: Histogram
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, aes(x = lifeExp)) + 
   geom_histogram(binwidth = 1, 
                  color = "black", 
                  fill = "lightblue") +
-* theme_bw(base_size = 20)
+  theme_bw(base_size = 20) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-98-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = lifeExp)) + 
+  geom_histogram(binwidth = 1, 
+                 color = "black", 
+                 fill = "lightblue") +
+  theme_bw(base_size = 20) #<<
+```
 ]
 
 ---
@@ -1940,20 +1583,28 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 # A Simpler Example: Histogram
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, aes(x = lifeExp)) + 
   geom_histogram(binwidth = 1, 
                  color = "black", 
                  fill = "lightblue") +
   theme_bw(base_size = 20) +
-* labs(x = "Life Expectancy",
-*      y = "Count")
+  labs(x = "Life Expectancy", #<<
+       y = "Count") #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-100-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder,
+       aes(x = lifeExp)) + 
+  geom_histogram(binwidth = 1, 
+                 color = "black", 
+                 fill = "lightblue") +
+  theme_bw(base_size = 20) +
+  labs(x = "Life Expectancy", #<<
+       y = "Count") #<<
+```
 ]
 
 ---
@@ -1961,15 +1612,17 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 # A Simpler Example: Boxplots
 
 .pull-left[
-
-```r
-*ggplot(data = gapminder,
-*      aes(x = continent, y = lifeExp))
+```{r, eval = FALSE}
+ggplot(data = gapminder, #<<
+       aes(x = continent, y = lifeExp)) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-102-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, #<<
+       aes(x = continent, y = lifeExp)) #<<
+```
 ]
 
 ---
@@ -1977,33 +1630,19 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 # A Simpler Example: Boxplots
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, 
        aes(x = continent, y = lifeExp)) +
-* geom_boxplot()
+  geom_boxplot() #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-104-1.png)&lt;!-- --&gt;
-]
-
----
-
-# A Simpler Example: Boxplots
-
-.pull-left[
-
-```r
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
 ggplot(data = gapminder, 
        aes(x = continent, y = lifeExp)) +
-* geom_boxplot(fill = "lightblue")
+  geom_boxplot() #<<
 ```
-]
-
-.pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2011,17 +1650,41 @@ ggplot(data = gapminder,
 # A Simpler Example: Boxplots
 
 .pull-left[
+```{r, eval = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") #<<
+```
+]
 
-```r
+.pull-right[
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") #<<
+```
+]
+
+---
+
+# A Simpler Example: Boxplots
+
+.pull-left[
+```{r, eval = FALSE}
 ggplot(data = gapminder, 
        aes(x = continent, y = lifeExp)) +
   geom_boxplot(fill = "lightblue") +
-* theme_bw(base_size = 20)
+  theme_bw(base_size = 20) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") +
+  theme_bw(base_size = 20) #<<
+```
 ]
 
 ---
@@ -2029,20 +1692,27 @@ ggplot(data = gapminder,
 # A Simpler Example: Boxplots
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, 
        aes(x = continent, y = lifeExp)) +
   geom_boxplot(fill = "lightblue") +
   theme_bw(base_size = 20) +
-* labs(title = "Life expectancy by Continent",
-*      x = "",
-*      y = "")
+  labs(title = "Life expectancy by Continent", #<<
+       x = "", #<<
+       y = "") #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-110-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") +
+  theme_bw(base_size = 20) +
+  labs(title = "Life expectancy by Continent", #<<
+       x = "", #<<
+       y = "") #<<
+```
 ]
 
 ---
@@ -2050,21 +1720,30 @@ ggplot(data = gapminder,
 # A Simpler Example: Boxplots
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(fill = "lightblue") +
   theme_bw(base_size = 20) +
   labs(title = "Life expectancy by Continent", 
        x = "", 
        y = "") +
-* theme(plot.title =
-*         element_text(hjust = 0.5))
+  theme(plot.title = #<<
+          element_text(hjust = 0.5)) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-112-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") +
+  theme_bw(base_size = 20) +
+  labs(title = "Life expectancy by Continent", 
+       x = "", 
+       y = "") +
+  theme(plot.title = #<<
+          element_text(hjust = 0.5)) #<<
+```
 ]
 
 ---
@@ -2072,8 +1751,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 # A Simpler Example: Boxplots
 
 .pull-left[
-
-```r
+```{r, eval = FALSE}
 ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
   geom_boxplot(fill = "lightblue") +
   theme_bw(base_size = 20) +
@@ -2082,12 +1760,23 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
        y = "") +
   theme(plot.title =
           element_text(hjust = 0.5)) +
-* ylim(c(0, 85))
+  ylim(c(0, 85)) #<<
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-114-1.png)&lt;!-- --&gt;
+```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
+ggplot(data = gapminder, 
+       aes(x = continent, y = lifeExp)) +
+  geom_boxplot(fill = "lightblue") +
+  theme_bw(base_size = 20) +
+  labs(title = "Life expectancy by Continent", 
+       x = "", 
+       y = "") +
+  theme(plot.title =
+          element_text(hjust = 0.5)) +
+  ylim(c(0, 85)) #<<
+```
 ]
 
 ---
@@ -2155,21 +1844,51 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 # One Numeric Variable: Histogram 
 ### `geom_histogram()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-115-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 7, fig.align='center'}
+ggplot(gapminder, aes(x = lifeExp)) + 
+  geom_histogram() + 
+  labs(x = "Life Expectancy",
+       y = "Count",
+       title = "Distribution of Life Expectancy") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
 # One Numeric Variable: Boxplot
 ### `geom_boxplot()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-116-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 7, fig.align='center'}
+ggplot(gapminder, aes(y = lifeExp)) + 
+  geom_boxplot() + 
+  labs(x = "",
+       y = "Life Expectancy",
+       title = "Distribution of Life Expectancy") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5),
+        axis.ticks.x = element_blank(),
+        axis.text.x = element_blank()) +
+  ylim(c(0,90))
+```
 
 ---
 
 # One Categorical Variable: Bar Chart
 ### `geom_bar()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 7, fig.align='center'}
+ggplot(gapminder, aes(x = continent)) + 
+  geom_bar() + 
+  labs(x = "Continent",
+       y = "Count",
+       title = "Distribution of Continent") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
@@ -2178,7 +1897,16 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 Here, we have multiple observations for each category. 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-118-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 6, fig.align='center'}
+ggplot(gapminder, aes(x = continent, y = lifeExp)) + 
+  geom_boxplot() + 
+  labs(x = "Continent",
+       y = "Life Expectancy",
+       title = "Life Expectancy by Continent") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
@@ -2187,14 +1915,37 @@ Here, we have multiple observations for each category.
 
 Here, we have only one observation per category.
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 5.5, fig.align='center'}
+mean_lifeExp <- gapminder %>%
+  group_by(continent) %>%
+  summarise(mean_lifeExp = mean(lifeExp))
+
+ggplot(mean_lifeExp, aes(x = continent, y = mean_lifeExp)) + 
+  geom_bar(stat = "identity") + 
+  labs(x = "Continent",
+       y = "Mean Life Expectancy",
+       title = "Mean Life Expectancy by Continent") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
 # Two Numeric Variables: Scatterplot
 ### `geom_point()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 7, fig.align='center'}
+ggplot(gapminder, aes(y = lifeExp, x = log(gdpPercap))) + 
+  geom_point() + 
+  labs(y = "Life expectancy",
+       x = "Log GDP per capita",
+       title = "Life Expectancy by Log GDP per capita") + 
+  ylim(c(0,90)) + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
@@ -2203,14 +1954,41 @@ Here, we have only one observation per category.
 
 Note: When making a line plot, we should use both `geom_point()` and `geom_line()`! 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-121-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 6, fig.align='center'}
+time_maxlifeExp <- gapminder %>%
+  group_by(year) %>%
+  summarise(maxlifeExp = max(lifeExp))
+
+ggplot(time_maxlifeExp, aes(x = year, y = maxlifeExp)) + 
+  geom_line() + 
+  geom_point() + 
+  labs(y = "Maximum life expectancy",
+       x = "Year",
+       title = "Maximum Life Expectancy by Year") + 
+  ylim(c(0,85)) + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
 # Two Categorical Variables
 ### `geom_bar()` setting `x` and `fill` within `aes()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
+```{r echo = FALSE, message=FALSE, fig.height = 6, fig.align='center'}
+gapminder <- gapminder %>% 
+  mutate(lifeExpCat = ifelse(lifeExp > 60, TRUE, FALSE))
+ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) + 
+  geom_bar() + 
+  xlab("Continent") + 
+  ylab("Count") + 
+  labs(fill = "Life Exp. > 60") + 
+  ggtitle("Distribution of Continent and Life Expectancy") + 
+  theme_bw(base_size = 16) + 
+  theme(plot.title = 
+          element_text(hjust = 0.5)) 
+```
 
 ---
 
@@ -2227,139 +2005,3 @@ Note: When making a line plot, we should use both `geom_point()` and `geom_line(
 Note: Recall our example in the step-by-step practice with `ggplot2`.
 
   
-    </textarea>
-<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
-<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
-<script>var slideshow = remark.create({
-"highlightStyle": "tomorrow-night-bright",
-"highlightLines": true,
-"countIncrementalSlides": false
-});
-if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
-  window.dispatchEvent(new Event('resize'));
-});
-(function(d) {
-  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
-  if (!r) return;
-  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
-  d.head.appendChild(s);
-})(document);
-
-(function(d) {
-  var el = d.getElementsByClassName("remark-slides-area");
-  if (!el) return;
-  var slide, slides = slideshow.getSlides(), els = el[0].children;
-  for (var i = 1; i < slides.length; i++) {
-    slide = slides[i];
-    if (slide.properties.continued === "true" || slide.properties.count === "false") {
-      els[i - 1].className += ' has-continuation';
-    }
-  }
-  var s = d.createElement("style");
-  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
-  d.head.appendChild(s);
-})(document);
-// delete the temporary CSS (for displaying all slides initially) when the user
-// starts to view slides
-(function() {
-  var deleted = false;
-  slideshow.on('beforeShowSlide', function(slide) {
-    if (deleted) return;
-    var sheets = document.styleSheets, node;
-    for (var i = 0; i < sheets.length; i++) {
-      node = sheets[i].ownerNode;
-      if (node.dataset["target"] !== "print-only") continue;
-      node.parentNode.removeChild(node);
-    }
-    deleted = true;
-  });
-})();
-// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
-// screen reader (see PR #262)
-(function(d) {
-  let res = {};
-  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
-    const t = tr.querySelector('td:nth-child(2)').innerText;
-    tr.querySelectorAll('td:first-child .key').forEach(key => {
-      const k = key.innerText;
-      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
-    });
-  });
-  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
-})(document);
-(function() {
-  "use strict"
-  // Replace <script> tags in slides area to make them executable
-  var scripts = document.querySelectorAll(
-    '.remark-slides-area .remark-slide-container script'
-  );
-  if (!scripts.length) return;
-  for (var i = 0; i < scripts.length; i++) {
-    var s = document.createElement('script');
-    var code = document.createTextNode(scripts[i].textContent);
-    s.appendChild(code);
-    var scriptAttrs = scripts[i].attributes;
-    for (var j = 0; j < scriptAttrs.length; j++) {
-      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
-    }
-    scripts[i].parentElement.replaceChild(s, scripts[i]);
-  }
-})();
-(function() {
-  var links = document.getElementsByTagName('a');
-  for (var i = 0; i < links.length; i++) {
-    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
-      links[i].target = '_blank';
-    }
-  }
-})();
-// adds .remark-code-has-line-highlighted class to <pre> parent elements
-// of code chunks containing highlighted lines with class .remark-code-line-highlighted
-(function(d) {
-  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
-  const preParents = [];
-  const findPreParent = function(line, p = 0) {
-    if (p > 1) return null; // traverse up no further than grandparent
-    const el = line.parentElement;
-    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
-  };
-
-  for (let line of hlines) {
-    let pre = findPreParent(line);
-    if (pre && !preParents.includes(pre)) preParents.push(pre);
-  }
-  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
-})(document);</script>
-
-<script>
-slideshow._releaseMath = function(el) {
-  var i, text, code, codes = el.getElementsByTagName('code');
-  for (i = 0; i < codes.length;) {
-    code = codes[i];
-    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
-      text = code.textContent;
-      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
-          /^\$\$(.|\s)+\$\$$/.test(text) ||
-          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
-        code.outerHTML = code.innerHTML;  // remove <code></code>
-        continue;
-      }
-    }
-    i++;
-  }
-};
-slideshow._releaseMath(document);
-</script>
-<!-- dynamically load mathjax for compatibility with self-contained -->
-<script>
-(function () {
-  var script = document.createElement('script');
-  script.type = 'text/javascript';
-  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
-  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
-    script.src  = script.src.replace(/^https?:/, '');
-  document.getElementsByTagName('head')[0].appendChild(script);
-})();
-</script>
-  </body>
-</html>
