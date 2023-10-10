@@ -2,7 +2,6 @@
 layout: splash
 title: "Statistical Computing (STAT 302)"
 collection: teaching
-categories: instructor
 type: "Undergraduate Statistics Major Course"
 permalink: /teaching/stat302_uw
 venue: "Department of Statistics, University of Washington (Autumn 2023)"
