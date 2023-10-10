@@ -26,5 +26,5 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 2 -- Data Structures in R: [.html](file_stat302/Lectures/Lecture2_Data_Structures.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture2_Data_Structures.Rmd).
 - Lecture 3 -- Programming Fundamentals: [.html](file_stat302/Lectures/Lecture3_Programming.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture3_Programming.Rmd).
 - Lecture 4 -- Data Manipulation and Visualization: [.html](file_stat302/Lectures/Lecture4_Data_Visualization.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization.Rmd).
-- Lecture 5 -- Writing Functions And Debugging: [.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [.Rmd]().
+- Lecture 5 -- Writing Functions And Debugging: [.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug.Rmd).
 
