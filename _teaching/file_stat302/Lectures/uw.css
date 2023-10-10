@@ -98,6 +98,10 @@ a:hover {
   clear: both;
 }
 
+pre code {
+  white-space: pre-wrap;
+}
+
 /*~~~~~~~~~~~~~~~~~~~~~~*/
 /* UW-STAT additions */
 /*~~~~~~~~~~~~~~~~~~~~~~*/
