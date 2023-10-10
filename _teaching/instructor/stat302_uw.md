@@ -16,4 +16,10 @@ Driven by the era of big data, computational data analysis has become an indispe
 	
  STAT 302 stands as an introductory statistical computing course designed to equip undergraduate students with essential programming skills, preparing them for more advanced data analysis and machine learning courses. Without assuming extensive programming background, students will learn the core of ideas of programming -- data structures, functions, iteration, debugging, logical design, and abstraction -- through writing code to tackle various statistical and numerical analysis problems. _The course will be taught in the R programming language_.
 
+### Course Syllabus
 
+- [Syllabus (Autumn 2023)](file_stat302/Syllabus_Aut2023.pdf)
+
+### Lecture Slides
+
+- Lecture 1 -- Introduction and R Basics [.html](file_stat302/Lectures/Lecture1_Rintro.html), [.Rmd]().
