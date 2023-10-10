@@ -1,0 +1,83 @@
+---
+title: "Lecture 2 Testing"
+author: "Yikun Zhang"
+date: "2023-10-02"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+# Lecture 1 & Lecture 2
+
+```{r include=FALSE}
+a = 1 + 2
+cos(pi)
+log(64, base = 2)
+
+6 > 3
+6 < 3
+6 == 3
+6 <= 3
+6 >= 3
+
+!(6 < 7)
+
+typeof(as.integer(8))
+
+typeof('7')
+
+dept = paste("Statistics", "Data Science", sep = ",")
+dept
+
+y = c(7.5, as.integer(8), 10+4i, "c")
+class(y)
+
+6:10
+
+x = c(7, 8, 10, 45, 2)
+x > 9
+which(x > 9)
+
+
+z = c(3, 2, 31, 10)
+names(z) = c("v1","v2","v3","fred")
+names(z)[2] = "b"
+z
+
+x = c(7, 8, 10, 45, 2)
+(x > 9) & (x < 6)
+sort(x) == x[order(x)]
+```
+
+```{r}
+x = c(7, 8, 10, 45, 20, 1)
+# Create a 3-by-2 array using the elements in `x`
+x_arr = array(x, dim = c(3, 2))
+y = c(2, 3, 4)
+arr1 = cbind(x_arr, y)
+arr1
+rowMeans(arr1)
+
+my_list = list("exponential", 7, c(FALSE, TRUE), c(1,6,2))
+my_list[[6]] = c("a", "3", "UW STAT")
+my_list
+```
+
+```{r fig.height=5, fig.width=10}
+a_mat = matrix(c(35, 8, 10, 4, 12, 20, 10, 11, 1, 2), 
+               ncol=2)
+colnames(a_mat) = c("v1","v2")
+data.frame(a_mat)
+
+a = 1
+aa = 1
+aaa = 2
+mean (x, na.rm = TRUE)
+```
+
+# Lecture 3
+
+```{r}
+
+```
+

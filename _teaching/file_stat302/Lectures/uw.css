@@ -1,0 +1,151 @@
+.remark-slide-content {
+  border-top: 5px solid #b7a57a;
+  border-bottom: 5px solid #b7a57a;
+  font-size: 1.6em;
+  padding: 1em 2em 1em 2em;
+}
+
+.remark-slide-scaler {
+    overflow-y: auto;
+}
+
+.remark-slide-content > h1 {
+  margin-top: -15px;
+  margin-left: 0px;
+  margin-right: 0px;
+  margin-bottom: 0px;
+  font-size: 42px;
+}
+
+.inverse {
+  background-color: #fff;
+  border-top: 5px solid #b7a57a;
+  border-bottom: 5px solid #b7a57a;
+  font-color: #85754d;
+  text-align: center;
+  vertical-align: middle;
+  text-shadow: none;
+  background-image: url(https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/husky_footprint.png);
+  background-position: 93% 93%;
+  background-size: 200px;
+}
+
+.inverse, .inverse h1, .inverse h2, .inverse a {
+  color: #85754d;
+}
+
+.inverse h3 {
+  color: #000;
+}
+
+.inverse code {
+  color: #4b2e83;
+}
+
+.footnote {
+  border-top: 1px solid #85754d;
+  font-size: 0.8em;
+}
+
+.remark-slide-number {
+  font-size: 13pt;
+  color: #85754d;
+  opacity: 1;
+}
+.inverse .remark-slide-number {
+  font-size: 13pt;
+  color: #85754d;
+  opacity: 1;
+}
+
+.remark-code-line-highlighted { background-color: rgba(225, 224, 0, 0.6); }
+
+h1, h2 {
+  color: #4b2e83;
+}
+
+h3 {
+  color: #47484D;
+  margin: 0px;
+  padding: 0px;
+}
+
+code {
+  color: #4b2e83;
+  text-decoration: none;
+}
+
+a {
+  color: #3F97B5;
+  text-decoration: none;
+  transition: all .2s ease-in-out;
+}
+
+a:hover {
+    font-size: 1.2em;
+    color: #EC008C;
+}
+
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+
+/*~~~~~~~~~~~~~~~~~~~~~~*/
+/* UW-STAT additions */
+/*~~~~~~~~~~~~~~~~~~~~~~*/
+
+.title-slide {
+  background-image: url(https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/uwstat.png), url(https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/Signature_Left_Purple_Hex.png);
+  background-position: 96% 96%, 5% 5%;
+  background-size: 250px, 400px;
+  border: none;
+}
+
+.title-slide h1 {
+  padding-top: 260px;
+  font-size: 55px;
+  text-align: left;
+  padding-bottom: 18px;
+  margin-bottom: 18px;
+}
+
+.title-slide h2 {
+  font-size: 40px;
+  text-align: left;
+  padding-top: 0px;
+  margin-top: 0px;
+}
+
+.title-slide h3 {
+  font-size: 30px;
+  color: #47484D;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+.title-slide h4 {
+  font-size: 20px;
+  color: #47484D;
+  text-align: left;
+  text-shadow: none;
+  padding: 0px;
+  margin: 0px;
+  line-height: 1;
+}
+
+.title-slide .remark-slide-number {
+  display: none;
+}
+
+.mjx-chtml { font-size: 100% !important; }
