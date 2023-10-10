@@ -3,7 +3,7 @@ layout: splash
 title: "Statistical Inference (STAT 512)"
 collection: teaching
 type: "Master-level statistical inference course"
-permalink: /teaching/stat512_uw_ta
+permalink: /teaching_ta/stat512_uw_ta
 venue: "Department of Statistics, University of Washington (Autumn 2022)"
 location: "Seattle, WA, USA"
 ---
