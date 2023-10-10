@@ -166,6 +166,9 @@ collections:
   teaching:
     output: true
     permalink: /:collection/:path/
+  instructor:
+    output: true
+    permalink: /:collection/:path/
   publications:
     output: true
     permalink: /:collection/:path/
