@@ -2,6 +2,7 @@
 layout: splash
 title: "Matrix Analysis and its Applications"
 collection: teaching
+categories: teaching-assistant
 type: "Undergraduate Honor Course"
 permalink: /teaching/spring_2018
 venue: "School of Mathematics, Sun Yat-Sen University (Spring 2018)"
