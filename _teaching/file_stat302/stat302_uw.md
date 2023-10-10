@@ -22,7 +22,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Lecture Slides
 
-- Lecture 1 -- Introduction and R Basics: [.html](file_stat302/Lectures/Lecture1_Rintro.html), [.Rmd]().
-- Lecture 2 -- Data Structures in R: [.html](file_stat302/Lectures/Lecture2_Data_Structures.html), [.Rmd]().
-- Lecture 3 -- Programming Fundamentals: [.html](file_stat302/Lectures/Lecture3_Programming.html), [.Rmd]().
+- Lecture 1 -- Introduction and R Basics: [.html](file_stat302/Lectures/Lecture1_Rintro.html).
+- Lecture 2 -- Data Structures in R: [.html](file_stat302/Lectures/Lecture2_Data_Structures.html).
+- Lecture 3 -- Programming Fundamentals: [.html](file_stat302/Lectures/Lecture3_Programming.html).
 
