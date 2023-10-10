@@ -21,7 +21,7 @@ CSE547 / STAT548 is a graduate-level machine learning course jointly offered by 
 
 ### Course Website
 
-[CSE547/STAT548: Machine Learning for Big Data (Winter 2023)](https://courses.cs.washington.edu/courses/cse547/23wi/)
+- [CSE547/STAT548: Machine Learning for Big Data (Winter 2023)](https://courses.cs.washington.edu/courses/cse547/23wi/)
 
 ### Recitation Notes
 
