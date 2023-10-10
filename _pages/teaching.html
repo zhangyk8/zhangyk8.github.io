@@ -8,6 +8,14 @@ author_profile: false
 <h1>Teaching Experience</h1>
 
 <br>
+<big> <i> Instructor:</i> </big>
+{% include base_path %}
+
+{% for post in site.teaching.instructor reversed %}
+  {% include archive-single.html %}
+{% endfor %}
+
+<br>
 <big> <i> Teaching Assistant:</i> </big>
 {% include base_path %}
 
