@@ -19,8 +19,10 @@ author_profile: false
 <big> <i> Teaching Assistant:</i> </big>
 {% include base_path %}
 
-{% for post in site.categories.teaching-assistant %}
-  {% include archive-single.html %}
+{% for post in site.teaching %}
+  {% if post.path contains '_ta' %}
+     {% include archive-single.html %}
+  {% endif %}
 {% endfor %}
 
 <br>
