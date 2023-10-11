@@ -44,7 +44,11 @@ class: inverse
 
 R packages contain code, data, and documentation in a standardized collection format that can be installed and utilized by users of R.
 
+--
+
   - There are 19,961+ official R packages available on [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/web/packages/available_packages_by_name.html). Apart from that, some unofficial R packages are also posted on [GitHub](https://github.com/).
+  
+--
 
   - These packages implement miscellaneous statistical methods using functions in R, which makes our programming and data analysis easier.
   
@@ -62,7 +66,7 @@ If a package is officially available on [CRAN](https://cran.r-project.org/web/pa
 install.packages("PACKAGE_NAME_IN_QUOTES")
 ```
 
-Or we can use the "_Packages_" tab in the lower right panel and click the "_Install_" button to install an official package in RStudio.
+Or, we can use the "_Packages_" tab in the lower right panel and click the "_Install_" button to install an official package in RStudio.
 
 - After a package is installed, it is saved on our computer until we update R, and we don't need to re-install it. 
 
@@ -81,7 +85,7 @@ install.packages("pkgname.tar.gz", repos = NULL, type ="source")
 
 # How Can We Use R Packages?
 
-After a package is installed, we can load it into our current R session using `library()`:
+After a package is installed, we can load it into our current R session using `library()` or `require()` if it is inside our customized function:
 
 ```{r eval=FALSE}
 library(PACKAGE_NAME)
@@ -91,9 +95,11 @@ library("PACKAGE_NAME")
 
 - Unlike `install.packages()`, it is not necessary to include the package name in quotes.
 
+--
+
 - Loading a package must be done with each new R session, so we should put calls to `library()` in our `.R` and `.Rmd` files whenever we use some R packages in our code.
 
-- In `.Rmd` files, we can load all the required packages in the opening chunk and set the parameter `include = FALSE` to hide the messages and code.
+- In `.Rmd` files, we can load all the required packages in the opening chunk and set the parameter `include = FALSE` in that chunk to hide the messages and code.
 
     `r '' ````{r, include = FALSE}
     ```
@@ -109,11 +115,13 @@ library(devtools)
 install_github("DeveloperName/PackageName")
 ```
 
-- Here is an example where we don't have to load the `devtools` package.
+Here is an example where we don't have to load the `devtools` package:
 
 ```{r eval=FALSE}
 devtools::install_github("zhangyk8/Debias-Infer", subdir = "R_Package")
 ```
+
+--
 
 The `githubinstall` package provides a function `githubinstall()`, which does not need developer's name.
 
@@ -156,12 +164,14 @@ Note: We only need to do this once!
 - These packages have a very consistent API as well as an active developer and user community.
 
   - [Ranking CRAN R Packages by Number of Downloads](https://www.datasciencemeta.com/rpackages).
+  
+--
 
 - Function names and commands follow a focused grammar.
     
 - The functions are powerful and fast when working with data frames and lists (matrices, not so much, yet!).
 
-- Pipes (`%>%` operator) allows us to fluidly glue functionality together 
+- Pipes (`%>%` operator) allows us to fluidly glue functionality together.
 
   - At its best, tidyverse code can be read like a story using the pipe operator!
 
@@ -169,7 +179,7 @@ Note: We only need to do this once!
 
 # Load `tidyverse` into R
 
-We can load all the `tidyverse` packages into our current R session using
+We can load all the `tidyverse` packages into our current R session using the `library()` function.
 
 ```{r}
 library(tidyverse)
@@ -179,11 +189,15 @@ library(tidyverse)
 
 # Conflicts in Using R Packages
 
-Recall that packages encapsulated functions written by different R developers.
+Recall that R packages encapsulate functions written by different R developers.
 
 - Occasionally, some of these functions in different packages may share the same name, which introduces a conflict. 
 
+--
+
 - Whichever package that we load more recently using `library()` will mask the old function, meaning that R will default to that version.
+
+--
 
 - In general, this is fine, especially with `tidyverse`. The conflict message is to make sure that we are aware of conflicts.
 
@@ -193,9 +207,11 @@ Recall that packages encapsulated functions written by different R developers.
 
 - The packages `dplyr` and `tidyr` are going to be our main workhorses for data manipulation.
 
-- The main structure used by these packages is the data frame (or tibble, but we won't go there).
+- The main data type used by these packages is the data frame (or tibble, but we won't go there).
 
-- Learning pipes `%>%` will facilitate learning the `dplyr` and `tidyr` verbs (functions).
+--
+
+- Learning pipes `%>%` will facilitate our learning of the `dplyr` and `tidyr` verbs (functions).
 
 - The functions in `dplyr` are analogous to SQL counterparts, so learning `dplyr` will get some SQL syntax for free!
 
@@ -206,6 +222,8 @@ Recall that packages encapsulated functions written by different R developers.
 Piping at its most basic level:
 
   - _It uses the `%>%` operator to take the output from a previous function call and "pipe" it through to the next function, in order to form a flow of results._
+
+--
 
 This can really help with the readability of code when we use multiple nested functions!
 
@@ -229,7 +247,9 @@ x %>% f %>% g %>% h
 
 Note: In our mind, when we see the `%>%` operator, we should read this as "and then".
 
-Example: We can write `exp(1)` with pipes as `1 %>% exp`, and `log(exp(1))` as `1 %>% exp %>% log`.
+--
+
+We can write `exp(1)` with pipes as `1 %>% exp`, and `log(exp(1))` as `1 %>% exp %>% log`.
 
 ```{r}
 1 %>% exp
@@ -246,7 +266,9 @@ For multi-arguments functions, we interpret the following code as $f(x,y)$.
 x %>% f(y)
 ```
 
-Example: We can subset top 1 row of the `mcars` data frame using
+--
+
+We can subset top 1 row of the `mcars` data frame using the following pipes syntax.
 
 ```{r}
 # Syntax in basic R
@@ -265,6 +287,8 @@ The command `x %>% f(y)` can be equivalently written in **dot notation** as:
 ```{r eval=FALSE}
 x %>% f(., y)
 ```
+
+--
 
 What is the advantage of using dots? 
 
@@ -361,7 +385,7 @@ mtcars %>% filter((mpg >= 20 & disp >= 200) | (drat <= 3))
 
 # `filter()` Function
 
-An alternative approach using `subset()` function: 
+An alternative approach using `subset()` function in base R: 
 
 ```{r}
 subset(mtcars, (mpg >= 20 & disp >= 200) | (drat <= 3))
@@ -371,7 +395,7 @@ subset(mtcars, (mpg >= 20 & disp >= 200) | (drat <= 3))
 
 # `filter()` Function
 
-An alternative approaches using a basic R syntax:
+An alternative approaches using the basic R syntax:
 
 ```{r}
 mtcars[(mtcars$mpg >= 20 & mtcars$disp >= 200) | (mtcars$drat <= 3), ]
@@ -399,7 +423,11 @@ The `summarize()` function is to apply computations across groups of rows.
 ```{r}
 # Ungrouped
 summarize(mtcars, mpg_avg = mean(mpg), hp_avg = mean(hp))
+```
 
+--
+
+```{r}
 # Grouped by number of cylinders
 summarize(group_by(mtcars, cyl), mpg_avg = mean(mpg), hp_avg = mean(hp))
 ```
@@ -447,7 +475,7 @@ mtcars %>%
   arrange(desc(mpg)) %>% 
   head(3)
 
-# Base R
+# Base R syntax
 mpg_inds_decr = order(mtcars$mpg, decreasing = TRUE)
 head(mtcars[mpg_inds_decr, ], 4)
 ```
@@ -478,7 +506,7 @@ mtcars %>%
 
 
 ```{r}
-# Base R
+# Base R syntax
 head(mtcars[, c("cyl", "disp", "hp")], 3)
 ```
 
@@ -491,7 +519,7 @@ mtcars %>%
   select(starts_with("d")) %>% 
   head(3)
 
-# Base R
+# Base R syntax
 d_colnames = grep(x = colnames(mtcars), pattern = "^d")
 head(mtcars[, d_colnames], 3)
 ```
@@ -529,6 +557,8 @@ mtcars = mtcars %>%
 mtcars$hp_wt = mtcars$hp/mtcars$wt
 mtcars$mpg_wt = mtcars$mpg/mtcars$wt
 ```
+
+--
 
 The newly created variables can be used immediately.
 
@@ -573,6 +603,8 @@ Learning `dplyr` also facilitates our understanding of SQL syntax.
 
 - This will make it easier for tasks that require using both R and SQL to manage data and build statistical models.
 
+--
+
 - Another major link to SQL is through merging or joining data frames, via `left_join()` and `inner_join()` functions.
 
   - More details can be found in [this web page](https://dplyr.tidyverse.org/reference/mutate-joins.html) and [Chapter 13 of the book "R for Data Science"](https://r4ds.had.co.nz/relational-data.html).
@@ -611,7 +643,7 @@ Here, we transposed columns 2:4 into a "year" column and put the corresponding c
 - The `pivot_longer()` function did all the heavy lifting of the transposing work, and we just had to specify the output.
 
 ```{r}
-# Different approach to do the same thing
+# A different approach that does the same thing
 EDAWR::cases %>% 
   pivot_longer(names_to = "year", values_to = "n", -country) 
 ```
@@ -828,7 +860,7 @@ hist(king_wlens + 5, col=rgb(0,0.5,0.5,0.5),
 
 # Adding a Density Curve to a Histogram
 
-To estimate a density from a numeric vector, we use the `density()` function.
+To estimate a density from a numeric vector, we use the `density()` function; see [this note](http://faculty.washington.edu/yenchic/19A_stat535/Lec2_density.pdf) and [this tutorial](https://arxiv.org/pdf/1704.03924.pdf) for more details. 
 
 ```{r}
 density_est = density(king_wlens, adjust=1.5) # 1.5 times the default bandwidth
@@ -1466,6 +1498,9 @@ It will lead to lower quality and non-reproducible figures!
 * What we just made was a *very* complicated and fine-tuned plot!
 
 * It is very common that we have to Google how to adjust certain things all the time.
+
+--
+
 * So does the creator of `ggplot2`:
 
 <p align="center">
@@ -2004,4 +2039,7 @@ ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) +
   
 Note: Recall our example in the step-by-step practice with `ggplot2`.
 
-  
+---
+# Reminder
+
+Submit Lab 4 on Canvas by the end of Monday (October 30)!! Start earlier!!

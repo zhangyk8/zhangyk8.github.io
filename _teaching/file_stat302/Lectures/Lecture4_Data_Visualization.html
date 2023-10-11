@@ -54,7 +54,11 @@ class: inverse
 
 R packages contain code, data, and documentation in a standardized collection format that can be installed and utilized by users of R.
 
+--
+
   - There are 19,961+ official R packages available on [Comprehensive R Archive Network (CRAN)](https://cran.r-project.org/web/packages/available_packages_by_name.html). Apart from that, some unofficial R packages are also posted on [GitHub](https://github.com/).
+  
+--
 
   - These packages implement miscellaneous statistical methods using functions in R, which makes our programming and data analysis easier.
   
@@ -73,7 +77,7 @@ If a package is officially available on [CRAN](https://cran.r-project.org/web/pa
 install.packages("PACKAGE_NAME_IN_QUOTES")
 ```
 
-Or we can use the "_Packages_" tab in the lower right panel and click the "_Install_" button to install an official package in RStudio.
+Or, we can use the "_Packages_" tab in the lower right panel and click the "_Install_" button to install an official package in RStudio.
 
 - After a package is installed, it is saved on our computer until we update R, and we don't need to re-install it. 
 
@@ -93,7 +97,7 @@ install.packages("pkgname.tar.gz", repos = NULL, type ="source")
 
 # How Can We Use R Packages?
 
-After a package is installed, we can load it into our current R session using `library()`:
+After a package is installed, we can load it into our current R session using `library()` or `require()` if it is inside our customized function:
 
 
 ```r
@@ -104,9 +108,11 @@ library("PACKAGE_NAME")
 
 - Unlike `install.packages()`, it is not necessary to include the package name in quotes.
 
+--
+
 - Loading a package must be done with each new R session, so we should put calls to `library()` in our `.R` and `.Rmd` files whenever we use some R packages in our code.
 
-- In `.Rmd` files, we can load all the required packages in the opening chunk and set the parameter `include = FALSE` to hide the messages and code.
+- In `.Rmd` files, we can load all the required packages in the opening chunk and set the parameter `include = FALSE` in that chunk to hide the messages and code.
 
     ```{r, include = FALSE}
     ```
@@ -123,12 +129,14 @@ library(devtools)
 install_github("DeveloperName/PackageName")
 ```
 
-- Here is an example where we don't have to load the `devtools` package.
+Here is an example where we don't have to load the `devtools` package:
 
 
 ```r
 devtools::install_github("zhangyk8/Debias-Infer", subdir = "R_Package")
 ```
+
+--
 
 The `githubinstall` package provides a function `githubinstall()`, which does not need developer's name.
 
@@ -173,12 +181,14 @@ Note: We only need to do this once!
 - These packages have a very consistent API as well as an active developer and user community.
 
   - [Ranking CRAN R Packages by Number of Downloads](https://www.datasciencemeta.com/rpackages).
+  
+--
 
 - Function names and commands follow a focused grammar.
     
 - The functions are powerful and fast when working with data frames and lists (matrices, not so much, yet!).
 
-- Pipes (`%&gt;%` operator) allows us to fluidly glue functionality together 
+- Pipes (`%&gt;%` operator) allows us to fluidly glue functionality together.
 
   - At its best, tidyverse code can be read like a story using the pipe operator!
 
@@ -186,7 +196,7 @@ Note: We only need to do this once!
 
 # Load `tidyverse` into R
 
-We can load all the `tidyverse` packages into our current R session using
+We can load all the `tidyverse` packages into our current R session using the `library()` function.
 
 
 ```r
@@ -211,11 +221,15 @@ library(tidyverse)
 
 # Conflicts in Using R Packages
 
-Recall that packages encapsulated functions written by different R developers.
+Recall that R packages encapsulate functions written by different R developers.
 
 - Occasionally, some of these functions in different packages may share the same name, which introduces a conflict. 
 
+--
+
 - Whichever package that we load more recently using `library()` will mask the old function, meaning that R will default to that version.
+
+--
 
 - In general, this is fine, especially with `tidyverse`. The conflict message is to make sure that we are aware of conflicts.
 
@@ -225,9 +239,11 @@ Recall that packages encapsulated functions written by different R developers.
 
 - The packages `dplyr` and `tidyr` are going to be our main workhorses for data manipulation.
 
-- The main structure used by these packages is the data frame (or tibble, but we won't go there).
+- The main data type used by these packages is the data frame (or tibble, but we won't go there).
 
-- Learning pipes `%&gt;%` will facilitate learning the `dplyr` and `tidyr` verbs (functions).
+--
+
+- Learning pipes `%&gt;%` will facilitate our learning of the `dplyr` and `tidyr` verbs (functions).
 
 - The functions in `dplyr` are analogous to SQL counterparts, so learning `dplyr` will get some SQL syntax for free!
 
@@ -238,6 +254,8 @@ Recall that packages encapsulated functions written by different R developers.
 Piping at its most basic level:
 
   - _It uses the `%&gt;%` operator to take the output from a previous function call and "pipe" it through to the next function, in order to form a flow of results._
+
+--
 
 This can really help with the readability of code when we use multiple nested functions!
 
@@ -263,7 +281,9 @@ x %&gt;% f %&gt;% g %&gt;% h
 
 Note: In our mind, when we see the `%&gt;%` operator, we should read this as "and then".
 
-Example: We can write `exp(1)` with pipes as `1 %&gt;% exp`, and `log(exp(1))` as `1 %&gt;% exp %&gt;% log`.
+--
+
+We can write `exp(1)` with pipes as `1 %&gt;% exp`, and `log(exp(1))` as `1 %&gt;% exp %&gt;% log`.
 
 
 ```r
@@ -293,7 +313,9 @@ For multi-arguments functions, we interpret the following code as `\(f(x,y)\)`.
 x %&gt;% f(y)
 ```
 
-Example: We can subset top 1 row of the `mcars` data frame using
+--
+
+We can subset top 1 row of the `mcars` data frame using the following pipes syntax.
 
 
 ```r
@@ -326,6 +348,8 @@ The command `x %&gt;% f(y)` can be equivalently written in **dot notation** as:
 ```r
 x %&gt;% f(., y)
 ```
+
+--
 
 What is the advantage of using dots? 
 
@@ -451,7 +475,7 @@ mtcars %&gt;% filter((mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
 
 # `filter()` Function
 
-An alternative approach using `subset()` function: 
+An alternative approach using `subset()` function in base R: 
 
 
 ```r
@@ -471,7 +495,7 @@ subset(mtcars, (mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
 
 # `filter()` Function
 
-An alternative approaches using a basic R syntax:
+An alternative approaches using the basic R syntax:
 
 
 ```r
@@ -526,6 +550,9 @@ summarize(mtcars, mpg_avg = mean(mpg), hp_avg = mean(hp))
 ##    mpg_avg   hp_avg
 ## 1 20.09062 146.6875
 ```
+
+--
+
 
 ```r
 # Grouped by number of cylinders
@@ -621,7 +648,7 @@ mtcars %&gt;%
 ```
 
 ```r
-# Base R
+# Base R syntax
 mpg_inds_decr = order(mtcars$mpg, decreasing = TRUE)
 head(mtcars[mpg_inds_decr, ], 4)
 ```
@@ -679,7 +706,7 @@ mtcars %&gt;%
 
 
 ```r
-# Base R
+# Base R syntax
 head(mtcars[, c("cyl", "disp", "hp")], 3)
 ```
 
@@ -709,7 +736,7 @@ mtcars %&gt;%
 ```
 
 ```r
-# Base R
+# Base R syntax
 d_colnames = grep(x = colnames(mtcars), pattern = "^d")
 head(mtcars[, d_colnames], 3)
 ```
@@ -773,6 +800,8 @@ mtcars$hp_wt = mtcars$hp/mtcars$wt
 mtcars$mpg_wt = mtcars$mpg/mtcars$wt
 ```
 
+--
+
 The newly created variables can be used immediately.
 
 
@@ -817,6 +846,8 @@ Learning `dplyr` also facilitates our understanding of SQL syntax.
 - For example, `select()` is SELECT, `filter()` is WHERE, `arrange()` is ORDER BY, `group_by()` is GROUP BY, etc.
 
 - This will make it easier for tasks that require using both R and SQL to manage data and build statistical models.
+
+--
 
 - Another major link to SQL is through merging or joining data frames, via `left_join()` and `inner_join()` functions.
 
@@ -882,7 +913,7 @@ Here, we transposed columns 2:4 into a "year" column and put the corresponding c
 
 
 ```r
-# Different approach to do the same thing
+# A different approach that does the same thing
 EDAWR::cases %&gt;% 
   pivot_longer(names_to = "year", values_to = "n", -country) 
 ```
@@ -985,7 +1016,7 @@ y = x^3 + rnorm(50)
 plot(x, y)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-39-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -998,7 +1029,7 @@ The `type` argument controls the plot type. Default is "p" for points; set it to
 plot(x, y, type="b")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
 
 More details can be found by `?plot`.
 
@@ -1013,7 +1044,7 @@ The `main` argument controls the title; `xlab` and `ylab` are the x and y labels
 plot(x, y, main="A noisy cubic", xlab="My x variable", ylab="My y variable")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1026,7 +1057,7 @@ We use the `pch` argument to control point type.
 plot(x, y, pch = 19) # Filled circles
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1039,7 +1070,7 @@ We use the `lty` argument to control the line type, and `lwd` to control the lin
 plot(x, y, type="l", lty=2, lwd=3) # Dashed line, 3 times as thick
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1058,7 +1089,7 @@ The function `colors()` returns a string vector of the available colors
 plot(x, y, pch=19, col="red")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1075,7 +1106,7 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1092,7 +1123,7 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1153,7 +1184,7 @@ king_wlens = nchar(king_words)
 hist(king_wlens)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1169,13 +1200,13 @@ hist(king_wlens + 5, col=rgb(0,0.5,0.5,0.5),
      freq=FALSE, breaks=0:20, add=TRUE)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Adding a Density Curve to a Histogram
 
-To estimate a density from a numeric vector, we use the `density()` function.
+To estimate a density from a numeric vector, we use the `density()` function; see [this note](http://faculty.washington.edu/yenchic/19A_stat535/Lec2_density.pdf) and [this tutorial](https://arxiv.org/pdf/1704.03924.pdf) for more details. 
 
 
 ```r
@@ -1209,7 +1240,7 @@ hist(king_wlens, col="pink", freq=FALSE, breaks=0:20,
 lines(density_est, lwd=3)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-51-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1236,7 +1267,7 @@ To plot a heatmap of a numeric matrix, we use the `image()` function.
 image(mat) # Red means low, white means high
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-52-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1274,7 +1305,7 @@ clockwise90 = function(a) {
 image(clockwise90(mat))
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1289,7 +1320,7 @@ normal.mat = phi %o% phi
 image(normal.mat, col=terrain.colors(20)) # Terrain colors
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1303,7 +1334,7 @@ image(normal.mat, col=terrain.colors(20))
 contour(normal.mat, add=TRUE)
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
 
 ---
 class: inverse
@@ -1341,7 +1372,7 @@ library(gapminder)
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1361,7 +1392,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1383,7 +1414,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-62-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1402,7 +1433,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1421,7 +1452,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1441,7 +1472,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1469,7 +1500,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-70-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1497,7 +1528,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1522,7 +1553,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1563,7 +1594,7 @@ ggplot(data = gapminder,
 *      x = "Year", y = "Life Expectancy", legend = "Continent")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-75-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-76-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1608,7 +1639,7 @@ ggplot(data = gapminder,
 * theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-77-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-78-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -1650,7 +1681,7 @@ ggplot(data = gapminder,
 * theme_bw()
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-79-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-80-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1694,7 +1725,7 @@ ggplot(data = gapminder,
         legend.position = "none") 
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-81-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-82-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1737,7 +1768,7 @@ ggplot(data = gapminder,
 *       axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-83-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-84-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1781,7 +1812,7 @@ ggplot(data = gapminder,
 *       panel.spacing.x = unit(0.75, "cm"))
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-85-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-86-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1816,7 +1847,7 @@ Then, we can plot it by just calling our object.
 lifeExp_plot
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-87-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-88-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1842,6 +1873,9 @@ It will lead to lower quality and non-reproducible figures!
 * What we just made was a *very* complicated and fine-tuned plot!
 
 * It is very common that we have to Google how to adjust certain things all the time.
+
+--
+
 * So does the creator of `ggplot2`:
 
 &lt;p align="center"&gt;
@@ -1861,7 +1895,7 @@ It will lead to lower quality and non-reproducible figures!
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-90-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-91-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1878,7 +1912,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-92-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-93-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1895,7 +1929,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-94-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-95-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1913,7 +1947,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-96-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-97-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1932,7 +1966,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-98-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-99-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1953,7 +1987,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-100-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-101-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1969,7 +2003,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-102-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-103-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1986,7 +2020,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-104-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-105-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2003,7 +2037,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-107-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2021,7 +2055,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-109-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2042,7 +2076,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-110-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-111-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2064,7 +2098,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-112-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-113-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2087,7 +2121,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-114-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-115-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2155,21 +2189,21 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 # One Numeric Variable: Histogram 
 ### `geom_histogram()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-115-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-116-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # One Numeric Variable: Boxplot
 ### `geom_boxplot()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-116-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # One Categorical Variable: Bar Chart
 ### `geom_bar()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-118-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2178,7 +2212,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 Here, we have multiple observations for each category. 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-118-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2187,14 +2221,14 @@ Here, we have multiple observations for each category.
 
 Here, we have only one observation per category.
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Two Numeric Variables: Scatterplot
 ### `geom_point()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-121-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2203,14 +2237,14 @@ Here, we have only one observation per category.
 
 Note: When making a line plot, we should use both `geom_point()` and `geom_line()`! 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-121-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Two Categorical Variables
 ### `geom_bar()` setting `x` and `fill` within `aes()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-123-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2226,7 +2260,10 @@ Note: When making a line plot, we should use both `geom_point()` and `geom_line(
   
 Note: Recall our example in the step-by-step practice with `ggplot2`.
 
-  
+---
+# Reminder
+
+Submit Lab 4 on Canvas by the end of Monday (October 30)!! Start earlier!!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
