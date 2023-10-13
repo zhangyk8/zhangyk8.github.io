@@ -1,8 +1,8 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 4: Data Manipulation and Visualization"
-author: "Yikun Zhang"
-date: "*Autumn 2023*"
+author: "Yikun Zhang (_Autumn 2023_)"
+date: ""
 output:
   xaringan::moon_reader:
     css: ["uw.css", "fonts.css"]

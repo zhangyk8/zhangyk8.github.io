@@ -3,7 +3,7 @@
   <head>
     <title>STAT 302 Statistical Computing</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yikun Zhang" />
+    <meta name="author" content="Yikun Zhang (Autumn 2023)" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <script src="libs/kePrint/kePrint.js"></script>
     <link href="libs/lightable/lightable.css" rel="stylesheet" />
@@ -21,10 +21,7 @@ class: center, top, title-slide
 ## Lecture 2: Data Structures in R
 ]
 .author[
-### Yikun Zhang
-]
-.date[
-### <em>Autumn 2023</em>
+### Yikun Zhang (<em>Autumn 2023</em>)
 ]
 
 ---
@@ -1165,10 +1162,10 @@ a_df
 ```
 ##   v1 v2       Date binary
 ## 1 35 20 1965-05-16      0
-## 2  8 10 1965-05-17      1
+## 2  8 10 1965-05-17      0
 ## 3 10 11 1965-05-18      0
-## 4  4  1 1965-05-19      1
-## 5 12  2 1965-05-20      1
+## 4  4  1 1965-05-19      0
+## 5 12  2 1965-05-20      0
 ```
 
 
@@ -1189,10 +1186,10 @@ rbind(a_df, data.frame(v1=1, v2=32,
 ```
 ##   v1 v2       Date binary
 ## 1 35 20 1965-05-16    0.0
-## 2  8 10 1965-05-17    1.0
+## 2  8 10 1965-05-17    0.0
 ## 3 10 11 1965-05-18    0.0
-## 4  4  1 1965-05-19    1.0
-## 5 12  2 1965-05-20    1.0
+## 4  4  1 1965-05-19    0.0
+## 5 12  2 1965-05-20    0.0
 ## 6  1 32 2023-09-27   -1.1
 ```
 

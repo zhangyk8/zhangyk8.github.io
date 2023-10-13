@@ -3,7 +3,7 @@
   <head>
     <title>STAT 302 Statistical Computing</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yikun Zhang" />
+    <meta name="author" content="Yikun Zhang (Autumn 2023)" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="uw.css" type="text/css" />
     <link rel="stylesheet" href="fonts.css" type="text/css" />
@@ -19,10 +19,7 @@ class: center, top, title-slide
 ## Lecture 3: Programming Fundamentals
 ]
 .author[
-### Yikun Zhang
-]
-.date[
-### <em>Autumn 2023</em>
+### Yikun Zhang (<em>Autumn 2023</em>)
 ]
 
 ---
@@ -626,7 +623,7 @@ end_time = Sys.time()
 
 
 ```
-## The total execution time of the loop with concatenation is  3.902847  seconds!
+## The total execution time of the loop with concatenation is  4.093626  seconds!
 ```
 
 ---
@@ -658,7 +655,7 @@ all(log_vec1 ==  log_vec2)
 
 
 ```
-## The total execution time of the loop without concatenation is  0.01323795  seconds!
+## The total execution time of the loop without concatenation is  0.01508474  seconds!
 ```
 
 
@@ -816,7 +813,7 @@ cat("The `for` loop implementation takes ", end_time - start_time, " seconds to 
 ```
 
 ```
-## The `for` loop implementation takes  0.005782127  seconds to execute.
+## The `for` loop implementation takes  0.004875422  seconds to execute.
 ```
 
 ---
@@ -839,7 +836,7 @@ cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
 ```
 
 ```
-## The vectorization takes  0.002103567  seconds to execute.
+## The vectorization takes  0.001832247  seconds to execute.
 ```
 
 --
@@ -869,7 +866,7 @@ cat("The `for` loop implementation takes ", end_time - start_time, " seconds to 
 ```
 
 ```
-## The `for` loop implementation takes  0.0109129  seconds to execute.
+## The `for` loop implementation takes  0.01022601  seconds to execute.
 ```
 
 ---
@@ -892,7 +889,7 @@ cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
 ```
 
 ```
-## The vectorization takes  0.002125263  seconds to execute.
+## The vectorization takes  0.002448559  seconds to execute.
 ```
 
 ---
@@ -1097,7 +1094,7 @@ cat("The total execution time using `apply()` is ", end_time - start_time, " sec
 ```
 
 ```
-## The total execution time using `apply()` is  0.006670475  seconds!
+## The total execution time using `apply()` is  0.007205248  seconds!
 ```
 
 Note: Here, we use our customized function in `apply()`. More details about writing our own function will be discussed in the next lecture.
@@ -1120,7 +1117,7 @@ cat("The total execution time of a direct computations is ", end_time - start_ti
 ```
 
 ```
-## The total execution time of a direct computations is  0.002552986  seconds!
+## The total execution time of a direct computations is  0.003755093  seconds!
 ```
 
 ---
