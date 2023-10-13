@@ -37,13 +37,13 @@ Teaching Experience
 -->
 
 **Instructor:** 
-* [Statistical Computing (Autumn 2023)](teaching/stat302_uw)
+* [Statistical Computing (Autumn 2023)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
-* [Machine Learning for Big Data (Winter 2023)](teaching/stat548_uw)
-* [Statistical Inference (Autumn 2022)](teaching/stat512_uw)
-* [Matrix Analysis and its Applications (Spring 2018)](teaching/spring_2018)
-* [Fourier Analysis and its Applications (Fall 2017)](teaching/fall_2017)
+* [Machine Learning for Big Data (Winter 2023)](../teaching/stat548_uw)
+* [Statistical Inference (Autumn 2022)](../teaching/stat512_uw)
+* [Matrix Analysis and its Applications (Spring 2018)](../teaching/spring_2018)
+* [Fourier Analysis and its Applications (Fall 2017)](../teaching/fall_2017)
    
 Work Experience
 -----------
