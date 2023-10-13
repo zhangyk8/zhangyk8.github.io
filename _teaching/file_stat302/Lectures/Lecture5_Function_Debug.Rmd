@@ -92,7 +92,7 @@ Functional programming in R comprises two basic types of things/objects: **data*
 # Function Format in R
 
 ```{r}
-function_name <- function(param1, param2 = "default") {
+function_name = function(param1, param2 = "default") {
   # Body of the function
   return(output)
 }
@@ -102,7 +102,11 @@ function_name <- function(param1, param2 = "default") {
 
 * `function()` is a build-in statement for defining a function.
 
-* `param1`, `param2` are function parameters/arguments for the user to input. We can assign default values by setting them equal to something in the function definition.
+--
+
+* `param1`, `param2` are function parameters/arguments for the user to input some values. We can assign default values by setting them equal to something in the function definition.
+
+--
 
 * **Body** is the actual code that is executed.
 
@@ -118,7 +122,7 @@ function_name <- function(param1, param2 = "default") {
 
 - **Concrete**: Write code for a specific example.
 
-- **Abstract**: Identify the variables and decide if they are required or have defaults.
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
 
 - **Encapsulate**: Wrap the code into a function where the parameters are the general variables.
 
@@ -146,9 +150,9 @@ cat("The corresponding Celsius value is", temp_cel, "C.")
 
 # Steps in Writing a Function (Example 1)
 
-- **Abstract**: Identify the variables and decide if they are required or have defaults.
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
 
-  - The function should have one input argument/parameter and one output value (with a possible message that is printed to the console).
+  - In this case, the function should have one input argument/parameter and one output value (with a possible message that is printed to the console).
   
 - **Encapsulate**: Wrap the code into a function where the parameter is a general variable.
 
@@ -177,13 +181,13 @@ temp_cel1
 temp_cel2 = FahToCel(temp_fah = "50F")
 ```
 
-Note: Our function `FahToCel` cannot handle the non-numeric input!
+Note: Our function `FahToCel` can't handle the non-numeric input!
 
 ---
 
 # Steps in Writing a Function (Example 1)
 
-Note: Our function `FahToCel` cannot handle the non-numeric input!
+Note: Our function `FahToCel` can't handle the non-numeric input!
 
 ```{r error=TRUE}
 FahToCel = function(temp_fah) {
@@ -210,7 +214,7 @@ A side effect of a function is something that happens during the execution of fu
 temp_cel1 = FahToCel(temp_fah = 50)
 ```
 
-* Generate a plot on the display
+* Generate a plot on the display.
 
 * Save an R data file, or a PDF plot, etc.
 
@@ -235,7 +239,7 @@ quantile(vec1, probs = percentiles)
 
 # Steps in Writing a Function (Example 2)
 
-- **Abstract**: Identify the variables and decide if they are required or have defaults.
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
 
   - The function should have two input arguments and one output vector.
   
@@ -382,7 +386,9 @@ apply(state.x77, MARGIN = 2, FUN = function(v) {
 })
 ```
 
-Note: One drawback of using anonymous function is that such function can only be used within the `apply()` function. On the contrary, if we define our function beforehand, we can use it in any subsequent part of the code.
+--
+
+- Note: One drawback of using anonymous function is that such function can only be used within the `apply()` function. On the contrary, if we define our function beforehand, we can use it in any subsequent part of the code.
 
 ---
 class: inverse
@@ -394,6 +400,8 @@ class: inverse
 # Environments and Variable Scopes in R
 
 - R has a special mechanism that allows us to use the same name in different places in our code and have it refer to different objects.
+
+--
 
   - For example, we can create new variables in our functions without worrying if there are variables with the same names that are already defined in the work space.
   
@@ -429,6 +437,8 @@ class(e)
 
 - The names in an environment are not ordered (i.e., it doesn't make sense to ask what the first element of an environment is).
 
+--
+
 - Every environment has a parent, with the only exception as the **empty** environment. 
 
 <p align="center">
@@ -447,12 +457,24 @@ There are four special environments:
 
 - The `baseenv()`, or base environment, is the environment of the base package. Its parent is the empty environment.
 
+```{r}
+library(rlang)
+env_parent(base_env())
+```
+
+---
+
+# Special Environments
+
+There are four special environments:
+
 - The `emptyenv()`, or empty environment, is the ultimate ancestor of all environments, and the only environment without a parent.
 
 - The `environment()` is the current environment.
 
 ```{r}
 environment()
+env_parent(environment())
 ```
 
 ---
@@ -561,9 +583,11 @@ Note: The function `lookAt()` is defined in the global environment, but its body
 
 # Lazy Evaluation in R
 
-- The inputs for a function call are not evaluated until they are needed, i.e., only the needed objects in a function call will be loaded in memory and/or looked for.
+**Definition:** The inputs for a function call are not evaluated until they are needed, i.e., only the needed objects in a function call will be loaded in memory and/or looked for.
 
-- This lazy evaluation mechanism appears in other functional programming languages, not just in R.
+--
+
+- The lazy evaluation mechanism also appears in other functional programming languages, not just in R.
 
 - It allows a R program to be more efficient when used interactively.
 
@@ -590,6 +614,7 @@ funnyMean(runif(4))
 
 2. When the function `funnyMean()` returns the output.
 
+Correct Answer: 2.
 ---
 
 # Lazy Evaluation in R (Example)
@@ -602,7 +627,16 @@ funnyMean = function(x, y = mean(x)) {
 
 set.seed(567)
 mean(runif(4))
+```
 
+```{r eval=FALSE}
+set.seed(567)
+funnyMean(runif(4))
+```
+
+--
+
+```{r echo=FALSE}
 set.seed(567)
 funnyMean(runif(4))
 ```
@@ -624,7 +658,9 @@ funnyMean2 = function(x, y = mean(x)) {
 
 set.seed(123)
 mean(runif(4))
+```
 
+```{r}
 set.seed(567)
 mean(runif(4))
 ```
@@ -709,7 +745,7 @@ There are two options if the function name and definition can't fit on a single 
 - **Double-indent:** Place each argument of its own double indented line.
 
 ```{r}
-long_function_name <- function(
+long_function_name = function(
     a = "a long argument",
     b = "another argument",
     c = "another long argument") {
@@ -766,6 +802,8 @@ class: inverse
 
 - Definition of bugs: "an unexpected defect, fault, flaw, or imperfections."
 
+--
+
 - On September 9, 1947, a team of computer scientists and engineers reported the world’s first computer bug.
 
 <p align="center">
@@ -779,6 +817,8 @@ Cited from [Sep 9, 1947 CE: World’s First Computer Bug](https://education.nati
 # Debugging: What and Why?
 
 Debugging is a the process of locating, understanding, and removing bugs from our code.
+
+--
 
 Why should we learn about debugging?
 
@@ -796,6 +836,8 @@ We now provide some useful guidelines for debugging.
 
 When we see an error code that we don't understand, always Google it or ask ChatGPT!
 
+--
+
 Seriously? 
 
 Yes, the error message that we saw might already be asked or solved by other people on some online forums/posts.
@@ -810,9 +852,11 @@ Always ask ourselves the following two questions during the debugging:
 
 - And if we run the same code in a clean copy of R, does the same thing happen?
 
+--
+
 We should also remove as much code and simplify as much data as possible when trying to reproduce the bug.
 
-- Example: if our function breaks with a large data matrix of real-world data, consider creating a toy matrix, says, a $3\times 3$ matrix of 1's? 
+- Example: if our function breaks with a large data matrix of real-world data, then consider creating a toy matrix, says, a $3\times 3$ matrix of 1's.
 
 ---
 
@@ -821,6 +865,8 @@ We should also remove as much code and simplify as much data as possible when tr
 Figure out the exact line or portion of the code went wrong.
 
 * This is the most difficult part of debugging!
+
+--
 
 * Luckily, there are some R build-in functions that can assist us to locate the bugs: `traceback()`, and `cat()`, `print()` are also very helpful.
 
@@ -893,6 +939,8 @@ Or, we can just click the "`Show Traceback`" button after the code chunk in R ma
 
 - The `traceback()` function can only locate a potential portion of the code that contains bugs.
 
+--
+
 - Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors. Here is a quote from *stackoverflow*:
 
 <p align="center">
@@ -948,13 +996,13 @@ f("a")
 
 - Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors. 
 
-- The main downside of using `print()` or `cat()` is that the output messages can get messy quickly if we use multiple print statements, and we cannot further investigate the object. However, many bugs come down to typos or other trivial errors, and printing statements are often all we need!
+- The main downside of using `print()` or `cat()` is that the output messages can get messy quickly if we use multiple print statements, and we can't further investigate the object. However, many bugs come down to typos or other trivial errors, and printing statements are often all we need!
 
 ---
 
 # `browser()`: An Interative Debugging Tool
 
-Sometimes, it may not be enough to just use print statements to locate a bug. We can get more information and interact with our customized function using `browser()`, an interactive debugging tool.
+Sometimes, it may not be enough to just use `print()` statements to locate a bug. We can get more information and interact with our customized function using `browser()`, an interactive debugging tool.
 
 ```{r eval=FALSE}
 my_fun = function(arg1, arg2, arg3) {
@@ -1015,9 +1063,11 @@ f("a")
 
 - If we want to enter the debugging mode for a function within a package, it is impossible to insert a `browser()` function. 
 
-- Even for our own functions, it may be more convenient to debug the entire function rather than edit the source code. 
+- Even for our own functions, it may be more convenient to debug the entire function rather than edit the source code. Here comes the `debug()` function.
 
-- When a function is in debug mode, it will remain in the debug mode until we call `undebug()`.
+--
+
+- When a function is in the debug mode, it will remain in the debug mode until we call `undebug()`.
 
 ```{r eval=FALSE}
 # DEBUG DEMO
@@ -1065,6 +1115,8 @@ Testing is the systematic writing of additional code to ensure that our function
 
 - **Unit tests:** checking if our function does the right thing in basic cases.
 
+--
+
 There are various benefits of testing:
 
 - Enables us to catch problems early (easier debugging).
@@ -1081,7 +1133,11 @@ Of course, the testing required us to spend more time upfront, but it is often w
 
 Assertions are checks to ensure that the inputs to our function are properly formatted.
 
+--
+
 - For example, if our function expects a numeric value/vector, then we first check that it is actually a numeric value/vector (and not a character, say).
+
+--
 
 - An assertion stops the execution of the function as soon as it encounters an unexpected input.
 
@@ -1105,7 +1161,7 @@ Equivalently, we can also use `assert_that()` function in the `assertthat` packa
 
   - It allows us to write customized and meaningful error messages.
 
-```{r error=TRUE}
+```{r error=TRUE, message=FALSE}
 FahToCel = function(temp_fah) {
   require(assertthat)
   assert_that(is.numeric(temp_fah), 
@@ -1123,9 +1179,11 @@ temp_cel2 = FahToCel(temp_fah = "50F")
 
 Unit tests are used to check that our code passes basic sanity checks at various stages of development. 
 
-- We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function goes as:
+--
 
-```{r error=TRUE}
+- We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function is:
+
+```{r error=TRUE, message=FALSE}
 library(testthat)
 test_that("Testing if the input value is numeric", {
   input = 50
@@ -1138,7 +1196,7 @@ test_that("Testing if the input value is numeric", {
 
 # Unit Tests
 
-We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function goes as:
+We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function is:
 
 ```{r error=TRUE}
 library(testthat)
@@ -1149,3 +1207,8 @@ test_that("Testing if the input value is numeric", {
 })
 ```
 
+---
+
+# Reminder
+
+Submit Lab 5 on Canvas by the end of Monday (November 6)!!
