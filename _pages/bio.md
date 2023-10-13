@@ -30,9 +30,14 @@ Research Experience
 
 Teaching Experience
 -----------
+<!--
    <ul>{% for post in site.teaching %}
       {% include archive-single-cv.html %}
    {% endfor %}</ul>
+-->
+
+**Instructor:** 
+* [Statistical Computing (Autumn 2023)](teaching/stat302_uw)
    
 Work Experience
 -----------
