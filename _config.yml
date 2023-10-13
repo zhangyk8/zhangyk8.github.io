@@ -134,7 +134,7 @@ exclude:
   - Rakefile
   - README
   - tmp
-  - .Rmd
+  - _teaching/file_stat302/Lectures
 keep_files:
   - .git
   - .svn
