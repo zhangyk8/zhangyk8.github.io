@@ -455,6 +455,9 @@ mtcars %&gt;% head(2)
 ## Mazda RX4 Wag  21   6  160 110  3.9 2.875 17.02  0  1    4    4
 ```
 
+--
+
+
 ```r
 mtcars %&gt;% filter((mpg &gt;= 20 &amp; disp &gt;= 200) | (drat &lt;= 3))
 ```
@@ -611,6 +614,9 @@ mtcars %&gt;%
 ## Camaro Z28          13.3   8  350 245 3.73 3.840 15.41  0  0    3    4
 ```
 
+--
+
+
 ```r
 # Base R syntax
 mpg_inds = order(mtcars$mpg)
@@ -643,6 +649,9 @@ mtcars %&gt;%
 ## Fiat 128       32.4   4 78.7 66 4.08 2.200 19.47  1  1    4    1
 ## Honda Civic    30.4   4 75.7 52 4.93 1.615 18.52  1  1    4    2
 ```
+
+--
+
 
 ```r
 # Base R syntax
@@ -700,6 +709,7 @@ mtcars %&gt;%
 ## Datsun 710      4  108  93
 ```
 
+--
 
 
 ```r
@@ -1013,7 +1023,7 @@ y = x^3 + rnorm(50)
 plot(x, y)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-40-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1026,7 +1036,7 @@ The `type` argument controls the plot type. Default is "p" for points; set it to
 plot(x, y, type="b")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-41-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
 
 More details can be found by `?plot`.
 
@@ -1041,7 +1051,7 @@ The `main` argument controls the title; `xlab` and `ylab` are the x and y labels
 plot(x, y, main="A noisy cubic", xlab="My x variable", ylab="My y variable")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-42-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1054,7 +1064,7 @@ We use the `pch` argument to control point type.
 plot(x, y, pch = 19) # Filled circles
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-43-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1067,7 +1077,7 @@ We use the `lty` argument to control the line type, and `lwd` to control the lin
 plot(x, y, type="l", lty=2, lwd=3) # Dashed line, 3 times as thick
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-44-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1086,7 +1096,7 @@ The function `colors()` returns a string vector of the available colors
 plot(x, y, pch=19, col="red")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-45-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-48-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1103,7 +1113,7 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-46-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1120,7 +1130,7 @@ plot(rev(x), y, main="Flipped green", pch=20, col="green")
 plot(rev(x), y, main="Flipped purple", pch=20, col="purple")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-47-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1181,7 +1191,7 @@ king_wlens = nchar(king_words)
 hist(king_wlens)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-49-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1197,7 +1207,7 @@ hist(king_wlens + 5, col=rgb(0,0.5,0.5,0.5),
      freq=FALSE, breaks=0:20, add=TRUE)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-50-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-53-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1237,7 +1247,7 @@ hist(king_wlens, col="pink", freq=FALSE, breaks=0:20,
 lines(density_est, lwd=3)
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-52-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-55-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1264,7 +1274,7 @@ To plot a heatmap of a numeric matrix, we use the `image()` function.
 image(mat) # Red means low, white means high
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-53-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1302,7 +1312,7 @@ clockwise90 = function(a) {
 image(clockwise90(mat))
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-54-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-57-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1317,7 +1327,7 @@ normal.mat = phi %o% phi
 image(normal.mat, col=terrain.colors(20)) # Terrain colors
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-55-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
 
 ---
 
@@ -1331,7 +1341,7 @@ image(normal.mat, col=terrain.colors(20))
 contour(normal.mat, add=TRUE)
 ```
 
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-59-1.png)&lt;!-- --&gt;
 
 ---
 class: inverse
@@ -1369,7 +1379,7 @@ library(gapminder)
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-58-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-61-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1384,12 +1394,12 @@ Add an aesthetic using `aes()` within the initial `ggplot()` call.
 
 ```r
 ggplot(data = gapminder,
-*      aes(x = year, y = lifeExp))
+*      mapping = aes(x = year, y = lifeExp))
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-60-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-63-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1405,13 +1415,13 @@ Now `ggplot` knows what to plot, but it doesn't know how to plot it yet. Let's a
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
 * geom_point()
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-62-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-65-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1424,13 +1434,13 @@ Let's make our points smaller and red.
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
 * geom_point(color = "red", size = 0.75)
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-64-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-67-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1443,13 +1453,13 @@ Let's try switching them to lines.
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
 * geom_line(color = "red", linewidth = 0.75)
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-66-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-69-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1462,14 +1472,14 @@ We want lines connected by country, not just in the order that they appear in th
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
+       mapping = aes(x = year, y = lifeExp,
 *          group = country)) +
   geom_line(color = "red", linewidth = 0.5) 
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-68-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-71-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1489,15 +1499,13 @@ We can color by continent to explore differences across continents.
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-*          color = continent)) +
+*      aes(x = year, y = lifeExp, group = country, color = continent)) +
 * geom_line(linewidth = 0.5)
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-70-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-73-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1516,16 +1524,14 @@ Let's add another layer for the trend lines by continent!
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
 * geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess")
 ```
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-72-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-75-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1540,9 +1546,7 @@ The plot is cluttered and hard to read. Let's try separating by continents using
 
 ```r
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") +
 * facet_wrap(~ continent)
@@ -1550,7 +1554,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-74-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-77-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1591,7 +1595,7 @@ ggplot(data = gapminder,
 *      x = "Year", y = "Life Expectancy", legend = "Continent")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-76-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-79-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1636,7 +1640,7 @@ ggplot(data = gapminder,
 * theme(plot.title = element_text(hjust = 0.5, face = "bold", size = 14), legend.position = "none")
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-78-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-81-1.png" style="display: block; margin: auto;" /&gt;
 ]
 
 
@@ -1678,7 +1682,7 @@ ggplot(data = gapminder,
 * theme_bw()
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-80-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-83-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1722,7 +1726,7 @@ ggplot(data = gapminder,
         legend.position = "none") 
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-82-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-85-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -1765,7 +1769,7 @@ ggplot(data = gapminder,
 *       axis.text.x = element_text(angle = 45, hjust = 1, vjust = 1))
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-84-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-87-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1809,7 +1813,7 @@ ggplot(data = gapminder,
 *       panel.spacing.x = unit(0.75, "cm"))
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-86-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-89-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1844,7 +1848,7 @@ Then, we can plot it by just calling our object.
 lifeExp_plot
 ```
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-88-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-91-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1892,7 +1896,7 @@ It will lead to lower quality and non-reproducible figures!
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-91-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-94-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1909,7 +1913,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-93-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-96-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1926,7 +1930,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-95-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-98-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1944,7 +1948,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-97-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-100-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1963,7 +1967,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-99-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-102-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -1984,7 +1988,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-101-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-104-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2000,7 +2004,7 @@ ggplot(data = gapminder, aes(x = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-103-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-106-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2017,7 +2021,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-105-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-108-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2034,7 +2038,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-107-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-110-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2052,7 +2056,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-109-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-112-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2073,7 +2077,7 @@ ggplot(data = gapminder,
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-111-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-114-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2095,7 +2099,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-113-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-116-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2118,7 +2122,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 ]
 
 .pull-right[
-![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-115-1.png)&lt;!-- --&gt;
+![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-118-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -2186,21 +2190,21 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 # One Numeric Variable: Histogram 
 ### `geom_histogram()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-116-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # One Numeric Variable: Boxplot
 ### `geom_boxplot()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-117-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # One Categorical Variable: Bar Chart
 ### `geom_bar()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-118-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-121-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2209,7 +2213,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 Here, we have multiple observations for each category. 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-119-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2218,14 +2222,14 @@ Here, we have multiple observations for each category.
 
 Here, we have only one observation per category.
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-123-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Two Numeric Variables: Scatterplot
 ### `geom_point()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-121-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-124-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -2234,14 +2238,14 @@ Here, we have only one observation per category.
 
 Note: When making a line plot, we should use both `geom_point()` and `geom_line()`! 
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-122-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-125-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Two Categorical Variables
 ### `geom_bar()` setting `x` and `fill` within `aes()`
 
-&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-123-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-126-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 

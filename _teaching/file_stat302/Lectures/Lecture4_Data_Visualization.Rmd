@@ -377,7 +377,11 @@ The `filter()` function is to subset rows based on a condition.
 ```{r}
 # Built in data frame of cars data, 32 cars x 11 variables
 mtcars %>% head(2)
+```
 
+--
+
+```{r}
 mtcars %>% filter((mpg >= 20 & disp >= 200) | (drat <= 3))
 ```
 
@@ -458,7 +462,11 @@ The `arrange()` function is to order rows by value of a column.
 mtcars %>% 
   arrange(mpg) %>% 
   head(3)
+```
 
+--
+
+```{r}
 # Base R syntax
 mpg_inds = order(mtcars$mpg)
 head(mtcars[mpg_inds, ], 3)
@@ -474,7 +482,11 @@ We can also do it in a descending order.
 mtcars %>% 
   arrange(desc(mpg)) %>% 
   head(3)
+```
 
+--
+
+```{r}
 # Base R syntax
 mpg_inds_decr = order(mtcars$mpg, decreasing = TRUE)
 head(mtcars[mpg_inds_decr, ], 4)
@@ -504,6 +516,7 @@ mtcars %>%
   head(3)
 ```
 
+--
 
 ```{r}
 # Base R syntax
@@ -1002,14 +1015,14 @@ Add an aesthetic using `aes()` within the initial `ggplot()` call.
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) #<<
+       mapping = aes(x = year, y = lifeExp)) #<<
 ```
 ]
 
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) #<<
+       mapping = aes(x = year, y = lifeExp)) #<<
 ```
 ]
 
@@ -1025,7 +1038,7 @@ Now `ggplot` knows what to plot, but it doesn't know how to plot it yet. Let's a
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_point() #<<
 ```
 ]
@@ -1033,7 +1046,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_point() #<<
 ```
 ]
@@ -1047,7 +1060,7 @@ Let's make our points smaller and red.
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_point(color = "red", size = 0.75) #<<
 ```
 ]
@@ -1055,7 +1068,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_point(color = "red", size = 0.75) #<<
 ```
 ]
@@ -1069,7 +1082,7 @@ Let's try switching them to lines.
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_line(color = "red", linewidth = 0.75) #<<
 ```
 ]
@@ -1077,7 +1090,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp)) +
+       mapping = aes(x = year, y = lifeExp)) +
   geom_line(color = "red", linewidth = 0.75) #<<
 ```
 ]
@@ -1091,7 +1104,7 @@ We want lines connected by country, not just in the order that they appear in th
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
+       mapping = aes(x = year, y = lifeExp,
            group = country)) + #<<
   geom_line(color = "red", linewidth = 0.5) 
 ```
@@ -1100,7 +1113,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
+       mapping = aes(x = year, y = lifeExp,
            group = country)) + #<<
   geom_line(color = "red", linewidth = 0.5) 
 ```
@@ -1122,9 +1135,7 @@ We can color by continent to explore differences across continents.
 .pull-left[
 ```{r, eval = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + #<<
+       aes(x = year, y = lifeExp, group = country, color = continent)) + #<<
   geom_line(linewidth = 0.5)  #<<
 ```
 ]
@@ -1132,9 +1143,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + #<<
+       aes(x = year, y = lifeExp, group = country, color = continent)) + #<<
   geom_line(linewidth = 0.5) #<<
 ```
 ]
@@ -1154,9 +1163,7 @@ Let's add another layer for the trend lines by continent!
 .pull-left[
 ```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") #<<
 ```
@@ -1165,9 +1172,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, #<<
               color = "black", #<<
@@ -1186,9 +1191,7 @@ The plot is cluttered and hard to read. Let's try separating by continents using
 .pull-left[
 ```{r, eval = FALSE, message = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), se = FALSE, linewidth = 1.5, color = "black", method = "loess") +
   facet_wrap(~ continent) #<<
@@ -1198,9 +1201,7 @@ ggplot(data = gapminder,
 .pull-right[
 ```{r, echo = FALSE, fig.height=4.5, fig.width=6, message = FALSE}
 ggplot(data = gapminder,
-       aes(x = year, y = lifeExp,
-           group = country,
-           color = continent)) + 
+       aes(x = year, y = lifeExp, group = country, color = continent)) + 
   geom_line(linewidth = 0.5) +
   geom_smooth(aes(group = continent), 
               se = FALSE, linewidth = 1.5, 
