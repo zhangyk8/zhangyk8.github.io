@@ -156,6 +156,8 @@ cat("The corresponding Celsius value is", temp_cel, "C.")
   
 - **Encapsulate**: Wrap the code into a function where the parameter is a general variable.
 
+--
+
 ```{r}
 FahToCel = function(temp_fah) {
   temp_cel = (temp_fah - 32) * 5/9
@@ -181,13 +183,13 @@ temp_cel1
 temp_cel2 = FahToCel(temp_fah = "50F")
 ```
 
-Note: Our function `FahToCel` can't handle the non-numeric input!
+Note: Our function `FahToCel()` can't handle the non-numeric input!
 
 ---
 
 # Steps in Writing a Function (Example 1)
 
-Note: Our function `FahToCel` can't handle the non-numeric input!
+Note: Our function `FahToCel()` can't handle the non-numeric input!
 
 ```{r error=TRUE}
 FahToCel = function(temp_fah) {
@@ -208,7 +210,7 @@ temp_cel2 = FahToCel(temp_fah = "50F")
 
 A side effect of a function is something that happens during the execution of function's body, but is not returned. Examples:
 
-* Print something out to the console, e.g., our previous function `FahToCel`.
+* Print something out to the console, e.g., our previous function `FahToCel()`.
 
 ```{r}
 temp_cel1 = FahToCel(temp_fah = 50)
@@ -244,6 +246,8 @@ quantile(vec1, probs = percentiles)
   - The function should have two input arguments and one output vector.
   
 - **Encapsulate**: Wrap the code into a function where the parameters are the general variables.
+
+--
 
 ```{r}
 CompQt = function(vec, percentiles = c(0.25, 0.5, 0.75)) {
@@ -1211,4 +1215,6 @@ test_that("Testing if the input value is numeric", {
 
 # Reminder
 
-Submit Lab 5 on Canvas by the end of Monday (November 6)!!
+- Submit Lab 5 on Canvas by the end of Monday (November 13). 
+
+- Highly recommend you starting looking into Lab 5 problems before the midterm exam (November 8)!!
