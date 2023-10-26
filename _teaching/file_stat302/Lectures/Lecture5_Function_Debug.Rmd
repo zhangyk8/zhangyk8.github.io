@@ -820,7 +820,7 @@ Cited from [Sep 9, 1947 CE: World’s First Computer Bug](https://education.nati
 
 # Debugging: What and Why?
 
-Debugging is a the process of locating, understanding, and removing bugs from our code.
+Debugging is a process of locating, understanding, and removing bugs from our code.
 
 --
 
