@@ -28,4 +28,4 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 4 -- Data Manipulation and Visualization: [.html](file_stat302/Lectures/Lecture4_Data_Visualization.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization.Rmd).
 - Lecture 5 -- Writing Functions And Debugging: [.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug.Rmd).
 - Lecture 6 -- Simulations: [.html](file_stat302/Lectures/Lecture6_Simulations.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations.Rmd).
-- Lecture 7 -- [Midterm Reviews](file_stat302/Lectures/Lecture7_Midterm_Reviews.pdf).
+- Lecture 7 -- [Midterm Reviews](file_stat302/Lectures/Lecture7_Midterm_review.pdf).
