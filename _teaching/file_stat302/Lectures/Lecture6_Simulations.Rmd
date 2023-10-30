@@ -59,6 +59,17 @@ Can you think of any examples from this or other classes when you have used simu
 
 ---
 
+# An Example of Simulation in Cosmology
+
+<p align="center">
+<img src="./figures/illustris_z0.png" width="400"/>
+</p>
+<p align="center">
+Exterior view of the dark matter density distribution in the full simulation box at redshift zero for <a href="https://www.illustris-project.org/">Illustris Simulation Project</a>.
+</p>
+
+---
+
 # Why Do We Need Simulations?
 
 To answer some scientific questions, we often need data evidence and experimental results to support our findings.
@@ -104,7 +115,6 @@ It also helps evaluate the performance of our proposed statistical method, such 
 <p align="center">
 <img src="./figures/cirsym_lasso_bias_expl_x4_beta1.png" alt="lasso" width="550"/>
 </p>
-<p align="center">
 
 --
 
