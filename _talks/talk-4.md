@@ -3,9 +3,9 @@ layout: splash
 title: "Efficient Inference on High-Dimensional Linear Models With Missing Outcomes"
 collection: talks
 permalink: /talks/talk-4
-type: ""
+type: "Invited Talk"
 date: 2023-11-08
-excerpt: "Causal and Missing Data Reading Group, Seattle USA (November 2023)"
+excerpt: "- Causal and Missing Data Reading Group, Seattle USA (November 2023)"
 ---
 
 ## Efficient Inference on High-Dimensional Linear Models With Missing Outcomes
