@@ -20,7 +20,7 @@ The talk is based on a joint work with [Prof. Alexander Giessing](https://agiess
 
 <br>
 
-Talk Slides
+Talk Slides: [Slides](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes.pdf)
 
 Code Link on GitHub: [Debias-Infer](https://github.com/zhangyk8/Debias-Infer).
 
