@@ -3,7 +3,7 @@ layout: splash
 title: "Efficient Inference on High-Dimensional Linear Models With Missing Outcomes"
 collection: talks
 permalink: /talks/talk-4
-type: "Invited Talk"
+type: ""
 date: 2023-11-08
 excerpt: "- Causal and Missing Data Reading Group, Seattle USA (November 2023)"
 ---
@@ -25,6 +25,3 @@ Talk Slides
 Code Link on GitHub: [Debias-Infer](https://github.com/zhangyk8/Debias-Infer).
 
 Paper Reference: **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. Efficient Inference on High-Dimensional Linear Models With Missing Outcomes. _ArXiv preprint_, [arXiv: 2309.06429](https://arxiv.org/abs/2309.06429).
-
-
-
