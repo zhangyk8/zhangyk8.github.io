@@ -1271,7 +1271,7 @@ To plot a heatmap of a numeric matrix, we use the `image()` function.
 ```
 
 ```r
-image(mat) # Red means low, white means high
+image(mat) # Red means high, white means low
 ```
 
 ![](Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-56-1.png)&lt;!-- --&gt;
@@ -2127,13 +2127,13 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 ---
 
-# `ggplot` Summary
+# `ggplot2` Summary
 
 * Axes: `xlim()`, `ylim()`.
 
 * Legends: within initial `aes()`, edit within `theme()` or `guides()`.
 
-* `geom_point()`, `geom_line()`, `geom_histogram()`, `geom_bar()`, `geom_boxplot()`, `geom_text()`.
+* `geom_point()`, `geom_line()`, `geom_histogram()`, `geom_bar()`, `geom_boxplot()`, `geom_text()`, etc.
 
 * `facet_grid()`, `facet_wrap()` for faceting.
 
@@ -2143,7 +2143,7 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 * Graphical parameters: `color` for color, `alpha` for opacity, `lwd`/`size` for thickness, `shape` for shape, `fill` for interior color, etc.
 
-.pushdown[.center[[Here is a `ggplot2` cheat sheet!)](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*m028c0*_ga*MTMwMzM1ODYzNC4xNjkwMTU1NDY5*_ga_2C0WZ1JHG0*MTY5NjcyMDAxNi4xNS4wLjE2OTY3MjAwMTYuMC4wLjA.)]]
+.pushdown[.center[[Here is a `ggplot2` cheat sheet!](https://rstudio.github.io/cheatsheets/html/data-visualization.html?_gl=1*m028c0*_ga*MTMwMzM1ODYzNC4xNjkwMTU1NDY5*_ga_2C0WZ1JHG0*MTY5NjcyMDAxNi4xNS4wLjE2OTY3MjAwMTYuMC4wLjA.)]]
 
 ---
 
@@ -2183,7 +2183,9 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 
 * What if we have 1 variable? 2 variables?
 
-* What if we have numeric data? What about categorical or nominal variables?
+* What if we have numeric data? 
+
+* What about categorical or nominal variables?
 
 ---
 
@@ -2198,6 +2200,8 @@ ggplot(data = gapminder, aes(x = continent, y = lifeExp)) +
 ### `geom_boxplot()`
 
 &lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-120-1.png" style="display: block; margin: auto;" /&gt;
+
+Note: We can also use the more sophisticated [letter-valued plot](https://vita.had.co.nz/papers/letter-value-plot.pdf) implemented in the package `lvplot`.
 
 ---
 
@@ -2245,7 +2249,18 @@ Note: When making a line plot, we should use both `geom_point()` and `geom_line(
 # Two Categorical Variables
 ### `geom_bar()` setting `x` and `fill` within `aes()`
 
+This is an example of bad visualization!!
+
 &lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-126-1.png" style="display: block; margin: auto;" /&gt;
+
+---
+
+# Two Categorical Variables
+### `geom_bar()` setting `x` and `fill` within `aes()`
+
+This one looks better. Never stacked the bars unless it is necessary.
+
+&lt;img src="Lecture4_Data_Visualization_files/figure-html/unnamed-chunk-127-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
