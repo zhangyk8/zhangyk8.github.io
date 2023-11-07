@@ -8,20 +8,20 @@ date: 2023-11-08
 excerpt: "- Causal and Missing Data Reading Group, Seattle USA (November 2023)"
 ---
 
-## Efficient Inference on High-Dimensional Linear Models With Missing Outcomes
+## Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data
 
 ### Talk Abstract
 
-High-dimensional data, where the number of covariates far exceeds the sample size, are pervasive in diverse domains, including genomics, quantitative finance, and healthcare studies. While the intricacies of high-dimensionality impose unusual challenges for conducting valid statistical inference, these challenges are further compounded when the outcome/response variable is potentially missing.
+In many fields of science, such as astronomy and environmental science, the available data consist of observations on a (hyper)sphere, which is known as directional data in Statistics. As the (unit) hypersphere is a nonlinear manifold, conventional multivariate models in the Euclidean space are inadequate for analyzing such data, including the popular kernel smoothing and mean shift algorithm.
 
-In this talk, we propose an efficient debiasing method that addresses the above high-dimensional inference problem with missing outcomes. Specifically, we derive a debiased estimator by correcting the bias of a Lasso pilot estimate based on its weighted residuals. The weights are estimated by a convex debiasing program that trades off bias and variance optimally, which can be efficiently tuned and solved via its dual formulation. Provided that the propensity scores are consistently estimated by any machine learning methods, the proposed estimator is asymptotically normal and semi-parametrically efficient among all asymptotically linear estimators. We validate the finite-sample performance of our proposed estimator through comprehensive simulation studies and apply it to inferring the stellar masses of observed galaxies in the Sloan Digital Sky Survey (SDSS). Finally, if time is allowed, we will briefly mention some potential applications of our proposed method to causal inference problems.
-
-The talk is based on a joint work with [Prof. Alexander Giessing](https://agiessing.github.io/) and [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/).
+In this talk, we will discuss both the statistical and computational theory of kernel smoothing for directional data. Specifically, we will generalize the classical mean shift algorithm to directional data, which allows us to identify local modes of the directional kernel density estimator (KDE). The statistical convergence rates of the directional KDE and its derivatives will be derived, and the problem of mode estimation will be examined.  We will also present the ascending property of our directional mean shift algorithm and investigate a general problem of gradient ascent on the unit hypersphere. To demonstrate the applicability of our proposed algorithm, we evaluate it as a mode clustering method on both simulated and real-world datasets during the talk.
 
 <br>
 
-Talk Slides
+Talk Slides: [Long Slides](https://zhangyk8.github.io/talks/DirMS_Slides.pdf)
 
-Code Link on GitHub: [Debias-Infer](https://github.com/zhangyk8/Debias-Infer).
+Code Link on GitHub: [DirMS](https://github.com/zhangyk8/DirMS).
 
-Paper Reference: **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. Efficient Inference on High-Dimensional Linear Models With Missing Outcomes. _ArXiv preprint_, [arXiv: 2309.06429](https://arxiv.org/abs/2309.06429).
+Paper Reference: **Yikun Zhang**, Yen-Chi Chen. Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data. _Journal of Machine Learning Research_, 22(154): 1-92. [arXiv preprint: 2010.13523](https://arxiv.org/abs/2010.13523).
+
+
