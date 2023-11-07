@@ -18,6 +18,7 @@ In this talk, we propose an efficient debiasing method that addresses the above 
 
 The talk is based on a joint work with [Prof. Alexander Giessing](https://agiessing.github.io/) and [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/).
 
+<br>
 
 Talk Slides
 
