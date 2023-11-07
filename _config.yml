@@ -110,6 +110,7 @@ author:
 include:
   - .htaccess
   - _pages
+  - _talks
   - files
 exclude:
   - "*.sublime-project"
