@@ -29,3 +29,9 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 5 -- Writing Functions And Debugging: [.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug.Rmd).
 - Lecture 6 -- Simulations: [.html](file_stat302/Lectures/Lecture6_Simulations.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations.Rmd).
 - Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review.pdf).
+
+
+### Final Project
+
+[Final Project Description](file_stat302/Lectures/Final_Project.pdf) (This final project is modified from the midterm project of STAT 133 taught by Professor [Deborah Nolan](https://statistics.berkeley.edu/people/deborah-nolan) in Fall 2016 at UC Berkeley.
+
