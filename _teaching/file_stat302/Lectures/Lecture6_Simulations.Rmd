@@ -34,7 +34,7 @@ library(kableExtra)
 
 6. Ad hoc Network (Final Project)
 
-<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. </font>
 
 ---
 class: inverse
@@ -620,6 +620,31 @@ We will revisit this drug effect model example in Lab 6.
 class: inverse
 
 # Part 4: Integral Approximation via Monte Carlo Methods
+
+---
+
+# Integration
+
+The Riemann integral of the function $f$ on the interval $[a,b]$ is the following limit, provided it exists:
+$$\int_a^b f(x) dx = \lim_{\max \Delta x_i \to 0} \sum_{i=1}^n f(z_i) \Delta x_i,$$
+where the numbers $x_0,x_1,...,x_n$ satisfy $a=x_0\leq x_1 \leq \cdots \leq x_n=b$, where $\Delta x_i = x_i-x_{i-1}$ for each $i=1,2,...,n$ and $z_i$ is an arbitrary number in the interval $[x_{i-1}, x_i]$.
+
+<p align="center">
+<img src="./figures/riem_inte.png" width="600"/>
+</p>
+
+---
+
+# Fundamental Theorem of Calculus
+
+- If $f\in \mathcal{C}[a,b]$ and we define $F(x)=\int_a^x f(t) dt$, then $F'(x)=f(x)$ for any $x\in (a,b)$. Hence, $F$ is an anti-derivative of $f$.
+
+- If $f\in \mathcal{C}[a,b]$ and $F$ is any anti-derivative of $f$, then 
+$$\int_a^b f(x) dx = F(x)\Big|_{x=a}^b = F(b) - F(a).$$
+
+<p align="center">
+<img src="./figures/Fundamental_theorem_of_calculus.gif" width="450"/>
+</p>
 
 ---
 
