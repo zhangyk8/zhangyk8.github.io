@@ -536,7 +536,7 @@ Suppose that we had a model to quantify how a drug will reduce the tumor size of
 $$X_{\text{no drug}} \sim 100 \cdot \text{Exponential}(\text{mean}=R), \quad R\sim \text{Uniform}(0,1).$$
 
 - A patient who was given the drug experiences a reduction of tumor size in percentage as:
-$$X_{\text{no drug}} \sim 100 \cdot \text{Exponential}(\text{mean}=2).$$
+$$X_{\text{drug}} \sim 100 \cdot \text{Exponential}(\text{mean}=2).$$
 
 Note: Here, $\text{Exponential}(\text{mean}=\lambda)$ stands for the exponential distribution whose mean is $\lambda$, and $\text{Uniform}$ denotes the uniform distribution.
 
@@ -637,15 +637,15 @@ where the numbers $x_0,x_1,...,x_n$ satisfy $a=x_0\leq x_1 \leq \cdots \leq x_n=
 
 # Fundamental Theorem of Calculus
 
-- If $f\in \mathcal{C}[a,b]$ and we define $F(x)=\int_a^x f(t) dt$, then $F'(x)=f(x)$ for any $x\in (a,b)$. Hence, $F$ is an anti-derivative of $f$.
+- If $f$ is a continuous function on $[a,b]$ and $F(x)=\int_a^x f(t) dt$, then $F'(x)=f(x)$ for any $x\in (a,b)$. Thus, $F$ is an anti-derivative of $f$.
 
 --
 
-- If $f\in \mathcal{C}[a,b]$ and $F$ is any anti-derivative of $f$, then 
+- If $f$ is a continuous function on $[a,b]$  and $F$ is any anti-derivative of $f$, then 
 $$\int_a^b f(x) dx = F(x)\Big|_{x=a}^b = F(b) - F(a).$$
 
 <p align="center">
-<img src="./figures/Fundamental_theorem_of_calculus.gif" width="450"/>
+<img src="./figures/Fundamental_theorem_of_calculus.gif" width="420"/>
 </p>
 
 ---
