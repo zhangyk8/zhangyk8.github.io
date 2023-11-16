@@ -732,6 +732,8 @@ where the numbers `\(x_0,x_1,...,x_n\)` satisfy `\(a=x_0\leq x_1 \leq \cdots \le
 
 - If `\(f\in \mathcal{C}[a,b]\)` and we define `\(F(x)=\int_a^x f(t) dt\)`, then `\(F'(x)=f(x)\)` for any `\(x\in (a,b)\)`. Hence, `\(F\)` is an anti-derivative of `\(f\)`.
 
+--
+
 - If `\(f\in \mathcal{C}[a,b]\)` and `\(F\)` is any anti-derivative of `\(f\)`, then 
 `$$\int_a^b f(x) dx = F(x)\Big|_{x=a}^b = F(b) - F(a).$$`
 
@@ -802,7 +804,7 @@ We can approximate `\(I\)` using a technique called _importance sampling_.
 
 1. Pick a proposal density function (also called sampling density) `\(q\)` from which we know how to generate random samples.
 
-2. Generate random samples `\(Y_1,...,Y_n\)` from the proposal density `\(q\)`.
+2. Generate random points `\(Y_1,...,Y_n\)` from the proposal density `\(q\)`.
 
 3. Then, the importance sampling estimator is defined as:
 `$$\hat{I}_n = \frac{1}{n} \sum_{i=1}^n \frac{g(Y_i) \cdot p(Y_i)}{q(Y_i)}.$$`
@@ -991,7 +993,7 @@ plot(t, B, type="l")
 
 Two facts about the Kolmogorov-Smirnov test:
 
-1. It is *distribution-free*, meaning that the null distribution doesn't depend on `\(F,G\)`!
+1. It is *distribution-free*, meaning that the null distribution doesn't depend on `\(F\)` and `\(G\)`!
 
 --
 
