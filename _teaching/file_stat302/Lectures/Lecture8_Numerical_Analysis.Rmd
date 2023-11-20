@@ -1,0 +1,772 @@
+---
+title: "STAT 302 Statistical Computing"
+subtitle: "Lecture 8: Numerical Analysis"
+author: "Yikun Zhang (_Autumn 2023_)"
+date: ""
+output:
+  xaringan::moon_reader:
+    css: ["uw.css", "fonts.css"]
+    lib_dir: libs
+    nature:
+      highlightStyle: tomorrow-night-bright
+      highlightLines: true
+      countIncrementalSlides: false
+      titleSlideClass: ["center","top"]
+---
+
+```{r setup, include=FALSE, purl=FALSE}
+options(htmltools.dir.version = FALSE)
+knitr::opts_chunk$set(comment = "##")
+library(kableExtra)
+```
+
+# Outline
+
+1. Mathematical Preliminaries (Differentiation and Integration)
+
+2. Computer Arithmetic and Error Analysis
+
+3. Algorithmic Rate of Convergence
+
+4. Solutions of Nonlinear Equations in One Variable
+
+5. Numerical Integration
+
+<p><font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Deborah Nolan. </font></p>
+
+<p><font size="4">* Reference: Numerical Analysis (9th Edition) by Richard L. Burden, J. Douglas Faires, Annette M. Burden, 2015. </font></p>
+
+---
+class: inverse
+
+# Part 1: Mathematical Preliminaries (Differentiation and Integration)
+
+---
+
+# Limits and Continuity of A Function
+
+A function $f$ defined on a set $\mathcal{X}$ of real numbers has the **limit** $L$ at $x_0\in \mathcal{X}$, written $\lim_{x\to x_0} f(x) = L$, if, given any $\epsilon >0$, there exists a real number $\delta>0$ such that 
+$$|f(x)-L| < \epsilon \quad \text{ whenever } \quad x\in \mathcal{X} \quad \text{ and } \quad 0< |x-x_0|  < \delta.$$
+
+<p align="center">
+<img src="./figures/function_limit.png" width="530"/>
+</p>
+
+--
+
+- Then, $f$ is **continuous** at $x_0$ if $\lim_{x\to x_0} f(x) = f(x_0)$.
+
+- $f$ is **continuous on the set $\mathcal{X}$** if it is continuous at each point in $\mathcal{X}$. We denote it by $f\in \mathcal{C}(\mathcal{X})$.
+
+---
+
+# Limits and Continuity of A Function
+
+Let $\{x_n\}_{n=1}^{\infty}$ be an infinite sequence of real numbers. This sequence has the **limit** $x$ (i.e., **converges to** $x$) if, for any $\epsilon>0$, there exists a positive integer $N(\epsilon)$ such that 
+$$|x_n -x| < \epsilon \quad \text{ whenever } \quad n>N(\epsilon).$$
+We denote it by $\lim_{n\to\infty} x_n =x$.
+
+--
+
+**Theorem.** If $f$ is a function defined on a set $\mathcal{X}$ and $x_0 \in \mathcal{X}$, the the following statements are equivalent:
+
+a. $f$ is continuous at $x_0$;
+
+b. If $\{x_n\}_{n=1}^{\infty}$ is any sequence in $\mathcal{X}$ converging to $x_0$, then $\lim_{n\to\infty} f(x_n) = f(x_0)$.
+
+---
+
+# Differentiability of A Function
+
+Let $f$ be a function defined in an open set containing $x_0$. The function $f$ is **differentiable** at $x_0$ if 
+$$f'(x_0) = \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$$
+exists. The number $f'(x)$ is called the **derivative** of $f$ at $x_0$. A function that has a derivative at each point in a set $\mathcal{X}$ is **differentiable on** $\mathcal{X}$.
+
+- The derivative of $f$ at $x_0$ is the slope of the tangent line to the graph of $f$ at $(x_0,f(x_0))$.
+
+<p align="center">
+<img src="./figures/function_deriv.png" width="530"/>
+</p>
+
+---
+
+# Taylor's Theorem
+
+Assume that $f$ is $n$-times continuously differentiable and $f^{(n+1)}$ exists on $x_0\in [a,b]$. For every $x\in [a,b]$, there exists a number $\xi(x)$ between $x_0$ and $x$ such that
+\begin{align*}
+f(x) &= P_n(x) + R_n(x)\\
+&= \underbrace{\sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}\cdot (x-x_0)^k}_{n^{th} \text{ Taylor's polynomial}} + \underbrace{\frac{f^{(n+1)}(\xi(x))}{(n+1)!} \cdot (x-x_0)^{n+1}}_{\text{Remainder term or Truncation error}}.
+\end{align*}
+
+- As $n\to \infty$, $\lim\limits_{n\to\infty} P_n(x)$ becomes an infinite Taylor series of $f$ at around point $x_0$.
+
+---
+
+# Theorems Related to Differentiability
+
+**Theorem.** If the function $f$ is differentiable at $x_0$, then $f$ is continuous at $x_0$.
+
+--
+
+**Rolle's Theorem.** Suppose that $f\in \mathcal{C}[a,b]$ and $f$ is differentiable on $(a,b)$. If $f(a) = f(b)$, then there exists a number $c\in (a,b)$ such that $f'(c)=0$.
+
+<p align="center">
+<img src="./figures/rolle_theorem.png" width="700"/>
+</p>
+
+---
+
+# Theorems Related to Differentiability
+
+**Mean Value Theorem.** If $f\in \mathcal{C}[a,b]$ and $f$ is differentiable on $(a,b)$, then there exists a number $c\in (a,b)$ such that 
+$$f'(c)=\frac{f(b) -f(a)}{b-a}.$$
+
+<p align="center">
+<img src="./figures/Mean_Value_Theorem.png" width="700"/>
+</p>
+
+---
+
+# Theorems Related to Differentiability
+
+**Extreme Value Theorem.** If $f\in \mathcal{C}[a,b]$, then there exist $c_1,c_2 \in [a,b]$ such that
+$$f(c_1) \leq f(x) \leq f(c_2) \quad \text{ for all } \quad x\in [a,b].$$
+In addition, if $f$ is differentiable on $(a,b)$, then the numbers $c_1$ and $c_2$ occur either at the endpoints of $[a,b]$ or at the point where $f'$ is zero.
+
+<p align="center">
+<img src="./figures/Extreme_Value_Theorem.png" width="700"/>
+</p>
+
+---
+
+# Other Generalized Theorems
+
+**Generalized Rolle's Theorem.** Suppose that $f \in \mathcal{C}[a,b]$ is $n$ times differentiable on $(a,b)$. If $f(x)=0$ at the $(n+1)$ distinct numbers $a\leq x_0 < x_1 < \cdots < x_n\leq b$, then there exists a number $c\in (x_0,x_n)$ such that $f^{(n)}(c)=0$.
+
+--
+
+**Intermediate Value Theorem.** If $f\in \mathcal{C}[a,b]$ and $K$ is any number between $f(a)$ and $f(b)$, then there exists a number $c\in (a,b)$ for which $f(c)=K$.
+
+<p align="center">
+<img src="./figures/Inter_mean_value.png" width="650"/>
+</p>
+
+---
+
+# Compute Derivatives in R
+
+We can use the build-in function `D()` in R to compute the derivative of a function.
+
+```{r}
+f = expression(x^2 + 3*x)
+class(f)
+# First-order derivative
+D(f, 'x')
+# Second-order and third-order derivatives
+D(D(f, 'x'), 'x')
+D(D(D(f, 'x'), 'x'), 'x')
+```
+
+---
+
+# Compute Derivatives in R
+
+It is _inconvenient_ to compute the high-order derivatives by using `D()` in a nested way.
+
+- Instead, we can write our customized function in a recursive way to compute the high-order derivative.
+
+```{r}
+compDeriv = function(expr, name, order = 1) {
+   if(order < 1) stop("'order' must be >= 1")
+   if(order == 1) {
+     return(D(expr, name))
+   } else {
+     return(compDeriv(D(expr, name), name, order - 1))
+   }
+}
+exp1 = expression(x^3)
+compDeriv(exp1, 'x', 3)
+```
+
+Note: The process where a function calls itself directly or indirectly is called _recursion_, and the corresponding function is called a recursive function. 
+
+---
+
+# Compute Derivatives in R
+
+If the expression has more than one independent variable, we can calculate the partial derivative with respect to each of them.
+
+```{r}
+g = expression(x^2 + y^3 + 2*x*y - 3*x + 4*y + 4)
+D(g, 'x')
+
+D(g, 'y')
+
+compDeriv(g, 'x', 2)
+
+compDeriv(g, 'y', 3)
+```
+
+---
+
+# Evaluate R Expression and its Derivatives
+
+We can evaluate the function expression and its derivative using the build-in function `eval()`.
+
+```{r, warning=FALSE}
+x = 1:5
+f = expression(x^2 + 3*x)
+eval(f)
+```
+--
+
+```{r, error=TRUE}
+df = D(f, 'x')
+class(df)
+df(1:3)
+eval(D(f, 'x'))
+```
+
+---
+
+# Evaluate R Expression and its Derivatives
+
+We can evaluate the function expression and its derivative using the build-in function `eval()`.
+
+```{r}
+g = expression(x^2 + y^3 + 2*x*y - 3*x + 4*y + 4)
+x = 1:5
+y = 3:7
+eval(g)
+eval(compDeriv(g, 'y', 2))
+eval(compDeriv(g, 'x', 2))
+```
+
+---
+
+# Evaluate R Expression and its Derivatives
+
+Using the `eval()` function requires us to assign correct values to the R variables as in our expression.
+
+```{r, error=TRUE}
+remove(x)
+eval(f)
+```
+
+--
+
+Alternatively, we can use the build-in function `deriv()` to compute the derivatives of a function.
+
+- The return value of `deriv()` with argument `function.arg = TRUE` is an R function!
+
+```{r}
+g = expression(x^2 + y^3 + 2*x*y - 3*x + 4*y + 4)
+dx = deriv(g, 'x', function.arg = TRUE)
+dxy = deriv(g, c('x', 'y'), function.arg = TRUE)
+class(dx)
+```
+
+---
+
+# Evaluate R Expression and its Derivatives
+
+```{r}
+D(g, 'x')
+dx_res = dx(10)
+dx_res
+
+dx_res[1]
+```
+
+---
+
+# Evaluate R Expression and its Derivatives
+
+We can access the "gradient" attribute using the `attr()` function in R.
+
+```{r}
+attr(dx_res, "gradient")
+
+dxy(1:3, 3:5)
+```
+
+
+---
+
+# Integration
+
+The Riemann integral of the function $f$ on the interval $[a,b]$ is the following limit, provided it exists:
+$$\int_a^b f(x) dx = \lim_{\max \Delta x_i \to 0} \sum_{i=1}^n f(z_i) \Delta x_i,$$
+where the numbers $x_0,x_1,...,x_n$ satisfy $a=x_0\leq x_1 \leq \cdots \leq x_n=b$, where $\Delta x_i = x_i-x_{i-1}$ for each $i=1,2,...,n$ and $z_i$ is an arbitrary number in the interval $[x_{i-1}, x_i]$.
+
+<p align="center">
+<img src="./figures/riem_inte.png" width="600"/>
+</p>
+
+---
+
+# Fundamental Theorem of Calculus
+
+- If $f\in \mathcal{C}[a,b]$ and we define $F(x)=\int_a^x f(t) dt$, then $F'(x)=f(x)$ for any $x\in (a,b)$. Hence, $F$ is an anti-derivative of $f$.
+
+- If $f\in \mathcal{C}[a,b]$ and $F$ is any anti-derivative of $f$, then 
+$$\int_a^b f(x) dx = F(x)\Big|_{x=a}^b = F(b) - F(a).$$
+
+<p align="center">
+<img src="./figures/Fundamental_theorem_of_calculus.gif" width="450"/>
+</p>
+
+---
+
+# Weighted Mean Value Theorem for Integrals
+
+Suppose that $f\in \mathcal{C}[a,b]$, the Riemann integral of $g$ exists on $[a,b]$, and $g(x)$ does not change sign on $[a,b]$. Then, there exists a number $c\in (a,b)$ such that
+$$\int_a^b f(x) g(x)\, dx = f(c) \int_a^b g(x)\, dx.$$
+
+- When $g(x)\equiv 1$, it leads to the usual Mean Value Theorem for integrals: $f(c) = \frac{1}{b-a} \int_a^b f(x)\, dx$.
+
+<p align="center">
+<img src="./figures/weight_mean_value.png" width="500"/>
+</p>
+
+---
+
+# Compute Integrals in R
+
+A Riemann integral can be computed via a build-in function `integrate()` in R.
+
+```{r}
+inteFun1 = function(x) { x^2 + 3*x }
+integrate(inteFun1, lower = 0, upper = 2)
+
+# An integral that converges slowly
+inteFun2 = function(x) {
+  return(1/((x+1)*sqrt(x)))
+}
+integrate(inteFun2, lower = 0, upper = Inf)
+```
+
+--
+
+```{r, error=TRUE}
+integrate(inteFun1, lower = 0, upper = Inf)
+```
+
+---
+
+# Compute Multiple Integrals in R
+
+Compute a multiple integral $\int_0^1 \int_0^2 \int_0^{\frac{1}{2}} (xy + z^2 + 3yz) \,dxdydz$.
+
+```{r}
+library(cubature)
+mulFun1 = function(x) { 
+  return(x[1]*x[2] + x[3]^2 + 3*x[2]*x[3])
+}
+# "x" is a vector and x[1], x[2], x[3] refers to x, y, and z, respectively.
+mul_int = adaptIntegrate(mulFun1, lowerLimit = c(0, 0, 0), upperLimit = c(0.5, 2, 1))
+mul_int
+```
+
+---
+class: inverse
+
+# Part 2: Computer Arithmetic and Error Analysis
+
+---
+
+# Numbers and Characters in Computer Systems
+
+How does our computer store and recognize numbers and characters?
+
+--
+
+- It encodes every number/character as a sequence of **bits** (i.e., binary digits 0 or 1).
+
+- It was [John Tukey](https://en.wikipedia.org/wiki/John_Tukey), a prestigious statistician, who first coined the term "bit".
+
+- A byte is a collection of 8 bits, e.g., 0001 0011.
+
+---
+
+# Character Encoding Systems
+
+There are several standard encoding systems with bits for characters. 
+
+- [ASCII](https://en.wikipedia.org/wiki/ASCII) -- American Standard Code for Information Interchange. 
+
+  - Each upper and lower case letter in the English alphabet and other characters is represented as a sequence of 7 bits.
+
+<p align="center">
+<img src="./figures/USASCII_code_chart.png" width="500"/>
+</p>
+
+---
+
+# Character Encoding Systems
+
+There are several standard encoding systems with bits for characters. 
+
+- Nowadays, [Unicode](https://en.wikipedia.org/wiki/Unicode) is more commonly used for text encoding, including [UTF-8](https://en.wikipedia.org/wiki/UTF-8), UTF-16, etc.
+
+  - It encodes not just English letters but also special characters and emojis.
+
+<p align="center">
+<img src="./figures/unicode.jpg" width="550"/>
+</p>
+
+---
+
+# Binary Number Representations
+
+Commonly, we write a number in the base-10 decimal system.
+
+- For instance, we write a 3-digit number **105**, representing 1 hundred, 0 tens, and 5 ones.
+
+- That is, $105= 1\times 10^2 + 0 \times 10^1 + 5\times 10^0$.
+
+--
+
+In our computer systems, however, 105 is stored as **110 1001**, because
+\begin{align*}
+105 &= (1\times 2^6) + (1\times 2^5) + (0\times 2^4) \\
+&\quad + (1\times 2^3) + (0\times 2^2) + (0\times 2^1) + (1\times 2^0).
+\end{align*}
+
+- What is the base-10 decimal value of the 8-digit binary number **00110011**?
+
+--
+
+- Answer: $1\times 2^0 + 1\times 2^1+ 1\times 2^4+ 1\times 2^5=51$.
+
+---
+
+# Scientific Notations
+
+Integer types can be stored in our computer using the binary representation.
+
+How about other numeric types, e.g., 0.25, 1/7, $\pi$, etc?
+
+--
+
+- The computer system uses the notion of **scientific notation** to store numbers.
+
+- General scientific notation in base-10: 
+$$a\times 10^{b}.$$
+
+  - Terminology: $\,a$ --> mantissa; $\quad \; b$ --> exponent.
+
+  - Examples: $\,0.023$	--> $2.3 \times 10^{-2}$; $\quad$ $-2600$ --> $-2.6\times 10^3$.
+
+Note: The computer cannot store 1/7 and $\pi$ because the total number of digits is limited.
+
+---
+
+# Double-Precision Floating Point
+
+IEEE (Institute for Electrical and Electronic Engineers) in 1985 (updated in 2008) published a report to standardize 
+
+- Binary and decimal floating numbers;
+
+- Formats for data interchange;
+
+- Algorithms for rounding arithmetic operations;
+
+- Handling exceptions.
+
+A 64-bit (binary digit) representation is used for a real number (i.e., the numeric data type in R).
+
+<p align="center">
+<img src="./figures/ieee_float.png" width="800"/>
+</p>
+
+---
+
+# Double-Precision Floating Point
+
+<p align="center">
+<img src="./figures/ieee_float2.png" width="800"/>
+</p>
+
+Under base-2 system, 
+
+- the first bit $s$ is a sign indicator;
+
+- it is followed by an 11-bit exponent (or characteristic) $c$;
+
+- it is ended with a 52-bit binary fraction (or mantissa) $f$.
+
+The represented number in the base-10 decimal system is
+$$(-1)^s\cdot 2^{c-1023}\cdot (1+f).$$
+
+---
+
+# Double-Precision Floating Point
+
+The smallest normalized positive number that can be represented has $s=0$, $c=1$, and $f=0$ and is equivalent to
+$$2^{-1022} \cdot (1+0) \approx 2.2251 \times 10^{-308},$$
+and the largest has $s=0$, $c=2046$, and $f=1-2^{-52}$ and is equivalent to
+$$2^{1023} \cdot (2- 2^{-52}) \approx 1.7977 \times 10^{308}.$$
+
+```{r}
+.Machine$double.xmin
+.Machine$double.xmax
+```
+
+---
+
+# Underflow and Overflow
+
+- Numbers occurring in calculations that have a magnitude less than $2^{-1022} \cdot (1+0)$ 
+result in **underflow** and are generally set to 0.
+
+- Numbers greater than $2^{1023} \cdot (2-2^{-52})$ result in **overflow** and typically cause the computations to stop. In R, it will be denoted by `Inf`.
+
+--
+
+Note: Recall that
+$$(-1)^s\cdot 2^{c-1023}\cdot (1+f).$$
+There are two representations for the
+number 0.
+
+- A positive 0 when $s = 0$, $c = 0$, and $f = 0$; 
+
+- A negative 0 when $s = 1$, $c = 0$, and $f = 0$.
+
+---
+
+# Decimal Machine Numbers
+
+The use of binary digits may conceal the computational difficulties that occur when a finite collection of machine numbers is used to represent all the real numbers.
+
+- For simplicity, we use base-10 decimal numbers in our analysis:
+$$\pm 0.d_1d_2\cdots d_k \times 10^n \quad \text{with}\quad 1\leq d_1 \leq 9 \; \text{ and } \; 0\leq d_i \leq 9 \;\text{ for }\; i=2,...,k.$$
+This is called $k$-digit _decimal machine numbers_.
+
+- Any positive real number (within the numerical range of the machine) can be written as:
+$$y=0.d_1d_2\cdots d_kd_{k+1} d_{k+2} \cdots \times 10^n.$$
+
+---
+
+# Decimal Machine Numbers
+
+- There are two ways to represent $y$ with $k$ digits:
+  
+  - _Chopping_: chop off after $k$ digits:
+  $$fl(y)=0.d_1d_2\cdots d_k \times 10^n.$$
+  
+  - _Rounding_: Add $5\times 10^{n-(k+1)}$ and chop:
+  $$fl(y)=0.\delta_1\delta_2\cdots \delta_k \times 10^n.$$
+
+Note: We make two remarks for rounding.
+
+- When $d_{k+1} \geq 5$, we add $1$ to the digit $d_k$ to obtain the final floating point number $fl(y)$, i.e., we _round up_.
+
+- When $d_{k+1} < 5$, we simply chopp off all but the first $k$ digits, i.e., we _round down_.
+
+---
+
+# Absolute and Relative Errors
+
+Suppose that $\hat{p}$ is an approximation (or rounding number) to $p^*$.
+
+- The **absolute error** is $|\hat{p} -p^*|$.
+
+- The **relative error** is $\frac{|\hat{p} -p^*|}{|p^*|}$, provided that $p^*\neq 0$.
+
+```{r}
+p_star = pi
+p_hat = round(p_star, digits = 7)
+cat("The absolute error is ", abs(p_star - p_hat), ".", sep = "")
+cat("The relative error is ", abs(p_star - p_hat)/abs(p_star), ".", sep = "")
+```
+
+---
+
+# Significant Digits
+
+The number $\hat{p}$ is said to approximate $p^*$ to $t$ **significant digits** (or figures) if $t$ is the largest nonnegative integer for which
+$$\frac{|\hat{p} -p^*|}{|p^*|} \leq 5\times 10^{-t}.$$
+
+```{r}
+sigDigit = function(x_app, x_true) {
+  t = 0
+  while(abs(x_app - x_true)/abs(x_true) <= 5*10^(-t)) {
+    t = t + 1
+  }
+  return(t)
+}
+p_star = pi
+p_hat = round(p_star, digits = 7)
+sigDigit(p_hat, p_star)
+```
+
+---
+
+# Floating Point Operations in Computers
+
+Assume that the floating-point representations $fl(x)$ and $fl(y)$ are given for the real numbers $x$ and $y$. Let $\oplus, \ominus, \otimes, \oslash$ represent machine addition, subtraction, multiplication, and division operations.
+
+- Then, the finite-digit arithmetics for floating points are
+\begin{align*}
+x \oplus y &= fl\left(fl(x) + fl(y) \right), \quad x\otimes y = fl\left(fl(x) \times fl(y) \right),\\
+x \ominus y &= fl\left(fl(x) - fl(y) \right), \quad x\oslash y = fl\left(fl(x) / fl(y) \right).
+\end{align*}
+
+- "Round input, perform exact arithmetic, and round the result".
+
+```{r}
+x = round(1/3, digits = 4)
+y = round(5/7, digits = 4)
+print(1/3 + 5/7)
+# 3-digit arithmetic
+round(x + y, digits = 4)
+```
+
+---
+
+# Error Growth and Stability
+
+Those floating point rounding errors or other systematic errors can propagate as our computations/algorithms proceed.
+
+--
+
+Suppose that $E_0 >0$ denotes an initial error at some stage of the calculations and $E_n$ represents the magnitude of the error after $n$ subsequent operations.
+
+- If $E_n \approx C \cdot nE_0$, then the growth of error is said to be **linear**.
+
+- If $E_n \approx C^n E_0$ for some $C>1$, then the growth of error is called **exponential**.
+
+Note: Here, $C>0$ is a constant independent of $n$.
+
+---
+
+# Error Growth and Stability
+
+- **Stable** algorithm: Small changes in the initial data only produce small changes in the final result.
+
+- **Unstable** or **Conditionally Stable** algorithm: Large errors in the final result for all or some initial data with small changes.
+
+<p align="center">
+<img src="./figures/error_growth.png" width="700"/>
+</p>
+
+---
+class: inverse
+
+# Part 3: Algorithmic Rate of Convergence
+
+---
+
+# Rate/Order of Convergence
+
+Suppose that $\{x_n\}_{n=0}^{\infty} \subset \mathbb{R}^d$ converges to $x^*\in \mathbb{R}^d$ and $\{\alpha_n\}_{n=0}^{\infty} \subset \mathbb{R}$ is a sequence known to converge to 0.
+
+- If there exists a constant $C>0$ independent of $n$ with
+$$\|x_n -x^* \|_2 \leq C |\alpha_n| \quad \text{ for large } n,$$
+then we say that $\{x_n\}_{n=0}^{\infty}$ converges to $x^*$ with **rate, or order, of convergence** $O(\alpha_n)$.
+
+- We can write 
+$$\|x_n-x^*\|_2 = O(\alpha_n)$$ 
+or $x_n=x^* + O(\alpha_n)$ when $\{x_n\}_{n=0}^{\infty}$ is a sequence of numbers.
+
+- In many cases, we can take $\alpha_n = \frac{1}{n^p}$ for some number $p>0$, and generally, the _largest_ value of $p$ with $\|x_n-x^*\|_2= O\left(\frac{1}{n^p} \right)$ will be of interest.
+
+---
+
+# Linear Convergence
+
+When $\|x_n-x^*\|_2= O\left(\frac{1}{n^p} \right)$ for the largest possible value of $p$, $x_n$ is also known to converge to $x^*$ in a polynomial/sublinear rate of convergence.
+
+- The algorithm or sequence that polynomially/sublinearly converges to $x^*$ is relatively slow, in the sense that
+$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}=1.$$
+
+--
+
+The convergence $x_n\to x^*$ is said to be **linear** if there exists a number $0< r< 1$ such that
+$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}= r.$$
+
+- The **linear convergence** means that 
+$$\|x_n -x^*\|_2= r^n \|x_0 -x^*\| = O(r^n).$$
+
+---
+
+# Q-Linear and R-Linear Convergences
+
+The linear convergence can be further categorized into two types:
+
+- Q-Linear Convergence: $\frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}\leq r$ for some $r\in (0,1)$ when $n$ is sufficiently large. This is the same as our previous definition.
+
+--
+
+- R-Linear Convergence of $\{x_n\}_{n=0}^{\infty} \subset \mathbb{R}^d$: there exists a sequence $\{\epsilon_n\}_{n=0}^{\infty}$ such that
+$$\|x_n-x^*\|_2 \leq \epsilon_n \quad \text{ for all } n$$
+and $\epsilon_n$ converges Q-linearly to 0.
+
+- The "Q" here stands for "quotient", while the "R" stands for "root".
+
+--
+
+- Examples: 
+  - $\left\{\frac{1}{2^n} \right\}_{n=0}^{\infty}$ converges Q-linearly to 0.
+  - $\left\{1,1, \frac{1}{4},\frac{1}{4},\frac{1}{16},\frac{1}{16},...,\frac{1}{4^{\left\lfloor \frac{k}{2} \right\rfloor}},... \right\}$ converges R-linearly to 0.
+
+---
+
+# Superlinear Convergence
+
+The convergence $x_n\to x^*$ is said to be **superlinear** if 
+$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}= 0.$$
+
+- Quadratic Convergence: We say that $\{x_n\}_{n=0}^{\infty}$ converges quadratically to $x^*$ if there exists a constant $M>0$ such that
+$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2^2}= M.$$
+
+- Example: $\left\{\left(\frac{1}{n} \right)^{2^n} \right\}_{n=0}^{\infty}$ converges quadratically to 0, because
+$$\frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2^2} = \frac{\left(\frac{1}{n+1} \right)^{2^{n+1}}}{\left(\frac{1}{n} \right)^{(2^n)\cdot 2}} = \left(\frac{n}{n+1} \right)^{2^{n+1}}\leq 1.$$
+
+---
+
+# Plots for Different Types of Convergence
+
+<p align="center">
+<img src="./figures/conv_plot.png" width="650"/>
+</p>
+
+---
+
+# Plots for Different Types of Convergence
+
+```{r, fig.align='center', fig.height=6, fig.width=8.5}
+library(latex2exp)
+k = 1:30
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(k, log10(1/k), type="l", lwd=5, col="green", 
+     xlab = "Number of iterations", ylab = TeX("$||x_n - x^*||_2$"), 
+     cex.lab=2, cex.axis=2, cex=0.7)
+lines(k, log10((7/10)^k), col="red", lwd=5)
+lines(k, log10((1/k)^(2^k)), col="blue", lwd=5)
+legend(20, -0.1, legend=c("Sublinear", "Linear", "Superlinear"), fill=c("green", "red", "blue"), cex=1.5)
+```
+
+---
+
+# Rate of Convergence for Functions
+
+Suppose that $\lim\limits_{h\to 0} g(h)=0$ with $g(h)>0$ for all $h\in \mathbb{R}$ and $\lim\limits_{h\to 0} f(h)=L$. If there exists a constant $C>0$ such that
+$$|f(h) -L| \leq C|g(h)| \quad \text{ for sufficiently small } |h|,$$
+then we write $|f(h)-L|=O(g(h))$ or $f(h)=L+O(g(h))$. 
+
+- Generally, $g(h)$ has the form $g(h)=|h|^p$ for some $p>0$.
+
+- We are interested in the largest value of $p>0$ for which $f(h) = L+ O(|h|^p)$.
+
+Note: Other definitions of big-O and little-o notations can be found in the [Wikipedia page](https://en.wikipedia.org/wiki/Big_O_notation).
+
+---
+class: inverse
+
+# Part 4: Solutions of Nonlinear Equations in One Variable
+
+---
+
+# 
