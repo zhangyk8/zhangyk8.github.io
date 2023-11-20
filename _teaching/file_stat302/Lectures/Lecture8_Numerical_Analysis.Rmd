@@ -28,7 +28,7 @@ library(kableExtra)
 
 3. Algorithmic Rate of Convergence
 
-4. Solutions of Nonlinear Equations in One Variable
+4. Solutions of Equations in One Variable
 
 5. Numerical Integration
 
@@ -765,8 +765,236 @@ Note: Other definitions of big-O and little-o notations can be found in the [Wik
 ---
 class: inverse
 
-# Part 4: Solutions of Nonlinear Equations in One Variable
+# Part 4: Solutions of Equations in One Variable
 
 ---
 
-# 
+# Root-Finding Problems
+
+One of the most basic problems of numerical analysis is the **root-finding** problem.
+
+- Given a function $f:\mathbb{R}^{d_1} \to \mathbb{R}^{d_2}$, we want to solve the equation $f(x)=0$.
+
+- A root of this equation $f(x)=0$ is also called a **zero** of the function $f$.
+
+- In most cases, we will focus on the cases where $d_1=d_2=1$.
+
+- The root-finding methods that we will discuss include
+  
+  - Bisection method;
+  
+  - Fixed-point iteration;
+  
+  - Newton's method.
+  
+---
+
+# Bisection Method
+
+Suppose that $f$ is a _continuous_ function defined on $[a,b]$ with $f(a)$ and $f(b)$ of opposite sign.
+
+- The Intermediate Value Theorem implies that there exists a number $x^*\in (a,b)$ such that $f(x^*)=0$.
+
+- Note that the solution $x^*$ to $f(x)=0$ needs not be unique.
+
+<p align="center">
+<img src="./figures/bisection.png" width="600"/>
+</p>
+
+---
+
+# Bisection Method
+
+The **bisection method** uses the following procedure to approximate a solution to $f(x)=0$.
+
+1. Initialize the endpoints $L=a, U=b$, and a tolerance level $\epsilon>0$.
+
+2. Compute the midpoint of the current interval $[L,U]$ as $p_n=\frac{L+U}{2}$ for the $n^{th}$ iteration.
+
+  - If $f(p_n)=0$, then $x^*=p$, and we are done.
+  
+  - If $f(p_n)$ and $f(L)$ have the same sign, then set $L=p_n$ and $U=b$.
+  
+  - If $f(p_n)$ and $f(U)$ have the same sign, then set $U=p_n$ and $L=a$.
+  
+3. Repeat Step 2 until $|U-L| < \epsilon$. Then, use $p_n=\frac{L+U}{2}$ as the approximated solution.
+
+---
+
+# Bisection Method (Example)
+
+Verify that the function $f(x)=x^3+7x^2-10=0$ has at least one root in $[1,2]$, and use the bisection method to find an approximated root that has an accuracy within $10^{-7}$.
+
+--
+
+- $f$ is continuous with $f(1)=-2$ and $f(2)=26$.
+
+```{r}
+f = function(x) { x^3 + 7*x^2 - 10 }
+biSect = function(L, U, fun, tol=1e-7) {
+  while(abs(L-U) > tol) {
+    p = (U + L)/2
+    if(f(p) > 0) {
+      U = p
+    } else if (fun(p) < 0) {
+      L = p
+    } else {
+      break
+    }
+  }
+  return(p)
+}
+x_app = biSect(L = 1, U = 2, fun = f, tol = 1e-7)
+cat("The approximated solution is ", x_app, ".", sep = "")
+f(x_app)
+```
+
+---
+
+# Rate of Convergence for the Bisection Method
+
+Let $[a,b]$ be the initial interval for the bisection method and $p_n$ be the midpoint of the interval in the $n^{th}$ iteration.
+
+- Then, the difference between $p_n$ and a solution $x^*$ is upper bounded by
+$$\|p_n -x^* \|_2 \leq \frac{b-a}{2^n}.$$
+
+- Hence, the bisection method produce a sequence $\{p_n\}_{n=1}^{\infty}$ that _converges (R-)linearly_ to the solution $x^*$.
+
+---
+
+# Caveats When Using the Bisection Method
+
+- The _continuity_ of the function $f$ within the interval of interest is critical for finding the root of $f(x)=0$.
+
+<p align="center">
+<img src="./figures/1_x.png" width="500"/>
+</p>
+
+---
+
+# Caveats When Using the Bisection Method
+
+- The choice of the initial interval affects not only the convergence speed but also the output approximated solution as well.
+
+```{r, fig.align='center', fig.height=5, fig.width=7.5}
+x = seq(-8, 3, by = 0.1)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(x, f(x), lwd = 5, type = "l")
+abline(h = 0, col="red", lty=2, lwd = 5)
+legend(-3, -50, legend=c(TeX("$f(x)=x^3+7x^2-10$")), fill=c("black"), cex=1.5)
+```
+
+---
+
+# Caveats When Using the Bisection Method
+
+```{r, fig.align='center', fig.height=5, fig.width=7.5, echo=FALSE}
+x = seq(-8, 3, by = 0.1)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(x, f(x), lwd = 5, type = "l")
+abline(h = 0, col="red", lty=2, lwd = 5)
+legend(-3, -50, legend=c(TeX("$f(x)=x^3+7x^2-10$")), fill=c("black"), cex=1.5)
+```
+
+```{r}
+x_app = biSect(L = 1, U = 2, fun = f, tol = 1e-7)
+cat("The approximated solution is ", x_app, ".", sep = "")
+
+x_app = biSect(L = -8, U = 3, fun = f, tol = 1e-7)
+cat("The approximated solution is ", x_app, ".", sep = "")
+```
+
+---
+
+# More General Binary-Search Method
+
+Suppose that we want to search for an item in a (discrete) ordered list or a solution to a problem within an interval.
+
+<p align="center">
+<img src="./figures/Binary_Search.png" width="480"/>
+</p>
+
+- The two endpoints of the ordered list or the interval characterize two different states with respect to the target. (Recall that $f\in \mathcal{C}[a,b]$ has two different signs at $a$ and $b$.)
+
+- We can also determine the state of the midpoint and update the search interval accordingly.
+
+- Keep dividing the ordered list or interval into a half until the target item is found or reaching the tolerance level.
+
+---
+
+# Searching for $R_c$ in the Final Project
+
+We will write a function `findRc()` to search for $R_c$, which is the smallest possible radius such that a given ad hoc network is completely connected.
+
+1. Denote the endpoints of the interval returned from `findRange()` (i.e., a helper function in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf)) by $\bar{R}_{\min}$ and $\bar{R}_{\max}$, respectively.
+
+2. Compute the middle point as $\bar{R}_0=\frac{\bar{R}_{\min}+\bar{R}_{\max}}{2}$. 
+
+3. If $\bar{R}_0$ gives a completely connected network, then we assign $\bar{R}_{\max}\gets \bar{R}_0$. Otherwise, we assign $\bar{R}_{\min}\gets \bar{R}_0$.
+	
+4. Repeat Steps 2 and 3 until $|\bar{R}_{\min} - \bar{R}_{\max}|$ is less than the tolerance level `tol`.
+
+---
+
+# Fixed Points and Root-Finding
+
+The point $p\in \mathbb{R}^d$ is a **fixed point** for a given function $g$ if $g(p) =p$.
+
+- Given a root-finding problem $f(p)=0$, we can define the function $g$ with a fixed point at $p$ in various ways:
+$$g(x) = x-f(x), \quad g(x)=x+3f(x), \quad \text{etc.}$$
+Both of them satisfy $g(p)=p$.
+
+- Conversely, if the function $g$ has a fixed point at $p$, then the function defined by 
+$$f(x)=x-g(x)$$
+has a zero at $p$.
+
+---
+
+# Fixed Points and Root-Finding
+
+Example: Determine any fixed points of the function $g(x)=x^2-2$.
+
+--
+
+<p align="center">
+<img src="./figures/fixed_point.png" width="700"/>
+</p>
+
+- The function $g(x)=x^2-2$ has two fixed points $x=-1$ and $x=2$.
+
+---
+
+# Existence and Uniqueness of Fixed Points
+
+**Theorem.** 
+
+1. (_Existence_) If $g\in \mathcal{C}[a,b]$ and $g(x) \in [a,b]$ for all $x\in [a,b]$, then $g$ has at least one fixed point in $[a,b]$.
+
+2. (_Uniqueness_) If, in addition, $g'(x)$ exists on $(a,b)$ and there exists a positive constant $k<1$ such that
+$$|g'(x)| \leq k \quad \text{ for all } x\in (a,b),$$
+then there exists exactly one fixed point in $[a,b]$.
+
+<p align="center">
+<img src="./figures/fixed_point_uni.png" width="500"/>
+</p>
+
+More general results for the uniqueness of the fixed point can be found as [Banach fixed-point theorem](https://en.wikipedia.org/wiki/Banach_fixed-point_theorem) and [this paper](https://www.ams.org/journals/proc/1976-060-01/S0002-9939-1976-0423137-6/S0002-9939-1976-0423137-6.pdf).
+
+---
+
+# Fixed-Point Iteration
+
+The **fixed-point iteration** solves for the fixed point $p$ (with $p=g(p)$) via the following procedure:
+
+1. Choose an initial approximation $p_0$;
+
+2. Generate the sequence $\{p_n\}_{n=0}^{\infty}$ by letting 
+$$p_n=g(p_{n-1}) \quad \text{ for each } n\geq 1.$$
+
+If the sequence $\{p_n\}_{n=0}^{\infty}$ converges to $p$ and $g$ is continuous, then
+$$p=\lim_{n\to\infty} p_n = \lim_{n\to\infty} g(p_{n-1})= g\left(\lim_{n\to\infty} p_{n-1} \right) = g(p).$$
+
+<p align="center">
+<img src="./figures/fixed_point_iter.png" width="600"/>
+</p>
+
