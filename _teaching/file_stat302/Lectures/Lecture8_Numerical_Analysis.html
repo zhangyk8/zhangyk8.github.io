@@ -52,7 +52,7 @@ class: inverse
 
 # Limits and Continuity of A Function
 
-A function `\(f\)` defined on a set `\(\mathcal{X}\)` of real numbers has the **limit** `\(L\)` at `\(x_0\in \mathcal{X}\)`, written `\(\lim_{x\to x_0} f(x) = L\)`, if, given any `\(\epsilon &gt;0\)`, there exists a real number `\(\delta&gt;0\)` such that 
+A function `\(f\)` defined on a set `\(\mathcal{X}\)` of real numbers has the **limit** `\(L\)` at `\(x_0\in \mathcal{X}\)`, written `\(\lim\limits_{x\to x_0} f(x) = L\)`, if, given any `\(\epsilon &gt;0\)`, there exists a real number `\(\delta&gt;0\)` such that 
 `$$|f(x)-L| &lt; \epsilon \quad \text{ whenever } \quad x\in \mathcal{X} \quad \text{ and } \quad 0&lt; |x-x_0|  &lt; \delta.$$`
 
 &lt;p align="center"&gt;
@@ -61,8 +61,7 @@ A function `\(f\)` defined on a set `\(\mathcal{X}\)` of real numbers has the **
 
 --
 
-- Then, `\(f\)` is **continuous** at `\(x_0\)` if `\(\lim_{x\to x_0} f(x) = f(x_0)\)`.
-
+- Then, `\(f\)` is **continuous** at `\(x_0\)` if `\(\lim\limits_{x\to x_0} f(x) = f(x_0)\)`.
 - `\(f\)` is **continuous on the set `\(\mathcal{X}\)`** if it is continuous at each point in `\(\mathcal{X}\)`. We denote it by `\(f\in \mathcal{C}(\mathcal{X})\)`.
 
 ---
@@ -71,7 +70,7 @@ A function `\(f\)` defined on a set `\(\mathcal{X}\)` of real numbers has the **
 
 Let `\(\{x_n\}_{n=1}^{\infty}\)` be an infinite sequence of real numbers. This sequence has the **limit** `\(x\)` (i.e., **converges to** `\(x\)`) if, for any `\(\epsilon&gt;0\)`, there exists a positive integer `\(N(\epsilon)\)` such that 
 `$$|x_n -x| &lt; \epsilon \quad \text{ whenever } \quad n&gt;N(\epsilon).$$`
-We denote it by `\(\lim_{n\to\infty} x_n =x\)`.
+We denote it by `\(\lim\limits_{n\to\infty} x_n =x\)`.
 
 --
 
@@ -79,7 +78,8 @@ We denote it by `\(\lim_{n\to\infty} x_n =x\)`.
 
 a. `\(f\)` is continuous at `\(x_0\)`;
 
-b. If `\(\{x_n\}_{n=1}^{\infty}\)` is any sequence in `\(\mathcal{X}\)` converging to `\(x_0\)`, then `\(\lim_{n\to\infty} f(x_n) = f(x_0)\)`.
+b. If `\(\{x_n\}_{n=1}^{\infty}\)` is any sequence in `\(\mathcal{X}\)` converging to `\(x_0\)`, then 
+`$$\lim\limits_{n\to\infty} f(x_n) = f(x_0).$$`
 
 ---
 
@@ -88,6 +88,8 @@ b. If `\(\{x_n\}_{n=1}^{\infty}\)` is any sequence in `\(\mathcal{X}\)` convergi
 Let `\(f\)` be a function defined in an open set containing `\(x_0\)`. The function `\(f\)` is **differentiable** at `\(x_0\)` if 
 `$$f'(x_0) = \lim_{x\to x_0} \frac{f(x)-f(x_0)}{x-x_0}$$`
 exists. The number `\(f'(x)\)` is called the **derivative** of `\(f\)` at `\(x_0\)`. A function that has a derivative at each point in a set `\(\mathcal{X}\)` is **differentiable on** `\(\mathcal{X}\)`.
+
+--
 
 - The derivative of `\(f\)` at `\(x_0\)` is the slope of the tangent line to the graph of `\(f\)` at `\((x_0,f(x_0))\)`.
 
@@ -105,7 +107,9 @@ f(x) &amp;= P_n(x) + R_n(x)\\
 &amp;= \underbrace{\sum_{k=0}^n \frac{f^{(k)}(x_0)}{k!}\cdot (x-x_0)^k}_{n^{th} \text{ Taylor's polynomial}} + \underbrace{\frac{f^{(n+1)}(\xi(x))}{(n+1)!} \cdot (x-x_0)^{n+1}}_{\text{Remainder term or Truncation error}}.
 \end{align*}`
 
-- As `\(n\to \infty\)`, `\(\lim\limits_{n\to\infty} P_n(x)\)` becomes an infinite Taylor series of `\(f\)` at around point `\(x_0\)`.
+--
+
+- As `\(n\to \infty\)`, `\(\lim\limits_{n\to\infty} P_n(x)\)` becomes an infinite Taylor series of `\(f\)` at around the point `\(x_0\)`.
 
 ---
 
@@ -174,6 +178,9 @@ class(f)
 ## [1] "expression"
 ```
 
+--
+
+
 ```r
 # First-order derivative
 D(f, 'x')
@@ -205,6 +212,8 @@ D(D(D(f, 'x'), 'x'), 'x')
 # Compute Derivatives in R
 
 It is _inconvenient_ to compute the high-order derivatives by using `D()` in a nested way.
+
+--
 
 - Instead, we can write our customized function in a recursive way to compute the high-order derivative.
 
@@ -350,7 +359,7 @@ eval(compDeriv(g, 'x', 2))
 
 # Evaluate R Expression and its Derivatives
 
-Using the `eval()` function requires us to assign correct values to the R variables as in our expression.
+Using the `eval()` function requires us to assign correct values to the R variables as those in our expression.
 
 
 ```r
@@ -394,19 +403,20 @@ D(g, 'x')
 ```
 
 ```r
+y = 4:8
 dx_res = dx(10)
 dx_res
 ```
 
 ```
-## [1] 173 234 319 434 585
+## [1] 234 319 434 585 778
 ## attr(,"gradient")
 ##       x
-## [1,] 23
-## [2,] 25
-## [3,] 27
-## [4,] 29
-## [5,] 31
+## [1,] 25
+## [2,] 27
+## [3,] 29
+## [4,] 31
+## [5,] 33
 ```
 
 ```r
@@ -414,7 +424,7 @@ dx_res[1]
 ```
 
 ```
-## [1] 173
+## [1] 234
 ```
 
 ---
@@ -430,11 +440,11 @@ attr(dx_res, "gradient")
 
 ```
 ##       x
-## [1,] 23
-## [2,] 25
-## [3,] 27
-## [4,] 29
-## [5,] 31
+## [1,] 25
+## [2,] 27
+## [3,] 29
+## [4,] 31
+## [5,] 33
 ```
 
 ```r
@@ -624,7 +634,7 @@ In our computer systems, however, 105 is stored as **110 1001**, because
 &amp;\quad + (1\times 2^3) + (0\times 2^2) + (0\times 2^1) + (1\times 2^0).
 \end{align*}`
 
-- What is the base-10 decimal value of the 8-digit binary number **00110011**?
+- What is the base-10 decimal value of the 8-digit binary number **0011 0011**?
 
 --
 
@@ -642,14 +652,16 @@ How about other numeric types, e.g., 0.25, 1/7, `\(\pi\)`, etc?
 
 - The computer system uses the notion of **scientific notation** to store numbers.
 
-- General scientific notation in base-10: 
+--
+
+- A general scientific notation in base-10 is written as: 
 `$$a\times 10^{b}.$$`
 
   - Terminology: `\(\,a\)` --&gt; mantissa; `\(\quad \; b\)` --&gt; exponent.
 
   - Examples: `\(\,0.023\)`	--&gt; `\(2.3 \times 10^{-2}\)`; `\(\quad\)` `\(-2600\)` --&gt; `\(-2.6\times 10^3\)`.
 
-Note: The computer cannot store 1/7 and `\(\pi\)` because the total number of digits is limited.
+Note: The computer cannot store 1/7 and `\(\pi\)` as their exact values because the total number of digits is limited.
 
 ---
 
@@ -664,6 +676,8 @@ IEEE (Institute for Electrical and Electronic Engineers) in 1985 (updated in 200
 - Algorithms for rounding arithmetic operations;
 
 - Handling exceptions.
+
+--
 
 A 64-bit (binary digit) representation is used for a real number (i.e., the numeric data type in R).
 
@@ -725,7 +739,6 @@ result in **underflow** and are generally set to 0.
 
 - Numbers greater than `\(2^{1023} \cdot (2-2^{-52})\)` result in **overflow** and typically cause the computations to stop. In R, it will be denoted by `Inf`.
 
---
 
 Note: Recall that
 `$$(-1)^s\cdot 2^{c-1023}\cdot (1+f).$$`
@@ -742,6 +755,8 @@ number 0.
 
 The use of binary digits may conceal the computational difficulties that occur when a finite collection of machine numbers is used to represent all the real numbers.
 
+--
+
 - For simplicity, we use base-10 decimal numbers in our analysis:
 `$$\pm 0.d_1d_2\cdots d_k \times 10^n \quad \text{with}\quad 1\leq d_1 \leq 9 \; \text{ and } \; 0\leq d_i \leq 9 \;\text{ for }\; i=2,...,k.$$`
 This is called `\(k\)`-digit _decimal machine numbers_.
@@ -757,7 +772,9 @@ This is called `\(k\)`-digit _decimal machine numbers_.
   
   - _Chopping_: chop off after `\(k\)` digits:
   `$$fl(y)=0.d_1d_2\cdots d_k \times 10^n.$$`
-  
+
+--
+
   - _Rounding_: Add `\(5\times 10^{n-(k+1)}\)` and chop:
   `$$fl(y)=0.\delta_1\delta_2\cdots \delta_k \times 10^n.$$`
 
@@ -776,6 +793,8 @@ Suppose that `\(\hat{p}\)` is an approximation (or rounding number) to `\(p^*\)`
 - The **absolute error** is `\(|\hat{p} -p^*|\)`.
 
 - The **relative error** is `\(\frac{|\hat{p} -p^*|}{|p^*|}\)`, provided that `\(p^*\neq 0\)`.
+
+--
 
 
 ```r
@@ -803,6 +822,8 @@ cat("The relative error is ", abs(p_star - p_hat)/abs(p_star), ".", sep = "")
 The number `\(\hat{p}\)` is said to approximate `\(p^*\)` to `\(t\)` **significant digits** (or figures) if `\(t\)` is the largest nonnegative integer for which
 `$$\frac{|\hat{p} -p^*|}{|p^*|} \leq 5\times 10^{-t}.$$`
 
+--
+
 
 ```r
 sigDigit = function(x_app, x_true) {
@@ -827,6 +848,8 @@ sigDigit(p_hat, p_star)
 
 Assume that the floating-point representations `\(fl(x)\)` and `\(fl(y)\)` are given for the real numbers `\(x\)` and `\(y\)`. Let `\(\oplus, \ominus, \otimes, \oslash\)` represent machine addition, subtraction, multiplication, and division operations.
 
+--
+
 - Then, the finite-digit arithmetics for floating points are
 `\begin{align*}
 x \oplus y &amp;= fl\left(fl(x) + fl(y) \right), \quad x\otimes y = fl\left(fl(x) \times fl(y) \right),\\
@@ -834,6 +857,8 @@ x \ominus y &amp;= fl\left(fl(x) - fl(y) \right), \quad x\oslash y = fl\left(fl(
 \end{align*}`
 
 - "Round input, perform exact arithmetic, and round the result".
+
+--
 
 
 ```r
@@ -894,13 +919,19 @@ class: inverse
 
 Suppose that `\(\{x_n\}_{n=0}^{\infty} \subset \mathbb{R}^d\)` converges to `\(x^*\in \mathbb{R}^d\)` and `\(\{\alpha_n\}_{n=0}^{\infty} \subset \mathbb{R}\)` is a sequence known to converge to 0.
 
+--
+
 - If there exists a constant `\(C&gt;0\)` independent of `\(n\)` with
 `$$\|x_n -x^* \|_2 \leq C |\alpha_n| \quad \text{ for large } n,$$`
 then we say that `\(\{x_n\}_{n=0}^{\infty}\)` converges to `\(x^*\)` with **rate, or order, of convergence** `\(O(\alpha_n)\)`.
 
+--
+
 - We can write 
 `$$\|x_n-x^*\|_2 = O(\alpha_n)$$` 
 or `\(x_n=x^* + O(\alpha_n)\)` when `\(\{x_n\}_{n=0}^{\infty}\)` is a sequence of numbers.
+
+--
 
 - In many cases, we can take `\(\alpha_n = \frac{1}{n^p}\)` for some number `\(p&gt;0\)`, and generally, the _largest_ value of `\(p\)` with `\(\|x_n-x^*\|_2= O\left(\frac{1}{n^p} \right)\)` will be of interest.
 
@@ -910,7 +941,7 @@ or `\(x_n=x^* + O(\alpha_n)\)` when `\(\{x_n\}_{n=0}^{\infty}\)` is a sequence o
 
 When `\(\|x_n-x^*\|_2= O\left(\frac{1}{n^p} \right)\)` for the largest possible value of `\(p\)`, `\(x_n\)` is also known to converge to `\(x^*\)` in a polynomial/sublinear rate of convergence.
 
-- The algorithm or sequence that polynomially/sublinearly converges to `\(x^*\)` is relatively slow, in the sense that
+- The algorithm or sequence that polynomially/sublinearly converges to `\(x^*\)` is relatively _slow_, in the sense that
 `$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}=1.$$`
 
 --
@@ -935,7 +966,7 @@ The linear convergence can be further categorized into two types:
 `$$\|x_n-x^*\|_2 \leq \epsilon_n \quad \text{ for all } n$$`
 and `\(\epsilon_n\)` converges Q-linearly to 0.
 
-- The "Q" here stands for "quotient", while the "R" stands for "root".
+- The "Q" stands for "quotient", while the "R" stands for "root".
 
 --
 
@@ -949,6 +980,8 @@ and `\(\epsilon_n\)` converges Q-linearly to 0.
 
 The convergence `\(x_n\to x^*\)` is said to be **superlinear** if 
 `$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}= 0.$$`
+
+--
 
 - Quadratic Convergence: We say that `\(\{x_n\}_{n=0}^{\infty}\)` converges quadratically to `\(x^*\)` if there exists a constant `\(M&gt;0\)` such that
 `$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2^2}= M.$$`
@@ -981,15 +1014,17 @@ lines(k, log10((1/k)^(2^k)), col="blue", lwd=5)
 legend(20, -0.1, legend=c("Sublinear", "Linear", "Superlinear"), fill=c("green", "red", "blue"), cex=1.5)
 ```
 
-&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
 # Rate of Convergence for Functions
 
-Suppose that `\(\lim\limits_{h\to 0} g(h)=0\)` with `\(g(h)&gt;0\)` for all `\(h\in \mathbb{R}\)` and `\(\lim\limits_{h\to 0} f(h)=L\)`. If there exists a constant `\(C&gt;0\)` such that
+Suppose that `\(\lim\limits_{h\to 0} g(h)=0\)` with `\(g(h)&gt;0\)` for `\(h\in \mathbb{R}\)` and `\(\lim\limits_{h\to 0} f(h)=L\)`. If there exists a constant `\(C&gt;0\)` such that
 `$$|f(h) -L| \leq C|g(h)| \quad \text{ for sufficiently small } |h|,$$`
 then we write `\(|f(h)-L|=O(g(h))\)` or `\(f(h)=L+O(g(h))\)`. 
+
+--
 
 - Generally, `\(g(h)\)` has the form `\(g(h)=|h|^p\)` for some `\(p&gt;0\)`.
 
@@ -1010,9 +1045,13 @@ One of the most basic problems of numerical analysis is the **root-finding** pro
 
 - Given a function `\(f:\mathbb{R}^{d_1} \to \mathbb{R}^{d_2}\)`, we want to solve the equation `\(f(x)=0\)`.
 
+--
+
 - A root of this equation `\(f(x)=0\)` is also called a **zero** of the function `\(f\)`.
 
 - In most cases, we will focus on the cases where `\(d_1=d_2=1\)`.
+
+--
 
 - The root-finding methods that we will discuss include
   
@@ -1044,7 +1083,11 @@ The **bisection method** uses the following procedure to approximate a solution 
 
 1. Initialize the endpoints `\(L=a, U=b\)`, and a tolerance level `\(\epsilon&gt;0\)`.
 
+--
+
 2. Compute the midpoint of the current interval `\([L,U]\)` as `\(p_n=\frac{L+U}{2}\)` for the `\(n^{th}\)` iteration.
+
+--
 
   - If `\(f(p_n)=0\)`, then `\(x^*=p\)`, and we are done.
   
@@ -1102,6 +1145,8 @@ f(x_app)
 
 Let `\([a,b]\)` be the initial interval for the bisection method and `\(p_n\)` be the midpoint of the interval in the `\(n^{th}\)` iteration.
 
+--
+
 - Then, the difference between `\(p_n\)` and a solution `\(x^*\)` is upper bounded by
 `$$\|p_n -x^* \|_2 \leq \frac{b-a}{2^n}.$$`
 
@@ -1109,7 +1154,7 @@ Let `\([a,b]\)` be the initial interval for the bisection method and `\(p_n\)` b
 
 ---
 
-# Caveats When Using the Bisection Method
+# Caveats About the Bisection Method
 
 - The _continuity_ of the function `\(f\)` within the interval of interest is critical for finding the root of `\(f(x)=0\)`.
 
@@ -1119,9 +1164,9 @@ Let `\([a,b]\)` be the initial interval for the bisection method and `\(p_n\)` b
 
 ---
 
-# Caveats When Using the Bisection Method
+# Caveats About the Bisection Method
 
-- The choice of the initial interval affects not only the convergence speed but also the output approximated solution as well.
+- The choice of the initial interval can affect the convergence speed and the output approximated solution as well.
 
 
 ```r
@@ -1132,13 +1177,13 @@ abline(h = 0, col="red", lty=2, lwd = 5)
 legend(-3, -50, legend=c(TeX("$f(x)=x^3+7x^2-10$")), fill=c("black"), cex=1.5)
 ```
 
-&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
-# Caveats When Using the Bisection Method
+# Caveats About the Bisection Method
 
-&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture8_Numerical_Analysis_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ```r
@@ -1169,9 +1214,15 @@ Suppose that we want to search for an item in a (discrete) ordered list or a sol
 &lt;img src="./figures/Binary_Search.png" width="480"/&gt;
 &lt;/p&gt;
 
+--
+
 - The two endpoints of the ordered list or the interval characterize two different states with respect to the target. (Recall that `\(f\in \mathcal{C}[a,b]\)` has two different signs at `\(a\)` and `\(b\)`.)
 
+--
+
 - We can also determine the state of the midpoint and update the search interval accordingly.
+
+--
 
 - Keep dividing the ordered list or interval into a half until the target item is found or reaching the tolerance level.
 
@@ -1179,7 +1230,7 @@ Suppose that we want to search for an item in a (discrete) ordered list or a sol
 
 # Searching for `\(R_c\)` in the Final Project
 
-We will write a function `findRc()` to search for `\(R_c\)`, which is the smallest possible radius such that a given ad hoc network is completely connected.
+We will write a function `findRc()` in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf) to search for `\(R_c\)`, which is the smallest possible radius such that a given ad hoc network is completely connected.
 
 1. Denote the endpoints of the interval returned from `findRange()` (i.e., a helper function in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf)) by `\(\bar{R}_{\min}\)` and `\(\bar{R}_{\max}\)`, respectively.
 
@@ -1252,6 +1303,22 @@ If the sequence `\(\{p_n\}_{n=0}^{\infty}\)` converges to `\(p\)` and `\(g\)` is
 &lt;p align="center"&gt;
 &lt;img src="./figures/fixed_point_iter.png" width="600"/&gt;
 &lt;/p&gt;
+
+---
+
+# Convergence of Fixed-Point Iteration
+
+**Theorem.** Let `\(g\in \mathcal{C}[a,b]\)` be such that `\(g(x)\in [a,b]\)` for all `\(x\in [a,b]\)`. Suppose, in addition, that `\(g'\)` exists on `\((a,b)\)` and that a constant `\(0&lt;k&lt;1\)` exists with
+`$$|g'(x)| \leq k \quad \text{ for all } x\in (a,b).$$`
+Then, for any number `\(p_0\in [a,b]\)`, the sequence `\(\{p_n\}_{n=0}^{\infty}\)` defined by 
+`$$p_n=g(p_{n-1}), \quad n\geq 1,$$`
+converges to the unique fixed point `\(p\in [a,b]\)`.
+
+**Corollary.** 
+
+---
+
+# Fixed-Point Iteration (Example)
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
