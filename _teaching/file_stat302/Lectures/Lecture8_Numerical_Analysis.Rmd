@@ -30,7 +30,12 @@ library(kableExtra)
 
 4. Solutions of Equations in One Variable
 
-5. Numerical Integration
+  - Bisection Method
+  - Fixed-Point Iteration
+  - Newton's Method
+  - Aitken's $\Delta^2$ Method for Acceleration
+
+5. Numerical Differentiation and Integration
 
 <p><font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Deborah Nolan. </font></p>
 
@@ -753,7 +758,7 @@ $$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}= 0.$$
 
 --
 
-- Quadratic Convergence: We say that $\{x_n\}_{n=0}^{\infty}$ converges quadratically to $x^*$ if there exists a constant $M>0$ such that
+- **Quadratic Convergence**: We say that $\{x_n\}_{n=0}^{\infty}$ converges quadratically to $x^*$ if there exists a constant $M>0$ such that
 $$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2^2}= M.$$
 
 - Example: $\left\{\left(\frac{1}{n} \right)^{2^n} \right\}_{n=0}^{\infty}$ converges quadratically to 0, because
@@ -1061,9 +1066,651 @@ Then, for any number $p_0\in [a,b]$, the sequence $\{p_n\}_{n=0}^{\infty}$ defin
 $$p_n=g(p_{n-1}), \quad n\geq 1,$$
 converges to the unique fixed point $p\in [a,b]$.
 
-**Corollary.** 
+**Corollary.** If $g$ satisfies the hypotheses above, then bounds for the error at the $n^{th}$ step of the fixed-point iteration are given by
+\begin{align*}
+&|p_n -p| \leq k^n \max\left\{p_0-a, b-p_0\right\},\\
+&|p_n -p| \leq \frac{k^n}{1-k} \cdot |p_1-p_0| \quad \text{ for all } n\geq 1.
+\end{align*}
+
+---
+
+# Rate of Convergence for Fixed-Point Iterations
+
+The previous corollary tells us that the fixed-point iteration 
+$$p_n=g(p_{n-1}) \quad \text{ for } \quad n\geq 1$$
+converges (at least) _linearly_ to the fixed-point solution $p=g(p)$.
+
+- Question: Can the fixed-point iteration converges at a faster rate?
+
+--
+
+Let $g\in \mathcal{C}[a,b]$ be such that $g(x)\in [a,b]$ for all $x\in [a,b]$, $g'$ is _continuous_ on $(a,b)$ with $|g'(x)| \leq k <1$ for all $x\in (a,b)$.
+
+- If $g'(p)\neq 0$, then for any $p_0 \neq p$ in $[a,b]$, the fixed-point iteration converges **only linearly** to the unique fixed point $p$.
+
+- Suppose, in addition, that $g'(p)=0$ and $g''$ is continuous with $|g''(x)| < M$ on an open interval containing $p$. Then, there exists a $\delta >0$ such that for $p_0 \in [p-\delta, p+\delta]$, the fixed-point iteration converges **at least quadratically** to $p$ and
+$$|p_{n+1}-p| < \frac{M}{2} |p_n-p|^2 \quad \text{ for sufficiently large } n.$$
 
 ---
 
 # Fixed-Point Iteration (Example)
+
+Suppose that we want to find the solution to $f(x) = x-2^{-x}$. 
+
+- Show that $g(x)=2^{-x}$ has a unique fixed point on $[\frac{1}{3},1]$.
+
+  - $\max_{x\in [\frac{1}{3},1]} |g'(x)| = \frac{1}{2^{1/3}} < 1$.
+  
+```{r}
+g = function(x) { return(2^{-x}) }
+fixedPoint = function(fun, p_0, tol = 1e-7) {
+  p_next = fun(p_0)
+  iter_seq = c(p_0, p_next)
+  while(abs(p_next - p_0) > tol) {
+    p_0 = p_next
+    p_next = fun(p_0)
+    iter_seq = c(iter_seq, p_next)
+  }
+  res = list(fixed_pt = p_next, iter_seq = iter_seq)
+  return(res)
+}
+fix_pts_res = fixedPoint(fun = g, p_0 = 1, tol = 1e-10)
+fix_pts_res$fixed_pt
+```
+
+---
+
+# Fixed-Point Iteration (Example)
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(fix_pts_res$iter_seq - fix_pts_res$fixed_pt)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||p_n - p||_2)$"), cex.lab=2, cex.axis=2, cex=0.7)
+```
+
+---
+
+# Fixed-Point Iteration (Example: Dominating Eigenvalue)
+
+A more interesting example for the fixed-point iteration is to find the largest eigenvalue in its absolute value of a (symmetric) matrix $A\in \mathbb{R}^{d\times d}$ via the **power iteration**.
+
+- $\lambda\in \mathbb{R}$ is an eigenvalue of $A$ if there exists a nonzero (eigen)vector $\mathbf{x}\in \mathbb{R}^d$ such that
+$$A\mathbf{x} = \lambda \mathbf{x}.$$
+
+- Assume that $A$ has $d$ eigenvalues $\lambda_1,...,\lambda_d$ (counting algebraic multiplicity) with
+$$|\lambda_1| > |\lambda_2| \geq \cdots \geq |\lambda_d| \geq 0.$$
+
+- Given an initial vector $\mathbf{b}_0 \in \mathbb{R}^d$, the **power iteration** runs
+$$\mathbf{b}_n = \frac{A\mathbf{b}_{n-1}}{\|A\mathbf{b}_{n-1}\|_2} \quad \text{ for } n=0,1,...$$
+until $\|\mathbf{b}_{n-1} -\mathbf{b}_n\|_2 < \epsilon$.
+
+---
+
+# Applications of Power Iteration
+
+- Google uses the power iteration to calculate the _PageRank_ of documents in their search engine.
+
+<p align="center">
+<img src="./figures/pagerank.jpg" width="600"/>
+</p>
+
+The mechanism behind _PageRank_ algorithm is well-explained in this [tutorial](https://zhangyk8.github.io/teaching/file_spring2018/Page_Rank_Algorithm.pdf).
+
+- Twitter uses the power iteration to show users recommendations of whom to follow; see this [paper](https://web.stanford.edu/~rezab/papers/wtf_overview.pdf).
+
+---
+
+# Convergence of Power Iteration
+
+Given an initial vector $\mathbf{b}_0 \in \mathbb{R}^d$, the **power iteration** runs
+$$\mathbf{b}_n = \frac{A\mathbf{b}_{n-1}}{\|A\mathbf{b}_{n-1}\|_2} \quad \text{ for } n=0,1,...$$
+until $\|\mathbf{b}_{n-1} -\mathbf{b}_n\|_2 < \epsilon$.
+
+- The yielded sequence $\{x_n\}_{n=0}^{\infty}$ from the power iteration for approximating $\lambda_1$ is determined by the Rayleigh quotient:
+$$x_n = \frac{\mathbf{b}_n^* A \mathbf{b}_n}{\mathbf{b}_n^*\mathbf{b}_n},\quad n=0,1,...$$
+and when $\mathbf{b}_n$ is of real values, $x_n = \frac{\mathbf{b}_n^T A \mathbf{b}_n}{\|\mathbf{b}_n\|_2^2}$.
+
+- It can be shown that the [power iteration](https://en.wikipedia.org/wiki/Power_iteration) sequence $\{x_n\}_{n=0}^{\infty}$ converges to $\lambda_1$ in the rate $|x_n-\lambda_1| = O\left(\left|\frac{\lambda_2}{\lambda_1} \right|^n \right)$. In other words, the power iteration converges linearly.
+
+---
+
+# Power Iteration (Example)
+
+We use the power iteration to approximate the dominant eigenvalue of the matrix
+$$A = \begin{bmatrix}
+-4 & 14 & 0\\
+-5 & 13 & 0\\
+-1 & 0 & 2
+\end{bmatrix}.$$
+
+```{r}
+A =  matrix(c(-4, 14, 0, -5, 13, 0, -1, 0, 2), ncol = 3, byrow = TRUE)
+eigen(A)
+```
+
+---
+
+# Power Iteration (Example)
+
+```{r}
+powerIter = function(mat, b_0 = NULL, tol = 1e-7) {
+  if(is.null(b_0)) {
+    b_0 = numeric(length = nrow(mat))
+    b_0[1:length(b_0)] = 1
+  }
+  curr_eig = (t(b_0) %*% mat %*% b_0)/(t(b_0) %*% b_0)
+  eig_seq = c(curr_eig)
+  b_new = (mat %*% b_0) / sqrt(sum(mat %*% b_0))
+  while(sqrt(sum((b_new - b_0)^2)) > tol) {
+    b_0 = b_new
+    curr_eig = (t(b_0) %*% mat %*% b_0)/(t(b_0) %*% b_0)
+    eig_seq = c(eig_seq, curr_eig)
+    b_new = (mat %*% b_0) / sqrt(sum(mat %*% b_0))
+  }
+  res_lst = list(eig_vec = b_0, eig_val = curr_eig, eig_val_seq = eig_seq)
+  return(res_lst)
+}
+pow_iter_res = powerIter(A, b_0 = c(1,2,4), tol = 1e-8)
+pow_iter_res
+```
+
+---
+
+# Power Iteration (Example)
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(pow_iter_res$eig_val_seq - 6)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||x_n - \\lambda_1||_2)$"), cex.lab=2, cex.axis=2, cex=0.7)
+```
+
+---
+
+# Newton's Method
+
+**Newton's** (or _Newton-Raphson_) method is one of the most well-known numerical methods for solving a root-find problem $f(p)=0$.
+
+- Suppose that $f\in \mathcal{C}^2[a,b]$. Let $p_0$ be an approximation to $p$ such that $f'(p_0)\neq 0$ and 
+$$f(p) = f(p_0) + (p-p_0) f'(p_0) + \frac{(p-p_0)^2}{2} \cdot f''(\xi(p)),$$
+where $\xi(p)$ lies between $p$ and $p_0$.
+
+- Set $f(p)=0$ and assume that $(p-p_0)^2$ is negligible:
+$$0\approx f(p_0) + (p-p_0) f'(p_0).$$
+
+- Solving for $p$ yields that
+$$p\approx p_0 - \frac{f(p_0)}{f'(p_0)}.$$
+
+---
+
+# Newton's Method
+
+The previous derivation leads to the iterative formula of Newton's method for solving $f(p)=0$:
+$$p_n = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})} \quad \text{ for } \quad n\geq 1.$$
+
+<p align="center">
+<img src="./figures/Newton_met.png" width="600"/>
+</p>
+
+---
+
+# Convergence of Newton's Method
+
+Newton's method can be regarded as a fixed-point iteration $p_n=g(p_{n-1})$ for $n\geq 1$ with
+$$g(x) = x - \frac{f(x)}{f'(x)}.$$
+
+- The convergence of Newton's method follows from the analysis of a fixed-point iteration with $g(x) = x - \frac{f(x)}{f'(x)}$.
+
+**Theorem.** Let $f\in \mathcal{C}^2[a,b]$. If $p\in (a,b)$ satisfies $f(p)=0$ and $f'(p)\neq 0$, then there exists a $\delta>0$ such that Newton's method generates a sequence $\{p_n\}_{n=1}^{\infty}$ converging to $p$ for any initial approximation $p_0 \in [p-\delta, p+\delta]$.
+
+---
+
+# Rate of Convergence for Newton's Method
+
+Recall that for any $g\in \mathcal{C}^2[a,b]$ with (i) $|g'(x)| < 1, x\in (a,b)$, (ii) $g'(p)=0$, and (iii) $|g''(x)|$ being bounded, the fixed-point iteration 
+$$p_n=g(p_{n-1})$$ 
+converges at least quadratically to $p$ for $p_0$ within some closed interval containing $p$.
+
+--
+
+The easiest way to construct a fixed-point iteration for solving $f(x)=0$ is to add/subtract a multiple of $f(x)$ from $x$ as:
+$$g(x) = x-\phi(x) \cdot f(x).$$
+
+- Find a differentiable function $\phi$ such that $g'(p)=0$ when $f(p)=0$:
+\begin{align*}
+g'(x) &= 1-\phi'(x) f(x) - f'(x) \phi(x),\\
+g'(p) &= 1- \phi'(p) \cdot 0 - f'(p)\phi(p),
+\end{align*}
+so $g'(p)=0$ if and only if $\phi(p)=\frac{1}{f'(p)}$.
+
+---
+
+# Rate of Convergence for Newton's Method
+
+- Taking $\phi(p)=\frac{1}{f'(p)}$ exactly leads to Newton's method
+$$p_n = g(p_{n-1}) = p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})},$$
+
+- Therefore, if $f$ is continuously differentiable, $f'(p)\neq 0$, and $f''$ exists at $p$, then Newton's method converges at least **quadratically** to $p$ for $p_0$ within some closed interval containing $p$.
+
+--
+
+Examples of Newton's method that fails to converge quadratically:
+
+  - Consider $f(x)=x+x^{\frac{4}{3}}$ so that $f''(x) = \frac{4}{9} x^{-\frac{2}{3}}$ does not exist at the root $p=0$. We will revisit it in Lab 7.
+
+  - Consider $f(x)=x^2$ with $f'(0)=0$. Newton's method iterates $p_n=\frac{p_{n-1}}{2}$ so that $|p_n-p|=\frac{|p_0|}{2^n}$, which converges linearly to $p=0$.
+
+---
+
+# Multiplicity of Zeros in Newton's Method
+
+A solution $p$ of $f(x)=0$ is a zero of **multiplicity** m of $f$ if for $x\neq p$, we can write 
+$$f(x) = (x-p)^m q(x) \quad \text{ with } \quad \lim_{x\to p} q(x) \neq 0.$$
+--
+
+1. The function $f\in \mathcal{C}^1[a,b]$ has a simple zero at $p\in (a,b)$ if and only if $f(p)=0$ but $f'(p)\neq 0$.
+
+2. The function $f\in \mathcal{C}^m[a,b]$ has a zero of multiplicity $m$ at $p\in (a,b)$ if and only if
+$$0=f(p)=f'(p)=\cdots = f^{(m-1)}(p) \quad \text{ but } \quad f^{(m)}(p)\neq 0.$$
+
+Hence, in the previous example, $f(x)=x^2$ has a zero of multiplicity $2$ at $x=0$.
+
+---
+
+# Multiplicity of Zeros in Newton's Method
+
+If $f(x)=(x-p)^m q(x)$ with $\lim_{x\to p} q(x) \neq 0$, then Newton's method can only converge linearly to the solution $p$ within its small neighborhood, because
+\begin{align*}
+p_n - p &= p_{n-1} -p - \frac{(p_{n-1} - p) q(p_{n-1})}{m\cdot q(p_{n-1}) + (p_{n-1}-p) q'(p_{n-1})},
+\end{align*}
+which in turn implies that
+$$\lim_{n\to\infty} \frac{|p_n - p|}{|p_{n-1} - p|} = \lim_{n\to\infty} \left|\frac{(m-1) q(p_{n-1}) + (p_{n-1} - p) q'(p_{n-1})}{m\cdot q(p_{n-1}) + (p_{n-1} -p) q'(p_{n-1})} \right| = \frac{m-1}{m}.$$
+
+<!--
+- In other words, $|p_n-p| = O\left(\left(\frac{m-1}{m}\right)^n \right)$.
+-->
+
+- If we know the multiplicity $m$ in advance, then we can use the modified Newton's method
+$$p_n = p_{n-1} - m\cdot \frac{f(p_{n-1})}{f'(p_{n-1})}$$
+to achieve quadratic convergence.
+
+---
+
+# Newton's Method (Example 1)
+
+Use Newton's method to find a solution to 
+$$f(x)=e^x +2^{-x} + 2\cos x - 6=0.$$
+
+```{r}
+f = function(x) {
+  return(exp(x) + 2^(-x) + 2*cos(x) - 6)
+}
+f_deriv = function(x) {
+  return(exp(x) - log(2) * (2^(-x)) - 2*sin(x))
+}
+
+NewtonIter = function(fun, fun_deriv, p_0, tol = 1e-7) {
+  p_new = p_0 - fun(p_0) / fun_deriv(p_0)
+  pt_seq = c(p_0, p_new)
+  while(abs(p_new - p_0) > tol) {
+    p_0 = p_new
+    p_new = p_0 - fun(p_0) / fun_deriv(p_0)
+    pt_seq = c(pt_seq, p_new)
+  }
+  res = list(sol = p_new, pt_seq = pt_seq)
+  return(res)
+}
+```
+
+---
+
+# Newton's Method (Example 1)
+
+```{r}
+newton_res = NewtonIter(f, f_deriv, p_0 = 1, tol = 1e-14)
+newton_res$sol
+```
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(newton_res$pt_seq - newton_res$sol)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||p_n - p^*||_2)$"), cex.lab=2, cex.axis=2, cex=0.7)
+```
+
+---
+
+# Newton's Method (Example 2)
+
+Use Newton's method and modified version to find a solution to 
+$$f(x)=e^x -\frac{x^2}{2} -x -1=0.$$
+
+- Notice that $f$ has a zero of multiplicity 2 at $p=0$.
+
+```{r}
+f2 = function(x) {
+  return(exp(x) - x^2/2 - x - 1)
+}
+f_deriv2 = function(x) {
+  return(exp(x) - x - 1)
+}
+f2_m = function(x) {
+  return(2*(exp(x) - x^2/2 - x - 1))
+}
+newton_res2 = NewtonIter(f2, f_deriv2, p_0 = 1/2, tol = 1e-10)
+newton_res2$sol
+
+newton_mod2 = NewtonIter(f2_m, f_deriv2, p_0 = 1/2, tol = 1e-10)
+newton_mod2$sol
+```
+
+---
+
+# Newton's Method (Example 2)
+
+Use Newton's method and modified version to find a solution to 
+$$f(x)=e^x -\frac{x^2}{2} -x -1=0.$$
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(newton_res2$pt_seq - newton_res2$sol)
+err_seq_mod = abs(newton_mod2$pt_seq - newton_mod2$sol)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||p_n - p^*||_2)$"), cex.lab=2, cex.axis=2, cex=0.7)
+lines(0:(length(err_seq_mod) - 1), log(err_seq_mod), lwd=5, col="red")
+legend(13, -1, legend=c("Newton's method", "Modified Newton's method"), fill=c("blue", "red"), cex=1.5)
+```
+
+---
+
+# Caveats About Newton's Method
+
+- The derivative of the function $f$ should exist and is easy to compute. In addition, $f'(p_n)\neq 0$ along the sequence $\{p_n\}_{n=0}^{\infty}$. (That is, no stationary points exist along the sequence.)
+
+  - Consider $f(x)=1-x^2=0$. If we start Newton's method at $p_0=0$, then $p_1$ will be undefined.
+  
+--
+
+To circumvent the derivative calculation in Newton's method, we first note that
+$$f'(p_{n-1}) \approx \frac{f(p_{n-2}) - f(p_{n-1})}{p_{n-2} - p_{n-1}} = \frac{f(p_{n-1}) - f(p_{n-2})}{p_{n-1} - p_{n-2}}.$$
+
+Using this approximation for $f'(p_{n-1})$ in Newton's method leads to
+$$p_n = p_{n-1} - \frac{f(p_{n-1}) (p_{n-1} - p_{n-2})}{f(p_{n-1}) - f(p_{n-2})}.$$
+This technique is called the **Secant Method**.
+
+---
+
+# Secant Method
+
+The **secant method** iterates the following formula:
+$$p_n = p_{n-1} - \frac{f(p_{n-1}) (p_{n-1} - p_{n-2})}{f(p_{n-1}) - f(p_{n-2})}.$$
+
+<p align="center">
+<img src="./figures/secant_method.png" width="600"/>
+</p>
+
+Note: We can also incorporate the root bracketing idea in the bisection method into the secant method as the **method of False Position** (also called _Regula Falsi_).
+
+---
+
+# Method of False Position
+
+1. Choose initial approximations as $p_0$ and $p_1$ with $f(p_0)\cdot f(p_1) < 0$;
+
+2. Compute $p_2$ using the secant method;
+
+3. If $f(p_2)\cdot f(p_1) < 0$, take $p_3$ as the $x$-intercept of the line joining $\left(p_1, f(p_1)\right)$ and $\left(p_2,f(p_2)\right)$. Otherwise, choose $p_3$ as the $x$-intercept of the line joining $\left(p_0, f(p_0)\right)$ and $\left(p_2,f(p_2)\right)$, and then swap the values of $p_0$ and $p_1$.
+
+In a similar manner, once $p_3$ is found, the sign of $f(p_3) \cdot f(p_2)$ determines whether we use $p_2$ and $p_3$ or $p_3$ and $p_1$ to compute $p_4$.
+
+<p align="center">
+<img src="./figures/secant_method_false.png" width="630"/>
+</p>
+
+---
+
+# Caveats About Newton's Method
+
+- Newton's method may overshoot the root $f(p)=0$ (i.e., diverge from the root $p$).
+
+  - Consider $f(x)=|x|^a$ with $0<a<\frac{1}{2}$. Newton's method iterates
+\begin{align*}
+  p_n &= \begin{cases}
+  p_{n-1} - \frac{p_{n-1}^a}{a\cdot p_{n-1}^{a-1}} & \text{ when } p_{n-1} >0,\\
+  p_{n-1} - \frac{(-p_{n-1})^a}{a (-1)^a\cdot p_{n-1}^{a-1}} & \text{ when } p_{n-1} < 0,
+  \end{cases} \\
+  &= \left(1 - \frac{1}{a}\right) p_{n-1}.
+\end{align*}
+  Since $\left|1-\frac{1}{a}\right| > 1$, we know that 
+  $$p_n=\left(1 - \frac{1}{a}\right)^n p_0 \to \infty \text{ or } -\infty$$ 
+  so that Newton's method will diverge.
+  
+---
+
+# Caveats About Newton's Method
+
+- The bad starting point of Newton's method may also lead to a diverging or cyclic sequence.
+
+  - Consider $f(x)=x^3-2x+2$ and take $p_0=0$.
+  
+  - Then, $p_n=p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})} = \frac{2p_{n-1}^3 -2}{3p_{n-1}^2 -2}$ so that $p_0=0$, $p_1=1$, $p_2=0$, $p_3=1$, $p_4=0$,...
+
+```{r}
+NewtonIter = function(fun, fun_deriv, p_0, tol = 1e-7, N = 100) {
+  p_new = p_0 - fun(p_0) / fun_deriv(p_0)
+  pt_seq = c(p_0, p_new)
+  n = 1
+  while((abs(p_new - p_0) > tol) & (n < N)) {
+    p_0 = p_new
+    p_new = p_0 - fun(p_0) / fun_deriv(p_0)
+    pt_seq = c(pt_seq, p_new)
+    n = n + 1
+  }
+  res = list(sol = p_new, pt_seq = pt_seq)
+  return(res)
+}
+```
+
+---
+
+# Caveats About Newton's Method
+
+- The bad starting point of Newton's method may also lead to a diverging or cyclic sequence.
+
+  - Consider $f(x)=x^3-2x+2$ and take $p_0=0$.
+  
+  - Then, $p_n=p_{n-1} - \frac{f(p_{n-1})}{f'(p_{n-1})} = \frac{2p_{n-1}^3 -2}{3p_{n-1}^2 -2}$ so that $p_0=0$, $p_1=1$, $p_2=0$, $p_3=1$, $p_4=0$,...
+
+```{r}
+f = function(x) {
+  return(x^3 - 2*x + 2)
+}
+f_deriv = function(x) {
+  return(3*x^2 - 2)
+}
+
+NewtonIter(fun = f, fun_deriv = f_deriv, p_0 = 0, tol = 1e-7, N = 50)
+```
+
+---
+
+# Accelerate Linearly Convergent Sequence
+
+For any sequence $\{p_n\}_{n=0}^{\infty}$ that converges linearly to $p$, we can construct another sequence $\{\hat{p}_n\}_{n=0}^{\infty}$ that converges more rapidly to $p$ than $\{p_n\}_{n=0}^{\infty}$, i.e., _accelerate a linearly convergent sequence_.
+
+- Assume that
+$$\frac{p_{n+1}-p}{p_n-p} \approx \frac{p_{n+2} - p}{p_{n+1} -p}.$$
+
+- Solving for $p$ leads to
+$$p\approx \frac{p_{n+2} p_n - p_{n+1}^2}{p_{n+2} - 2p_{n+1} + p_n}.$$
+
+- Adding and subtracting $p_n^2$ and $2p_n p_{n-1}$ in the numerator yields
+\begin{align*}
+p & \approx \frac{p_{n+2} p_n -2p_n p_{n+1}+p_n^2- p_{n+1}^2 + 2p_n p_{n+1} -p_n^2}{p_{n+2} - 2p_{n+1} + p_n}\\
+&= p_n - \frac{(p_{n+1} - p_n)^2}{p_{n+2} -2p_{n+1} + p_n}.
+\end{align*}
+
+---
+
+# Aitken's $\Delta^2$ Method
+
+The previous formula can be used to define a new sequence $\{\hat{p}_n\}_{n=0}^{\infty}$
+$$\hat{p}_n = p_n - \frac{(p_{n+1} - p_n)^2}{p_{n+2} -2p_{n+1} + p_n}$$
+that converges much faster to $p$ than the original sequence $\{p_n\}_{n=0}^{\infty}$. This is known as **Aitken's $\Delta^2$ Method**.
+
+--
+
+**Theorem.** Suppose that $\{p_n\}_{n=0}^{\infty}$ is a sequence that converges linearly to the limit $p$ and that
+$$\lim\limits_{n\to \infty} \frac{p_{n+1}-p}{p_n-p} < 1.$$
+Then, the Aitken's $\Delta^2$ sequence $\{\hat{p}_n\}_{n=0}^{\infty}$ converges to $p$ faster than $\{p_n\}_{n=0}^{\infty}$ in the sense that
+$$\lim_{n\to\infty} \frac{\hat{p}_n - p}{p_n-p}=0.$$
+
+---
+
+# Aitken's $\Delta^2$ Method with Delta Notation
+
+For a given sequence $\{p_n\}_{n=0}^{\infty}$, the **forward difference** $\Delta p_n$ is defined by
+$$\Delta p_n = p_{n+1}-p_n \quad \text{ for } n\geq 0.$$
+
+Higher powers of the operator $\Delta$ are defined recursively by 
+$$\Delta^k p_n = \Delta\left(\Delta^{k-1} p_n \right) \quad \text{ for } k\geq 2.$$
+- For example, 
+$$\Delta^2 p_n = \Delta (p_{n+1}-p_n) = \Delta p_{n+1} - \Delta p_n = (p_{n+2}-p_{n+1}) - (p_{n+1}-p_n).$$
+
+Thus, the Aitken's $\Delta^2$ iteration can be written as:
+$$\hat{p}_n = p_n - \frac{\left(\Delta p_n \right)^2}{\Delta^2 p_n} \quad \text{ for } n\geq 0.$$
+
+---
+
+# Aitken's $\Delta^2$ Method (Example)
+
+Previously, we use Newton's method to find the solution $p=0$ to 
+$$f(x)=e^x -\frac{x^2}{2} -x -1=0.$$
+Now, we consider accelerating it via Aitken's $\Delta^2$ method.
+
+```{r}
+AitkenAcc = function(in_seq) {
+  n = length(in_seq)
+  seq_new = in_seq[1:(n-2)] - (in_seq[2:(n-1)] - in_seq[1:(n-2)])^2/(in_seq[3:n] - 2*in_seq[2:(n-1)] + in_seq[1:(n-2)])
+  # seq_new = numeric(length = n-2)
+  # for (i in 1:(n-2)) {
+  #   seq_new[i] = in_seq[i] - (in_seq[i+1] - in_seq[i])^2/(in_seq[i+2] - 2*in_seq[i+1] + in_seq[i])
+  # }
+  return(seq_new)
+}
+acc_seq = AitkenAcc(newton_res2$pt_seq)
+```
+
+---
+
+# Aitken's $\Delta^2$ Method (Example)
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(newton_res2$pt_seq - newton_res2$sol)
+acc_err = abs(acc_seq - newton_res2$sol)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||p_n - p^*||_2)$"), cex.lab=2, cex.axis=2, cex=0.7, ylim = c(-15, -1))
+lines(0:(length(acc_err) - 1), log(acc_err), lwd=5, col="red")
+legend(22, -2, legend=c("Original", TeX("Aitken's $\\Delta^2$")), fill=c("blue", "red"), cex=1.5)
+```
+
+---
+
+# Steffensen's Method
+
+Recall that the fixed-point iteration $p_n = g(p_{n-1})$ can only converge linearly when $g'(p)\neq 0$ at the fixed point $p=g(p)$.
+
+- We can apply the Aitken's $\Delta^2$ method to a linearly convergent fixed-point iteration as:
+\begin{align*}
+& p_0, \quad p_1=g(p_0), \quad p_2=g(p_1), \quad \hat{p}_0 = p_0 - \frac{(p_1-p_0)^2}{p_2-2p_1+p_0},\\
+& p_3 = g(p_2), \quad \hat{p}_1 = p_1 - \frac{(p_2-p_1)^2}{p_3-2p_2 + p_1}, ...
+\end{align*}
+
+- **Steffensen's Method** modifies the above sequence by assuming that $\hat{p}_0$ is better than $p_2$ in applying the fixed-point iteration:
+\begin{align*}
+& p_0^{(0)}, \quad p_1^{(0)}=g(p_0^{(0)}), \quad p_2^{(0)}=g(p_1^{(0)}), \quad p_0^{(1)} = p_0^{(0)} - \frac{(p_1^{(0)}-p_0^{(0)})^2}{p_2^{(0)}-2p_1^{(0)}+p_0^{(0)}},\\
+& p_1^{(1)} = g(p_0^{(1)}), \quad p_2^{(1)} = g(p_1^{(1)}), \quad p_0^{(2)} = p_0^{(1)} - \frac{(p_1^{(1)}-p_0^{(1)})^2}{p_2^{(1)}-2p_1^{(1)}+p_0^{(1)}}, ...
+\end{align*}
+The output sequence from Steffensen's method is $\left\{p_0^{(0)}, p_1^{(0)}, p_2^{(0)}, p_0^{(1)}, p_1^{(1)}, p_2^{(1)},... \right\}$.
+
+---
+
+# Steffensen's Method (Example)
+
+Steffensen's method generates the sequence $\left\{p_0^{(0)}, p_1^{(0)}, p_2^{(0)}, p_0^{(1)}, p_1^{(1)}, p_2^{(1)},... \right\}$ as:
+\begin{align*}
+& p_0^{(0)}, \quad p_1^{(0)}=g(p_0^{(0)}), \quad p_2^{(0)}=g(p_1^{(0)}), \quad p_0^{(1)} = p_0^{(0)} - \frac{(p_1^{(0)}-p_0^{(0)})^2}{p_2^{(0)}-2p_1^{(0)}+p_0^{(0)}},\\
+& p_1^{(1)} = g(p_0^{(1)}), \quad p_2^{(1)} = g(p_1^{(1)}), \quad p_0^{(2)} = p_0^{(1)} - \frac{(p_1^{(1)}-p_0^{(1)})^2}{p_2^{(1)}-2p_1^{(1)}+p_0^{(1)}}, ...
+\end{align*}
+
+**Theorem.** Suppose that $x=g(x)$ has the solution $p$ with $g'(p)\neq 1$. If there exists a $\delta >0$ such that $g\in \mathcal{C}^3[p-\delta, p+\delta]$, then Steffensen's method gives _quadratic convergence_ for any $p_0\in [p-\delta, p+\delta]$.
+
+---
+
+# Steffensen's Method (Example)
+
+Recall our fixed-point iteration example with $g(x)=2^{-x}$ that has a unique fixed point in $\left[\frac{1}{3}, 1\right]$.
+
+```{r}
+g = function(x) { return(2^(-x)) }
+SteffenMet = function(g_fun, p_0, tol = 1e-7) {
+  p_1 = g_fun(p_0)
+  p_2 = g_fun(p_1)
+  iter_seq = c(p_0, p_1, p_2)
+  p_next = p_0 - (p_1 - p_0)^2/(p_2 - 2*p_1 + p_0)
+  while(abs(p_next - p_0) > tol) {
+    p_0 = p_next
+    p_1 = g_fun(p_0)
+    p_2 = g_fun(p_1)
+    iter_seq = c(iter_seq, p_0, p_1, p_2)
+    if (abs(p_2 - 2*p_1 + p_0) == 0) break
+    p_next = p_0 - (p_1 - p_0)^2/(p_2 - 2*p_1 + p_0)
+  }
+  res = list(fixed_pt = p_next, iter_seq = iter_seq)
+  return(res)
+}
+steff_res = SteffenMet(g_fun = g, p_0 = 1, tol = 1e-30)
+steff_res$fixed_pt
+```
+
+---
+
+# Steffensen's Method (Example)
+
+```{r, fig.align='center', fig.height=5.5, fig.width=8}
+err_seq = abs(fix_pts_res$iter_seq - fix_pts_res$fixed_pt)
+acc_err = abs(steff_res$iter_seq - fix_pts_res$fixed_pt)
+par(mar = c(4, 5.5, 1, 0.8)) 
+plot(0:(length(err_seq) - 1), log(err_seq), type="l", lwd=5, col="blue", xlab = "Number of iterations", ylab = TeX("$\\log (||p_n - p^*||_2)$"), cex.lab=2, cex.axis=2, cex=0.7)
+lines(0:(length(acc_err) - 1), log(acc_err), lwd=5, col="red")
+legend(16, -2, legend=c("Original", "Steffensen's method"), fill=c("blue", "red"), cex=1.5)
+```
+
+---
+
+# Zeros of Polynomials
+
+A _polynomial of degree_ $n$ has the form
+$$P(x)=a_nx^n + a_{n-1}x^{n-1} + \cdots + a_1 x+a_0$$
+with coefficients $a_i$ and $a_n\neq 0$.
+
+**Fundamental Theorem of Algebra.** If $P(x)$ is a polynomial of degree $n\geq 1$ with real or complex coefficients, then $P(x)=0$ has at least one (possibly complex) root.
+
+- To utilize Newton's method, we can evaluate the polynomial and its derivative via [Horner's method](https://en.wikipedia.org/wiki/Horner%27s_method).
+
+- When complex zeros of a polynomial are encountered, [Muller's method](https://en.wikipedia.org/wiki/Muller%27s_method) is an ideal approach for solving these complex zeros.
+
+Note: More details can be found in Section 2.6 of _Numerical Analysis (9th Edition)_ by Richard L. Burden, J. Douglas Faires, Annette M. Burden, 2015.
+
+---
+class: inverse
+
+# Part 5: Numerical Differentiation and Integration
+
+---
+
+# Numerical Differentiation
+
+Recall that the derivative of a function $f$ at $x_0$ is defined as:
+$$f'(x_0) = \lim_{h\to 0} \frac{f(x_0+h) -f(x_0)}{h}.$$
+
+This gives us an obvious approximation to $f'(x_0)$ with a small value of $h$ as:
+$$f'(x_0) \approx \frac{f(x_0+h) -f(x_0)}{h}.$$
 
