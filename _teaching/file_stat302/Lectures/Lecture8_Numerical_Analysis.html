@@ -2053,8 +2053,377 @@ class: inverse
 Recall that the derivative of a function `\(f\)` at `\(x_0\)` is defined as:
 `$$f'(x_0) = \lim_{h\to 0} \frac{f(x_0+h) -f(x_0)}{h}.$$`
 
-This gives us an obvious approximation to `\(f'(x_0)\)` with a small value of `\(h\)` as:
+Thus, we can simply approximate `\(f'(x_0)\)` with a small value of `\(h\)` as:
 `$$f'(x_0) \approx \frac{f(x_0+h) -f(x_0)}{h}.$$`
+
+- This formula is known as the **forward-difference** formula if `\(h&gt;0\)` and the **backward-difference** formula if `\(h&lt;0\)`.
+
+- By Taylor's theorem, the approximation error is `\(O(h)\)` when `\(|f''(\xi)|\)` is bounded for `\(\xi\)` between `\(x_0\)` and `\(x_0+h\)`, because
+`\begin{align*}
+f'(x_0) &amp;= \frac{f(x_0+h) - f(x_0)}{h} - \frac{h}{2}\cdot f''(\xi)\\
+&amp;= \frac{f(x_0+h) - f(x_0)}{h} + O(h).
+\end{align*}`
+
+---
+
+# Numerical Differentiation: Forward-Difference
+
+The following figure presents the forward-difference approximation to `\(f'(x_0)\)` with a small value of `\(h&gt;0\)` as:
+`$$f'(x_0) \approx \frac{f(x_0+h) -f(x_0)}{h}.$$`
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/forward_diff.png" width="630"/&gt;
+&lt;/p&gt;
+
+---
+
+# Lagrange Interpolating Polynomial
+
+Before introducing the general derivative approximation formula, we need some prerequisites about polynomial interpolation.
+
+- We want to determine a polynomial of degree 1 that passes through (or _interpolate_) two distinct points `\((x_0,f(x_0)), (x_1, f(x_1))\)`.
+
+- Define the functions
+`$$L_0(x) = \frac{x-x_1}{x_0-x_1} \quad \text{ and } \quad L_1(x) = \frac{x-x_0}{x_1-x_0}.$$`
+
+- The linear **Lagrange interpolating polynomial** through `\((x_0,y_0)\)` and `\((x_1,y_1)\)` is
+`$$P(x) = L_0(x)f(x_0) + L_1(x)f(x_1) =\frac{x-x_1}{x_0-x_1} \cdot f(x_0) + \frac{x-x_0}{x_1-x_0} \cdot f(x_1).$$`
+
+- `\(P\)` is also the unique polynomial of degree at most 1 that interpolates `\((x_0,y_0)\)` and `\((x_1,y_1)\)`.
+
+---
+
+# Lagrange Interpolating Polynomial
+
+To generalize the linear interpolation, we consider constructing a polynomial of degree at most `\(n\)` that interpolates the `\((n+1)\)` points:
+`$$(x_0,f(x_0)),\, (x_1,f(x_1)),\,..., (x_n,f(x_n)).$$`
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/poly_inter.png" width="500"/&gt;
+&lt;/p&gt;
+
+Define the functions
+`$$L_{n,k}(x) = \frac{(x-x_0)\cdots (x - x_{k-1}) (x-x_{k+1}) \cdots (x -x_n)}{(x_k-x_0)\cdots (x_k - x_{k-1}) (x_k-x_{k+1}) \cdots (x_k -x_n)}=\prod_{i=0\\ i\neq k}^n \frac{(x-x_i)}{(x_k-x_i)}$$`
+for `\(k=0,1,...,n\)`.
+
+---
+
+# Lagrange Interpolating Polynomial
+
+One example graph of the functions
+`$$L_{n,k}(x) = \frac{(x-x_0)\cdots (x - x_{k-1}) (x-x_{k+1}) \cdots (x -x_n)}{(x_k-x_0)\cdots (x_k - x_{k-1}) (x_k-x_{k+1}) \cdots (x_k -x_n)}=\prod_{i=0\\ i\neq k}^n \frac{(x-x_i)}{(x_k-x_i)}$$`
+for `\(k=0,1,...,n\)` looks as follows.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/Lagrange_poly.png" width="570"/&gt;
+&lt;/p&gt;
+
+The `\(n^{th}\)` **Lagrange (interpolating) polynomial** is defined as:
+`$$P(x) = f(x_0) L_{n,0}(x) + \cdots + f(x_n) L_{n,n}(x) = \sum_{k=0}^n f(x_k) L_{n,k}(x).$$`
+
+---
+
+# Polynomial Approximation Theory
+
+**Theorem.** Suppose that `\(x_0,x_1,...,x_n\)` are distinct numbers in `\([a,b]\)` and `\(f\in \mathcal{C}^{n+1}[a,b]\)`. Then, for each `\(x\in [a,b]\)`, there exists a number `\(\xi(x)\in (a,b)\)` such that
+`$$f(x) = \sum_{k=0}^n f(x_k) L_{n,k}(x) + \frac{f^{(n+1)}(\xi(x))}{(n+1)!} \cdot (x-x_0) (x-x_1) \cdots (x-x_n).$$`
+
+More generally, **Weierstrass Approximation Theorem** tells us that for each `\(\epsilon &gt;0\)` and `\(f\in \mathcal{C}[a,b]\)`, there exists a polynomial `\(P(x)\)` such that
+`$$|f(x) - P(x)| &lt; \epsilon \quad \text{ for all } x\in [a,b].$$`
+In other words, any continuous function can be well-approximated by polynomials of certain degrees.
+
+---
+
+# Differentiation: `\((n+1)\)`-Point Formula
+
+The above Lagrange polynomial approximation to `\(f\in \mathcal{C}^{n+1}\)` reads
+`$$f(x) = \sum_{k=0}^n f(x_k) L_{n,k}(x) + \frac{f^{(n+1)}(\xi(x))}{(n+1)!} \cdot (x-x_0) (x-x_1) \cdots (x-x_n).$$`
+
+- Differentiating this expression gives
+`\begin{align*}
+f'(x) &amp;= \sum_{k=0}^n f(x_k) L_{n,k}'(x) + \left[\frac{d}{dx}\frac{f^{(n+1)}(\xi(x))}{(n+1)!}\right] \prod_{k=0}^n(x-x_k) \\
+&amp;\quad + \frac{f^{(n+1)}(\xi(x))}{(n+1)!} \cdot \frac{d}{dx} \prod_{k=0}^n(x-x_k).
+\end{align*}`
+
+- Plugging any `\(x_j,j=0,...,n\)` into the above expression gives
+`$$f'(x_j) = \sum_{k=0}^n f(x_k) L_{n,k}'(x_j) + \frac{f^{(n+1)}(\xi(x_j))}{(n+1)!} \prod_{k=0\\ k\neq j}^n (x_j-x_k),$$`
+which is called an `\((n+1)\)`-point formula to approximate `\(f'(x_j)\)`.
+
+---
+
+# Three-Point Formula
+
+When there are only three distinct points `\(\{x_0,x_1,x_2\}\)` in the interval of interest, we know that 
+`$$L_0(x) = \frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} \quad \text{ so that } \quad L_0'(x) = \frac{2x - x_1-x_2}{(x_0-x_1)(x_0-x_2)}.$$`
+Similarly, `\(L_1'(x) = \frac{2x - x_0-x_2}{(x_1-x_0)(x_1-x_2)}\)` and `\(L_2'(x)=\frac{2x - x_0-x_1}{(x_2-x_0)(x_2-x_1)}\)`.
+
+--
+
+Thus, based on the previous `\((n+1)\)`-point formula, we obtain that
+`\begin{align*}
+f'(x_j) &amp;= f(x_0)\left[\frac{2x_j - x_1-x_2}{(x_0-x_1)(x_0-x_2)} \right] + f(x_1) \left[\frac{2x_j - x_0-x_2}{(x_1-x_0)(x_1-x_2)} \right] \\
+&amp; \quad + f(x_2)\left[\frac{2x_j - x_0-x_1}{(x_2-x_0)(x_2-x_1)} \right] + \frac{f^{(3)}(\xi_j)}{6} \prod_{k=0\\ k\neq j}^2 (x_j-x_k)
+\end{align*}`
+for each `\(j=0,1,2\)`, where `\(\xi_j\)` depends on `\(x_j\)`.
+
+---
+
+# Three-Point Formula
+
+Most commonly, we choose equally spaced nodes
+`$$x_j=x_0, \quad x_1=x_0+h, \quad x_2=x_0+2h \quad \text{ for some } h\neq 0$$`
+and use the three-point formula to obtain that
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{h}\left[-\frac{3}{2} f(x_0) + 2f(x_0+h) -\frac{1}{2} f(x_0+2h) \right] + \frac{h^2}{3} f^{(3)}(\xi_0),\\
+f'(x_0+h) &amp;= \frac{1}{h}\left[-\frac{1}{2} f(x_0) + \frac{1}{2} f(x_0+2h) \right] - \frac{h^2}{6} f^{(3)}(\xi_1),\\
+f'(x_0+2h) &amp;= \frac{1}{h}\left[\frac{1}{2} f(x_0) - 2f(x_0+h) + \frac{3}{2} f(x_0+2h) \right] + \frac{h^2}{3} f^{(3)}(\xi_2).
+\end{align*}`
+
+--
+
+Using variable substitutions `\(x_0\gets x_0-h\)` and `\(x_0\gets x_0-2h\)` in the latter two expressions gives
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{h}\left[-\frac{1}{2} f(x_0-h) + \frac{1}{2} f(x_0+h) \right] - \frac{h^2}{6} f^{(3)}(\xi_1),\\
+f'(x_0) &amp;= \frac{1}{h}\left[\frac{1}{2} f(x_0-2h) - 2f(x_0-h) + \frac{3}{2} f(x_0) \right] + \frac{h^2}{3} f^{(3)}(\xi_2).
+\end{align*}`
+
+---
+
+# Three-Point Formula
+
+When `\(|f^{(3)}(x)|\)` is bounded between `\(x_0-2h\)` and `\(x_0+2h\)`, we have the following results.
+
+_Three-Point Endpoint Formula_: For `\(\xi_0\)` lying between `\(x_0\)` and `\(x_0+2h\)`,
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{2h}\left[-3 f(x_0) + 4f(x_0+h) - f(x_0+2h) \right] + \frac{h^2}{3} f^{(3)}(\xi_0)\\
+&amp;= \frac{1}{2h}\left[-3 f(x_0) + 4f(x_0+h) - f(x_0+2h) \right] + O(h^2).
+\end{align*}`
+
+_Three-Point Midpoint Formula_: For `\(\xi_1\)` lying between `\(x_0-h\)` and `\(x_0+h\)`,
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{2h}\left[f(x_0+h) - f(x_0-h) \right] - \frac{h^2}{6} f^{(3)}(\xi_1)\\
+&amp;= \frac{1}{2h}\left[f(x_0+h) - f(x_0-h) \right] + O(h^2).
+\end{align*}`
+Note: The three-point formulas have smaller approximation errors `\(O(h^2)\)` than the direct approximation `\(f'(x_0)= \frac{f(x_0+h) - f(x_0)}{h} + O(h)\)` when `\(h\)` is small.
+
+---
+
+# Five-Point Formula
+
+When `\(|f^{(5)}(x)|\)` is bounded between `\(x_0-4h\)` and `\(x_0+4h\)`, we have the following results.
+
+_Five-Point Midpoint Formula_: For `\(\xi\)` lying between `\(x_0-2h\)` and `\(x_0+2h\)`,
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{12h}\left[f(x_0-2h) -8f(x_0-h)+ 8f(x_0+h) - f(x_0+2h) \right] \\
+&amp;\quad + \frac{h^4}{30} f^{(5)}(\xi).
+\end{align*}`
+
+_Five-Point Endpoint Formula_: For `\(\xi\)` lying between `\(x_0-2h\)` and `\(x_0+2h\)`,
+`\begin{align*}
+f'(x_0) &amp;= \frac{1}{12h}\Big[-25f(x_0) +48f(x_0+h) - 36 f(x_0+2h) \\
+&amp;\quad \quad + 16 f(x_0+3h) - 3f(x_0+4h) \Big] + \frac{h^4}{5} f^{(5)}(\xi).
+\end{align*}`
+Note: The five-point formulas have even smaller approximation errors `\(O(h^4)\)` than the three-point formulas when `\(h\)` is small.
+
+---
+
+# Numerical High-Order Differentiation
+
+The numerical approximation to high-order derivatives can be defined recursively based on the first-order or lower order derivatives.
+
+- However, approximation errors will propagate as we approach higher order derivatives.
+
+--
+
+- An alternative way is to utilize the Taylor polynomial or Lagrange polynomial around `\(x_0\)` to construct approximation formulas for higher order derivatives that depend only on the function values around `\(x_0\)`.
+
+- _Second-Order Derivative Midpoint formula_: For `\(\xi\)` between `\(x_0-h\)` and `\(x_0+h\)`,
+`$$f''(x_0) = \frac{1}{h^2}\left[f(x_0-h) -2f(x_0) + f(x_0+h) \right] - \frac{h^2}{12} f^{(4)}(\xi).$$`
+
+---
+
+# Numerical Differentiation (Example)
+
+We want to compute the derivatives `\(f'(1),f''(1)\)` of 
+`$$f(x)=e^x+\sin(x) -x^3.$$`
+
+
+```r
+f = function(x) { return(exp(x) + sin(x) - x^3) }
+cat("f'(1) =", exp(1)+cos(1)-3)
+```
+
+```
+## f'(1) = 0.2585841
+```
+
+```r
+h = 0.005
+# Forward-difference for f'(1)
+(f(1+h) - f(1))/h
+```
+
+```
+## [1] 0.2482603
+```
+
+```r
+# Backward-difference for f'(1)
+(f(1-h) - f(1))/(-h)
+```
+
+```
+## [1] 0.2688762
+```
+
+---
+
+# Numerical Differentiation (Example)
+
+We want to compute the derivatives `\(f'(1),f''(1)\)` of 
+`$$f(x)=e^x+\sin(x) -x^3.$$`
+
+
+```r
+cat("f'(1) =", exp(1)+cos(1)-3)
+```
+
+```
+## f'(1) = 0.2585841
+```
+
+```r
+# Three-point endpoint formula for f'(1)
+(-3*f(1) + 4*f(1+h) - f(1+2*h))/(2*h)
+```
+
+```
+## [1] 0.2586159
+```
+
+```r
+# Three-point midpoint formula for f'(1)
+(f(1+h) - f(1-h))/(2*h)
+```
+
+```
+## [1] 0.2585682
+```
+
+```r
+# Five-point midpoint formula for f'(1)
+(f(1-2*h) -8*f(1-h) + 8*f(1+h) - f(1+2*h))/(12*h)
+```
+
+```
+## [1] 0.2585841
+```
+
+```r
+# Five-point endpoint formula for f'(1)
+(-25*f(1) + 48*f(1+h) - 36*f(1+2*h) + 16*f(1+3*h) - 3*f(1+4*h))/(12*h)
+```
+
+```
+## [1] 0.2585841
+```
+
+---
+
+# Numerical Differentiation (Example)
+
+We want to compute the derivatives `\(f'(1),f''(1)\)` of 
+`$$f(x)=e^x+\sin(x) -x^3.$$`
+
+
+```r
+cat("f''(1) =", exp(1)-sin(1)-6)
+```
+
+```
+## f''(1) = -4.123189
+```
+
+```r
+# Second-order derivative midpoint formula
+(f(1-h) -2*f(1) + f(1+h))/(h^2)
+```
+
+```
+## [1] -4.123182
+```
+
+```r
+h = 0.000005
+# Second-order derivative midpoint formula
+(f(1-h) -2*f(1) + f(1+h))/(h^2)
+```
+
+```
+## [1] -4.123155
+```
+
+Note: Choosing a smaller `\(h\)` is not always better.
+
+---
+
+# Round-Off Error Instability
+
+Why shouldn't we always use a very small `\(h\)` in the derivative approximation formulas?
+
+Consider the three-point midpoint formula:
+`$$f'(x_0) = \frac{1}{2h}\left[f(x_0+h) - f(x_0-h) \right] - \frac{h^2}{6} f^{(3)}(\xi_1).$$`
+
+--
+
+- Suppose that we have round-off errors `\(e(x_0+h)\)` and `\(e(x_0-h)\)` in evaluating `\(f(x_0+h), f(x_0-h)\)`, i.e., the actual values that we use are
+`\begin{align*}
+\tilde{f}(x_0+h) &amp;= f(x_0+h) + e(x_0+h) \quad \text{ and }\\ 
+\tilde{f}(x_0-h) &amp;= f(x_0-h) + e(x_0-h).
+\end{align*}`
+
+---
+
+# Round-Off Error Instability
+
+Why shouldn't we always use a very small `\(h\)` in the derivative approximation formulas?
+
+- Thus, when the round-off errors `\(e(x_0\pm h) \leq \epsilon\)` for some `\(\epsilon &gt;0\)` and `\(|f^{(3)}(x)|\leq M\)` in the region of interest, the total error in the approximation becomes
+`\begin{align*}
+&amp;\left|f'(x_0) - \frac{\tilde{f}(x_0+h) - \tilde{f}(x_0-h)}{2h} \right| \\
+&amp;= \left|-\frac{e(x_0+h) -e(x_0-h)}{2h}- \frac{h^2}{6} f^{(3)}(\xi_1) \right|\\
+&amp;\leq \underbrace{\frac{\epsilon}{h}}_{\text{Round-off error}} + \underbrace{\frac{h^2 \cdot M}{6}}_{\text{Truncation error}}.
+\end{align*}`
+
+- When `\(h\)` is small, the truncation error reduces but round-off error increases.
+
+- When `\(h\)` is large, the round-off error is small but the truncation error grows.
+
+
+---
+
+# Round-Off Error Instability
+
+Why shouldn't we always use a very small `\(h\)` in the derivative approximation formulas?
+`\begin{align*}
+&amp;\left|f'(x_0) - \frac{\tilde{f}(x_0+h) - \tilde{f}(x_0-h)}{2h} \right|
+&amp;\leq \underbrace{\frac{\epsilon}{h}}_{\text{Round-off error}} + \underbrace{\frac{h^2 \cdot M}{6}}_{\text{Truncation error}}.
+\end{align*}`
+
+- The optimal `\(h\)` is `\(\left(\frac{3\epsilon}{M}\right)^{\frac{1}{3}}\)`, which can't be computed in practice!
+
+- The choice of `\(h\)` resembles the bias-variance trade-off in statistical prediction.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/bias_var.png" width="570"/&gt;
+&lt;/p&gt;
+
+---
+
+# Numerical Integration
+
+
+
 
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
