@@ -836,7 +836,7 @@ sigDigit = function(x_app, x_true) {
   while(abs(x_app - x_true)/abs(x_true) &lt;= 5*10^(-t)) {
     t = t + 1
   }
-  return(t)
+  return(t-1)
 }
 p_star = pi
 p_hat = round(p_star, digits = 7)
@@ -844,7 +844,7 @@ sigDigit(p_hat, p_star)
 ```
 
 ```
-## [1] 9
+## [1] 8
 ```
 
 ---
@@ -955,7 +955,7 @@ The convergence `\(x_n\to x^*\)` is said to be **linear** if there exists a numb
 `$$\lim_{n\to\infty} \frac{\|x_{n+1}-x^*\|_2}{\|x_n -x^*\|_2}= r.$$`
 
 - The **linear convergence** means that 
-`$$\|x_n -x^*\|_2= r^n \|x_0 -x^*\| = O(r^n).$$`
+`$$\|x_n -x^*\|_2= r^n \|x_0 -x^*\|_2 = O(r^n).$$`
 
 ---
 
@@ -1096,11 +1096,11 @@ The **bisection method** uses the following procedure to approximate a solution 
 
 --
 
-  - If `\(f(p_n)=0\)`, then `\(x^*=p\)`, and we are done.
+  - If `\(f(p_n)=0\)`, then `\(x^*=p_n\)`, and we are done.
   
-  - If `\(f(p_n)\)` and `\(f(L)\)` have the same sign, then set `\(L=p_n\)` and `\(U=b\)`.
+  - If `\(f(p_n)\)` and `\(f(L)\)` have the same sign, then set `\(L=p_n\)` and `\(U=U\)`.
   
-  - If `\(f(p_n)\)` and `\(f(U)\)` have the same sign, then set `\(U=p_n\)` and `\(L=a\)`.
+  - If `\(f(p_n)\)` and `\(f(U)\)` have the same sign, then set `\(U=p_n\)` and `\(L=L\)`.
   
 3. Repeat Step 2 until `\(|U-L| &lt; \epsilon\)`. Then, use `\(p_n=\frac{L+U}{2}\)` as the approximated solution.
 
@@ -1120,9 +1120,9 @@ f = function(x) { x^3 + 7*x^2 - 10 }
 biSect = function(L, U, fun, tol=1e-7) {
   while(abs(L-U) &gt; tol) {
     p = (U + L)/2
-    if(f(p) &gt; 0) {
+    if(fun(p) * fun(U) &gt; 0) {
       U = p
-    } else if (fun(p) &lt; 0) {
+    } else if (fun(p) * fun(U) &lt; 0) {
       L = p
     } else {
       break
@@ -2786,8 +2786,120 @@ compTrape(f, lower = 0, upper = 3, n = 30)
 
 ---
 
-# Laplace Approximation
+# Laplace's Method of Integration
 
+Consider an integral of the form `\(I=\int_a^b e^{-\lambda g(x)} h(x) dx\)`,
+where 
+1. `\(g(x)\)` is a smooth function that has a local minimum at `\(x^* \in (a,b)\)`;
+
+2. `\(h(x)\)` is smooth and `\(\lambda &gt; 0\)` is large.
+
+_Example_: 
+- The integral `\(I\)` can be the moment generating function of `\(g(Y)\)` when `\(Y\)` has density `\(h\)`.
+
+- The integral `\(I\)` could be a posterior expectation of `\(h(Y)\)`.
+
+--
+
+_Key observation_:
+- When `\(\lambda\)` is large, the integral `\(I\)` is essentially determined by the values of `\(e^{-\lambda g(x)} h(x)\)` around `\(x^*\)`.
+
+---
+
+# Laplace's Method of Integration
+
+We formalize the observation by Taylor's theorem of `\(g\)` around `\(x^*\)`:
+`$$g(x) = g(x^*) + g'(x^*) (x-x^*) + \frac{g''(x^*)}{2} (x-x^*)^2+o\left(|x-x^*|^2\right).$$`
+
+--
+
+- Since `\(x^*\)` is a local minimum, we have `\(g'(x^*)=0\)`, `\(g''(x^*)&gt;0\)`, and
+`$$g(x) - g(x^*) = \frac{g''(x^*)}{2} (x-x^*)^2+o\left(|x-x^*|^2\right).$$`
+
+--
+
+- If we further approximate `\(h(x)\)` linearly around `\(x^*\)`, we obtain that
+`\begin{align*}
+I &amp;= \int_a^b e^{-\lambda g(x)} h(x) dx\\
+&amp;\approx e^{-\lambda g(x^*)} h(x^*) \int_{-\infty}^{\infty} \underbrace{e^{-\frac{\lambda g''(x^*)}{2}(x-x^*)^2}}_{\text{Density of } N\left(x^*, \frac{1}{\lambda g''(x^*)}\right)} dx \\
+&amp;\quad + e^{-\lambda g(x^*)} h'(x^*) \underbrace{\int_{-\infty}^{\infty} (x-x^*) e^{-\frac{\lambda g''(x^*)}{2}(x-x^*)^2} dx}_{=0}\\
+&amp;= e^{-\lambda g(x^*)} h(x^*) \sqrt{\frac{2\pi}{\lambda g''(x^*)}}
+\end{align*}`
+
+---
+
+# Laplace's Method of Integration
+
+The Laplace's method for approximating the integral is typically very accurate, in that
+`\begin{align*}
+I &amp;= \int_a^b e^{-\lambda g(x)} h(x) dx\\
+&amp;= e^{-\lambda g(x^*)} h(x^*) \sqrt{\frac{2\pi}{\lambda g''(x^*)}} \left[1+ O\left(\frac{1}{\lambda}\right) \right]\\
+&amp;\equiv A\left[1+ O\left(\frac{1}{\lambda}\right) \right].
+\end{align*}`
+
+- The relative error `\(\frac{I-A}{A}\)` is of order `\(O\left(\frac{1}{\lambda}\right)\)` and thus remains bounded _even when multiplied with `\(\lambda\)`_ for `\(\lambda \to \infty\)`.
+
+---
+
+# Laplace's Method of Integration (Example)
+
+Consider the Gamma function `\(\Gamma(x)=\int_0^{\infty} t^{x-1} e^{-t} dt\)`.
+
+- Recall that `\(\Gamma(n+1)=n!\)` for an integer `\(n\geq 0\)`.
+
+- In general, `\(\Gamma(\lambda+1)=\int_0^{\infty} t^{\lambda} e^{-t} dt\)`.
+
+Substituting `\(t=\lambda x\)` and letting `\(g(x)=x-\log x\)`, we obtain that
+`\begin{align*}
+\Gamma(\lambda +1) =\lambda \int_0^{\infty} (\lambda x)^{\lambda} e^{-\lambda x} dx &amp;=\lambda^{\lambda +1} \int_0^{\infty} e^{-\lambda (x-\log x)}dx \\
+&amp;= \lambda^{\lambda +1} \int_0^{\infty} e^{-\lambda g(x)}dx.
+\end{align*}`
+
+---
+
+# Laplace's Method of Integration (Example)
+
+To use Laplace's method, we compute that
+`$$g'(x)=1-\frac{1}{x} \quad\text{ and }\quad g''(x)=\frac{1}{x^2}$$`
+so that `\(x^*=1\)`, `\(g(x^*)=1\)`, and `\(g''(x^*)=1\)`.
+
+- Laplace's method now yields that
+`\begin{align*}
+\Gamma(\lambda +1) &amp;\approx \lambda^{\lambda+1} e^{-\lambda g(x^*)} \sqrt{\frac{2\pi}{\lambda g''(x^*)}} \\
+&amp;= \lambda^{\lambda+\frac{1}{2}} e^{-\lambda} \sqrt{2\pi},
+\end{align*}`
+which is known as **Stirling's formula**.
+
+---
+
+# Laplace's Method of Integration (Example)
+
+By expanding the function `\(g\)` further in Laplace's method, the error of approximation can be improved for a constant function `\(h\)` as:
+`\begin{align*}
+\tilde{I} &amp;= \int_a^b e^{-\lambda g(x)} dx\\
+&amp;= e^{-\lambda g(x^*)} \sqrt{\frac{2\pi}{\lambda g''(x^*)}} \left[1 + \frac{5\rho_3^* -3\rho_4^*}{24\lambda} + O\left(\frac{1}{\lambda^2} \right) \right],
+\end{align*}`
+where 
+`$$\rho_3^* = \frac{g^{(3)}(x^*)}{\left[g''(x^*)\right]^{\frac{3}{2}}} \quad \text{ and } \quad \rho_4^* = \frac{g^{(4)}(x^*)}{\left[g''(x^*)\right]^2}.$$`
+
+---
+
+# Laplace's Method of Integration (Example)
+
+- In this fashion, we can also get **Stirling's improved formula** as:
+`$$\Gamma(\lambda+1)=\lambda^{\lambda+\frac{1}{2}} e^{-\lambda} \sqrt{2\pi}\left[1+\frac{1}{12\lambda} + O\left(\frac{1}{\lambda^2} \right) \right],$$`
+which is remarkably accurate even for relatively small `\(\lambda\)`.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/Gamma_func.png" width="650"/&gt;
+&lt;/p&gt;
+
+- Laplace's method also works for integrating multivariate function; see the [notes](https://www.stats.ox.ac.uk/~steffen/teaching/bs2HT9/laplace.pdf).
+
+---
+# Reminder
+
+Submit Lab 7 on Canvas by the end of Thursday (December 7) and the final project by the end of December 13!!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
