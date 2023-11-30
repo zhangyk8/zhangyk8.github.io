@@ -1011,11 +1011,11 @@ The convergence `\(x_n\to x^*\)` is said to be **superlinear** if
 library(latex2exp)
 k = 1:30
 par(mar = c(4, 5.5, 1, 0.8)) 
-plot(k, log10(1/k), type="l", lwd=5, col="green", 
+plot(k, log(1/k), type="l", lwd=5, col="green", 
      xlab = "Number of iterations", ylab = TeX("$||x_n - x^*||_2$"), 
      cex.lab=2, cex.axis=2, cex=0.7)
-lines(k, log10((7/10)^k), col="red", lwd=5)
-lines(k, log10((1/k)^(2^k)), col="blue", lwd=5)
+lines(k, log((7/10)^k), col="red", lwd=5)
+lines(k, log((1/k)^(2^k)), col="blue", lwd=5)
 legend(20, -0.1, legend=c("Sublinear", "Linear", "Superlinear"), fill=c("green", "red", "blue"), cex=1.5)
 ```
 
@@ -1483,12 +1483,12 @@ powerIter = function(mat, b_0 = NULL, tol = 1e-7) {
     b_0 = numeric(length = nrow(mat))
     b_0[1:length(b_0)] = 1
   }
-  curr_eig = (t(b_0) %*% mat %*% b_0)/(t(b_0) %*% b_0)
+  curr_eig = (t(Conj(b_0)) %*% mat %*% b_0)/(t(Conj(b_0)) %*% b_0)
   eig_seq = c(curr_eig)
   b_new = (mat %*% b_0) / sqrt(sum(mat %*% b_0))
   while(sqrt(sum((b_new - b_0)^2)) &gt; tol) {
     b_0 = b_new
-    curr_eig = (t(b_0) %*% mat %*% b_0)/(t(b_0) %*% b_0)
+    curr_eig = (t(Conj(b_0)) %*% mat %*% b_0)/(t(Conj(b_0)) %*% b_0)
     eig_seq = c(eig_seq, curr_eig)
     b_new = (mat %*% b_0) / sqrt(sum(mat %*% b_0))
   }
