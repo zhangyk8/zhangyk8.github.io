@@ -30,6 +30,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 6 -- Simulations: [.html](file_stat302/Lectures/Lecture6_Simulations.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations.Rmd).
 - Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review.pdf).
 - Lecture 8 -- Numerical Analysis: [.html](file_stat302/Lectures/Lecture8_Numerical_Analysis.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis.Rmd).
+- Lecture 9 -- Statistical Prediction: [.html](file_stat302/Lectures/Lecture9_Statistical_Prediction.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture9_Statistical_Prediction.Rmd).
 
 ### Final Project
 
