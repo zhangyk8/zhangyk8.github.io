@@ -2111,7 +2111,7 @@ The following figure presents the forward-difference approximation to `\(f'(x_0)
 
 Before introducing the general derivative approximation formula, we need some prerequisites about polynomial interpolation.
 
-- We want to determine a polynomial of degree 1 that passes through (or _interpolate_) two distinct points `\((x_0,f(x_0)), (x_1, f(x_1))\)`.
+- We want to determine a polynomial of degree 1 that passes through (or _interpolates_) two distinct points `\((x_0,f(x_0))\)` and `\((x_1, f(x_1))\)`.
 
 --
 
@@ -2495,7 +2495,7 @@ Before discussing the general situation of quadrature formulas, we first conside
 To approximate `\(\int_a^b f(x) dx\)`, consider the linear Lagrange polynomial:
 `$$P_1(x) = \frac{(x-x_1)}{(x_0-x_1)} f(x_0) + \frac{(x-x_0)}{(x_1-x_0)} f(x_1).$$`
 
-- Then, 
+- Then, with `\(x_0=a\)` and `\(x_1=b\)`, we have that
 `\begin{align*}
 \int_a^b f(x) dx &amp;= \int_{x_0}^{x_1} \left[\frac{(x-x_1)}{(x_0-x_1)} f(x_0) + \frac{(x-x_0)}{(x_1-x_0)} f(x_1) \right] dx \\
 &amp;\quad + \frac{1}{2} \int_{x_0}^{x_1} f''(\xi(x)) (x-x_0) (x-x_1) dx.
@@ -2503,7 +2503,7 @@ To approximate `\(\int_a^b f(x) dx\)`, consider the linear Lagrange polynomial:
 
 --
 
-- By Weighted Mean Value Theorem for Integrals, there exists `\(\xi\in (x_0,x_1)\)` such that when `\(x_0=a\)`, `\(x_1=b\)`, and `\(h=b-a\)`, 
+- By Weighted Mean Value Theorem for Integrals, there exists `\(\xi\in (x_0,x_1)\)` such that when `\(h=b-a\)`, 
 `\begin{align*}
 \int_{x_0}^{x_1} f''(\xi(x)) (x-x_0) (x-x_1) dx &amp;= f''(\xi) \int_{x_0}^{x_1} (x-x_0) (x-x_1) dx\\
 &amp;= -\frac{h^3}{6} f''(\xi).
@@ -2530,8 +2530,8 @@ Note: This is called the Trapezoidal rule because when `\(f\)` is a function wit
 
 Simpson's rule results from integrating the second Lagrange polynomial over `\([a,b]\)` with `\(x_0=a\)`, `\(x_2=b\)`, `\(x_1=a+h\)`, and `\(h=\frac{b-a}{2}\)` as:
 `\begin{align*}
-\int_a^b f(x) dx &amp;= \int_{x_0}^{x_2} \Big[ \frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} f(x_0) + \frac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)} f(x_1) \\
-&amp;\quad \quad + \frac{(x-x_0)(x-x_2)}{(x_2-x_0)(x_2-x_1)} f(x_2) \Big] dx \\
+\int_a^b f(x) dx &amp;= \int_{x_0}^{x_2} \Bigg[ \frac{(x-x_1)(x-x_2)}{(x_0-x_1)(x_0-x_2)} f(x_0) + \frac{(x-x_0)(x-x_2)}{(x_1-x_0)(x_1-x_2)} f(x_1) \\
+&amp;\quad \quad + \frac{(x-x_0)(x-x_2)}{(x_2-x_0)(x_2-x_1)} f(x_2) \Bigg] dx \\
 &amp;\quad + \int_{x_0}^{x_2} \frac{(x-x_0)(x-x_1)(x-x_2)}{6} f^{(3)}(\xi(x)) dx.
 \end{align*}`
 
@@ -2596,7 +2596,7 @@ Some of the common closed Newton-Cotes formulas are:
 
 The Newton-Cotes formulas are generally _unsuitable_ for use over large integration intervals.
 
-- High-degree formulas would be required, and the values of the coefﬁcients in these formulas are difficult to obtain.
+- High-degree formulas would be required, and the values of the coefficients in these formulas are difficult to obtain.
 
 - The equally-spaced nodes may lead to high errors of the low-order Newton-Cotes formulas due to the oscillatory nature of high-degree polynomials.
 
@@ -2821,7 +2821,7 @@ We formalize the observation by Taylor's theorem of `\(g\)` around `\(x^*\)`:
 - If we further approximate `\(h(x)\)` linearly around `\(x^*\)`, we obtain that
 `\begin{align*}
 I &amp;= \int_a^b e^{-\lambda g(x)} h(x) dx\\
-&amp;\approx e^{-\lambda g(x^*)} h(x^*) \int_{-\infty}^{\infty} \underbrace{e^{-\frac{\lambda g''(x^*)}{2}(x-x^*)^2}}_{\text{Density of } N\left(x^*, \frac{1}{\lambda g''(x^*)}\right)} dx \\
+&amp;\approx e^{-\lambda g(x^*)} h(x^*) \int_{-\infty}^{\infty} \underbrace{e^{-\frac{\lambda g''(x^*)}{2}(x-x^*)^2}}_{\text{Density of }Normal\left(x^*, \frac{1}{\lambda g''(x^*)}\right)} dx \\
 &amp;\quad + e^{-\lambda g(x^*)} h'(x^*) \underbrace{\int_{-\infty}^{\infty} (x-x^*) e^{-\frac{\lambda g''(x^*)}{2}(x-x^*)^2} dx}_{=0}\\
 &amp;= e^{-\lambda g(x^*)} h(x^*) \sqrt{\frac{2\pi}{\lambda g''(x^*)}}
 \end{align*}`

@@ -46,11 +46,15 @@ Assume that we have some generic variables $X_1,\ldots,X_p, Y$, where
 
 - $Y$ is the **dependent variable** or **response** or **outcome**.
 
+--
+
 We want to know the relationship between the covariates and the response. 
 
 - Suppose we posit that $Y|X_1,...,X_p \sim P$, where $P$ is some unknown distribution.
 
 - This is called **regression model** for $Y$ given $X_1,...,X_p$.
+
+--
 
 The goal of regression is to estimate the unknown distribution $P$ from the observed data under some (model) assumptions.
 
@@ -65,6 +69,8 @@ The regression model provides us with a statistical approach to conduct
   
   - Is parents' education or parents' income more important for explaining their children's income?
   
+--
+  
 - **Prediction:** predict new/future outcomes $Y$'s from new/future covariates $X_1,...,X_p$'s.
   * Can we predict test scores based on hours spent studying?
   
@@ -76,6 +82,8 @@ The linear model is arguably the _most widely used_ statistical model, has a pla
 
 Given response $Y$ and predictors $X_1,...,X_p$ in a **linear regression model**, we posit that
 $$Y = \beta_0+\beta_1 X_1 + \cdots \beta_p X_p + \epsilon \quad \text{ with } \quad \epsilon \sim N(0,\sigma^2).$$
+
+--
 
 The goal is to estimate the (model) parameters $\beta_0,\beta_1,...,\beta_p$, which are also called **coefficients**.
 
@@ -155,6 +163,8 @@ $$\large Y = \beta_0+\beta_1 X_1 + \cdots \beta_p X_p + \epsilon \quad \text{ wi
 
 * $\epsilon$: error, noise, normally distributed with mean $0$ and variance $\sigma^2$.
 
+--
+
 Given the training data $\{(Y_i,X_{i,1},...,X_{i,p})\}_{i=1}^n$, we fit $\hat{\beta}_0,...,\hat{\beta}_p$ by minimizing the mean square error
 $$\sum_{i=1}^n\left(Y_i - \beta_0-\beta_1X_{i,1}-\cdots -\beta_pX_{i,p}\right)^2.$$
 
@@ -193,6 +203,13 @@ This can also be expressed in matrix form:
 # Linear Regression in R
 
 We fit a linear regression model in R using the function `lm()`.
+
+```{r}
+data(mtcars)
+my_lm = lm(mpg ~ hp + wt, data = mtcars)
+```
+
+--
 
 - The first argument is a **formula**, which is a type of R object. The formula typically takes the following form:
 `Y ~ X_1 + X_2 + ... + X_p`.
@@ -339,6 +356,8 @@ We use the function `coef()` to extract estimated coefficients as a vector.
 ```{r}
 coef(my_lm)
 ```
+
+--
 
 We use the function `fitted()` to extract the fitted/estimated values for the response. This is also known as **in-sample prediction**. 
 

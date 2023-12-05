@@ -53,11 +53,15 @@ Assume that we have some generic variables `\(X_1,\ldots,X_p, Y\)`, where
 
 - `\(Y\)` is the **dependent variable** or **response** or **outcome**.
 
+--
+
 We want to know the relationship between the covariates and the response. 
 
 - Suppose we posit that `\(Y|X_1,...,X_p \sim P\)`, where `\(P\)` is some unknown distribution.
 
 - This is called **regression model** for `\(Y\)` given `\(X_1,...,X_p\)`.
+
+--
 
 The goal of regression is to estimate the unknown distribution `\(P\)` from the observed data under some (model) assumptions.
 
@@ -72,6 +76,8 @@ The regression model provides us with a statistical approach to conduct
   
   - Is parents' education or parents' income more important for explaining their children's income?
   
+--
+  
 - **Prediction:** predict new/future outcomes `\(Y\)`'s from new/future covariates `\(X_1,...,X_p\)`'s.
   * Can we predict test scores based on hours spent studying?
   
@@ -83,6 +89,8 @@ The linear model is arguably the _most widely used_ statistical model, has a pla
 
 Given response `\(Y\)` and predictors `\(X_1,...,X_p\)` in a **linear regression model**, we posit that
 `$$Y = \beta_0+\beta_1 X_1 + \cdots \beta_p X_p + \epsilon \quad \text{ with } \quad \epsilon \sim N(0,\sigma^2).$$`
+
+--
 
 The goal is to estimate the (model) parameters `\(\beta_0,\beta_1,...,\beta_p\)`, which are also called **coefficients**.
 
@@ -162,6 +170,8 @@ What happens to this expectation if we increase `\(X_j\)` by 1 unit, holding eve
 
 * `\(\epsilon\)`: error, noise, normally distributed with mean `\(0\)` and variance `\(\sigma^2\)`.
 
+--
+
 Given the training data `\(\{(Y_i,X_{i,1},...,X_{i,p})\}_{i=1}^n\)`, we fit `\(\hat{\beta}_0,...,\hat{\beta}_p\)` by minimizing the mean square error
 `$$\sum_{i=1}^n\left(Y_i - \beta_0-\beta_1X_{i,1}-\cdots -\beta_pX_{i,p}\right)^2.$$`
 
@@ -200,6 +210,14 @@ This can also be expressed in matrix form:
 # Linear Regression in R
 
 We fit a linear regression model in R using the function `lm()`.
+
+
+```r
+data(mtcars)
+my_lm = lm(mpg ~ hp + wt, data = mtcars)
+```
+
+--
 
 - The first argument is a **formula**, which is a type of R object. The formula typically takes the following form:
 `Y ~ X_1 + X_2 + ... + X_p`.
@@ -340,7 +358,7 @@ plot(my_lm)
 ```
 
 .center[
-![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-5-1.png)&lt;!-- --&gt;
+![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-6-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -353,7 +371,7 @@ plot(my_lm)
 ```
 
 .center[
-![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-7-1.png)&lt;!-- --&gt;
+![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-8-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -366,7 +384,7 @@ plot(my_lm)
 ```
 
 .center[
-![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-9-1.png)&lt;!-- --&gt;
+![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-10-1.png)&lt;!-- --&gt;
 ]
 ---
 
@@ -378,7 +396,7 @@ plot(my_lm)
 ```
 
 .center[
-![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-11-1.png)&lt;!-- --&gt;
+![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-12-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -396,6 +414,8 @@ coef(my_lm)
 ## (Intercept)          hp          wt 
 ## 37.22727012 -0.03177295 -3.87783074
 ```
+
+--
 
 We use the function `fitted()` to extract the fitted/estimated values for the response. This is also known as **in-sample prediction**. 
 
@@ -447,7 +467,7 @@ ggplot(my_df, aes(x = fitted, y = actual)) +
 
 
 .center[
-![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-16-1.png)&lt;!-- --&gt;
+![](Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-17-1.png)&lt;!-- --&gt;
 ]
 
 ---
@@ -588,7 +608,7 @@ plot(x, y, xlim=xlim, ylim=ylim, main="Training data")
 plot(x_test, y_test, xlim=xlim, ylim=ylim, main="Test data")
 ```
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-18-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-19-1.png" style="display: block; margin: auto;" /&gt;
 
 
 ---
@@ -616,7 +636,7 @@ lines(x_test, yhat_test1, col=3, lwd=3)
 
 # Training Error vs Test Error (Degree 1 Model)
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-20-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-21-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -649,7 +669,7 @@ lines(x_fit, y_fit, col=3, lwd=3)
 
 # Training Error vs Test Error (Degree 5 Model)
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-22-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-23-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -682,7 +702,7 @@ lines(x_fit, y_fit, col=3, lwd=3)
 
 # Training Error vs Test Error (Degree 10 Model)
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -715,7 +735,7 @@ lines(x_fit, y_fit, col=3, lwd=3)
 
 # Training Error vs Test Error (Degree 15 Model)
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -799,7 +819,7 @@ lines(xx, predict(lm.10, data.frame(x=xx)), col=3, lwd=2)
 legend("topleft", legend=c("Training","Test"), pch=c(21,19))
 ```
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-29-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-30-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -890,7 +910,7 @@ lines(xx, predict(lm.10, data.frame(x=xx)), lwd=2, lty=2)
 legend("topleft", legend=paste("Fold",1:k), pch=20, col=2:(k+1))
 ```
 
-&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-31-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture9_Statistical_Prediction_files/figure-html/unnamed-chunk-32-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 class: inverse
