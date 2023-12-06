@@ -18,7 +18,7 @@ Education
 Research Experience
 -----------
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
-  * Research Focus 1: Nonparametric Density Estimation (with manifold constraints) and Mode Clustering
+  * Research Focus 1: Nonparametric Density Estimation With Manifold Constraints, Mode Clustering, and Optimization on Manifolds
   * Research Focus 2: High-Dimensional Statistical Inference with Incomplete Data
   * Advisors: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and [Prof. Alexander Giessing](https://agiessing.github.io/)
 * Jun. 2021 - Jul. 2022: Visiting Research Student at Shanghai Astronomical Observatory
@@ -47,6 +47,8 @@ Teaching Experience
    
 Work Experience
 -----------
+* Jun 2023 - Sep 2023: Applied Scientist PhD Intern
+  * Ads Data Science and Analytics, Uber Technologies Inc
 * May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
