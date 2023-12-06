@@ -78,7 +78,7 @@ The regression model provides us with a statistical approach to conduct
 
 # Linear Regression Model
 
-The linear model is arguably the _most widely used_ statistical model, has a place in nearly every application domain of statistics.
+The linear model is arguably the _most widely used_ statistical model, which has a place in nearly every application domain of statistics.
 
 Given response $Y$ and predictors $X_1,...,X_p$ in a **linear regression model**, we posit that
 $$Y = \beta_0+\beta_1 X_1 + \cdots \beta_p X_p + \epsilon \quad \text{ with } \quad \epsilon \sim N(0,\sigma^2).$$
@@ -99,7 +99,7 @@ $\epsilon$ represents the **error term** of our model. Why do we need to incorpo
 
 --
 
-We model $Y$ as a linear function of the $X_1,...,X_p$'s, but in the real world, the linear relationship won't always be perfect, because
+We model $Y$ as a linear function of $X_1,...,X_p$, but in the real world, the linear relationship won't always be perfect, because
 
 * Measurement error in the $X$'s.
 
@@ -111,9 +111,7 @@ We model $Y$ as a linear function of the $X_1,...,X_p$'s, but in the real world,
 
 * True randomness.
 
---
-
-In the linear regression, we assume that this error term is normally distributed with mean $0$ and variance $\sigma^2$.
+Note: In the linear regression, we assume that this error term is normally distributed with mean $0$ and variance $\sigma^2$.
 
 ---
 
@@ -182,7 +180,7 @@ We can fully write out a linear regression model
 1 & X_{2,1} & \cdots & X_{2, p}\\
 \vdots & \vdots & \ddots & \vdots \\
 1 & X_{n,1} & \cdots & X_{n, p}\end{bmatrix}
-\begin{bmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_{k} \end{bmatrix} +
+\begin{bmatrix} \beta_0 \\ \beta_1 \\ \vdots \\ \beta_n \end{bmatrix} +
 \begin{bmatrix} \epsilon_1 \\ \epsilon_2 \\ \vdots \\ \epsilon_{n} \end{bmatrix}
 \end{equation}
 \\]
@@ -196,7 +194,7 @@ This can also be expressed in matrix form:
 * $\mathbf{Y} \in \mathbb{R}^{n \times 1}$: an $n$-dimensional vector of the response.
 * $\mathbf{X} \in \mathbb{R}^{n \times (p+1)}$: a $(p+1)\times n$ matrix of the predictors (including intercept).
 * $\mathbf{\beta} \in \mathbb{R}^{(p+1)\times 1}$: a $(p+1)$-dimensional vector of regression parameters.
-* $\epsilon \in \mathbb{R}^{n \times 1}$: an $n$-dimensional vector of the error term.
+* $\mathbf{\epsilon} \in \mathbb{R}^{n \times 1}$: an $n$-dimensional vector of the error term.
 
 ---
 
@@ -211,8 +209,7 @@ my_lm = lm(mpg ~ hp + wt, data = mtcars)
 
 --
 
-- The first argument is a **formula**, which is a type of R object. The formula typically takes the following form:
-`Y ~ X_1 + X_2 + ... + X_p`.
+- The first argument is a **formula**, which is a type of R object. The formula typically takes the form: `Y ~ X1 + X2 + ... + Xp`.
 
   - The dependent variable `Y` goes on the left-hand side of the tilde `~`, which marks the formula. 
 
@@ -427,7 +424,11 @@ class: inverse
 
 Often, we start our statistical modeling by fitting the linear models, because they are simple and interpretable.
 
+--
+
 - In many cases, the true data generating process is nonlinear, and the errors are by no means close to Gaussian or homoskedastic.
+
+--
 
 - There are many other prediction models that have been developed:
 
@@ -437,7 +438,7 @@ Often, we start our statistical modeling by fitting the linear models, because t
   
   - Nonparametric models, Bayesian models, and complicated machine learning models.
   
-The key here is to have a standard criterion to evaluate the **prediction accuracy** of our chosen model.
+The key for good prediction is to have a standard criterion to evaluate the **prediction accuracy** of our chosen model.
 
 ---
 
@@ -447,11 +448,13 @@ The key here is to have a standard criterion to evaluate the **prediction accura
 
 **Test data:** the holdout/future data that we use to evaluate/test the performance of our model.
 
+--
+
 Linear regression example:
 
 - Suppose we use the training data $\{(Y_i,X_{i,1},...,X_{i,p})\}_{i=1}^n$ to estimate the regression coefficients $\hat{\beta}_0,...,\hat{\beta}_p$.
 
-- Given new covariates $X_1^*,...,X_p^*$, we are asked to predict the associated $Y^*$. 
+- Given new covariates $X_1^*,...,X_p^*$, we are asked to predict the associated $Y^*$ on this test point/data. 
 
 - By the estimated linear model, we predict
 $$\hat{Y}^*=\hat{\beta}_0+\hat{\beta}_1X_1^* + \cdots + \hat{\beta}_p X_p^*.$$
@@ -463,6 +466,8 @@ $$\hat{Y}^*=\hat{\beta}_0+\hat{\beta}_1X_1^* + \cdots + \hat{\beta}_p X_p^*.$$
 We define the **test error**, also called prediction error, under the square loss function $L(Y,Y')=(Y-Y')^2$ by 
 $$\mathbb{E}\left[L(Y^*, \hat{Y}^*) \right] = \mathbb{E}\left[(Y^* - \hat{Y}^*)^2 \right],$$
 where the expectation is taken over every random quantity: the training data $\{(Y_i,X_{i,1},...,X_{i,p})\}_{i=1}^n$ and test data $(Y^*, X_1^*,...,X_p^*)$.
+
+--
 
 We define the **training error** under the square loss function $L(Y,Y')=(Y-Y')^2$ by 
 $$\frac{1}{n} \sum_{i=1}^n L\left(Y_i,\hat{Y}_i\right) = \frac{1}{n}\sum_{i=1}^n \left(Y_i - \hat{Y}_i\right)^2.$$
@@ -491,6 +496,8 @@ The test error, $\mathbb{E}\left[L(Y^*, \hat{Y}^*) \right] = \mathbb{E}\left[(Y^
   - **Predictive Assessment:** It provides us with a valid way to assess the magnitude of errors of our model in making future predictions!
   
   - **Model Selection:** It helps us choose among different models/methods that could minimize the test error.
+  
+--
   
 Question: How do we estimate the test error?
 
@@ -738,9 +745,11 @@ How can we estimate the test error given a single data set? (Assuming that we ca
 
 - We know that the training error is too optimistic.
 
+--
+
 - A tried-and-true technique with an old history in statistics called **sample-splitting** works well in practice.
 
-  1. Split the data set into two parts (e.g., 80% vs 20%).
+  1. Split the data set into two parts (e.g., 80% vs 20% or 50% vs 50%).
   
   2. Train the model/method on the first part.
   
@@ -802,6 +811,8 @@ legend("topleft", legend=c("Training","Test"), pch=c(21,19))
 
 Sample-splitting is simple and effective. However, it estimates the test error when the model/method is trained on **less data** (say, 80% of the full data set).
 
+--
+
 One improvement over sample splitting is **k-fold cross-validation**.
 
 1. Split data into $k$ parts or folds.
@@ -818,10 +829,12 @@ One improvement over sample splitting is **k-fold cross-validation**.
 
 # Cross-Validation
 
-A common choice is $k=5$ or $k=10$ (sometimes $k=n$, which is known as the **leave-one-out** cross-validation!)
+A common choice is $k=5$ or $k=10$ (sometimes $k=n$, which is known as the **leave-one-out** cross-validation (LOOCV)!)
 
 <p align="center">
 <img src="./figures/cv-result.png" width="800"/>
+
+Note: The LOOCV has its own drawback, because it fits $n$ models that are trained on almost identical training data and the outputs of these models are highly (positively) correlated. When all other things being equal, the LOOCV estimated test error has a higher variance than the test error from $k$-fold cross-validation when $k\ll n$. 
 
 ---
 
