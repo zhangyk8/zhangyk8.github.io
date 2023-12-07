@@ -34,5 +34,5 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Final Project
 
-[Final Project Description](file_stat302/Lectures/Final_Project.pdf) (This final project is modified from the midterm project of STAT 133 taught by [Professor Deborah Nolan](https://statistics.berkeley.edu/people/deborah-nolan) in Fall 2016 at UC Berkeley.
+[Final Project Description](file_stat302/Lectures/Final_Project.pdf) (This final project is modified from the midterm project of STAT 133 taught by [Professor Deborah Nolan](https://statistics.berkeley.edu/people/deborah-nolan) in Fall 2016 at UC Berkeley.)
 
