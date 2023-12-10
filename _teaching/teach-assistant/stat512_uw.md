@@ -23,7 +23,7 @@ STAT 512 is the first course of the statistical inference sequence for first-yea
 - <A href="https://sites.stat.washington.edu/people/mdperlma/STAT%20512%20MDP%20Notes.pdf" style="color: #52adc8; text-decoration=underline"> Previous Version </A> written by <A href="https://stat.uw.edu/about-us/people/michael-perlman" style="color: #52adc8; text-decoration=underline"> Prof. Michael Perlman</A>.
 
 
-### Quiz Session Notes
+### My Quiz Session Notes
 
 - [Quiz Session 1: Review of Prerequisites](file_stat512/Quiz1_09_28.pdf)
 - [Quiz Session 2: Independence and Conditional Independence](file_stat512/Quiz2_solution.pdf)
