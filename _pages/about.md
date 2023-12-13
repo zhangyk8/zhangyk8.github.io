@@ -13,7 +13,7 @@ I am a Ph.D. student in the Department of Statistics at the University of Washin
 
 Research Interests
 -----------
-My current theoretical research interests are on kernel smoothing, nonparametric statistics, optimization on nonlinear manifolds, and high-dimensional inference with missing data. On the applied side, I am broadly interested in challenging problems in astronomy, especially on detecting and understanding cosmic filaments in a statistically motivated way.
+My current theoretical research interests are on kernel smoothing, nonparametric statistics, optimization on nonlinear manifolds, and high-dimensional inference with missing data. On the applied side, I am broadly interested in challenging problems in astronomy, especially about how to detect and analyze the cosmic web in a statistically motivated way.
 
 Education
 -----------
