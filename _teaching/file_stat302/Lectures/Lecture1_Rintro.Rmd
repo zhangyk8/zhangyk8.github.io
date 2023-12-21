@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 1: Introduction and R Basics"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2024_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -681,7 +681,7 @@ log(10, base=10)
 
 # Logical Operators
 
-* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+* **Logical Operators** take one or more "comparison statements" and return TRUE or FALSE.
 
 ```{r}
 # AND
@@ -697,7 +697,7 @@ log(10, base=10)
 
 # Logical Operators
 
-* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+* **Logical Operators** take one or more "comparison statements" and return TRUE or FALSE.
 
 ```{r}
 # OR
@@ -726,7 +726,7 @@ log(10, base=10)
 
 # Logical Operators
 
-* **Logical Operators** take one or more "statements" and return TRUE or FALSE.
+* **Logical Operators** take one or more "comparison statements" and return TRUE or FALSE.
 
 ```{r}
 # Logical negation
@@ -900,6 +900,6 @@ w2v == W2v
 ```
 
 ---
-# Reminder
+# Summary
 
-Submit Lab 1 on Canvas by the end of Thursday (October 5)!!
+Submit Lab 1 on Canvas by the end of Mondays (January 8)!!
