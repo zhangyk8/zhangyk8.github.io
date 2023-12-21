@@ -1,0 +1,131 @@
+---
+title: "Lab 1: R Basics"
+author: "INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)"
+date: "Due by 23:59pm on Jan 15, 2024"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+### Total Points: 30
+
+
+To begin, please follow the links in the course syllabus to download R, RStudio, and R Markdown.
+You should edit this .Rmd using RStudio, then click *Knit* in the menu bar of the source window (above the text of this .Rmd).
+Remember, you must submit your knitted PDF file through Canvas in order to receive full credit!
+
+## Part 1. Basic R Code (2pts per question)
+
+1. Use R to compute 1+2*(3+4).
+
+```{r}
+# Your code here
+```
+
+2. Use R to compute the logarithm of 18+3*2 under the natural base **and** base 2.
+
+```{r}
+# Your code here (two lines)
+```
+
+3. Suppose that a student had his original score as 70. However, he submitted his homework **6 hours and 20 minutes** late for the deadline. Use R to calculate his final score.
+
+```{r}
+# Your code here
+```
+
+4. Use R build-in function to compute 6! (i.e., $6\times 5\times 4 \times 3\times 2\times 1$).
+
+```{r}
+# Your code here
+```
+
+5. Are the outputs of ``round(6.6)`` and ``as.integer(6.6)`` the same?
+
+```{r}
+# Your code here (Hint: the output should be TRUE/FALSE)
+```
+
+6. Use R function to check whether the data type of 3.2 is ``numeric``.
+
+```{r}
+# Your code here (output should be TRUE/FALSE)
+```
+
+7. What are the data type and the length of *"James"*?
+
+```{r}
+# Your code here (Two lines)
+```
+
+8. What is the result of 0/0? Is it equal to ``NA``?
+
+```{r}
+# Your code here (Two lines)
+```
+
+## Part 2: Explore build-in R functions (4pts per question)
+
+Look at the documentation of the following R functions ``seq``, ``factorial``, and ``choose``. Use **at least two ways** in R to achieve the followings.
+
+1. Generate the sequence: -0.8, -0.4, 0, 0.4, 0.8, 1.2, 1.6.
+
+```{r}
+# Your code here (At least two lines)
+```
+
+2. Compute $7\choose 4$ (this was produced by \LaTeX command ``$7 \choose 4$``). 
+
+```{r}
+# Your code here (At least two lines)
+```
+
+## Part 3: Computing Summary Statistics of A Vector Variable (1pt per question)
+
+Run the following command to create an object. 
+
+```{r}
+## Run it before proceeding to the questions
+x <- c(1, 8, -3.2, 5, -1, 15.3)
+```
+
+Use R to do the followings:
+
+1. Compute the length of the object ``x``.
+
+```{r}
+# Your code here
+```
+
+2. Compute the sum of ``x``.
+
+```{r}
+# Your code here
+```
+
+3. Compute the *cumulative* sum of ``x``.
+
+```{r}
+# Your code here (Hint: the output has the same length as x.)
+```
+
+4. Output the index of elements in ``x`` that is >1.5. Hint: look at the documentation of ``which()``.
+
+```{r}
+# Your code here
+```
+
+5. Find the minimum value of ``x``.
+
+```{r}
+# Your code here
+```
+
+
+6. Order the values of the vector ``x`` from low to high.
+
+```{r}
+# Your code here
+```
+
+
