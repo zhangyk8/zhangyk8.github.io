@@ -22,15 +22,15 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Lecture Slides
 
-- Lecture 1 -- Introduction and R Basics: [.html](file_stat302/Lectures/Lecture1_Rintro.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture1_Rintro.Rmd).
-- Lecture 2 -- Data Structures in R: [.html](file_stat302/Lectures/Lecture2_Data_Structures.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture2_Data_Structures.Rmd).
-- Lecture 3 -- Programming Fundamentals: [.html](file_stat302/Lectures/Lecture3_Programming.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture3_Programming.Rmd).
-- Lecture 4 -- Data Manipulation and Visualization: [.html](file_stat302/Lectures/Lecture4_Data_Visualization.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization.Rmd).
-- Lecture 5 -- Writing Functions And Debugging: [.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug.Rmd).
-- Lecture 6 -- Simulations: [.html](file_stat302/Lectures/Lecture6_Simulations.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations.Rmd).
-- Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review.pdf).
-- Lecture 8 -- Numerical Analysis: [.html](file_stat302/Lectures/Lecture8_Numerical_Analysis.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis.Rmd).
-- Lecture 9 -- Statistical Prediction: [.html](file_stat302/Lectures/Lecture9_Statistical_Prediction.html), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture9_Statistical_Prediction.Rmd).
+- Lecture 1 -- Introduction and R Basics: [Autumn2023.html](file_stat302/Lectures/Lecture1_Rintro_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture1_Rintro_Aut23.Rmd); [Winter2024.html](file_stat302/Lectures/Lecture1_Rintro.html), [Winter2024.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture1_Rintro.Rmd).
+- Lecture 2 -- Data Structures in R: [Autumn2023.html](file_stat302/Lectures/Lecture2_Data_Structures_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture2_Data_Structures_Aut23.Rmd).
+- Lecture 3 -- Programming Fundamentals: [Autumn2023.html](file_stat302/Lectures/Lecture3_Programming_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture3_Programming_Aut23.Rmd).
+- Lecture 4 -- Data Manipulation and Visualization: [Autumn2023.html](file_stat302/Lectures/Lecture4_Data_Visualization_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization_Aut23.Rmd).
+- Lecture 5 -- Writing Functions And Debugging: [Autumn2023.html](file_stat302/Lectures/Lecture5_Function_Debug_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug_Aut23.Rmd).
+- Lecture 6 -- Simulations: [Autumn2023.html](file_stat302/Lectures/Lecture6_Simulations_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations_Aut23.Rmd).
+- Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review_Aut23.pdf).
+- Lecture 8 -- Numerical Analysis: [Autumn2023.html](file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.Rmd).
+- Lecture 9 -- Statistical Prediction: [Autumn2023.html](file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.Rmd).
 
 ### Final Project
 
