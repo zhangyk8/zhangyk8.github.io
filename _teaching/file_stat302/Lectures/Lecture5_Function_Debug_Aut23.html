@@ -1,0 +1,1638 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>STAT 302 Statistical Computing</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yikun Zhang (Autumn 2023)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="aut.css" type="text/css" />
+    <link rel="stylesheet" href="fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, top, title-slide
+
+.title[
+# STAT 302 Statistical Computing
+]
+.subtitle[
+## Lecture 5: Writing Functions And Debugging
+]
+.author[
+### Yikun Zhang (<em>Autumn 2023</em>)
+]
+
+---
+
+
+
+
+&lt;style type="text/css"&gt;
+.pull-left {
+  float: left;
+  width: 49%;
+}
+.pull-right {
+  float: right;
+  width: 49%;
+}
+.pull-right ~ p {
+  clear: both;
+}
+
+pre code {
+  white-space: pre-wrap;
+}
+
+&lt;/style&gt;
+
+# Outline
+
+1. Writing Functions in R
+
+2. Environments and Lazy Evaluations
+
+3. R Coding Styles on Functions
+
+4. Debugging Strategies
+
+5. Testing
+
+
+&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. &lt;/font&gt;
+
+---
+class: inverse
+
+# Part 1: Writing Functions in R
+
+---
+
+# Functional Programming
+
+Functional programming in R comprises two basic types of things/objects: **data** and **functions**.
+
+* We already discussed different data types in R.
+
+  - Vectors, arrays/matrices, lists, data frames, etc.
+  
+--
+
+* **Functions** are some programs that turns input objects, or *arguments*, into an output object or a return value (possibly with side effects), according to a definite rule.
+
+---
+
+# Why do we need functions?
+
+* Data types tie related values into one object.
+
+* Functions combine related commands into one object.
+
+--
+
+* Good programming is writing functions to correctly and efficiently transform inputs into outputs.
+
+  - The principle of good programming is to take a big transformation and break it down into smaller ones so that we can efficiently implement these smaller tasks (using built-in functions and/or control flows).
+
+---
+
+# Function Format in R
+
+
+```r
+function_name = function(param1, param2 = "default") {
+  # Body of the function
+  return(output)
+}
+```
+
+* `function_name` is the name of our function, i.e., what we will use to call it.
+
+* `function()` is a build-in statement for defining a function.
+
+--
+
+* `param1`, `param2` are function parameters/arguments for the user to input some values. We can assign default values by setting them equal to something in the function definition.
+
+--
+
+* **Body** is the actual code that is executed.
+
+* `return()` is what our function will return to the user. 
+
+  - Note: R does not allow a function to have multiple outputs, but we can return a list.
+
+---
+
+# Steps in Writing a Function
+
+- **Explain**: Describe the task in words.
+
+- **Concrete**: Write code for a specific example.
+
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
+
+- **Encapsulate**: Wrap the code into a function where the parameters are the general variables.
+
+- **Test**: Check if the function works as expected with our original data instances AND try the function on test cases with other data.
+
+---
+
+# Steps in Writing a Function (Example 1)
+
+- **Explain**: Describe the task in words.
+
+  - We want to write a function that converts a temperature value from Fahrenheit to Celsius.
+  
+- **Concrete**: Write code for a specific example.
+
+  - For instance, if the current temperature is `\(50^{\circ}F\)`, then
+  
+
+```r
+temp_fah = 50
+temp_cel = (temp_fah - 32) * 5/9
+cat("The corresponding Celsius value is", temp_cel, "C.")
+```
+
+```
+## The corresponding Celsius value is 10 C.
+```
+
+---
+
+# Steps in Writing a Function (Example 1)
+
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
+
+  - In this case, the function should have one input argument/parameter and one output value (with a possible message that is printed to the console).
+  
+- **Encapsulate**: Wrap the code into a function where the parameter is a general variable.
+
+--
+
+
+```r
+FahToCel = function(temp_fah) {
+  temp_cel = (temp_fah - 32) * 5/9
+  cat("The corresponding Celsius value is", temp_cel, "C.\n")
+  return(temp_cel)
+}
+```
+
+---
+
+# Steps in Writing a Function (Example 1)
+
+- **Test**: Check if the function works as expected with our original data instances AND try the function on test cases with other data.
+
+
+```r
+temp_cel1 = FahToCel(temp_fah = 50)
+```
+
+```
+## The corresponding Celsius value is 10 C.
+```
+
+```r
+temp_cel1
+```
+
+```
+## [1] 10
+```
+
+--
+
+
+```r
+temp_cel2 = FahToCel(temp_fah = "50F")
+```
+
+```
+## Error in temp_fah - 32: non-numeric argument to binary operator
+```
+
+Note: Our function `FahToCel()` can't handle the non-numeric input!
+
+---
+
+# Steps in Writing a Function (Example 1)
+
+Note: Our function `FahToCel()` can't handle the non-numeric input!
+
+
+```r
+FahToCel = function(temp_fah) {
+  if(!is.numeric(temp_fah)) {
+    stop("The input temperature must be a numeric value!!")
+  }
+  temp_cel = (temp_fah - 32) * 5/9
+  cat("The corresponding Celsius value is", temp_cel, "C.\n")
+  return(temp_cel)
+}
+
+temp_cel2 = FahToCel(temp_fah = "50F")
+```
+
+```
+## Error in FahToCel(temp_fah = "50F"): The input temperature must be a numeric value!!
+```
+
+---
+
+# Side Effects of A Function
+
+A side effect of a function is something that happens during the execution of function's body, but is not returned. Examples:
+
+* Print something out to the console, e.g., our previous function `FahToCel()`.
+
+
+```r
+temp_cel1 = FahToCel(temp_fah = 50)
+```
+
+```
+## The corresponding Celsius value is 10 C.
+```
+
+* Generate a plot on the display.
+
+* Save an R data file, or a PDF plot, etc.
+
+---
+
+# Steps in Writing a Function (Example 2)
+
+- **Explain**: Describe the task in words.
+
+  - We want to find several quantile values of a numeric vector.
+  
+- **Concrete**: Write code for a specific example.
+
+
+```r
+set.seed(123)
+vec1 = rnorm(1000, mean = 0, sd = 1)
+percentiles = c(0.1, 0.5, 0.95)
+quantile(vec1, probs = percentiles)
+```
+
+```
+##          10%          50%          95% 
+## -1.267328289  0.009209639  1.676133871
+```
+
+---
+
+# Steps in Writing a Function (Example 2)
+
+- **Abstract**: Identify the variables and decide if they are required or should have defaults.
+
+  - The function should have two input arguments and one output vector.
+  
+- **Encapsulate**: Wrap the code into a function where the parameters are the general variables.
+
+--
+
+
+```r
+CompQt = function(vec, percentiles = c(0.25, 0.5, 0.75)) {
+  if (!is.numeric(vec) | !is.numeric(percentiles)) {
+    stop("The input and percentiles must be numeric!")
+  }
+  if (max(percentiles) &gt; 1 | min(percentiles) &lt; 0) {
+    stop("Percentiles must all be in [0,1].")
+  }
+  quant = quantile(vec, probs = percentiles)
+  return(quant)
+}
+```
+
+---
+
+# Steps in Writing a Function (Example 2)
+
+- **Test**: Check if the function works as expected with our original data instances AND try the function on test cases with other data.
+
+
+```r
+CompQt(vec1, percentiles = c(0.1, 0.5, 0.95))
+```
+
+```
+##          10%          50%          95% 
+## -1.267328289  0.009209639  1.676133871
+```
+
+```r
+CompQt(vec1)
+```
+
+```
+##          25%          50%          75% 
+## -0.628324243  0.009209639  0.664601867
+```
+
+
+
+```r
+CompQt(vec = c("2", "4", "10"))
+```
+
+```
+## Error in CompQt(vec = c("2", "4", "10")): The input and percentiles must be numeric!
+```
+
+---
+
+# Steps in Writing a Function (Example 2)
+
+- **Test**: Check if the function works as expected with our original data instances AND try the function on test cases with other data.
+
+
+```r
+CompQt(vec1, percentiles = c("0.1", "0.5", "0.9"))
+```
+
+```
+## Error in CompQt(vec1, percentiles = c("0.1", "0.5", "0.9")): The input and percentiles must be numeric!
+```
+
+```r
+CompQt(vec1, percentiles = c(0.1, 0.6, 1.3))
+```
+
+```
+## Error in CompQt(vec1, percentiles = c(0.1, 0.6, 1.3)): Percentiles must all be in [0,1].
+```
+
+---
+
+# Functions that Return Multiple Objects
+
+R does not allow a function to have multiple outputs, but we can return a list.
+
+* *Artificial Example*: We want to write a function that generates a sample point from a normal distribution that is greater than a threshold value. The return consists of both the sample point and the number of iterations.
+
+
+```r
+SampNormalThres = function(thres_val, mean = 0, sd = 1, seed = 123) {
+  set.seed(seed)
+  x = rnorm(1, mean = mean, sd = sd)
+  iter_cnt = 1
+  while (x &lt;= thres_val) {
+    x = rnorm(1, mean = mean, sd = sd)
+    iter_cnt = iter_cnt + 1
+  }
+  res = list(samp_pt = x, num_iter = iter_cnt)
+  return(res)
+}
+```
+
+---
+
+# Functions that Return Multiple Objects
+
+R does not allow a function to have multiple outputs, but we can return a list.
+
+* *Artificial Example*: We want to write a function that generates a sample point from a normal distribution that is greater than a threshold value. The return consists of both the sample point and the number of iterations.
+
+
+```r
+norm_pt = SampNormalThres(thres_val = 3, mean = 0, sd = 1, seed = 123)
+norm_pt
+```
+
+```
+## $samp_pt
+## [1] 3.24104
+## 
+## $num_iter
+## [1] 164
+```
+
+
+---
+
+# Use Our Customized Functions in `apply()`
+
+For our customized function, we can define it beforehand and then use `apply()` as usual.
+
+
+```r
+# Recall the `state.x77` dataset that we used in Lecture 3
+head(state.x77, n = 4)
+```
+
+```
+##          Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
+## Alabama        3615   3624        2.1    69.05   15.1    41.3    20  50708
+## Alaska          365   6315        1.5    69.31   11.3    66.7   152 566432
+## Arizona        2212   4530        1.8    70.55    7.8    58.1    15 113417
+## Arkansas       2110   3378        1.9    70.66   10.1    39.9    65  51945
+```
+
+---
+
+# Use Our Customized Functions in `apply()`
+
+For our customized function, we can define it beforehand and then use `apply()` as usual.
+
+  - These usages are applicable to other functions in the `apply` family.
+
+
+```r
+# Our custom function: trimmed mean
+trimmed.mean = function(v) {  
+  q1 = quantile(v, prob = 0.1)
+  q2 = quantile(v, prob = 0.9)
+  return(mean(v[q1 &lt;= v &amp; v &lt;= q2]))
+}
+
+apply(state.x77, MARGIN = 2, FUN = trimmed.mean) 
+```
+
+```
+##  Population      Income  Illiteracy    Life Exp      Murder     HS Grad 
+##  3384.27500  4430.07500     1.07381    70.91775     7.29750    53.33750 
+##       Frost        Area 
+##   104.68293 56575.72500
+```
+
+---
+
+# Use Our Customized Functions in `apply()`
+
+For our customized function, we can define it beforehand and then use `apply()` as usual.
+
+  - We can pass extra arguments to the function when using `apply()`. 
+
+
+```r
+# Our custom function: trimmed mean
+trimmed.mean = function(v, p1, p2) {  
+  q1 = quantile(v, prob = p1)
+  q2 = quantile(v, prob = p2)
+  return(mean(v[q1 &lt;= v &amp; v &lt;= q2]))
+}
+
+apply(state.x77, MARGIN = 2, FUN = trimmed.mean, p1 = 0.1, p2 = 0.9) 
+```
+
+```
+##  Population      Income  Illiteracy    Life Exp      Murder     HS Grad 
+##  3384.27500  4430.07500     1.07381    70.91775     7.29750    53.33750 
+##       Frost        Area 
+##   104.68293 56575.72500
+```
+
+---
+
+# Anonymous Function
+
+When applying our customized function through the `apply` family, it is sometimes more convenient to use an anonymous function.
+
+
+```r
+# Apply an anonymous function
+apply(state.x77, MARGIN = 2, FUN = function(v) { 
+  q1 = quantile(v, prob=0.1)
+  q2 = quantile(v, prob=0.9)
+  return(mean(v[q1 &lt;= v &amp; v &lt;= q2]))
+})
+```
+
+```
+##  Population      Income  Illiteracy    Life Exp      Murder     HS Grad 
+##  3384.27500  4430.07500     1.07381    70.91775     7.29750    53.33750 
+##       Frost        Area 
+##   104.68293 56575.72500
+```
+
+--
+
+- Note: One drawback of using anonymous function is that such function can only be used within the `apply()` function. On the contrary, if we define our function beforehand, we can use it in any subsequent part of the code.
+
+---
+class: inverse
+
+# Part 2: Environments and Lazy Evaluations
+
+---
+
+# Environments and Variable Scopes in R
+
+- R has a special mechanism that allows us to use the same name in different places in our code and have it refer to different objects.
+
+--
+
+  - For example, we can create new variables in our functions without worrying if there are variables with the same names that are already defined in the work space.
+  
+- This mechanism relies on *environments* and the *variable scoping rules*.
+
+---
+
+# Environment Basics
+
+The job of an environment is to associate, or **bind**, a set of names to a set of values. 
+
+  - Each name points to an object stored elsewhere in memory:
+  
+
+```r
+e = new.env()
+e$a = FALSE
+e$b = "a"
+e$c = 2.3
+e$d = 1:3
+
+class(e)
+```
+
+```
+## [1] "environment"
+```
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/env_R.png" width="300"/&gt;
+&lt;/p&gt;
+
+---
+
+# Environment Basics
+
+- Every name in an environment is unique.
+
+- The names in an environment are not ordered (i.e., it doesn't make sense to ask what the first element of an environment is).
+
+--
+
+- Every environment has a parent, with the only exception as the **empty** environment. 
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/env_par.png" width="300"/&gt;
+&lt;/p&gt;
+
+- Environments have reference semantics.
+
+---
+
+# Special Environments
+
+There are four special environments:
+
+- The `globalenv()`, or global environment, is the interactive work space. This is the environment in which we normally work. The parent of the global environment is the last package that we attached with `library()` or `require()`.
+
+- The `baseenv()`, or base environment, is the environment of the base package. Its parent is the empty environment.
+
+
+```r
+library(rlang)
+env_parent(base_env())
+```
+
+```
+## &lt;environment: R_EmptyEnv&gt;
+```
+
+---
+
+# Special Environments
+
+There are four special environments:
+
+- The `emptyenv()`, or empty environment, is the ultimate ancestor of all environments, and the only environment without a parent.
+
+- The `environment()` is the current environment.
+
+
+```r
+environment()
+```
+
+```
+## &lt;environment: R_GlobalEnv&gt;
+```
+
+```r
+env_parent(environment())
+```
+
+```
+## &lt;environment: package:rlang&gt;
+## attr(,"name")
+## [1] "package:rlang"
+## attr(,"path")
+## [1] "/home/yikun/R/x86_64-pc-linux-gnu-library/4.1/rlang"
+```
+
+---
+
+# Global and Function Environments
+
+- Global Environment contains objects that we defined or sourced into our work space.
+
+- When we call a function, an enclosing environment is created **inside the function**, whose parent environment is the global environment in this case.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/env_func.png" width="300"/&gt;
+&lt;/p&gt;
+
+
+```r
+# The variables x,y,z are defined in the global environment
+x = seq(1,7,2)
+y = rep(2, 3)
+z = 17
+```
+
+---
+
+# Function Environment (Example)
+
+
+```r
+# The variables x,y,z are defined in the global environment
+x = seq(1,7,2)
+y = rep(2, 3)
+z = 17
+
+lookAt = function(x) {
+  y = 3
+  print(x)
+  print(y)
+  print(z)
+}
+```
+
+--
+
+
+```r
+lookAt(x = c(1,100))
+```
+
+```
+## [1]   1 100
+## [1] 3
+## [1] 17
+```
+
+Note: R looks for variables with that name in a sequence of environments, from the current one to its parent, grandparent, etc.
+
+---
+
+# Function Environment (Example)
+
+Note: R looks for variables with that name in a sequence of environments, from the current one to its parent, grandparent, etc.
+
+
+```r
+lookAt = function(x) {
+  y = 3
+  print(x)
+  print(y)
+  print(z)
+}
+lookAt(x = c(1,100))
+```
+
+```
+## [1]   1 100
+## [1] 3
+## [1] 17
+```
+
+In this case, R did not find `z` in the function environment defined by `lookAt`, so it went on to the next one, which is the *Global Environment*.
+
+---
+
+# Assignment in the Parent Environment
+
+Recall that we can use either `=` or `&lt;-` to assign values to variables.
+
+If we want to assign values to variables in the parent environment, we will use `&lt;&lt;-`.
+
+
+```r
+y = 100
+lookAt2 = function(x) {
+  y = 3
+  y &lt;&lt;- 50
+  print(x)
+  print(y)
+}
+lookAt2(x = c(1,100))
+```
+
+```
+## [1]   1 100
+## [1] 3
+```
+
+```r
+y
+```
+
+```
+## [1] 50
+```
+
+
+---
+
+# Finding the Environments of Objects in R
+
+We can use `find()` function to look for the environment of an object in R.
+
+
+```r
+find("z")
+```
+
+```
+## [1] ".GlobalEnv"
+```
+
+```r
+find("lookAt")
+```
+
+```
+## [1] ".GlobalEnv"
+```
+
+Note: The function `lookAt()` is defined in the global environment, but its body code is executed inside a function environment.
+
+### Useful Reference for R Environments
+
+[Chapter 7 in Advanced R](https://adv-r.hadley.nz/environments.html) written by Hadley Wickham.
+
+---
+
+# Lazy Evaluation in R
+
+**Definition:** The inputs for a function call are not evaluated until they are needed, i.e., only the needed objects in a function call will be loaded in memory and/or looked for.
+
+--
+
+- The lazy evaluation mechanism also appears in other functional programming languages, not just in R.
+
+- It allows a R program to be more efficient when used interactively.
+
+---
+
+# Lazy Evaluation in R (Example)
+
+
+```r
+funnyMean = function(x, y = mean(x)) {
+  set.seed(123)
+  return(y)
+}
+
+set.seed(123)
+mean(runif(4))
+```
+
+```
+## [1] 0.5919692
+```
+
+```r
+set.seed(123)
+funnyMean(runif(4))
+```
+
+```
+## [1] 0.5919692
+```
+
+**Question:** When was the parameter `x` in the function `funnyMean()` assigned a value?
+
+1. When we passed arguments to the function `funnyMean()`.
+
+2. When the function `funnyMean()` returns the output.
+
+Correct Answer: 2.
+---
+
+# Lazy Evaluation in R (Example)
+
+
+```r
+funnyMean = function(x, y = mean(x)) {
+  set.seed(123)
+  return(y)
+}
+
+set.seed(567)
+mean(runif(4))
+```
+
+```
+## [1] 0.6854613
+```
+
+
+```r
+set.seed(567)
+funnyMean(runif(4))
+```
+
+--
+
+
+```
+## [1] 0.5919692
+```
+
+Note: The variable `x` in the function `funnyMean()` was NOT assigned a value until the program reached the line where `x` first appeared. In this case, it is when the function `funnyMean()` returns the output.
+
+---
+
+# Lazy Evaluation in R (Advanced Example)
+
+
+```r
+funnyMean2 = function(x, y = mean(x)) {
+  if (any(is.na(x))) {
+    warning("Found NA.")
+  }
+  set.seed(123)
+  return(y)
+}
+
+set.seed(123)
+mean(runif(4))
+```
+
+```
+## [1] 0.5919692
+```
+
+
+```r
+set.seed(567)
+mean(runif(4))
+```
+
+```
+## [1] 0.6854613
+```
+
+---
+
+# Lazy Evaluation in R (Advanced Example)
+
+
+```r
+funnyMean2 = function(x, y = mean(x)) {
+  if (any(is.na(x))) {
+    warning("Found NA.")
+  }
+  set.seed(123)
+  return(y)
+}
+```
+
+What is the output of the following code? Why?
+
+
+```r
+set.seed(567)
+funnyMean2(runif(4))
+```
+
+--
+
+
+```
+## [1] 0.6854613
+```
+
+Note: This example also shows that it is not a good idea to set the seed inside a function, unless it is asked to do that via an input parameter.
+
+Reference: [Section 6.5 in Advanced R](https://adv-r.hadley.nz/functions.html#lazy-evaluation) written by Hadley Wickham.
+
+---
+class: inverse
+
+# Part 3: R Coding Styles on Functions
+
+---
+
+# Function Names
+
+Strive to have function names based on verbs. Otherwise, we apply standard variable name style guidelines in Lecture 2!
+
+
+```r
+# Good
+add_row()
+permute()
+
+# Bad
+row_adder()
+permutation()
+```
+
+---
+
+# Long Lines
+
+There are two options if the function name and definition can't fit on a single line:
+
+- **Function-indent:** place each argument on its own line, and indent to match the opening.
+
+
+```r
+long_function_name = function(a = "a long argument",
+                              b = "another argument",
+                              c = "another long argument") {
+  # As usual code is indented by two spaces.
+  x = paste(a, b, c)
+  return(x)
+}
+```
+
+---
+
+# Long Lines
+
+There are two options if the function name and definition can't fit on a single line:
+
+- **Double-indent:** Place each argument of its own double indented line.
+
+
+```r
+long_function_name = function(
+    a = "a long argument",
+    b = "another argument",
+    c = "another long argument") {
+  # As usual code is indented by two spaces.
+  x = paste(a, b, c)
+  return(x)
+}
+```
+
+---
+
+# `return()` Statement
+
+Only use `return()` for early returns. Otherwise, rely on R to return the result of the last evaluated expression.
+
+
+```r
+# Good
+find_abs = function(x) {
+  if (x &gt; 0) {
+    return(x)
+  }
+  x * -1
+}
+
+# Good
+add_two = function(x, y) {
+  x + y
+}
+
+# Bad
+add_two = function(x, y) {
+  return(x + y)
+}
+```
+
+---
+
+# Useful References for R Coding Style Guide
+
+Again, we can refer to the following references for making our code tidy and understandable.
+
+* [Tidyverse Style Guide](https://style.tidyverse.org/) by Hadley Wickham.
+
+* [Google Style Guide](https://google.github.io/styleguide/Rguide.html).
+
+---
+class: inverse
+
+# Part 4: Debugging Strategies
+
+---
+
+# Bugs in Computer Programs
+
+- Definition of bugs: "an unexpected defect, fault, flaw, or imperfections."
+
+--
+
+- On September 9, 1947, a team of computer scientists and engineers reported the world’s first computer bug.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/computer-bug.jpg" width="350"/&gt;
+&lt;/p&gt;
+
+Cited from [Sep 9, 1947 CE: World’s First Computer Bug](https://education.nationalgeographic.org/resource/worlds-first-computer-bug/) by National Geographic.
+
+---
+
+# Debugging: What and Why?
+
+Debugging is a process of locating, understanding, and removing bugs from our code.
+
+--
+
+Why should we learn about debugging?
+
+- The truth is that we have to debug, because we are not perfect (none of us are!) and no one can write perfect code in the first place.
+    
+- Debugging is frustrating and time-consuming, but it is essential.
+
+- We should always write code that is easier to debug, even if it takes more time: use lots of comments, choose meaningful variable names, etc.
+
+We now provide some useful guidelines for debugging.
+
+---
+
+# Step 1: Utilize the Internet
+
+When we see an error code that we don't understand, always Google it or ask ChatGPT!
+
+--
+
+Seriously? 
+
+Yes, the error message that we saw might already be asked or solved by other people on some online forums/posts.
+
+---
+
+# Step 2: Reproduce the Bug
+
+Always ask ourselves the following two questions during the debugging:
+
+- Can we produce it repeatedly when re-running the same code, with the same input values?
+
+- And if we run the same code in a clean copy of R, does the same thing happen?
+
+--
+
+We should also remove as much code and simplify as much data as possible when trying to reproduce the bug.
+
+- Example: if our function breaks with a large data matrix of real-world data, then consider creating a toy matrix, says, a `\(3\times 3\)` matrix of 1's.
+
+---
+
+# Step 3: Locate the Bug
+
+Figure out the exact line or portion of the code went wrong.
+
+* This is the most difficult part of debugging!
+
+--
+
+* Luckily, there are some R build-in functions that can assist us to locate the bugs: `traceback()`, and `cat()`, `print()` are also very helpful.
+
+* We can also leverage the interactive debugging tool triggered by `browser()` in R.
+
+---
+
+# `traceback()` Function
+
+Calling `traceback()` after an error can trace back through all the function calls leading to the error.
+
+
+```r
+f &lt;- function(a) g(a)
+g &lt;- function(b) h(b)
+h &lt;- function(c) i(c)
+i &lt;- function(d) {
+  if (!is.numeric(d)) {
+    stop("`d` must be numeric", call. = FALSE)
+  }
+  d + 10
+}
+f(5)
+```
+
+```
+## [1] 15
+```
+
+```r
+f("a")
+```
+
+```
+## Error: `d` must be numeric
+```
+
+---
+
+# `traceback()` Function
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/traceback.png" width="760"/&gt;
+&lt;/p&gt;
+
+
+```r
+traceback()
+```
+
+
+
+
+
+```
+## Error: `d` must be numeric
+```
+
+```
+## 5: stop("`d` must be numeric", call. = FALSE)
+## 4: i(c)
+## 3: h(b)
+## 2: g(a)
+## 1: f("a")
+```
+
+Or, we can just click the "`Show Traceback`" button after the code chunk in R markdown.
+
+---
+
+# Step 3: Locate the Bug
+
+- The `traceback()` function can only locate a potential portion of the code that contains bugs.
+
+--
+
+- Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors. Here is a quote from *stackoverflow*:
+
+&lt;p align="center"&gt;
+&lt;i&gt;
+I've been a software developer for over twenty years... I've never had a problem I could not debug using some careful thought, and well-placed debugging print statements. Many people say that my techniques are primitive, and using a real debugger in an IDE is much better. Yet from my observation, IDE users don't appear to debug faster or more successfully than I can, using my stone knives and bear skins.
+&lt;/i&gt;
+&lt;/p&gt;
+
+---
+
+# Step 3: Locate the Bug
+
+- The `traceback()` function can only locate a potential portion of the code that contains bugs.
+
+- Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors.
+
+
+```r
+i &lt;- function(d) {
+  print(d)
+  if (!is.numeric(d)) {
+    stop("`d` must be numeric", call. = FALSE)
+  }
+  d + 10
+}
+f("a")
+```
+
+```
+## [1] "a"
+```
+
+```
+## Error: `d` must be numeric
+```
+
+---
+
+# Step 3: Locate the Bug
+
+- The `traceback()` function can only locate a potential portion of the code that contains bugs.
+
+- Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors. 
+
+
+```r
+i &lt;- function(d) {
+  cat("The value of input parameter d is:", d, "\n")
+  cat("The class of input parameter d is:", class(d), "\n")
+  if (!is.numeric(d)) {
+    stop("`d` must be numeric", call. = FALSE)
+  }
+  d + 10
+}
+f("a")
+```
+
+```
+## The value of input parameter d is: a 
+## The class of input parameter d is: character
+```
+
+```
+## Error: `d` must be numeric
+```
+
+---
+
+# Step 3: Locate the Bug
+
+- The `traceback()` function can only locate a potential portion of the code that contains bugs.
+
+- Using `print()` or `cat()` function to print the values of some suspicious variables and lines of the code helps us further identify the errors. 
+
+- The main downside of using `print()` or `cat()` is that the output messages can get messy quickly if we use multiple print statements, and we can't further investigate the object. However, many bugs come down to typos or other trivial errors, and printing statements are often all we need!
+
+---
+
+# `browser()`: An Interative Debugging Tool
+
+Sometimes, it may not be enough to just use `print()` statements to locate a bug. We can get more information and interact with our customized function using `browser()`, an interactive debugging tool.
+
+
+```r
+my_fun = function(arg1, arg2, arg3) {
+  # Some initial code 
+  browser()
+  # Some final code
+}
+```
+
+Once execution gets to the line with `browser()`, we will enter an interactive debugging mode.
+
+&lt;!--
+Within RStudio, we can also get right to an interactive debugging tool by clicking the "`Rerun with Debug`" button.
+--&gt;
+
+---
+
+# `browser()`: An Interative Debugging Tool
+
+While in the interactive debugging mode triggered by `browser()`, we can type any normal R code into the console, to be executed within in the function environment. In other words, we can, e.g., investigate the values of variables defined in the function.
+
+We can also type the following letter in the interative console:
+
+- "n" (or simply return) to execute the next command.
+
+- "s" to step into the next function.
+
+- "f" to finish the current loop or function.
+
+- "c" to continue execution normally.
+
+- "Q" to stop the function and return to the console.
+
+Note: To print any variables named `n, s, f, c`, or `Q`, defined in the function environment, use `print(n)`, `print(s)`, etc.
+
+---
+
+# `browser()`: An Interative Debugging Tool
+
+
+```r
+# BROWSER DEMO
+f &lt;- function(a) g(a)
+g &lt;- function(b) h(b)
+h &lt;- function(c) i(c)
+i &lt;- function(d) {
+  browser()
+  if (!is.numeric(d)) {
+    stop("`d` must be numeric", call. = FALSE)
+  }
+  d + 10
+}
+f("a")
+```
+
+---
+
+# `debug()`: Debug A Function
+
+- If we want to enter the debugging mode for a function within a package, it is impossible to insert a `browser()` function. 
+
+- Even for our own functions, it may be more convenient to debug the entire function rather than edit the source code. Here comes the `debug()` function.
+
+--
+
+- When a function is in the debug mode, it will remain in the debug mode until we call `undebug()`.
+
+
+```r
+# DEBUG DEMO
+debug(lm)
+lm(mpg ~ wt, data = mtcars)
+debug(f)
+f("a")
+undebug(lm)
+undebug(f)
+```
+
+Note: We can also use `debugonce()`, which will automatically "undebug" the function as soon as we exit the interactive debugging.
+
+---
+
+# Debugging Resources
+
+
+* [Advanced R Debugging - Hadley Wickham ](https://adv-r.hadley.nz/debugging.html).
+
+* [What they Forgot to Teach You About R - Jennifer Bryan and Jim Hester](https://rstats.wtf/debugging-r-code.html).
+
+* [Debugging Techniques in RStudio - Amanda Gadrow](https://resources.rstudio.com/wistia-rstudio-conf-2018-2/debugging-techniques-in-rstudio-amanda-gadrow-4).
+
+* [Debugging with RStudio Article - Jonathan McPherson](https://support.rstudio.com/hc/en-us/articles/200713843).
+
+* [Introduction to debugging in R and RStudio - Jim Hester](https://www.jimhester.com/talk/2019-crug-debugging/).
+
+&lt;br/&gt;
+
+.center[[Cheatsheet](https://github.com/ajmcoqui/debuggingRStudio/blob/b70a3575a3ff5e7867b05fb5e84568abba426c4b/RStudio_Debugging_Cheatsheet.pdf)]
+
+---
+class: inverse
+
+# Part 5: Testing
+
+---
+
+# What is testing?
+
+Testing is the systematic writing of additional code to ensure that our functions behave properly. We will focus on two aspects:
+
+- **Assertions:** checking if our function is being passed in proper inputs.
+
+- **Unit tests:** checking if our function does the right thing in basic cases.
+
+--
+
+There are various benefits of testing:
+
+- Enables us to catch problems early (easier debugging).
+
+- Provides natural documentations of our functions.
+
+- Encourages us to write simpler functions via re-factoring.
+
+Of course, the testing required us to spend more time upfront, but it is often worth it (because it saves the time spent on debugging later).
+
+---
+
+# Assertions
+
+Assertions are checks to ensure that the inputs to our function are properly formatted.
+
+--
+
+- For example, if our function expects a numeric value/vector, then we first check that it is actually a numeric value/vector (and not a character, say).
+
+--
+
+- An assertion stops the execution of the function as soon as it encounters an unexpected input.
+
+
+```r
+FahToCel = function(temp_fah) {
+  if(!is.numeric(temp_fah)) {
+    stop("The input temperature must be a numeric value!!")
+  }
+  temp_cel = (temp_fah - 32) * 5/9
+  cat("The corresponding Celsius value is", temp_cel, "C.\n")
+  return(temp_cel)
+}
+temp_cel2 = FahToCel(temp_fah = "50F")
+```
+
+```
+## Error in FahToCel(temp_fah = "50F"): The input temperature must be a numeric value!!
+```
+
+---
+
+# Assertions
+
+Equivalently, we can also use `assert_that()` function in the `assertthat` package to make assertions.
+
+  - It allows us to write customized and meaningful error messages.
+
+
+```r
+FahToCel = function(temp_fah) {
+  require(assertthat)
+  assert_that(is.numeric(temp_fah), 
+              msg = "The input temperature must be a numeric value!!")
+  temp_cel = (temp_fah - 32) * 5/9
+  cat("The corresponding Celsius value is", temp_cel, "C.\n")
+  return(temp_cel)
+}
+temp_cel2 = FahToCel(temp_fah = "50F")
+```
+
+```
+## Error: The input temperature must be a numeric value!!
+```
+
+---
+
+# Unit Tests
+
+Unit tests are used to check that our code passes basic sanity checks at various stages of development. 
+
+--
+
+- We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function is:
+
+
+```r
+library(testthat)
+test_that("Testing if the input value is numeric", {
+  input = 50
+  expect_true(is.numeric(input))
+  FahToCel(temp_fah = input)
+})
+```
+
+```
+## The corresponding Celsius value is 10 C.
+## Test passed 🎊
+```
+
+---
+
+# Unit Tests
+
+We can use `test_that()` function in the `testthat` package to do unit tests. The code structure for the `test_that()` function is:
+
+
+```r
+library(testthat)
+test_that("Testing if the input value is numeric", {
+  input = "50F"
+  expect_true(is.numeric(input))
+  FahToCel(temp_fah = input)
+})
+```
+
+```
+## ── Failure ('&lt;text&gt;:4:3'): Testing if the input value is numeric ───────────────
+## is.numeric(input) is not TRUE
+## 
+## `actual`:   FALSE
+## `expected`: TRUE 
+## 
+## ── Error ('&lt;text&gt;:5:3'): Testing if the input value is numeric ─────────────────
+## &lt;assertError/simpleError/error/condition&gt;
+## Error: The input temperature must be a numeric value!!
+## Backtrace:
+##     ▆
+##  1. └─global FahToCel(temp_fah = input)
+##  2.   └─assertthat::assert_that(is.numeric(temp_fah), msg = "The input temperature must be a numeric value!!")
+```
+
+```
+## Error in `reporter$stop_if_needed()`:
+## ! Test failed
+```
+
+---
+
+# Reminder
+
+- Submit Lab 5 on Canvas by the end of Monday (November 13). 
+
+- Highly recommend you starting looking into Lab 5 problems before the midterm exam (November 8)!!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-bright",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>

@@ -1,0 +1,1424 @@
+<!DOCTYPE html>
+<html lang="" xml:lang="">
+  <head>
+    <title>STAT 302 Statistical Computing</title>
+    <meta charset="utf-8" />
+    <meta name="author" content="Yikun Zhang (Autumn 2023)" />
+    <script src="libs/header-attrs/header-attrs.js"></script>
+    <link rel="stylesheet" href="aut.css" type="text/css" />
+    <link rel="stylesheet" href="fonts.css" type="text/css" />
+  </head>
+  <body>
+    <textarea id="source">
+class: center, top, title-slide
+
+.title[
+# STAT 302 Statistical Computing
+]
+.subtitle[
+## Lecture 3: Programming Fundamentals
+]
+.author[
+### Yikun Zhang (<em>Autumn 2023</em>)
+]
+
+---
+
+
+
+
+
+# Outline
+
+1. Control Flow
+
+2. Basic Iterations
+
+3. Vectorization and `apply` Functions
+
+&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. &lt;/font&gt;
+
+---
+class: inverse
+
+# Part 1: Control Flow
+
+---
+
+# Summary of Control Flow
+
+Summary of the control flow tools in R:
+
+* `if()`, `else if()`, `if() else` are standard conditionals.
+ 
+* `ifelse()` is a conditional that can vectorize.
+
+* `switch()` is handy for deciding between several options.
+
+---
+
+# `if` Statement
+
+The syntax of `if` statement goes as follows:
+
+
+```r
+if (condition) {
+  statement
+}
+```
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/if_state.jpg" width="350"/&gt;
+&lt;/p&gt;
+
+---
+
+# `if` Statement
+
+
+```r
+if (condition) {
+  statement
+}
+```
+
+If `condition` is `TRUE`, the statement gets executed. But if it is `FALSE`, nothing happens and the subsequent code will be executed accordingly.
+
+--
+
+  - Here, `condition` can be a logical or numeric vector, but only the first element is taken into consideration.
+  
+  - In the case when `condition` is a numeric variable or vector, zero is taken as `FALSE`, rest as `TRUE`.
+  
+---
+
+# `if` Statement (Example)
+
+
+```r
+x = 1
+if (x &gt; 0) {
+  # Code chunks get surrounded by curly brackets
+  print("Executing the statement within `if`....")
+  cat("x is equal to", x, ", a positive number!")
+}
+```
+
+```
+## [1] "Executing the statement within `if`...."
+## x is equal to 1 , a positive number!
+```
+
+```r
+print("Done!")
+```
+
+```
+## [1] "Done!"
+```
+
+--
+
+If there is only one line code within `{}`, then we can omit `{}`.
+
+
+```r
+x = 1
+if (x &gt; 0) cat("x is equal to", x, ", a positive number!")
+```
+
+```
+## x is equal to 1 , a positive number!
+```
+
+---
+
+# `if` Statement (Example)
+
+When the `condition` is FALSE, the code within `{}` will not be executed.
+
+
+```r
+x = -3
+if (x &gt; 0) {
+  # Code chunks get surrounded by curly brackets
+  print("Executing the statement within `if`....")
+  cat("x is equal to", x, ", a positive number!")
+}
+print("Done!")
+```
+
+```
+## [1] "Done!"
+```
+
+---
+
+# `if()` and `else` Statements
+
+The syntax of `if() else` is as follows:
+
+
+```r
+if (condition) {
+  statement1
+} else {
+  statement2
+}
+```
+
+* The `else` part is optional and only evaluated if `condition` is `FALSE`.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/RIFELSE.png" width="240"/&gt;
+&lt;/p&gt;
+
+---
+
+# `if()` and `else` Statements (Example)
+
+
+```r
+x = -5
+if (x &gt; 0){
+  cat("x is equal to", x, ", a positive number!")
+} else {
+  cat("x is equal to", x, ", a negative number!")
+}
+```
+
+```
+## x is equal to -5 , a negative number!
+```
+
+
+
+```r
+x = 10
+if (x &gt; 0){
+  cat("x is equal to", x, ", a positive number!")
+} else {
+  cat("x is equal to", x, ", a negative number!")
+}
+```
+
+```
+## x is equal to 10 , a positive number!
+```
+
+---
+
+# `else if` Statement
+
+When we want to execute a block of code among more than 2 alternatives, we can consider using add the `else if` statement. 
+
+The syntax is as follows:
+
+
+```r
+if (condition1) {
+  statement1
+} else if (condition2) {
+  statement2
+} else if (condition3) {
+  statement3
+} else {
+  statement4
+}
+```
+
+---
+
+# `else if` Statement (Example)
+
+
+```r
+x = 10
+if (x &gt; 0) {
+  paste0("x is equal to ", x, ", a positive number!")
+} else if (x &lt; 0) {
+  paste0("x is equal to ", x, ", a negative number!")
+} else {
+  paste0("x is equal to ", x, "!")
+}
+```
+
+```
+## [1] "x is equal to 10, a positive number!"
+```
+
+
+
+```r
+x = 0
+if (x &gt; 0) {
+  paste0("x is equal to ", x, ", a positive number!")
+} else if (x &lt; 0) {
+  paste0("x is equal to ", x, ", a negative number!")
+} else {
+  paste0("x is equal to ", x, "!")
+}
+```
+
+```
+## [1] "x is equal to 0!"
+```
+
+---
+
+# `ifelse()` Function
+
+In the `ifelse()` function, we specify a condition. Then, a value is returned if the condition holds, otherwise another value is returned if the condition fails.
+
+  - One advantage of `ifelse()` is that it vectorizes nicely.
+
+
+```r
+x = c(1,2,4,5)
+y = rep(30, 4)
+z = rep(10, 4)
+ifelse(x &gt; 3, y, z)
+```
+
+```
+## [1] 10 10 30 30
+```
+
+---
+
+# `%in%` Operator For Value Matching
+
+`%in%` is a binary operator, which returns a boolean vector indicating whether components in the left-hand side are found in the right-hand side.
+
+
+```r
+1 %in% 1:16
+```
+
+```
+## [1] TRUE
+```
+
+```r
+1 %in% -1:-16
+```
+
+```
+## [1] FALSE
+```
+
+```r
+c(0, 1, 2, 7) %in% 1:6
+```
+
+```
+## [1] FALSE  TRUE  TRUE FALSE
+```
+
+---
+
+# `%in%` Operator For Value Matching
+
+To negate the `%in%` operator, we wrap the entire logical statement within `!(...)`.
+
+
+```r
+!(1 %in% 1:5)
+```
+
+```
+## [1] FALSE
+```
+
+Thus, it is common to see that `%in%` operator appears in the conditional statement of control flows.
+
+---
+
+# Control Flow (Additional Example)
+
+Check if the length of a string is greater than 20 and whether its first character is `a`.
+
+--
+
+
+```r
+x = "Artificial Intelligence"
+x_split = strsplit(x, split = "")[[1]]
+
+if ((length(x_split) &gt; 20) &amp; (x_split[1] == "a")) {
+  print("x is a pretty short string!")
+  if (x_split[1] == "a") 
+    # This comparison is case-sensitive.
+    print('The first character of x is "a".')
+} else {
+  cat("x is a pretty long string!")
+}
+```
+
+```
+## x is a pretty long string!
+```
+
+---
+
+# Control Flow (Additional Example)
+
+Check if the length of a string is greater than 20 and whether its first character is `a`.
+
+
+```r
+x = "Artificial Intelligence"
+# Convert all the characters to lower cases using `tolower()`
+x_split = tolower(strsplit(x, split = "")[[1]])
+
+if ((length(x_split) &gt; 20) &amp; (x_split[1] == "a")) {
+  print("x is a pretty short string!")
+  if (x_split[1] == "a") 
+    # This comparison is case-sensitive.
+    print("The first character of x is 'a'.")
+} else {
+  cat("x is a pretty long string!")
+}
+```
+
+```
+## [1] "x is a pretty short string!"
+## [1] "The first character of x is 'a'."
+```
+
+---
+
+# `switch()` Function
+
+Instead of using an `if()` statement followed by `else if()` statements (and perhaps a final else), we can also use `switch()`. 
+
+  - We pass a variable to select on and a value for each option.
+
+--
+
+
+```r
+x = c(1, 2, 4, 10, 32)
+sum_type = "sd_dev"
+
+switch(sum_type,
+       mean = mean(x),
+       median = median(x),
+       sd_dev = sd(x),
+       histogram = hist(x),
+       "I don't understand")
+```
+
+```
+## [1] 12.89186
+```
+
+* Here, we expect `sum_type` to be a string, either `mean`, `median`, `sd_dev`, or `histogram`; we specify what to do for each option.
+
+---
+
+# `switch()` Function
+
+
+```r
+x = c(1, 2, 4, 10, 32)
+sum_type = "mode"
+
+switch(sum_type,
+       mean = mean(x),
+       median = median(x),
+       sd_dev = sd(x),
+       histogram = hist(x),
+       "I don't understand")
+```
+
+```
+## [1] "I don't understand"
+```
+
+
+* The last passed argument has no name, and it serves as the `else` clause.
+
+---
+class: inverse
+
+# Part 2: Basic Iterations
+
+---
+
+# Summary of Iterations
+
+We often get bored when repeating the same task again and again...
+
+--
+
+On the contrary, computers are good at applying rigid rules over and over again.
+
+--
+
+Iteration eases our burden of cumbersome repetitions and is one of the essentials in programming.
+
+--
+
+Here is a summary of the iteration methods in R:
+
+* `for()` and `while()` loops: standard loop structures.
+
+* Vectorization: use it whenever possible! It is faster and simpler.
+
+* The family of `apply` functions: alternative to `for()` loop, which often makes our R code more efficient.
+
+&lt;!--
+* The family of `map` functions: another alternative from the `purrr` package.
+--&gt;
+
+---
+
+# `for()` Loop
+
+A `for()` loop increments a **counter** variable along a vector. It repeatedly runs a code block, called the **body** of the loop, with the counter set to its current value, until it runs through the vector.
+
+--
+
+
+```r
+n = 10
+log_vec = vector(length = n, mode = "numeric")
+for (i in 1:n) {
+  log_vec[i] = log(i)
+}
+log_vec
+```
+
+```
+##  [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+##  [8] 2.0794415 2.1972246 2.3025851
+```
+
+Here `i` is the counter and the vector that we iterate over is `1:n`. The body is the code within `{}`.
+
+---
+
+# Iteration Over Non-numeric counters
+
+The counter vector does not necessarily comprise consecutive integers.
+
+
+```r
+fruits = c("apple", "banana", "cherry", "orange")
+
+for (x in fruits) {
+  # `print()` function will automatically add a line break
+  # When using `cat()` function, we can manually add a line break using "\n"
+  cat(x, "\n")
+} 
+```
+
+```
+## apple 
+## banana 
+## cherry 
+## orange
+```
+
+---
+
+# Nested `for()` Loop
+
+The body of a `for()` loop can contain another `for()` loop (or several other statements).
+
+
+```r
+for (i in 1:4) {
+  for (j in 1:i^2) {
+    cat(paste(j,""))
+  }
+  cat("\n")
+}
+```
+
+```
+## 1 
+## 1 2 3 4 
+## 1 2 3 4 5 6 7 8 9 
+## 1 2 3 4 5 6 7 8 9 10 11 12 13 14 15 16
+```
+
+---
+
+# Nested `for()` Loop
+
+We can use a nested `for()` loop to fill in a matrix.
+
+
+```r
+x = matrix(NA, nrow = 4, ncol = 3)
+for (i in 1:4) {
+  for (j in 1:3) {
+    x[i, j] = i * j
+  }
+}
+x
+```
+
+```
+##      [,1] [,2] [,3]
+## [1,]    1    2    3
+## [2,]    2    4    6
+## [3,]    3    6    9
+## [4,]    4    8   12
+```
+
+Note: Usually, filling in a matrix in this way is inefficient! Try to vectorize code wherever possible!
+
+---
+
+# `while()` Loop
+
+A `while()` loop repeatedly evaluates a code block, again called the **body**, until the condition is `FALSE`.
+
+--
+
+
+```r
+i = 1
+log_vec = c()
+while (log(i) &lt;= 2) {
+  # Using concatenation within a loop is slow!
+  log_vec = c(log_vec, log(i))
+  i = i + 1
+}
+log_vec
+```
+
+```
+## [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+```
+
+Note: Be careful when using `while()` loop! It is possible to get stuck in an infinite loop!
+
+---
+
+# Concatenation Within A Loop is Slow
+
+It is also recommended for not using `c()` within a loop, because R needs to re-allocate the memory for the variable when we call `c()`.
+
+--
+
+  - It would be better to assign a vector with pre-specified length beforehand.
+  
+
+```r
+i = 1
+log_vec1 = c()
+start_time = Sys.time()
+while (log(i) &lt;= 11) {
+  # Using concatenation within a loop is slow!
+  log_vec1 = c(log_vec1, log(i))
+  i = i + 1
+}
+end_time = Sys.time()
+```
+
+
+```
+## The total execution time of the loop with concatenation is  3.92875  seconds!
+```
+
+---
+
+# Concatenation Within A Loop is Slow
+
+* While the total number of steps for an iteration may be unknown, a rough estimate of its upper bound will be good enough.
+  
+
+```r
+i = 1
+# Note that 1e6 &gt; exp(11)
+log_vec2 = numeric(length = 1e6)
+start_time = Sys.time()
+while (log(i) &lt;= 11) {
+  # Using concatenation within a loop is slow!
+  log_vec2[i] = log(i)
+  i = i + 1
+}
+end_time = Sys.time()
+# Shorten the vector with the exact length
+log_vec2 = log_vec2[1:(i-1)]
+all(log_vec1 ==  log_vec2)
+```
+
+```
+## [1] TRUE
+```
+
+
+```
+## The total execution time of the loop without concatenation is  0.01369476  seconds!
+```
+
+
+---
+
+# Break From A Loop
+
+We can always stop a loop earlier (before the counter has been iterated over the vector for `for()` loop or satisfying the condition for `while()` loop), using the `break` statement.
+
+
+```r
+n = 10
+log_vec = c()
+for (i in 1:n) {
+  if (log(i) &gt; 2) {
+    print("Stop when the assigning value is larger than 2!")
+    break
+  }
+  log_vec = c(log_vec, log(i))
+}
+```
+
+```
+## [1] "Stop when the assigning value is larger than 2!"
+```
+
+```r
+log_vec
+```
+
+```
+## [1] 0.0000000 0.6931472 1.0986123 1.3862944 1.6094379 1.7917595 1.9459101
+```
+
+---
+
+# Skip One Step of An Iteration
+
+We can always skip one step of an iteration using the `next` statement.
+
+
+```r
+n = 10
+log_vec = c()
+for (i in 1:n) {
+  if (i == 3) {
+    next
+  }
+  log_vec = c(log_vec, log(i))
+}
+log_vec
+```
+
+```
+## [1] 0.0000000 0.6931472 1.3862944 1.6094379 1.7917595 1.9459101 2.0794415
+## [8] 2.1972246 2.3025851
+```
+
+```r
+log(3)
+```
+
+```
+## [1] 1.098612
+```
+
+
+---
+
+# `for()` Loop Versus `while()` Loop
+
+* `for()` loop is better when the number of times to repeat (or the values to iterate over) is fixed in advance.
+
+--
+
+* `while()` loop is preferred when we can recognize when to stop the repeated code, even if we don't know where it begins with.
+
+--
+
+* `while()` loop is more general, in that every `for()` loop could be replaced with a `while()` loop (but not vice versa).
+
+---
+
+# `while(TRUE)` or `repeat`
+
+Both `while(TRUE)` and `repeat` do the same thing, i.e., repeat the body indefinitely, until something causes the flow to break. 
+
+
+```r
+set.seed(123)
+x = -1
+while (x &lt; 0) {
+  x = rnorm(1)
+  print(x)
+}
+```
+
+```
+## [1] -0.5604756
+## [1] -0.2301775
+## [1] 1.558708
+```
+
+---
+
+# `while(TRUE)` or `repeat`
+
+Both `while(TRUE)` and `repeat` do the same thing, i.e., repeat the body indefinitely, until something causes the flow to break. 
+
+
+```r
+set.seed(123)
+x = -1
+repeat {
+  if (x &lt; 0) {
+    x = rnorm(1)
+    print(x)
+  } else {
+    break
+  }
+}
+```
+
+```
+## [1] -0.5604756
+## [1] -0.2301775
+## [1] 1.558708
+```
+
+---
+class: inverse
+
+# Part 3: Vectorization and `apply` Functions
+
+---
+
+# `for()` Loop Versus Vectorization
+
+Suppose that we want to compute the sum of the product of two vectors. We first use `for()` loop implementation with the lengths of vectors as `\(n=100\)`.
+
+
+```r
+set.seed(123)
+n = 100
+a = runif(n, min = 0, max = 3)
+b = rnorm(n, mean = 0, sd = 4)
+
+sum_res1 = 0
+start_time = Sys.time()
+for (i in 1:n) {
+  sum_res1 = sum_res1 + a[i] * b[i]
+}
+end_time = Sys.time()
+cat("The `for` loop implementation takes ", end_time - start_time, " seconds to execute.")
+```
+
+```
+## The `for` loop implementation takes  0.004740238  seconds to execute.
+```
+
+---
+
+# `for()` Loop Versus Vectorization
+
+Suppose that we want to compute the sum of the product of two vectors. We then leverage vectorization to obtain the same results with the lengths of vectors as `\(n=100\)`.
+
+
+```r
+set.seed(123)
+n = 100
+a = runif(n, min = 0, max = 3)
+b = rnorm(n, mean = 0, sd = 4)
+
+start_time = Sys.time()
+sum_res2 = sum(a * b)
+end_time = Sys.time()
+cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
+```
+
+```
+## The vectorization takes  0.001700878  seconds to execute.
+```
+
+--
+
+* Based on the above comparisons, the `for()` loop does not seem to be too bad.
+
+---
+
+# `for()` Loop Versus Vectorization
+
+However, imagine what happen if the lengths of vectors are `\(n=100000\)`. Here is the `for()` loop implementation.
+
+
+```r
+set.seed(123)
+n = 100000
+a = runif(n, min = 0, max = 3)
+b = rnorm(n, mean = 0, sd = 4)
+
+sum_res1 = 0
+start_time = Sys.time()
+for (i in 1:n) {
+  sum_res1 = sum_res1 + a[i] * b[i]
+}
+end_time = Sys.time()
+cat("The `for` loop implementation takes ", end_time - start_time, " seconds to execute.")
+```
+
+```
+## The `for` loop implementation takes  0.01059937  seconds to execute.
+```
+
+---
+
+# `for()` Loop Versus Vectorization
+
+However, imagine what happen if the lengths of vectors are `\(n=100000\)`. Here is the vectorization version.
+
+
+```r
+set.seed(123)
+n = 100000
+a = runif(n, min = 0, max = 3)
+b = rnorm(n, mean = 0, sd = 4)
+
+start_time = Sys.time()
+sum_res2 = sum(a * b)
+end_time = Sys.time()
+cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
+```
+
+```
+## The vectorization takes  0.001960754  seconds to execute.
+```
+
+---
+
+# `for()` Loop Versus Vectorization
+
+The time differences between the `for()` loop and vectorization implementations become more salient as the lengths of the vectors increase.
+
+
+&lt;img src="Lecture3_Programming_Aut23_files/figure-html/unnamed-chunk-36-1.png" width="60%" style="display: block; margin: auto;" /&gt;
+
+---
+
+# The `apply` Family
+
+R offers a family of `apply` functions, which allow you to apply a function across different chunks of data. 
+
+It offers an alternative to explicit iteration using `for()` loop, which can be simpler and faster. 
+
+--
+
+Here is a summary of functions:
+
+  - `apply()`: apply a function to rows or columns of a matrix or data frame.
+  
+  - `lapply()`: apply a function to elements of a list or vector.
+  
+  - `sapply()`: same as the above, but simplify the output (if possible).
+  
+  - `tapply()`: apply a function to the levels of a factor vector.
+
+---
+
+# `apply()` Function in R
+
+The `apply()` function takes inputs of the following form:
+
+  - `apply(x, MARGIN=1, FUN=my.fun)` is to apply `my.fun()` across rows of a matrix or data frame `x`.
+  
+  - `apply(x, MARGIN=2, FUN=my.fun)` is to apply `my.fun()` across columns of a matrix or data frame `x`.
+  
+--
+    
+
+```r
+# Built-in matrix of states data, 50 states x 8 variables
+class(state.x77)
+```
+
+```
+## [1] "matrix" "array"
+```
+
+```r
+head(state.x77, n=2)
+```
+
+```
+##         Population Income Illiteracy Life Exp Murder HS Grad Frost   Area
+## Alabama       3615   3624        2.1    69.05   15.1    41.3    20  50708
+## Alaska         365   6315        1.5    69.31   11.3    66.7   152 566432
+```
+
+---
+
+# `apply()` Function in R
+
+The `apply()` function takes inputs of the following form:
+
+  - `apply(x, MARGIN=1, FUN=my.fun)` is to apply `my.fun()` across rows of a matrix or data frame `x`.
+  
+
+```r
+# Index of the max in each row
+apply(state.x77, MARGIN = 1, FUN=which.max)
+```
+
+```
+##        Alabama         Alaska        Arizona       Arkansas     California 
+##              8              8              8              8              8 
+##       Colorado    Connecticut       Delaware        Florida        Georgia 
+##              8              2              2              8              8 
+##         Hawaii          Idaho       Illinois        Indiana           Iowa 
+##              8              8              8              8              8 
+##         Kansas       Kentucky      Louisiana          Maine       Maryland 
+##              8              8              8              8              8 
+##  Massachusetts       Michigan      Minnesota    Mississippi       Missouri 
+##              8              8              8              8              8 
+##        Montana       Nebraska         Nevada  New Hampshire     New Jersey 
+##              8              8              8              8              8 
+##     New Mexico       New York North Carolina   North Dakota           Ohio 
+##              8              8              8              8              8 
+##       Oklahoma         Oregon   Pennsylvania   Rhode Island South Carolina 
+##              8              8              8              2              8 
+##   South Dakota      Tennessee          Texas           Utah        Vermont 
+##              8              8              8              8              8 
+##       Virginia     Washington  West Virginia      Wisconsin        Wyoming 
+##              8              8              8              8              8
+```
+
+
+---
+
+# `apply()` Function in R
+
+The `apply()` function takes inputs of the following form:
+  
+  - `apply(x, MARGIN=2, FUN=my.fun)` is to apply `my.fun()` across columns of a matrix or data frame `x`.
+
+
+```r
+# Maximum entry in each column
+apply(state.x77, MARGIN = 2, FUN = max)
+```
+
+```
+## Population     Income Illiteracy   Life Exp     Murder    HS Grad      Frost 
+##    21198.0     6315.0        2.8       73.6       15.1       67.3      188.0 
+##       Area 
+##   566432.0
+```
+
+---
+
+# `apply()` Function in R
+
+The `apply()` function takes inputs of the following form:
+  
+  - `apply(x, MARGIN=2, FUN=my.fun)` is to apply `my.fun()` across columns of a matrix or data frame `x`.
+
+
+```r
+# Summary of each column, which returns a matrix
+apply(state.x77, MARGIN=2, FUN=summary)
+```
+
+```
+##         Population  Income Illiteracy Life Exp Murder HS Grad  Frost      Area
+## Min.        365.00 3098.00      0.500  67.9600  1.400  37.800   0.00   1049.00
+## 1st Qu.    1079.50 3992.75      0.625  70.1175  4.350  48.050  66.25  36985.25
+## Median     2838.50 4519.00      0.950  70.6750  6.850  53.250 114.50  54277.00
+## Mean       4246.42 4435.80      1.170  70.8786  7.378  53.108 104.46  70735.88
+## 3rd Qu.    4968.50 4813.50      1.575  71.8925 10.675  59.150 139.75  81162.50
+## Max.      21198.00 6315.00      2.800  73.6000 15.100  67.300 188.00 566432.00
+```
+
+---
+
+# Return Values from `apply()` Function
+
+What kinds of data type will `apply()` return? It depends on what function we pass. Here is a summary, say, with `FUN=my.fun()`:
+
+--
+
+  - If `my.fun()` returns a single value, then `apply()` will return a vector.
+  
+--
+  
+  - If `my.fun()` returns `\(k\)` values, then `apply()` will return a matrix with k rows (this is true regardless of whether `MARGIN=1` or `MARGIN=2`).
+  
+--
+  
+  - If `my.fun()` returns different length outputs for different inputs, then `apply()` will return a list.
+  
+--
+  
+  - If `my.fun()` returns a list, then `apply()` will return a list.
+
+---
+
+# Don't Overuse the `apply()` Function
+
+There are lots of special (or build-in) functions that are **optimized** and will be simpler and faster than using `apply()`. 
+
+--
+
+For instance,
+  
+  - `rowSums()`, `colSums()`: for computing row, column sums of a matrix.
+
+  - `max.col()`: for finding the maximum position in each row of a matrix.
+
+Combining these functions with logical indexing and vectorized operations will enable us to implement a lot of tasks. 
+
+---
+
+# Don't Overuse the `apply()` Function
+
+As an example, how can we count the number of positive entries in each row of a matrix?
+  
+
+```r
+set.seed(123)
+x = matrix(rnorm(90000), 300, 300)
+start_time = Sys.time()
+# Don't do this (much slower for big matrices)
+res1 = apply(x, MARGIN = 1, function(v) { 
+  return(sum(v &gt; 0)) 
+})
+end_time = Sys.time()
+cat("The total execution time using `apply()` is ", end_time - start_time, " seconds!")
+```
+
+```
+## The total execution time using `apply()` is  0.005522966  seconds!
+```
+
+Note: Here, we use our customized function in `apply()`. More details about writing our own function will be discussed in the next lecture.
+
+---
+
+# Don't Overuse the `apply()` Function
+
+As an example, how can we count the number of positive entries in each row of a matrix?
+
+
+```r
+set.seed(123)
+x = matrix(rnorm(90000), 300, 300)
+start_time = Sys.time()
+# Don't do this (much slower for big matrices)
+res2 = rowSums(x &gt; 0)
+end_time = Sys.time()
+cat("The total execution time of a direct computations is ", end_time - start_time, " seconds!")
+```
+
+```
+## The total execution time of a direct computations is  0.002373934  seconds!
+```
+
+---
+
+# `lapply()` Function
+
+The `lapply()` function takes inputs as: `lapply(x, FUN = my.fun)`, to apply `my.fun()` across elements of a list or vector x. The output is always a list.
+
+--
+
+
+```r
+lst1 = list(
+  num_vec = 1:15,
+  mat = matrix(15:1, ncol = 3),
+  sublst = list(x = c(1,2), y="STAT 302")
+)
+
+lapply(lst1, mean)
+```
+
+```
+## $num_vec
+## [1] 8
+## 
+## $mat
+## [1] 8
+## 
+## $sublst
+## [1] NA
+```
+
+---
+
+# `sapply()` Function
+
+The `sapply()` function works just like `lapply()`, but it will try to simplify the return value whenever possible.  
+
+--
+
+  - The most common scenario is to convert a list to a vector.
+  
+
+```r
+# Simplify the result and return a vector
+sapply(lst1, mean)
+```
+
+```
+## num_vec     mat  sublst 
+##       8       8      NA
+```
+
+---
+
+# `sapply()` Function
+
+The `sapply()` function works just like `lapply()`, but it will try to simplify the return value whenever possible.  
+
+
+```r
+# Can't simplify and thus still return a list
+sapply(lst1, summary)
+```
+
+```
+## $num_vec
+##    Min. 1st Qu.  Median    Mean 3rd Qu.    Max. 
+##     1.0     4.5     8.0     8.0    11.5    15.0 
+## 
+## $mat
+##        V1           V2           V3   
+##  Min.   :11   Min.   : 6   Min.   :1  
+##  1st Qu.:12   1st Qu.: 7   1st Qu.:2  
+##  Median :13   Median : 8   Median :3  
+##  Mean   :13   Mean   : 8   Mean   :3  
+##  3rd Qu.:14   3rd Qu.: 9   3rd Qu.:4  
+##  Max.   :15   Max.   :10   Max.   :5  
+## 
+## $sublst
+##   Length Class  Mode     
+## x 2      -none- numeric  
+## y 1      -none- character
+```
+
+---
+
+# `tapply()` Function
+
+The function `tapply()` takes inputs as: `tapply(x, INDEX = my.index, FUN = my.fun)`, to apply `my.fun()` to subsets of entries in `x` that share a common level in `my.index`.
+
+--
+
+
+```r
+n = 17
+fac = factor(rep_len(1:3, n), levels = 1:5)
+1:17
+```
+
+```
+##  [1]  1  2  3  4  5  6  7  8  9 10 11 12 13 14 15 16 17
+```
+
+```r
+fac
+```
+
+```
+##  [1] 1 2 3 1 2 3 1 2 3 1 2 3 1 2 3 1 2
+## Levels: 1 2 3 4 5
+```
+
+```r
+tapply(1:n, fac, sum)
+```
+
+```
+##  1  2  3  4  5 
+## 51 57 45 NA NA
+```
+
+---
+
+# `split()` Function
+
+The function `split()` splits up the rows of a data frame by levels of a factor as: `split(x, f = my.index)`, which splits a data frame `x` according to levels of `my.index`.
+
+--
+
+
+```r
+family_df = read.table(url("https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/Data/family.txt"), 
+                       sep = "\t", header = TRUE)
+
+family_df_sp = split(family_df, f=family_df$sex)
+class(family_df_sp)
+```
+
+```
+## [1] "list"
+```
+
+---
+
+# `split()` Function
+
+The function `split()` splits up the rows of a data frame by levels of a factor as: `split(x, f = my.index)`, which splits a data frame `x` according to levels of `my.index`.
+
+
+```r
+family_df_sp[[1]]
+```
+
+```
+##    firstName sex age height weight      bmi overWt
+## 2       Maya   f  33     64    124 21.50106  FALSE
+## 5        Sue   f  27     61     98 18.51492  FALSE
+## 6        Liz   f  33     68    190 28.94981   TRUE
+## 8      Sally   f  52     65    124 20.67783  FALSE
+## 11       Ann   f  55     67    166 26.05364   TRUE
+## 14       Zoe   f  48     62    125 22.91060  FALSE
+```
+
+---
+# Reminder
+
+Submit Lab 3 on Canvas by the end of Monday (October 23)!!
+    </textarea>
+<style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
+<script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
+<script>var slideshow = remark.create({
+"highlightStyle": "tomorrow-night-bright",
+"highlightLines": true,
+"countIncrementalSlides": false
+});
+if (window.HTMLWidgets) slideshow.on('afterShowSlide', function (slide) {
+  window.dispatchEvent(new Event('resize'));
+});
+(function(d) {
+  var s = d.createElement("style"), r = d.querySelector(".remark-slide-scaler");
+  if (!r) return;
+  s.type = "text/css"; s.innerHTML = "@page {size: " + r.style.width + " " + r.style.height +"; }";
+  d.head.appendChild(s);
+})(document);
+
+(function(d) {
+  var el = d.getElementsByClassName("remark-slides-area");
+  if (!el) return;
+  var slide, slides = slideshow.getSlides(), els = el[0].children;
+  for (var i = 1; i < slides.length; i++) {
+    slide = slides[i];
+    if (slide.properties.continued === "true" || slide.properties.count === "false") {
+      els[i - 1].className += ' has-continuation';
+    }
+  }
+  var s = d.createElement("style");
+  s.type = "text/css"; s.innerHTML = "@media print { .has-continuation { display: none; } }";
+  d.head.appendChild(s);
+})(document);
+// delete the temporary CSS (for displaying all slides initially) when the user
+// starts to view slides
+(function() {
+  var deleted = false;
+  slideshow.on('beforeShowSlide', function(slide) {
+    if (deleted) return;
+    var sheets = document.styleSheets, node;
+    for (var i = 0; i < sheets.length; i++) {
+      node = sheets[i].ownerNode;
+      if (node.dataset["target"] !== "print-only") continue;
+      node.parentNode.removeChild(node);
+    }
+    deleted = true;
+  });
+})();
+// add `data-at-shortcutkeys` attribute to <body> to resolve conflicts with JAWS
+// screen reader (see PR #262)
+(function(d) {
+  let res = {};
+  d.querySelectorAll('.remark-help-content table tr').forEach(tr => {
+    const t = tr.querySelector('td:nth-child(2)').innerText;
+    tr.querySelectorAll('td:first-child .key').forEach(key => {
+      const k = key.innerText;
+      if (/^[a-z]$/.test(k)) res[k] = t;  // must be a single letter (key)
+    });
+  });
+  d.body.setAttribute('data-at-shortcutkeys', JSON.stringify(res));
+})(document);
+(function() {
+  "use strict"
+  // Replace <script> tags in slides area to make them executable
+  var scripts = document.querySelectorAll(
+    '.remark-slides-area .remark-slide-container script'
+  );
+  if (!scripts.length) return;
+  for (var i = 0; i < scripts.length; i++) {
+    var s = document.createElement('script');
+    var code = document.createTextNode(scripts[i].textContent);
+    s.appendChild(code);
+    var scriptAttrs = scripts[i].attributes;
+    for (var j = 0; j < scriptAttrs.length; j++) {
+      s.setAttribute(scriptAttrs[j].name, scriptAttrs[j].value);
+    }
+    scripts[i].parentElement.replaceChild(s, scripts[i]);
+  }
+})();
+(function() {
+  var links = document.getElementsByTagName('a');
+  for (var i = 0; i < links.length; i++) {
+    if (/^(https?:)?\/\//.test(links[i].getAttribute('href'))) {
+      links[i].target = '_blank';
+    }
+  }
+})();
+// adds .remark-code-has-line-highlighted class to <pre> parent elements
+// of code chunks containing highlighted lines with class .remark-code-line-highlighted
+(function(d) {
+  const hlines = d.querySelectorAll('.remark-code-line-highlighted');
+  const preParents = [];
+  const findPreParent = function(line, p = 0) {
+    if (p > 1) return null; // traverse up no further than grandparent
+    const el = line.parentElement;
+    return el.tagName === "PRE" ? el : findPreParent(el, ++p);
+  };
+
+  for (let line of hlines) {
+    let pre = findPreParent(line);
+    if (pre && !preParents.includes(pre)) preParents.push(pre);
+  }
+  preParents.forEach(p => p.classList.add("remark-code-has-line-highlighted"));
+})(document);</script>
+
+<script>
+slideshow._releaseMath = function(el) {
+  var i, text, code, codes = el.getElementsByTagName('code');
+  for (i = 0; i < codes.length;) {
+    code = codes[i];
+    if (code.parentNode.tagName !== 'PRE' && code.childElementCount === 0) {
+      text = code.textContent;
+      if (/^\\\((.|\s)+\\\)$/.test(text) || /^\\\[(.|\s)+\\\]$/.test(text) ||
+          /^\$\$(.|\s)+\$\$$/.test(text) ||
+          /^\\begin\{([^}]+)\}(.|\s)+\\end\{[^}]+\}$/.test(text)) {
+        code.outerHTML = code.innerHTML;  // remove <code></code>
+        continue;
+      }
+    }
+    i++;
+  }
+};
+slideshow._releaseMath(document);
+</script>
+<!-- dynamically load mathjax for compatibility with self-contained -->
+<script>
+(function () {
+  var script = document.createElement('script');
+  script.type = 'text/javascript';
+  script.src  = 'https://mathjax.rstudio.com/latest/MathJax.js?config=TeX-MML-AM_CHTML';
+  if (location.protocol !== 'file:' && /^https?:/.test(script.src))
+    script.src  = script.src.replace(/^https?:/, '');
+  document.getElementsByTagName('head')[0].appendChild(script);
+})();
+</script>
+  </body>
+</html>
