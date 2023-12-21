@@ -34,8 +34,8 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Lab Assignments
 
-- Lab 1 -- R Basics: [.pdf](file_stat302/Labs/Lab1_intro.pdf), [.Rmd](file_stat302/Labs/Lab1_intro.Rmd).
-- Lab 2 -- Data Types: [.pdf](file_stat302/Labs/Lab2_Data_Types.pdf), [.Rmd](file_stat302/Labs/Lab2_Data_Types.Rmd).
+- Lab 1 -- R Basics: [.pdf](file_stat302/Labs/Lab1_intro.pdf), [.Rmd]([file_stat302/Labs/](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab1_intro.Rmd).
+- Lab 2 -- Data Types: [.pdf](file_stat302/Labs/Lab2_Data_Types.pdf), [.Rmd]([file_stat302/Labs/](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab2_Data_Types.Rmd).
 
 ### Final Project
 
