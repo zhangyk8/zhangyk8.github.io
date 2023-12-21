@@ -32,6 +32,10 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 8 -- Numerical Analysis: [Autumn2023.html](file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.Rmd) (Old versions).
 - Lecture 9 -- Statistical Prediction: [Autumn2023.html](file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.Rmd) (Old versions).
 
+### Lab Assignments
+
+- Lab 1 -- R Basics: [.pdf](file_stat302/Labs/Lab1_intro.pdf), [.Rmd](file_stat302/Labs/Lab1_intro.Rmd).
+
 ### Final Project
 
 [Final Project Description](file_stat302/Lectures/Final_Project.pdf) (This final project is modified from the midterm project of STAT 133 taught by [Professor Deborah Nolan](https://statistics.berkeley.edu/people/deborah-nolan) in Fall 2016 at UC Berkeley.)
