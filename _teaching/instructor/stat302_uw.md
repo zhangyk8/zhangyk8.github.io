@@ -18,7 +18,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Course Syllabus
 
-- [Syllabus (Autumn 2023)](file_stat302/Syllabus_Aut2023.pdf)
+- [Syllabus (Autumn 2023)](file_stat302/Syllabus_Aut2023.pdf), [Syllabus (Winter 2024)](file_stat302/Syllabus_Win2024.pdf)
 
 ### Lecture Slides
 
