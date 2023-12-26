@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 2: Data Structures in R"
-author: "Yikun Zhang (_Winter 2023_)"
+author: "Yikun Zhang (_Winter 2024_)"
 date: ""
 output:
   xaringan::moon_reader:
