@@ -106,7 +106,6 @@ In other words, there will be a lot of coding in this course!!
 <a href="https://doi.org/10.1093/mnras/stac2504">MNRAS</a> and our <a href="https://doi.org/10.5281/zenodo.6244866">cosmic web catalog</a> (i.e., a well-documented dataset). </font>
 </p>
 
---
 
 One scientific question that we address here is "*how is the stellar mass of a galaxy correlated with its distance to nearby cosmic web structures?*"
 
@@ -152,10 +151,10 @@ One scientific question that we address here is "*how is the stellar mass of a g
 # Syllabus
 
 <p align="center">
-<img src="./figures/syllabus.png" width="700"/>
+<img src="./figures/syllabus.png" width="800"/>
 </p>
 
-Let's spend some time going over the [Course Syllabus](https://canvas.uw.edu/courses/1662584/assignments/syllabus).
+Let's spend some time going over the [Course Syllabus](https://zhangyk8.github.io/teaching/file_stat302/Syllabus_Win2024.pdf).
 
 ---
 
@@ -200,7 +199,9 @@ Let's spend some time going over the [Course Syllabus](https://canvas.uw.edu/cou
 * Here's my solution:
 <br/>`formatted code snippet`
 
-* The grader is wrong. You should ask the grader to add your points back... (*However, you are encouraged to point out my mistakes and typos during lectures or on the discussion board.*)
+* The grader is wrong. You should ask the grader to add your points back...
+
+(*However, you are encouraged to point out my mistakes and typos during lectures or on the discussion board.*)
 ]
 
 --
@@ -277,7 +278,7 @@ Luckily, we have [RStudio](https://posit.co/download/rstudio-desktop/), an integ
 
 * And more essentially, it has R Markdown integration.
 
-For the rest of the course, we will use Rstudio to write our code and finish homework/lab assignments.
+For the rest of the course, we will use Rstudio to write our code and finish the lab assignments.
 
 ---
 
@@ -363,7 +364,7 @@ If the Edit window is not open, then choose File -> New File -> Choose R Script.
 
 --
 
-* And more importantly, it is required for our lab and homework assignments!
+* And more importantly, it is required for our lab assignments and final project!
 
 ---
 
@@ -901,5 +902,15 @@ w2v == W2v
 
 ---
 # Summary
+
+- Statistical computing focuses on using the computer programs to solve scientific problems with solid statistical methods.
+
+- R is an open-source programming language for statistical computing.
+
+- RStudio and R markdown further enhance our R programming experience.
+
+- R supports arithmetic, comparison, and logical operators.
+
+- The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
 Submit Lab 1 on Canvas by the end of Mondays (January 8)!!
