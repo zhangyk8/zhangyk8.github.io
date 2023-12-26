@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 3: Programming Fundamentals"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2023_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -29,7 +29,7 @@ library(kableExtra)
 
 3. Vectorization and `apply` Functions
 
-<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. </font>
 
 ---
 class: inverse
@@ -220,7 +220,7 @@ In the `ifelse()` function, we specify a condition. Then, a value is returned if
   - One advantage of `ifelse()` is that it vectorizes nicely.
 
 ```{r}
-x = c(1,2,4,5)
+x = c(1, 2, 4, 5)
 y = rep(30, 4)
 z = rep(10, 4)
 ifelse(x > 3, y, z)
@@ -254,7 +254,7 @@ Thus, it is common to see that `%in%` operator appears in the conditional statem
 
 # Control Flow (Additional Example)
 
-Check if the length of a string is greater than 20 and whether its first character is `a`.
+Check if the length of a string is greater than 20 and whether its first character is "a".
 
 --
 
@@ -272,11 +272,13 @@ if ((length(x_split) > 20) & (x_split[1] == "a")) {
 }
 ```
 
+Why didn't the above code check whether its first character is "a"?
+
 ---
 
 # Control Flow (Additional Example)
 
-Check if the length of a string is greater than 20 and whether its first character is `a`.
+Check if the length of a string is greater than 20 and whether its first character is "a".
 
 ```{r}
 x = "Artificial Intelligence"
@@ -872,7 +874,7 @@ As an example, how can we count the number of positive entries in each row of a 
 set.seed(123)
 x = matrix(rnorm(90000), 300, 300)
 start_time = Sys.time()
-# Don't do this (much slower for big matrices)
+# Using the build-in function is much faster for big matrices
 res2 = rowSums(x > 0)
 end_time = Sys.time()
 cat("The total execution time of a direct computations is ", end_time - start_time, " seconds!")
@@ -966,6 +968,16 @@ family_df_sp[[1]]
 ```
 
 ---
-# Reminder
+# Summary
 
-Submit Lab 3 on Canvas by the end of Monday (October 23)!!
+- `if()`, `else if()`, `if() else` are standard conditionals.
+ 
+- `ifelse()` is a conditional that can vectorize.
+
+- `switch()` is handy for deciding between several options.
+
+- `for()` and `while()` loops are standard loop structures, but don't overuse them. Vectorization is faster and simpler!
+
+- The family of `apply` functions can also make our code more efficient.
+
+Submit Lab 3 on Gradescope by the end of Monday (January 29)!!
