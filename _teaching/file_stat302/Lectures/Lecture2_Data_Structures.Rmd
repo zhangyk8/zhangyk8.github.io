@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 2: Data Structures in R"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2023_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -242,6 +242,8 @@ Many build-in functions can take vectors as arguments:
 
 * `mean(), median(), sd(), var(), max(), min(), length()`, and `sum()` return single numbers.
 
+* `cumsum(), cumprod(), cummax(), cummin()` return the cumulative sums, products, minima or maxima of the elements of a vector.
+
 * `sort()` returns the sorted vector.
 
 * `order()` returns the indices of the sorted vector.
@@ -263,7 +265,7 @@ class: inverse
 
 # Second Data Structure: Arrays
 
-* An **array** is a multi-dimensional generalization of vectors。
+* An **array** is a multi-dimensional generalization of vectors.
 
 ```{r}
 x = c(7, 8, 10, 45, 20, 1)
@@ -379,7 +381,7 @@ mean(arr1)
 
 # Matrix Multiplication
 
-The usual multiplication `*` can only do componentwise multiplication between two matrices.
+The usual multiplication `*` can only do component-wise/element-wise multiplication between two matrices.
 
 ```{r}
 x_arr * y_arr[,,1]
@@ -488,7 +490,7 @@ my_list
 
 ---
 
-# Subsetting A List
+# Subsetting a List
 
 * We can use `[index]` as with vectors, and it will return a list.
 
@@ -508,7 +510,7 @@ my_list[[4]]
 
 ---
 
-# Subsetting and Expanding A List
+# Subsetting and Expanding a List
 
 ```{r}
 # Subset the second sub-element in the fourth element of the list
@@ -525,7 +527,7 @@ my_list
 
 ---
 
-# Contracting A List
+# Contracting a List
 
 We can also shorten the list with by setting the length to something smaller (also works with vectors).
 
@@ -538,7 +540,7 @@ my_list
 
 ---
 
-# Naming A List
+# Naming a List
 
 We can also name the elements of a list:
 
@@ -550,7 +552,7 @@ my_list
 
 ---
 
-# Naming A List
+# Naming a List
 
 The names for the element of a list can be given when we initialize the list.
 
@@ -562,7 +564,7 @@ my_list
 
 ---
 
-# Subsetting A List By Name
+# Subsetting a List By Name
 
 There are two different ways to subset an element from the list by name.
 
@@ -1083,6 +1085,8 @@ tidy_dat2 = data.frame("Country"   = rep(c("A", "B"), each = 4),
 kable_styling(kable(tidy_dat2, align = "c"))
 ```
 
+Note: In R, this can be done via the `pivot_longer()` function in the `tidyr` package. We will discuss this in detail later...
+
 ---
 
 # Guidelines of Making Data Tidy
@@ -1107,7 +1111,7 @@ kable_styling(kable(tidy_dat2, align = "c"))
 
 * Easier to read and understand the data.
 
-* More intuitive to analyze and plot the data using standard software (required for `ggplot2`).
+* More intuitive to analyze and plot the data using R (required for `ggplot2`).
 
 * Fewer issues with missing values.
 
@@ -1116,6 +1120,18 @@ kable_styling(kable(tidy_dat2, align = "c"))
 Here is a [fantastic reference](https://vita.had.co.nz/papers/tidy-data.pdf) written by Hadley Wickham going through all these principles in detail and with more examples.
 
 ---
-# Reminder
+# Summary
 
-Submit Lab 2 on Canvas by the end of Thursday (October 12)!!
+- Data structures allow us to group related values together.
+
+- Vectors group together values with the same data type.
+
+- Arrays add multi-dimensional structure to vectors, while matrices are two-dimensional arrays.
+
+- Lists allow us to combine data of different types and lengths.
+
+- Data frames are hybrids of matrices and lists, allowing each column to have a different data type but the same length.
+
+- Tidy data principle helps us better analyze and visualize data tables in R.
+
+Submit Lab 2 on Gradescope by the end of Thursday (January 22)!!

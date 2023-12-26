@@ -913,4 +913,4 @@ w2v == W2v
 
 - The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
-Submit Lab 1 on Canvas by the end of Mondays (January 8)!!
+Submit Lab 1 on Gradescope by the end of Mondays (January 8)!!
