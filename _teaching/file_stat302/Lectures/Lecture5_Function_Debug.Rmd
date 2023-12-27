@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 5: Writing Functions And Debugging"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2024_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -52,7 +52,7 @@ pre code {
 5. Testing
 
 
-<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. </font>
 
 ---
 class: inverse
@@ -495,7 +495,7 @@ env_parent(environment())
 
 ```{r}
 # The variables x,y,z are defined in the global environment
-x = seq(1,7,2)
+x = seq(1, 7, 2)
 y = rep(2, 3)
 z = 17
 ```
@@ -506,7 +506,7 @@ z = 17
 
 ```{r}
 # The variables x,y,z are defined in the global environment
-x = seq(1,7,2)
+x = seq(1, 7, 2)
 y = rep(2, 3)
 z = 17
 
@@ -521,7 +521,7 @@ lookAt = function(x) {
 --
 
 ```{r}
-lookAt(x = c(1,100))
+lookAt(x = c(1, 100))
 ```
 
 Note: R looks for variables with that name in a sequence of environments, from the current one to its parent, grandparent, etc.
@@ -539,7 +539,7 @@ lookAt = function(x) {
   print(y)
   print(z)
 }
-lookAt(x = c(1,100))
+lookAt(x = c(1, 100))
 ```
 
 In this case, R did not find `z` in the function environment defined by `lookAt`, so it went on to the next one, which is the *Global Environment*.
@@ -560,7 +560,7 @@ lookAt2 = function(x) {
   print(x)
   print(y)
 }
-lookAt2(x = c(1,100))
+lookAt2(x = c(1, 100))
 
 y
 ```
@@ -1213,8 +1213,30 @@ test_that("Testing if the input value is numeric", {
 
 ---
 
-# Reminder
+# Summary
 
-- Submit Lab 5 on Canvas by the end of Monday (November 13). 
+- An R function is a formal encapsulation of a block of R code, which generally makes our code easier to understand, to work with, and to modify.
 
-- Highly recommend you starting looking into Lab 5 problems before the midterm exam (November 8)!!
+- A function's structure consists of three main parts: inputs, body, and output.
+
+- R allows us to specify default values for any of the inputs. However, R doesn't allow us to return multiple outputs, but we can return a list.
+
+- The job of an R environment is to bind a set of names to a set of values. 
+
+- Lazy evaluation is critical to making R programs more efficient.
+
+---
+
+# Summary
+
+- Debugging involves diagnosing our code when we encounter an error or unexpected behavior.
+  - Step 0: Reproduce the error;
+  - Step 1: Characterize the error;
+  - Step 2: Localize the error;
+  - Step 3: Modify the code.
+
+- `traceback()`, `cat()`, `print()` are manual debugging tools, while `browser()` is an interactive debugging tool.
+
+- Testing involves writing additional code to ensure our functions behave as expected.
+
+Submit Lab 5 on Gradescope by the end of Thursday (February 22). Highly recommend you starting Lab 5 problems before the midterm exam (February 15)!!
