@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 4: Data Manipulation and Visualization"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2024_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -211,7 +211,7 @@ Recall that R packages encapsulate functions written by different R developers.
 
 --
 
-- Learning pipes `%>%` will facilitate our learning of the `dplyr` and `tidyr` verbs (functions).
+- Learning pipes `%>%` will facilitate our learning of the `dplyr` and `tidyr` verbs (or functions).
 
 - The functions in `dplyr` are analogous to SQL counterparts, so learning `dplyr` will get some SQL syntax for free!
 
@@ -726,7 +726,7 @@ plot(x, y)
 
 The `type` argument controls the plot type. Default is "p" for points; set it to "l" for lines. If we want both points and lines, set it to "b".
 
-```{r fig.width=6.5, fig.align='center', fig.height=5.5}
+```{r fig.width=7, fig.align='center', fig.height=5}
 plot(x, y, type="b")
 ```
 
@@ -1482,7 +1482,7 @@ lifeExp_plot
 
 We can also save it in our `figures` subfolder using `ggsave()`.
 
-* Set `height` and `width` parameters to automatically resize the image
+* Set the `height` and `width` parameters to automatically resize the image.
 
 ```{r, eval = FALSE}
 ggsave(filename = "figures/lifeExp_plot.pdf", plot = lifeExp_plot,
@@ -2018,7 +2018,7 @@ ggplot(time_maxlifeExp, aes(x = year, y = maxlifeExp)) +
 
 This is an example of bad visualization!!
 
-```{r echo = FALSE, message=FALSE, fig.height = 6, fig.align='center'}
+```{r echo = FALSE, message=FALSE, fig.height = 5.5, fig.align='center'}
 gapminder <- gapminder %>% 
   mutate(lifeExpCat = ifelse(lifeExp > 60, TRUE, FALSE))
 ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) + 
@@ -2037,9 +2037,9 @@ ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) +
 # Two Categorical Variables
 ### `geom_bar()` setting `x` and `fill` within `aes()`
 
-This one looks better. Never stacked the bars unless it is necessary.
+This one looks better by specifying `position = position_dodge()` in `geom_bar()`.
 
-```{r echo = FALSE, message=FALSE, fig.height = 6, fig.align='center'}
+```{r echo = FALSE, message=FALSE, fig.height = 5.5, fig.align='center'}
 gapminder <- gapminder %>% 
   mutate(lifeExpCat = ifelse(lifeExp > 60, TRUE, FALSE))
 ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) + 
@@ -2052,6 +2052,8 @@ ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) +
   theme(plot.title = 
           element_text(hjust = 0.5)) 
 ```
+
+Note: Never stack the bars unless it is necessary.
 
 ---
 
@@ -2067,7 +2069,23 @@ ggplot(gapminder, aes(x = continent, fill = lifeExpCat)) +
   
 Note: Recall our example in the step-by-step practice with `ggplot2`.
 
----
-# Reminder
+- More details about the choices of plotting and other data visualization concepts can be found in [this notes](https://github.com/zhangyk8/zhangyk8.github.io/raw/master/_teaching/file_stat302/Chap3.pdf). Please spend some time reading this notes!
 
-Submit Lab 4 on Canvas by the end of Monday (October 30)!! Start earlier!!
+---
+# Summary
+
+- R packages provide us with numerous handy functions that have been written by other R developers.
+
+- The `tidyverse` is a collection of packages for common data science tasks.
+
+- Pipes `%>%` allow us to string together commands to get a flow of results.
+
+- The `dplyr` is a package for data wrangling with several key verbs (or functions).
+
+- The `tidyr` is a package for manipulating data frames in R.
+
+- Base R has a set of powerful plotting tools that help us quickly visualize our data.
+
+- The `ggplot2` is a package for creating more sophisticated plots.
+
+Submit Lab 4 on Gradescope by the end of Monday (February 12)!! Start earlier!!
