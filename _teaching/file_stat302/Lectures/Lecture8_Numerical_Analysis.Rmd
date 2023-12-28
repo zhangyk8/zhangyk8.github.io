@@ -1,7 +1,7 @@
 ---
 title: "STAT 302 Statistical Computing"
 subtitle: "Lecture 8: Numerical Analysis"
-author: "Yikun Zhang (_Autumn 2023_)"
+author: "Yikun Zhang (_Winter 2024_)"
 date: ""
 output:
   xaringan::moon_reader:
@@ -2422,6 +2422,29 @@ which is remarkably accurate even for relatively small $\lambda$.
 - Laplace's method also works for integrating multivariate function; see the [notes](https://www.stats.ox.ac.uk/~steffen/teaching/bs2HT9/laplace.pdf).
 
 ---
-# Reminder
+# Summary
 
-Submit Lab 7 on Canvas by the end of Thursday (December 7) and the final project by the end of December 13!!
+- Computers store and recognize numbers and characters as a sequence of bits (binary digits).
+
+- Double-precision floating point number uses a 64-bit representation for a real number.
+
+- Generally, the concept of linear convergence serves as a criterion for a fast convergence of an algorithm/sequence.
+
+- The root-finding problem focuses on solving the equation $f(x)=0$ for some function $f:\mathbb{R}^{d_1} \to \mathbb{R}^{d_2}$.
+
+  - Bisection method;
+
+  - Fixed-point iteration and its connection to power iteration;
+
+  - Newton's method and its variants.
+  
+---
+# Summary
+
+- Numerical differentiation and integration rely on the Lagrange (interpolating) polynomial.
+
+  - We discuss the $(n+1)$-point formula for numerical differentiation.
+  
+  - We study Trapezoidal rule, Simpson's rule, and their composite versions for numerical integration.
+
+Submit Lab 7 on Gradescope by the end of Friday (March 8) and the final project by the end of March 13!!
