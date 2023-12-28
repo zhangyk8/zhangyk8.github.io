@@ -36,7 +36,7 @@ class: center, top, title-slide
 
 3. Vectorization and `apply` Functions
 
-&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. &lt;/font&gt;
+&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, and Prof. Deborah Nolan. &lt;/font&gt;
 
 ---
 class: inverse
@@ -625,7 +625,7 @@ end_time = Sys.time()
 
 
 ```
-## The total execution time of the loop with concatenation is  4.033194  seconds!
+## The total execution time of the loop with concatenation is  4.432336  seconds!
 ```
 
 ---
@@ -657,7 +657,7 @@ all(log_vec1 ==  log_vec2)
 
 
 ```
-## The total execution time of the loop without concatenation is  0.01396251  seconds!
+## The total execution time of the loop without concatenation is  0.01493216  seconds!
 ```
 
 
@@ -815,7 +815,7 @@ cat("The `for` loop implementation takes ", end_time - start_time, " seconds to 
 ```
 
 ```
-## The `for` loop implementation takes  0.0046556  seconds to execute.
+## The `for` loop implementation takes  0.005261183  seconds to execute.
 ```
 
 ---
@@ -838,7 +838,7 @@ cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
 ```
 
 ```
-## The vectorization takes  0.001723528  seconds to execute.
+## The vectorization takes  0.003005981  seconds to execute.
 ```
 
 --
@@ -868,7 +868,7 @@ cat("The `for` loop implementation takes ", end_time - start_time, " seconds to 
 ```
 
 ```
-## The `for` loop implementation takes  0.01415229  seconds to execute.
+## The `for` loop implementation takes  0.01231146  seconds to execute.
 ```
 
 ---
@@ -891,7 +891,7 @@ cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
 ```
 
 ```
-## The vectorization takes  0.003061771  seconds to execute.
+## The vectorization takes  0.002086639  seconds to execute.
 ```
 
 ---
@@ -1096,7 +1096,7 @@ cat("The total execution time using `apply()` is ", end_time - start_time, " sec
 ```
 
 ```
-## The total execution time using `apply()` is  0.007572412  seconds!
+## The total execution time using `apply()` is  0.007080793  seconds!
 ```
 
 Note: Here, we use our customized function in `apply()`. More details about writing our own function will be discussed in the next lecture.
@@ -1119,7 +1119,7 @@ cat("The total execution time of a direct computations is ", end_time - start_ti
 ```
 
 ```
-## The total execution time of a direct computations is  0.002440214  seconds!
+## The total execution time of a direct computations is  0.003722906  seconds!
 ```
 
 ---

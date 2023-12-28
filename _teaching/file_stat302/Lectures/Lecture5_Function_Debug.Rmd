@@ -52,7 +52,7 @@ pre code {
 5. Testing
 
 
-<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. </font>
+<font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, and Prof. Deborah Nolan. </font>
 
 ---
 class: inverse

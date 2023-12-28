@@ -3,7 +3,7 @@
   <head>
     <title>STAT 302 Statistical Computing</title>
     <meta charset="utf-8" />
-    <meta name="author" content="Yikun Zhang (Autumn 2023)" />
+    <meta name="author" content="Yikun Zhang (Winter 2024)" />
     <script src="libs/header-attrs/header-attrs.js"></script>
     <link rel="stylesheet" href="uw.css" type="text/css" />
     <link rel="stylesheet" href="fonts.css" type="text/css" />
@@ -19,7 +19,7 @@ class: center, top, title-slide
 ## Lecture 6: Simulations
 ]
 .author[
-### Yikun Zhang (<em>Autumn 2023</em>)
+### Yikun Zhang (<em>Winter 2024</em>)
 ]
 
 ---
@@ -39,9 +39,11 @@ class: center, top, title-slide
 
 5. Distribution Estimation and Sampling via Monte Carlo Methods
 
-6. Ad hoc Network (Final Project)
+6. Bootstrap
 
-&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan. &lt;/font&gt;
+7. Ad hoc Network (Final Project)
+
+&lt;font size="4"&gt;* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Alexander Giessing, Prof. Deborah Nolan, and Prof. Noureddine El Karoui. &lt;/font&gt;
 
 ---
 class: inverse
@@ -167,7 +169,7 @@ Does simulation only appear in Statistics? Can other fields benefit from the usa
 
 # Overview of Monte Carlo Simulations
 
-A typical Monte Carlo simulation often follows a procedure as:
+A typical Monte Carlo simulation often follows a procedure as below.
 
 1. Define a domain of possible inputs.
 
@@ -322,13 +324,15 @@ plot(c(seed, rand_num[1:(n-1)]), rand_num, xlab = "Input Numbers", ylab = "Outpu
 
 - The default algorithm in R (and in nearly all software languages) is called the "Mersenne-Twister".
 
-- Type `?Random` in our R console to read more about this (and to read how to change the algorithm used for pseudo-random number generation, which we should never really have to do that).
+- Type `?Random` in our R console to read more about this (and to read how to change the algorithm used for the pseudo-random number generation, which we should never really have to do that).
 
 ---
 
 # An Important Role of the "Seed"
 
 One of the biggest advantages of pseudo-random number generators is that we can have some controls over the simulation results by setting the **seed** beforehand.
+
+--
 
 - The seed is just an integer, and can be set with `set.seed()`.
 
@@ -650,7 +654,7 @@ Note: Here, `\(\text{Exponential}(\text{mean}=\lambda)\)` stands for the exponen
 
 Given such a drug effect model, our scientist collaborators ask us: 
 
-- How many patients would we need to have in each group (drug, no drug), in order to reliably see that the average reduction in tumor size is large?
+- How many patients would we need to have in each group (_drug_ or _no drug_) in order to reliably see that the average reduction in tumor size is large?
 
 This question can be answered by complicated calculations or the _simulation_ methods that we learned.
 
@@ -904,7 +908,7 @@ What if we don't have a build-in function for the probability distribution?
 
 --
 
-- If we only have the observed data `\(X_1,...,X_n\)` from the target distribution and want to estimate the cumulative distribution function (CDF), we can consider using the empirical CDF (ECDF).
+- If we only have the observed data `\(X_1,...,X_n\)` from the target distribution and want to estimate the cumulative distribution function (CDF), we can consider using the empirical CDF (ECDF) and generate random samples from ECDF.
 
 --
 
@@ -1078,7 +1082,7 @@ To utilize the previous Acceptance-Rejection sampling procedures, we need to kno
 
 A general/standard Acceptance-Rejection sampling procedure:
 
-1. Choose a number `\(M \geq \sup_x \frac{f(x)}{p(x)}\)` with respect to a proposal density `\(p\)` from which we know how to draw samples 
+1. Choose a number `\(M \geq \sup_x \frac{f(x)}{p(x)}\)` with respect to a proposal density `\(p\)` from which we know how to draw samples.
 
   - For instance, `\(p\)` can be the density function of `\(N(0,1)\)`.
 
@@ -1120,7 +1124,6 @@ For the numerator, we compute that
 For the denominator, we compute that
 `\begin{align*}
 P\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \right) &amp;= \int p\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \Big| Y=y \right) \cdot p(y) \, dy\\
-&amp;= \int P\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \right) \cdot p(y) \, dy\\
 &amp;= \int P\left(U &lt; \frac{f(y)}{M \cdot p(y)} \right) \cdot p(y) \, dy\\
 &amp;= \int \frac{f(y)}{M \cdot p(y)} \cdot p(y) \, dy\\
 &amp;= \frac{1}{M} \int f(y)\, dy \\
@@ -1156,7 +1159,399 @@ This shows that the accepted sampling point `\(X\)` does have its density functi
 ---
 class: inverse
 
-# Part 6: Ad hoc Network (Final Project)
+# Part 6: Bootstrap
+
+---
+
+# Classical Problem in Statistics
+
+Consider the scenario where we have a random sample `\(X_1,...,X_n\)` and want to construct a statistic `\(T\equiv h(X_1,...,X_n)\)` to estimate a population quantity `\(\theta\)`.
+
+- `\(T\equiv h(X_1,...,X_n)\)` is known as the _point estimate_ of `\(\theta\)`.
+
+--
+
+- Suppose that `\(X_1,...,X_n \sim P_{\theta}\)` with `\(\theta\)` being the mean/expectation. Then, the sample mean `\(T=\bar{X}_n=\frac{1}{n} \sum_{i=1}^n X_i\)` is a natural estimator of the population mean `\(\theta\)`.
+
+--
+
+In many cases, however, we also want to quantify the uncertainty level for estimating `\(\theta\)`. This can be achieved by a `\(100\%\cdot (1-\alpha)\)` confidence interval `\([l, u]\equiv \left[l(X_1,...,X_n), u(X_1,...,X_n) \right]\)`, where `\(\alpha\in (0,1)\)` and
+`$$\mathbb{P}\Big(\theta \in \left[l(X_1,...,X_n), u(X_1,...,X_n) \right] \Big) = 100\%\cdot (1-\alpha).$$`
+
+---
+
+# Classical Asymptotic Theory
+
+Suppose that `\(X_1,...,X_n \sim P_{\theta}\)` with `\(\theta\)` being the mean/expectation. Then, the sample mean `\(T=\bar{X}_n=\frac{1}{n} \sum_{i=1}^n X_i\)` is a natural estimator of the population mean `\(\theta\)`.
+
+- We can estimate the standard deviation as: 
+`$$\hat{\sigma}=\sqrt{\frac{1}{n-1}\sum_{i=1}^n (X_i-\bar{X}_n)^2}$$`
+and construct an asymptotic `\(100\%\cdot (1-\alpha)\)` confidence interval for `\(\theta\)` by the Central Limit Theorem as:
+`$$\left[\bar{X}_n - \frac{\hat{\sigma}}{\sqrt{n}} \cdot q_{1-\alpha/2},\; \bar{X}_n + \frac{\hat{\sigma}}{\sqrt{n}} \cdot q_{1-\alpha/2} \right],$$`
+where `\(q_{1-\alpha/2}\)` is the `\(\left(1-\frac{\alpha}{2}\right)\)` quantile of `\(\mathcal{N}(0,1)\)`.
+
+---
+
+# Limitations of the Asymptotic Theory
+
+The validity of the preceding confidence interval `\(\left[\bar{X}_n - \frac{\hat{\sigma}}{\sqrt{n}} \cdot q_{1-\alpha/2},\; \bar{X}_n + \frac{\hat{\sigma}}{\sqrt{n}} \cdot q_{1-\alpha/2} \right]\)` relies on two factors:
+
+1. We know how to estimate the standard error `\(\frac{\sigma}{\sqrt{n}}\)`, i.e., the standard deviation of our statistic `\(T\equiv h(X_1,...,X_n)\)`.
+
+2. The statistic `\(T\equiv h(X_1,...,X_n)\)` takes the form `\(\bar{X}_n=\frac{1}{n} \sum_{i=1}^n X_i\)`, and we know its asymptotic/limiting distribution by the Central Limit Theorem.
+
+--
+
+**Questions:**
+
+- What if the standard error has no closed-form expression or depends on too many unknown parameter?
+
+- What if the statistic `\(T\equiv h(X_1,...,X_n)\)` is a complicated function of `\(X_1,...,X_n\)` that we have no ideas about its (limiting) distribution?
+
+---
+
+# The Bootstrap Principle
+
+The above questions can be addressed by a computer-intensive procedure called the **bootstrap**.
+
+- It was invented by [Professor Bradley Efron](https://en.wikipedia.org/wiki/Bradley_Efron) from Stanford University in 1979.
+
+- It allows us to estimate the standard errors (and construct confidence intervals) without deriving the distribution of `\(T\equiv h(X_1,...,X_n)\)`.
+
+--
+
+**Bootstrap Principle:** Let `\(F\)` be the CDF of the random sample `\(X_1,...,X_n\)`. Suppose that `\(\hat{F}\)` is an estimate of `\(F\)` based on `\(X_1,...,X_n\)` and `\(X_1^*,...,X_n^*\)` is a sample drawn from `\(\hat{F}\)`.
+
+Then, the sampling distribution of any statistic `\(T=h(X_1,...,X_n)\)` can be approximated by the sampling distribution of `\(T^*=h(X_1^*,...,X_n^*)\)`.
+
+---
+
+# Bootstrap in Practice
+
+Depending on how we define the CDF estimate `\(\hat{F}\)`, we discuss two different types of the bootstrap here:
+
+- _Nonparametric/Empirical Bootstrap_: `\(\hat{F}\)` is defined by the ECDF `\(\hat{F}_n(x) = \frac{1}{n} \sum_{i=1}^n I(X_i\leq x)\)`.
+
+- _Parametric Bootstrap_: We assume `\(X_1,...,X_n \sim F_{\eta}\)` and `\(\hat{F}\)` is defined by `\(F_{\hat{\eta}}\)` for some estimator `\(\hat{\eta}\)` of the true parameter `\(\eta\)`.
+
+--
+
+We show how to implement these two bootstrap procedures under the statistic `\(T=h(X_1,...,X_n)\)` in practice.
+
+
+---
+
+# Nonparametric/Empirical Bootstrap
+
+How can we sample `\(X_1^*,...,X_n^*\)` from the ECDF `\(\hat{F}_n(x) = \frac{1}{n} \sum_{i=1}^n I(X_i\leq x)\)`?
+
+--
+
+- Note that the probability mass function `\(p(x)\)` of the ECDF is 
+$$
+p(x)=\mathbb{P}(X=x)=
+`\begin{cases}
+\frac{1}{n} &amp; \text{ when } x\in \{X_1,...,X_n\},\\
+0 &amp; \text{ otherwise}.
+\end{cases}`
+$$
+It means that the ECDF takes its value from `\(\{X_1,...,X_n\}\)` with an equal probability `\(\frac{1}{n}\)`.
+
+--
+
+**Nonparametric Bootstrap:** 
+
+1. Draw a random sample `\(X_1^*,...,X_n^*\)` from `\(\hat{F}_n\)` by sampling each `\(X_i^*\)` from `\(\{X_1,...,X_n\}\)` _with replacement_.
+
+2. Compute `\(T^*=h(X_1^*,...,X_n^*)\)`.
+
+3. Repeat Steps 1 and 2 for `\(B\)` times to obtain `\(T_1^*,...,T_B^*\)`.
+
+---
+
+# Parametric Bootstrap
+
+Assume that `\(X_1,...,X_n \sim F_{\eta}\)` with some unknown parameter(s) `\(\eta\)`. That is, the distribution of `\(X_1,...,X_n\)` belongs to a parametric family `\(\left\{F_{\eta}: \eta \in \mathbb{R}^d \right\}\)` of distributions.
+
+**Parametric Bootstrap:** Given the random sample `\(X_1,...,X_n\)`, we construct an estimate `\(\hat{\eta}\)` for `\(\eta\)` based on `\(X_1,...,X_n\)`.
+
+1. Draw a random sample `\(X_1^*,...,X_n^*\)` from `\(F_{\hat{\eta}}\)`.
+
+2. Compute `\(T^*=h(X_1^*,...,X_n^*)\)`.
+
+3. Repeat Steps 1 and 2 for `\(B\)` times to obtain `\(T_1^*,...,T_B^*\)`.
+
+--
+
+One drawback of the parametric bootstrap is that we need to know how to sample from `\(F_{\eta}\)`.
+
+- For instance, we can assume that `\(F_{\eta}\)` is the CDF of the normal distribution `\(\mathcal{N}(\theta, \sigma^2)\)` and estimate `\(\eta=(\mu,\sigma^2)\)` by `\(\hat{\eta}=\left(\hat{\mu}, \hat{\sigma}^2\right)\)`.
+
+---
+
+# Bootstrap Estimate of the Standard Error
+
+**General Bootstrap Procedure:** 
+
+1. Draw a random sample `\(X_1^*,...,X_n^*\)` from `\(\hat{F}\)`.
+
+2. Compute `\(T^*=h(X_1^*,...,X_n^*)\)`.
+
+3. Repeat Steps 1 and 2 for `\(B\)` times to obtain `\(T_1^*,...,T_B^*\)`.
+
+Here, the empirical distribution of the bootstrap statistics `\(T_1^*,...,T_B^*\)` is an approximation of the sampling distribution of `\(T=h(X_1,...,X_n)\)`.
+
+--
+
+Now, we can compute the bootstrap estimate of the standard error as:
+`$$\widehat{SE}^*(T) = \sqrt{\frac{1}{B-1}\sum_{b=1}^B\left(T_b^* - \frac{1}{B}\sum_{b=1}^B T_b^*\right)^2}.$$`
+
+---
+
+# General Bootstrap Estimate
+
+More generally, suppose that `\(T=h(X_1,...,X_n)\)` is an estimator of a population quantity `\(\theta\)`. We are interested in estimating a _statistical functional_ `\(R(T,\theta)\)` and quantify the standard error.
+
+--
+
+By the bootstrap principle, we can approximate the sampling distribution of `\(R(T,\theta)\)` by the empirical distribution of `\(R_1^*=R(T_1^*,\hat{\theta}),...,R_B^*=R(T_B^*,\hat{\theta})\)`, where `\(\hat{\theta}=T=h(X_1,...,X_n)\)` is an estimator of `\(\theta\)`.
+
+--
+
+- Specifically, a bootstrap estimate of `\(R(T,\eta)\)` is
+`$$\hat{R}^*(T,\theta) = \frac{1}{B}\sum_{b=1}^B R_b^* =\frac{1}{B}\sum_{b=1}^B R(T_b^*,\hat{\theta}),$$`
+and its standard error estimate is
+`$$\widehat{SE}^*(R(T,\theta)) = \sqrt{\frac{1}{B-1}\sum_{b=1}^B\left(R_b^* - \frac{1}{B}\sum_{b=1}^B R_b^*\right)^2}.$$`
+
+---
+
+# Bootstrap Confidence Intervals
+
+Suppose that `\(T=h(X_1,...,X_n)\)` is an estimator `\(\hat{\theta}\)` of a population quantity `\(\theta\)`.
+
+- We use the bootstrap to obtain `\(B\)` bootstrap statistics `\(T_1^*,...,T_B^*\)`.
+
+--
+
+We can construct `\(100\%\cdot(1-\alpha)\)` confidence intervals for `\(\theta\)` in (at least) three different ways.
+
+1. **Normal confidence interval:** `\(\left[\hat{\theta}- q_{1-\alpha/2}\cdot \widehat{SE}^*(T),\; \hat{\theta} + q_{1-\alpha/2} \cdot \widehat{SE}^*(T)\right]\)`, where `\(q_{1-\alpha/2}\)` is the `\(\left(1-\frac{\alpha}{2}\right)\)` quantile of `\(\mathcal{N}(0,1)\)`.
+
+2. **Pivotal confidence interval:** `\(\left[2\hat{\theta} -\hat{\theta}_{1-\alpha/2}^*,\; 2\hat{\theta} -\hat{\theta}_{\alpha/2}^* \right]\)`.
+
+3. **Percentile confidence interval:** `\(\left[\hat{\theta}_{\alpha/2}^*,\; \hat{\theta}_{1-\alpha/2}^* \right]\)`.
+
+Here, `\(\hat{\theta}_{\alpha}^*\)` is the empirical `\(\alpha\)` quantile of `\(T_1^*,...,T_B^*\)`.
+
+---
+
+# Bootstrap Example 1: Mean Statistic
+
+
+```r
+data(PlantGrowth)
+plant_wt = PlantGrowth$weight
+hist(plant_wt, breaks = 6)
+```
+
+&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
+
+Let's first consider the statistic `\(T_1=\bar{X}_n = 5.073\)` for this data set.
+
+
+```r
+# The standard error estimate for T1 via the original data
+sd(plant_wt) / sqrt(length(plant_wt))
+```
+
+```
+## [1] 0.1280195
+```
+
+---
+
+# Bootstrap Example 1: Mean Statistic
+
+We consider using the nonparametric bootstrap to estimate the standard error of the mean statistic `\(T_1=\bar{X}_n\)` and construct confidence intervals for the population mean.
+
+
+```r
+set.seed(123)
+B = 3000
+np_boot_T1 = replicate(B, {
+  boot_samp = sample(plant_wt, size = length(plant_wt), replace = TRUE)
+  mean(boot_samp)
+})
+# Nonparametric bootstrap estimate of the standard error for T1
+sd(np_boot_T1)
+```
+
+```
+## [1] 0.1262947
+```
+
+```r
+# 95% normal confidence interval
+c(mean(plant_wt) - sd(np_boot_T1)*qnorm(0.975), 
+  mean(plant_wt) + sd(np_boot_T1)*qnorm(0.975))
+```
+
+```
+## [1] 4.825467 5.320533
+```
+
+---
+
+# Bootstrap Example 1: Mean Statistic
+
+We consider using the nonparametric bootstrap to estimate the standard error of the mean statistic `\(T_1=\bar{X}_n\)` and construct confidence intervals for the population mean.
+
+
+```r
+# 95% pivotal confidence interval
+c(2*mean(plant_wt) - unname(quantile(np_boot_T1, 0.975)), 
+  2*mean(plant_wt) - unname(quantile(np_boot_T1, 0.025)))
+```
+
+```
+## [1] 4.834658 5.331008
+```
+
+```r
+# 95% percentile confidence interval
+c(unname(quantile(np_boot_T1, 0.025)),
+  unname(quantile(np_boot_T1, 0.975)))
+```
+
+```
+## [1] 4.814992 5.311342
+```
+
+
+---
+
+# Bootstrap Example 1: Mean Statistic
+
+Now, we assume that the data `PlantGrowth` come from a normal distribution with unknown mean `\(\mu\)` and variance `\(\sigma^2\)`. 
+
+Then, we utilize the parametric bootstrap to estimate the standard error of the mean statistic `\(T_1=\bar{X}_n\)`.
+
+
+```r
+set.seed(123)
+B = 3000
+mu_hat = mean(plant_wt)
+sigma_hat = sd(plant_wt)
+pa_boot_T1 = replicate(B, {
+  boot_samp = rnorm(length(plant_wt), mean = mu_hat, sd = sigma_hat)
+  mean(boot_samp)
+})
+# Parametric bootstrap estimate (under the normal assumption) of the standard error for T1
+sd(pa_boot_T1)
+```
+
+```
+## [1] 0.1252808
+```
+
+---
+
+# Bootstrap Example 2: Median Statistic
+
+Now, let's consider the median statistic `\(T_2=X_{\text{median}}=\text{median}(X_1,...,X_n)\)` for this data set.
+
+
+```r
+median(plant_wt)
+```
+
+```
+## [1] 5.155
+```
+
+One can show that the variance of the sample median `\(X_{\text{median}}\)` of a distribution `\(F\)` with probability density function `\(f\)` is
+`$$\text{Var}(X_{\text{median}}) = \frac{1}{4n \left[f(q_{0.5})\right]^2},$$`
+where `\(q_{0.5}\)` is the 0.5 quantile (i.e., the population median) of `\(F\)`.
+
+--
+
+**Issue:** However, since `\(F\)` and `\(f\)` are unknown, the above formula is not helpful for estimating the standard error for `\(T_2=X_{\text{median}}\)`.
+
+---
+
+# Bootstrap Example 2: Median Statistic
+
+Fortunately, we can use the bootstrap to assess the standard error for `\(T_2=X_{\text{median}}\)`.
+
+Consider the nonparametric bootstrap as follows.
+
+
+```r
+set.seed(123)
+B = 3000
+np_boot_T2 = replicate(B, {
+  boot_samp = sample(plant_wt, size = length(plant_wt), replace = TRUE)
+  median(boot_samp)
+})
+# Nonparametric bootstrap estimate of the standard error for T2
+sd(np_boot_T2)
+```
+
+```
+## [1] 0.1606563
+```
+
+---
+
+# Bootstrap Example 2: Median Statistic
+
+Now, we assume that the data `PlantGrowth` come from a Laplace distribution with density `\(f(x)=\frac{1}{2b}\exp\left(-\frac{|x-\mu|}{b} \right)\)`, whose mean `\(\mu\)` and variance `\(2b^2\)` are unknown.
+
+--
+
+Then, we utilize the parametric bootstrap to estimate the standard error of the median statistic `\(T_2=X_{\text{median}}\)`.
+
+
+```r
+library(ExtDist)
+set.seed(123)
+B = 3000
+mu_hat = mean(plant_wt)
+var_hat = var(plant_wt)
+pa_boot_T2 = replicate(B, {
+  boot_samp = rLaplace(length(plant_wt), mu = mu_hat, b = sqrt(var_hat/2))
+  median(boot_samp)
+})
+# Parametric bootstrap estimate of the standard error for T1
+sd(pa_boot_T2)
+```
+
+```
+## [1] 0.1017189
+```
+
+---
+
+# Comments on Bootstrap
+
+Bootstrap is a widely used and very powerful tool in Statistics.
+
+- Other types of bootstrap include [smoothed bootstrap](https://www.math.wustl.edu/~kuffner/AlastairYoung/DeAngelisYoung1992b.pdf) (i.e., estimate `\(\hat{F}\)` by the kernel density estimation), [wild bootstrap](https://projecteuclid.org/journals/annals-of-statistics/volume-14/issue-4/Jackknife-Bootstrap-and-Other-Resampling-Methods-in-Regression-Analysis/10.1214/aos/1176350142.full), [Bayesian bootstrap](https://projecteuclid.org/journals/annals-of-statistics/volume-9/issue-1/The-Bayesian-Bootstrap/10.1214/aos/1176345338.full), etc.
+
+--
+
+Typically, if `\(T=h(X_1,...,X_n)\)` is a "smooth" functional of the data, then the bootstrap works well. 
+
+- The right notion of the ["smoothness"](https://en.wikipedia.org/wiki/Gateaux_derivative) relies on some advanced concepts in theoretical statistics.
+
+--
+
+However, there are also some cases where bootstrap does not work; see [this blog](https://notstatschat.tumblr.com/post/156650638586/when-the-bootstrap-doesnt-work).
+
+---
+class: inverse
+
+# Part 7: Ad hoc Network (Final Project)
 
 ---
 
@@ -1259,9 +1654,9 @@ class: inverse
 [Project Description](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Final_Project.pdf)
 
 ---
-# Reminder
+# Summary
 
-Submit Lab 6 on Canvas by the end of Wednesday (November 22) and the final project by the end of December 13!!
+Submit Lab 6 on Canvas by the end of Thursday (February 29) and the final project by the end of March 13!!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
