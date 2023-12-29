@@ -31,6 +31,12 @@ library(kableExtra)
 
 4. Data Types in R
 
+Appendices:
+
+A. Probability
+
+B. Random Variables
+
 <font size="4">* Acknowledgement: Parts of the slides are modified from the course materials by Prof. Ryan Tibshirani, Prof. Yen-Chi Chen, Prof. Deborah Nolan, Bryan Martin, and Andrea Boskovic. </font>
 
 ---
@@ -914,3 +920,437 @@ w2v == W2v
 - The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
 Submit Lab 1 on Gradescope by the end of Mondays (January 8)!!
+
+---
+class: inverse
+
+# Appendix A. Probability
+
+---
+
+# Sample Space
+
+A **sample space**, commonly denoted $\Omega$ or $S$, is the set of all possible outcomes from a random experiment. For example,
+
+* Coin flip: $\Omega = \{H, T\}$;
+
+* Two coin flips: $\Omega = \{HH, HT, TH, TT\}$;
+
+* Rolling a 6-sided die: $\Omega = \{1, 2, 3, 4, 5, 6\}$;
+
+* Hours spent sleeping in day: $\Omega = \{x: x\in \mathbb{R}, 0 \leq x \leq 24\}$;
+
+* A simulation from a normal distribution: $\Omega = (-\infty, \infty)$.
+
+The elements of $\Omega$ must be **mutually exclusive** and **collectively exhaustive**.
+
+---
+
+# Events
+
+An **event**, which we will call $A$, can be any subset of your sample space. For example,
+
+* Heads in a coin flip: $A = \{H\}$;
+
+* At least one heads in two coin flips: $A = \{HT, HT, TH\}$;
+
+* Rolling an even number on a 6-sided die: $A = \{2, 4, 6\}$;
+
+* Sleeping at least 8 hours in a day: $A = \{x: x \in \mathbb{R}, 8 \leq x \leq 24\}$;
+
+* Simulating a number between 1 and 2, inclusive, from a normal distribution: $A = [1, 2]$.
+
+---
+
+# Probability
+
+Informally, probability $P$ is often defined as the chance of something happening.
+
+More formally, it is a function that goes from an event $A$ to the real line. 
+
+* $P(\text{heads in a fair coin flip}) = \dfrac{1}{2}$.
+
+* $P(\text{at least one heads in two fair coin flips}) = \dfrac{3}{4}$.
+
+* $P(\text{rolling an even number on a fair dice}) = \dfrac{1}{2}$.
+
+---
+
+# Axioms of Probability
+
+Probability allows follows three basic principles, known as the **axioms of probability**.
+
+1. The probability of any event $A$ must be between 0 and 1, inclusive.
+  * $0 \leq P(A)\leq 1$.
+  
+2. The probability of the sample space is equal to 1.
+  * $P(\Omega) = 1$.
+  
+3. If events $A$ and $B$ are **mutually exclusive**/**disjoint**, then the probability of *either* $A$ *or* $B$ is the same as the sum of the probability of $A$ and the probability of $B$.
+  * $A \cap B = \emptyset \ \ \Rightarrow \ \ P(A\cup B) = P(A) + P(B)$
+
+---
+layout: true
+
+# Probability Notation
+
+---
+
+## Intersection: $\cap$
+
+$P(A \cap B)$: *joint* probability of $A$ *and* $B$.
+
+.center[<img src="./figures/set.png" alt="" height="350"/>]
+
+---
+
+## Intersection: $\cap$
+
+$P(A \cap B)$: *joint* probability of $A$ *and* $B$.
+
+.center[<img src="./figures/intersect.png" alt="" height="350"/>]
+
+---
+
+## Union: $\cup$
+
+$P(A \cup B)$ probability of $A$ *or* $B$.
+
+.center[<img src="./figures/set.png" alt="" height="350"/>]
+
+---
+
+## Union: $\cup$
+
+$P(A \cup B)$ probability of $A$ *or* $B$.
+
+.center[<img src="./figures/union.png" alt="" height="350"/>]
+
+---
+
+
+## Complement: $A^c$
+
+$P(A^c)$ probability of *not* $A$.
+
+.center[<img src="./figures/set.png" alt="" height="350"/>]
+
+---
+
+## Complement: $A^c$
+
+$P(A^c)$ probability of *not* $A$.
+
+.center[<img src="./figures/complement.png" alt="" height="350"/>]
+
+---
+
+
+## Difference: $A\setminus B$
+
+$P(A\setminus B)$ probability of $A$ *and not* $B$.
+
+.center[<img src="./figures/set.png" alt="" height="350"/>]
+
+---
+
+## Difference: $A\setminus B$
+
+$P(A\setminus B)$ probability of $A$ *and not* $B$.
+
+.center[<img src="./figures/difference.png" alt="" height="350"/>]
+
+---
+
+## Conditional: $A | B$
+
+$P(A | B)$ probability of $A$ *conditional on*/*given* $B$.
+
+.center[<img src="./figures/set.png" alt="" height="350"/>]
+
+---
+
+## Conditional: $A | B$
+
+$P(A | B)$ probability of $A$ *conditional on*/*given* $B$.
+
+.center[<img src="./figures/conditional.png" alt="" height="350"/>]
+
+---
+
+## Subset: $A \subseteq \Omega$
+
+$A \subseteq \Omega$: $A$ is a *subset* of $\Omega$.
+
+$A \subset \Omega$: $A$ is a *proper subset* of $\Omega$.
+
+.center[<img src="./figures/subset.png" alt="" height="350"/>]
+
+---
+
+## Subset: $A \subseteq \Omega$
+
+$A \subseteq \Omega$: $A$ is a *subset* of $\Omega$.
+
+$A \subset \Omega$: $A$ is a *proper subset* of $\Omega$.
+
+.center[<img src="./figures/nsubset.png" alt="" height="350"/>]
+
+---
+
+## Superset: $\Omega \supseteq A$
+
+$\Omega \supseteq A$: $A$ is a *superset* of $\Omega$.
+
+$\Omega \supset A$: $A$ is a *proper superset* of $\Omega$.
+
+.center[<img src="./figures/supset.png" alt="" height="350"/>]
+
+---
+
+## Superset: $\Omega \supseteq A$
+
+$\Omega \supseteq A$: $A$ is a *superset* of $\Omega$.
+
+$\Omega \supset A$: $A$ is a *proper superset* of $\Omega$.
+
+.center[<img src="./figures/nsupset.png" alt="" height="350"/>]
+
+---
+
+## Element of: $X \in A$
+
+$X \in A$: $X$ is an *element of* $A$.
+
+.center[<img src="./figures/element.png" alt="" height="350"/>]
+
+---
+
+## Empty set: $\varnothing$
+
+$A\cap E = \varnothing$: the intersection of $A$ and $E$ is the empty set.
+
+.center[<img src="./figures/empty.png" alt="" height="350"/>]
+
+---
+layout: false
+
+# Identities of Probability
+
+* The probability of $A^c$ is $1$ minus the probability of $A$:
+  * $P(A^c) = 1-P(A)$.
+  
+* If $A$ is a subset of $B$, then the probability of $A$ is less than or equal to the probability of $B$:
+  * $A \subseteq B \implies P(A)\leq P(B)$.
+  
+* The probability of a union is equal to the sum of the probabilities minus the probability of an intersection:
+  * $P(A \cup B) = P(A) + P(B) - P(A\cap B)$.
+
+---
+
+# De Morgan's Laws
+
+* Complement of the union is equal to the intersection of the complements.
+  
+.center[<img src="./figures/demorgan1.png" alt="" height="350"/>]
+
+---
+
+# De Morgan's Laws
+
+* Complement of the intersection is equal to the union of the complements.
+  
+.center[<img src="./figures/demorgan2.png" alt="" height="350"/>]
+
+---
+
+# De Morgan's Laws
+
+1. Complement of the union is equal to the intersection of the complements:
+  * $(A \cup B)^c = A^c \cap B^c$.
+  
+2. Complement of the intersection is equal to the union of the complements:
+  * $(A \cap B)^c = A^c \cup B^c$.
+  
+.center[<img src="./figures/demorgan1.png" alt="" height="250"/>    <img src="./figures/demorgan2.png" alt="" height="250"/>]
+
+---
+
+# Independence
+
+We say that two events $A$ and $B$ are independent, $A\perp \!\!\! \perp B$, *if and only if* one of the followings hold true:
+
+* $P(A \cap B) = P(A) P(B)$;
+
+* $P(A|B) = P(A)$;
+
+* $P(B|A) = P(B)$.
+
+This is an *extremely* important concept in statistics!
+
+---
+
+# Conditional Probability 
+
+The conditional probability of $A$ given $B$ is equal to the joint probability of $A$ and $B$ divided by the marginal probability of $B$:
+
+$$P(A|B) = \dfrac{P(A\cap B)}{P(B)}.$$
+
+Note that this implies 
+
+$$P(A\cap B) = P(A|B) P(B).$$
+
+
+---
+
+
+# Bayes' Rule
+
+$$P(A|B) = \dfrac{P(A\cap B)}{P(B)}$$
+also implies
+$$P(A|B) = \dfrac{P(B|A)P(A)}{P(B)},$$
+which is commonly known as **Bayes' rule**!
+
+We won't get into the details in this class, but this can be a very useful result for reversing the conditions in our analysis.
+
+For example: There is a big difference between the probability of having a disease given a positive screening, and the probability of a positive screening given a disease! These concepts are often confused in popular media!
+
+---
+
+# Law of Total Probability
+
+We say that a set of events is a **partition** if all the followings hold:
+
+* The set does not contain the empty set;
+
+* The union of the events in the set is equal to the sample space;
+
+* The intersection of any two distinct events in the set is equal to the empty set.
+
+Note that an event and its complement always define a partition!
+
+.center[<img src="./figures/partition1.png" alt="" height="350"/>]
+
+---
+
+# Law of Total Probability
+
+The **law of total probability** states that given a partition $P_1, P_2, \ldots, P_n$, then 
+$$P(A) = P(A|P_1)P(P_1) + P(A|P_2)P(P_2) + \cdots +  P(A|P_n)P(P_n).$$
+
+Commonly, our partition is some event $B$ and its complement:
+$$P(A) = P(A|B)P(B) + P(A|B^c)P(B^c).$$
+
+.center[<img src="./figures/partition2.png" alt="" height="350"/>]
+
+---
+class: inverse
+
+# Appendix B. Random Variables
+
+---
+
+# Random Variables
+
+Typically, we don't care about specific events occuring.
+Instead, we tend to focus on functions of our events.
+These functions are called **random variables**.
+
+More formally<sup>1</sup>, a random variable $X$ can be defined as function $X: \Omega \mapsto \mathbb{R}$. For example,
+
+* the number of heads out of 10 coin flips;
+
+* the sum of 8 standard die rolls;
+
+* the average value of 1,000 simulations from a $\mathcal{N}(0,1)$.
+
+Typically, a random variable is denoted by a uppercase letter, such as $X$, and values that the random variable takes is denoted by a lowercase letter, such as $x$. 
+For example, we might ask the $P(X=x)$ for multiple values of $x$.
+
+We call the set of all values a random variable can take the **support** of that random variable.
+
+.footnote[[1] It is still not very formal.]
+
+---
+
+# Random Variables
+
+Random variables are **not** events! 
+
+This can be confusing because often use similar notation with random variables and events. Think of an event as an outcome that can lead to a certain value of a random variable. For example,
+
+* Event in 10 coinflips: $\{THHTTTHTTH\}$. 
+  * Random variable representing the number of heads $X = 4$.
+  
+* Event in 8 standard die rolls: $\{2, 4, 2, 1, 5, 4, 2, 6\}$. 
+  * Random variable representing the sum $X = 25$.
+
+---
+
+# Discrete Random Variables 
+
+Random variables are **discrete** if there are a finite<sup>1</sup> number of values in the support. 
+We've already seen some examples of this in class from the binomial distribution!
+We define the **probability mass function**, or **PMF**, of a discrete random variable $X \sim Bin(n,p)$ as 
+$$P(X=k|n,p) = \begin{pmatrix} n\\ k\end{pmatrix} p^k(1-p)^{n-k}$$
+
+Probability mass functions must satisfy:
+
+1. $0 \leq P(X=x) \leq 1$ for all $x$
+2. $\sum_{x \in support(X)} P(X = x) = 1$
+3. For any set $A\subseteq support(X)$, $P(X \in A) = \sum_{x \in A} P(X = x)$
+
+.footnote[[1] or countably infinite]
+
+---
+
+# Continuous Random Variables
+
+Random variables are **continuous** if the support is uncountably infinite. 
+We've already seen some examples of this in class from the normal distribution!
+We define the **probability density function**, or **PDF** of a continuous random variable $X \sim \mathcal{N}(\mu, \sigma^2)$ as 
+$$f_X(x) = \dfrac{1}{\sqrt{2\pi\sigma^2}} e^{-\dfrac{1}{2}\left(\dfrac{x-\mu}{\sigma}\right)^2}$$
+Probability density functions must satisfy:
+
+1. $f_X(x) > 0$ for all $x \in support(X)$;
+
+2. The area under the curve of the pdf in the support is equal to $1$. That is,
+$\int_{support(X)} f_X(x)dx = 1$;
+
+3. If $A$ is some interval in the support of $X$, then $P(X \in A) = \int_A f_X(x)dx$.
+
+Note that the second and third properties are essentially the continuous versions of the corresponding properties of discrete PMFs!
+
+---
+
+# Expected Value
+
+The **expected value** or expectation of a random variable, denoted $E[X]$ or $\mathbb{E}[X]$, is the mean of the random variable.
+Intuitively, it can be thought of as a weighted average of all values in the support, weighted by their value in the pdf/pmf.
+
+Expected values satisfy the following properties for random variables $X$, $Y$ and constants $a$, $b$:
+* $\mathbb{E}[a] = a$;
+
+* $\mathbb{E}[aX + b] = a \cdot \mathbb{E}[X] + b$;
+
+* $\mathbb{E}[X + Y] = \mathbb{E}[X] + \mathbb{E}[Y]$.
+
+If $X$ and $Y$ are independent, then 
+* $\mathbb{E}[XY] = \mathbb{E}[X]\cdot \mathbb{E}[Y]$.
+
+---
+
+# Variance
+
+The **variance** of a random variable is the expected squared difference between a random variable and its mean.
+$$\text{Var}(X)=\mathbb{E}[(X - \mathbb{E}[X])^2].$$
+Intuitively, this measures how far the values of $X$ are from their mean, on average.
+It is a measure of spread, or variability.
+
+Variances satisfy the following properties for a random variable $X$ and constants $a, b$:
+* $\text{Var}(a) = 0$
+* $\text{Var}(aX + b) = a^2\cdot \text{Var}(X)$
+
+The square root of the variance is known as the **standard deviation**, because it is the expected (standard) magnitude of the difference (deviation) between a random variable and its mean.
+
+More detailed review of the basic probability theory can be found in Section 3 of [this notes](https://zhangyk8.github.io/teaching/file_stat548/CS547_Proof_Probability_new.pdf).
