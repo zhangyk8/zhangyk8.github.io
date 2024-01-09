@@ -988,6 +988,40 @@ typeof(as.integer(6.5))
 
 # Data Types (Examples)
 
+We can also use the build-in function `class()` to determine the data type of an object. [This webpage](https://stackoverflow.com/questions/6258004/types-and-classes-of-variables) describes the differences between `typeof()` and `class()`.
+
+- In short, `typeof()` or `mode()` represents how an object is stored in memory (numeric, character, list, or function), while `class()` represents its abstract type.
+
+
+```r
+class("26a")
+```
+
+```
+## [1] "character"
+```
+
+```r
+typeof("26a")
+```
+
+```
+## [1] "character"
+```
+
+```r
+mode("26a")
+```
+
+```
+## [1] "character"
+```
+
+
+---
+
+# Data Types (Examples)
+
 
 ```r
 as.integer(6.6)
@@ -998,8 +1032,7 @@ as.integer(6.6)
 ```
 
 ```r
-# It rounded a floating point number 6.5 to the largest 
-# integer that is less than 6.5.
+# It rounded a floating point number 6.5 to the largest integer that is less than 6.5. Check its difference with the `ceiling()` function.
 floor(6.6)
 ```
 
@@ -1052,11 +1085,22 @@ is.na(NA)
 ## [1] TRUE
 ```
 
+
 ```r
-?NaN
+is.na(NaN)
 ```
 
-* We can also use the build-in function `class()` to determine the data type of an object.
+```
+## [1] TRUE
+```
+
+```r
+is.nan(NA)
+```
+
+```
+## [1] FALSE
+```
 
 ---
 
@@ -1160,7 +1204,7 @@ w2v == W2v
 
 - The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
-Submit Lab 1 on Gradescope by the end of Mondays (January 8)!!
+Submit Lab 1 on Gradescope by the end of Mondays (January 15)!!
 
 ---
 class: inverse
