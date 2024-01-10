@@ -1134,4 +1134,4 @@ Here is a [fantastic reference](https://vita.had.co.nz/papers/tidy-data.pdf) wri
 
 - Tidy data principle helps us better analyze and visualize data tables in R.
 
-Submit Lab 2 on Gradescope by the end of Thursday (January 22)!!
+Submit Lab 2 on Gradescope by the end of Monday (January 22)!!
