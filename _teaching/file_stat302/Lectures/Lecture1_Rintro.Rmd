@@ -817,9 +817,9 @@ We can also use the build-in function `class()` to determine the data type of an
 - In short, `typeof()` or `mode()` represents how an object is stored in memory (numeric, character, list, or function), while `class()` represents its abstract type.
 
 ```{r}
-class("26a")
-typeof("26a")
-mode("26a")
+class(6)
+typeof(6)
+mode(6)
 ```
 
 
@@ -849,6 +849,8 @@ is.na(6.6)
 
 is.na(NA)
 ```
+
+--
 
 ```{r}
 is.na(NaN)
@@ -895,7 +897,11 @@ a
 
 # Check the data type of `course_code`
 class(course_code)
+```
 
+--
+
+```{r}
 # Remove a variable (from R memory)
 rm("a")
 ```
@@ -935,7 +941,7 @@ w2v == W2v
 
 - The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
-Submit Lab 1 on Gradescope by the end of Mondays (January 15)!!
+Submit Lab 1 on Gradescope by the end of Monday (January 15)!!
 
 ---
 class: inverse

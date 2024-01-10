@@ -994,27 +994,27 @@ We can also use the build-in function `class()` to determine the data type of an
 
 
 ```r
-class("26a")
+class(6)
 ```
 
 ```
-## [1] "character"
-```
-
-```r
-typeof("26a")
-```
-
-```
-## [1] "character"
+## [1] "numeric"
 ```
 
 ```r
-mode("26a")
+typeof(6)
 ```
 
 ```
-## [1] "character"
+## [1] "double"
+```
+
+```r
+mode(6)
+```
+
+```
+## [1] "numeric"
 ```
 
 
@@ -1084,6 +1084,8 @@ is.na(NA)
 ```
 ## [1] TRUE
 ```
+
+--
 
 
 ```r
@@ -1159,6 +1161,9 @@ class(course_code)
 ## [1] "character"
 ```
 
+--
+
+
 ```r
 # Remove a variable (from R memory)
 rm("a")
@@ -1204,7 +1209,7 @@ w2v == W2v
 
 - The basic data types in R enable us to represent Booleans, numbers, characters, etc.
 
-Submit Lab 1 on Gradescope by the end of Mondays (January 15)!!
+Submit Lab 1 on Gradescope by the end of Monday (January 15)!!
 
 ---
 class: inverse
