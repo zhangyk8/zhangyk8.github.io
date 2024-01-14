@@ -22,10 +22,10 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 ### Lecture Slides
 
-- Lecture 1 -- Introduction and R Basics: [Slides.html](file_stat302/Lectures/Lecture1_Rintro.html), [Slides.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture1_Rintro.Rmd).
-- Lecture 2 -- Data Structures in R: [Slides.html](file_stat302/Lectures/Lecture2_Data_Structures.html), [Slides.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture2_Data_Structures.Rmd).
-- Lecture 3 -- Programming Fundamentals: [Slides.html](file_stat302/Lectures/Lecture3_Programming.html), [Slides.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture3_Programming.Rmd).
-- Lecture 4 -- Data Manipulation and Visualization: [Autumn2023.html](file_stat302/Lectures/Lecture4_Data_Visualization_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization_Aut23.Rmd) (Old versions).
+- Lecture 1 -- Introduction and R Basics: [Slides.html](file_stat302/Lectures/Lecture1_Rintro.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture1_Rintro.Rmd).
+- Lecture 2 -- Data Structures in R: [Slides.html](file_stat302/Lectures/Lecture2_Data_Structures.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture2_Data_Structures.Rmd).
+- Lecture 3 -- Programming Fundamentals: [Slides.html](file_stat302/Lectures/Lecture3_Programming.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture3_Programming.Rmd).
+- Lecture 4 -- Data Manipulation and Visualization: [Slides.html](file_stat302/Lectures/Lecture4_Data_Visualization.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture4_Data_Visualization.Rmd).
 - Lecture 5 -- Writing Functions And Debugging: [Autumn2023.html](file_stat302/Lectures/Lecture5_Function_Debug_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug_Aut23.Rmd) (Old versions).
 - Lecture 6 -- Simulations: [Autumn2023.html](file_stat302/Lectures/Lecture6_Simulations_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations_Aut23.Rmd) (Old versions).
 - Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review_Aut23.pdf) (Old versions).
@@ -36,6 +36,8 @@ Driven by the era of big data, computational data analysis has become an indispe
 
 - Lab 1 -- R Basics: [.pdf](file_stat302/Labs/Lab1_intro.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab1_intro.Rmd), [.html](file_stat302/Labs/Lab1_intro.html).
 - Lab 2 -- Data Types: [.pdf](file_stat302/Labs/Lab2_Data_Types.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab2_Data_Types.Rmd), [.html](file_stat302/Labs/Lab2_Data_Types.html).
+- Lab 3 -- Programming Fundamentals: [.pdf](file_stat302/Labs/Lab3_Programmings.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab3_Programmings.Rmd), [.html](file_stat302/Labs/Lab3_Programmings.html).
+- Lab 4 -- Data Manipulation and Visualization: [.pdf](file_stat302/Labs/Lab4_DataManVis.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab4_DataManVis.Rmd), [.html](file_stat302/Labs/Lab4_DataManVis.html).
 
 ### Final Project
 
