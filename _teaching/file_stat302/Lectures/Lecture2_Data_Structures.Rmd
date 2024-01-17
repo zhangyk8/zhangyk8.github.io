@@ -529,7 +529,7 @@ my_list
 
 # Contracting a List
 
-We can also shorten the list with by setting the length to something smaller (also works with vectors).
+We can also shorten the list with by setting the length to something smaller (also works for vectors).
 
 ```{r}
 length(my_list)
@@ -569,7 +569,7 @@ my_list
 There are two different ways to subset an element from the list by name.
 
 ```{r}
-my_list["num"]
+my_list[["num"]]
 
 my_list$num
 ```
@@ -825,10 +825,10 @@ It is **very important** that object names do not overlap with common functions!
 
 ```{r, eval = FALSE}
 # Very extra super bad
-c <- 7
-t <- 23
-T <- FALSE
-mean <- "something"
+c = 7
+t = 23
+T = FALSE
+mean = "something"
 ```
 
 Note: `T` and `F` are R shorthand for `TRUE` and `FALSE`, respectively. In general, we should spell them out as clear as possible.
@@ -874,11 +874,11 @@ Most of the time when we are doing math, conditionals, logicals, or assignments,
 
 ```{r, eval = FALSE}
 # Good
-height <- (feet * 12) + inches
+height = (feet * 12) + inches
 mean(x, na.rm = 10)
 
 # Bad
-height<-feet*12+inches
+height=feet*12+inches
 mean(x, na.rm=10)
 ```
 
@@ -944,15 +944,15 @@ In R, semi-colons (`;`) are used to execute pieces of R code on a single line.
 
 ```{r, eval = FALSE}
 # Bad
-a <- 2; b <- 3
+a = 2; b = 3
 
 # Also bad
-a <- 2;
-b <- 3;
+a = 2;
+b = 3;
 
 # Good
-a <- 2
-b <- 3
+a = 2
+b = 3
 ```
 
 

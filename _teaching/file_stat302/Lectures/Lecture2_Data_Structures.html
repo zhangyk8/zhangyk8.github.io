@@ -953,7 +953,7 @@ my_list
 
 # Contracting a List
 
-We can also shorten the list with by setting the length to something smaller (also works with vectors).
+We can also shorten the list with by setting the length to something smaller (also works for vectors).
 
 
 ```r
@@ -1039,11 +1039,10 @@ There are two different ways to subset an element from the list by name.
 
 
 ```r
-my_list["num"]
+my_list[["num"]]
 ```
 
 ```
-## $num
 ## [1] 7
 ```
 
@@ -1163,11 +1162,11 @@ a_df
 
 ```
 ##   v1 v2       Date binary
-## 1 35 20 1965-05-16      0
+## 1 35 20 1965-05-16      1
 ## 2  8 10 1965-05-17      1
-## 3 10 11 1965-05-18      1
+## 3 10 11 1965-05-18      0
 ## 4  4  1 1965-05-19      0
-## 5 12  2 1965-05-20      1
+## 5 12  2 1965-05-20      0
 ```
 
 
@@ -1187,11 +1186,11 @@ rbind(a_df, data.frame(v1=1, v2=32,
 
 ```
 ##   v1 v2       Date binary
-## 1 35 20 1965-05-16    0.0
+## 1 35 20 1965-05-16    1.0
 ## 2  8 10 1965-05-17    1.0
-## 3 10 11 1965-05-18    1.0
+## 3 10 11 1965-05-18    0.0
 ## 4  4  1 1965-05-19    0.0
-## 5 12  2 1965-05-20    1.0
+## 5 12  2 1965-05-20    0.0
 ## 6  1 32 2023-09-27   -1.1
 ```
 
@@ -1419,10 +1418,10 @@ It is **very important** that object names do not overlap with common functions!
 
 ```r
 # Very extra super bad
-c &lt;- 7
-t &lt;- 23
-T &lt;- FALSE
-mean &lt;- "something"
+c = 7
+t = 23
+T = FALSE
+mean = "something"
 ```
 
 Note: `T` and `F` are R shorthand for `TRUE` and `FALSE`, respectively. In general, we should spell them out as clear as possible.
@@ -1476,11 +1475,11 @@ Most of the time when we are doing math, conditionals, logicals, or assignments,
 
 ```r
 # Good
-height &lt;- (feet * 12) + inches
+height = (feet * 12) + inches
 mean(x, na.rm = 10)
 
 # Bad
-height&lt;-feet*12+inches
+height=feet*12+inches
 mean(x, na.rm=10)
 ```
 
@@ -1549,15 +1548,15 @@ In R, semi-colons (`;`) are used to execute pieces of R code on a single line.
 
 ```r
 # Bad
-a &lt;- 2; b &lt;- 3
+a = 2; b = 3
 
 # Also bad
-a &lt;- 2;
-b &lt;- 3;
+a = 2;
+b = 3;
 
 # Good
-a &lt;- 2
-b &lt;- 3
+a = 2
+b = 3
 ```
 
 
