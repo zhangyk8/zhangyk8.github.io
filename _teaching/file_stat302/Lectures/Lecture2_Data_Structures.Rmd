@@ -1013,7 +1013,7 @@ kable_styling(kable(untidy_dat, align = "c"))
 
 --
 
-* **Variables:** the hospital, the disease status, and the counts.
+* **Variables:** hospital, disease status, and counts.
 
 --
 
@@ -1021,7 +1021,7 @@ kable_styling(kable(untidy_dat, align = "c"))
 
 --
 
-* **Values:** Hospital A, Hospital B, Hospital C, Hospital D, individual count values, *Disease Status "Healthy"*, *Disease Status "Diseased"*
+* **Values:** Hospital A, Hospital B, Hospital C, Hospital D, individual count values, *Disease Status "Healthy"*, and *Disease Status "Diseased"*.
 
 ---
 
@@ -1064,11 +1064,11 @@ kable_styling(kable(untidy_dat2))
 
 --
 
-* **Variables:** Country, year, gender, age group, counts.
+* **Variables:** Country, year, gender, age group, and counts.
 
 * **Observations:** the number of individuals in a given country, in a given year, of a given gender, and in a given age group.
 
-* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "1624", Age Group "2534", individual counts.
+* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "1624", Age Group "2534", and individual counts.
 
 ---
 
@@ -1095,7 +1095,7 @@ Note: In R, this can be done via the `pivot_longer()` function in the `tidyr` pa
 
 2. Ensure that each observation has its own row.
 
-  * Be careful about individual observations spreading over multiple tables/Excel files/etc, or multiple types of observations within a single table (this would result in many empty cells).
+  * Be careful about individual observations spreading over multiple tables, Excel files, etc, or multiple types of observations within a single table (this would result in many empty cells).
   
 3. Ensure that each variable has its own column.
 
@@ -1134,4 +1134,4 @@ Here is a [fantastic reference](https://vita.had.co.nz/papers/tidy-data.pdf) wri
 
 - Tidy data principle helps us better analyze and visualize data tables in R.
 
-Submit Lab 2 on Gradescope by the end of Monday (January 22)!!
+Submit Lab 2 on Gradescope by the end of Tuesday (January 23)!!
