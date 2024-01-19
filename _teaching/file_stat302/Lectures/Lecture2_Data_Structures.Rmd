@@ -1055,10 +1055,10 @@ Let's consider another example:
 ```{r, echo = FALSE}
 untidy_dat2 = data.frame("Country" = c("A", "B"),
                          "Year"  = rep(2018, 2),
-                         "m1624" = c(49, 34),
-                         "m2534" = c(55, 33),
-                         "f1624" = c(47, 50),
-                         "f2534" = c(41, 43))
+                         "m_16_24" = c(49, 34),
+                         "m_25_34" = c(55, 33),
+                         "f_16_24" = c(47, 50),
+                         "f_25_34" = c(41, 43))
 kable_styling(kable(untidy_dat2))
 ```
 
@@ -1068,7 +1068,7 @@ kable_styling(kable(untidy_dat2))
 
 * **Observations:** the number of individuals in a given country, in a given year, of a given gender, and in a given age group.
 
-* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "1624", Age Group "2534", and individual counts.
+* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "16_24", Age Group "25_34", and individual counts.
 
 ---
 
@@ -1080,7 +1080,7 @@ The tidy version is as follows:
 tidy_dat2 = data.frame("Country"   = rep(c("A", "B"), each = 4),
                         "Year"      = rep(2018, 8),
                         "Gender"    = rep(c("m", "m", "f", "f"), 2),
-                        "Age_Group" = rep(c("16-24", "25-34"), 4),
+                        "Age_Group" = rep(c("16_24", "25_34"), 4),
                         "Counts"    = c(49, 55, 47, 41, 34, 33, 50, 43))
 kable_styling(kable(tidy_dat2, align = "c"))
 ```

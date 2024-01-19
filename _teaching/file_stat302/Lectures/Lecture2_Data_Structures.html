@@ -1164,8 +1164,8 @@ a_df
 ##   v1 v2       Date binary
 ## 1 35 20 1965-05-16      0
 ## 2  8 10 1965-05-17      0
-## 3 10 11 1965-05-18      1
-## 4  4  1 1965-05-19      1
+## 3 10 11 1965-05-18      0
+## 4  4  1 1965-05-19      0
 ## 5 12  2 1965-05-20      0
 ```
 
@@ -1188,8 +1188,8 @@ rbind(a_df, data.frame(v1=1, v2=32,
 ##   v1 v2       Date binary
 ## 1 35 20 1965-05-16    0.0
 ## 2  8 10 1965-05-17    0.0
-## 3 10 11 1965-05-18    1.0
-## 4  4  1 1965-05-19    1.0
+## 3 10 11 1965-05-18    0.0
+## 4  4  1 1965-05-19    0.0
 ## 5 12  2 1965-05-20    0.0
 ## 6  1 32 2023-09-27   -1.1
 ```
@@ -1755,10 +1755,10 @@ Let's consider another example:
   &lt;tr&gt;
    &lt;th style="text-align:left;"&gt; Country &lt;/th&gt;
    &lt;th style="text-align:right;"&gt; Year &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; m1624 &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; m2534 &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; f1624 &lt;/th&gt;
-   &lt;th style="text-align:right;"&gt; f2534 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; m_16_24 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; m_25_34 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; f_16_24 &lt;/th&gt;
+   &lt;th style="text-align:right;"&gt; f_25_34 &lt;/th&gt;
   &lt;/tr&gt;
  &lt;/thead&gt;
 &lt;tbody&gt;
@@ -1787,7 +1787,7 @@ Let's consider another example:
 
 * **Observations:** the number of individuals in a given country, in a given year, of a given gender, and in a given age group.
 
-* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "1624", Age Group "2534", and individual counts.
+* **Values:** Country A, Country B, Year 2018, Gender "m", Gender "f", Age Group "16_24", Age Group "25_34", and individual counts.
 
 ---
 
@@ -1810,56 +1810,56 @@ The tidy version is as follows:
    &lt;td style="text-align:center;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; m &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 16-24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 16_24 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 49 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; m &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25-34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25_34 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 55 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; f &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 16-24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 16_24 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 47 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; A &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; f &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25-34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25_34 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 41 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; m &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 16-24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 16_24 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 34 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; m &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25-34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25_34 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 33 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; f &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 16-24 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 16_24 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 50 &lt;/td&gt;
   &lt;/tr&gt;
   &lt;tr&gt;
    &lt;td style="text-align:center;"&gt; B &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 2018 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; f &lt;/td&gt;
-   &lt;td style="text-align:center;"&gt; 25-34 &lt;/td&gt;
+   &lt;td style="text-align:center;"&gt; 25_34 &lt;/td&gt;
    &lt;td style="text-align:center;"&gt; 43 &lt;/td&gt;
   &lt;/tr&gt;
 &lt;/tbody&gt;
