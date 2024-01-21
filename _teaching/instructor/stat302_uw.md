@@ -39,6 +39,9 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lab 3 -- Programming Fundamentals: [.pdf](file_stat302/Labs/Lab3_Programmings.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab3_Programmings.Rmd), [.html](file_stat302/Labs/Lab3_Programmings.html).
 - Lab 4 -- Data Manipulation and Visualization: [.pdf](file_stat302/Labs/Lab4_DataManVis.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab4_DataManVis.Rmd), [.html](file_stat302/Labs/Lab4_DataManVis.html).
 
+
+Acknowledgement: Some of my lab problems are modified from the lab questions for [Statistical Computing](https://www.stat.cmu.edu/~ryantibs/statcomp/) at CMU by [Professor Ryan Tibshirani](https://www.stat.cmu.edu/~ryantibs/).
+
 ### Final Project
 
 [Final Project Description](file_stat302/Lectures/Final_Project.pdf) (This final project is modified from the midterm project of STAT 133 taught by [Professor Deborah Nolan](https://statistics.berkeley.edu/people/deborah-nolan) in Fall 2016 at UC Berkeley.)
