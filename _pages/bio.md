@@ -37,7 +37,7 @@ Teaching Experience
 -->
 
 **Instructor:** 
-* [Statistical Computing (Autumn 2023)](../teaching/stat302_uw)
+* [Statistical Computing (Autumn 2023 & Winter 2024)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
 * [Machine Learning for Big Data (Winter 2023)](../teaching/stat548_uw)
@@ -52,6 +52,12 @@ Work Experience
 * May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
+Professional Service
+-----------
+**Reviewer:**
+* Journal of Machine Learning Research, Electronic Journal of Statistics
+* AISTATS (2024, 2023, 2022)
+
 Scholarships
 -----------
 * Best Undergraduate Thesis Award, <!--**Prize: 500 RMB**--> 2018.6
@@ -60,7 +66,7 @@ Scholarships
   * _Awarded by the Kwang-Hua Education Foundation_
 * Shenzhen Financial Institute (SFI) Scholarship (Academic), <!--**Prize: 10000 RMB**--> 2017.5
   * _One of the only two students among more than 300 junior (Year 3) students in our department_
-  * _Awarded by The Chinese University of Hong Kong, Shenzhen_
+  * _Awarded by the Chinese University of Hong Kong, Shenzhen_
 * AEON Donation Scholarship for Excellent Students, <!--**Prize: 5000 RMB**--> 2016.12
   * _The only awarded student among roughly 1000 students in our department_
 * SYSU Outstanding Student Scholarship (First Prize), <!--**Prize: 2000 RMB + 4000 RMB**--> 2016.9 & 2017.9
