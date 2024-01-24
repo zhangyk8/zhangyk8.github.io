@@ -353,9 +353,7 @@ We often get bored when repeating the same task again and again...
 
 On the contrary, computers are good at applying rigid rules over and over again.
 
---
-
-Iteration eases our burden of cumbersome repetitions and is one of the essentials in programming.
+- Iteration eases our burden of cumbersome repetitions and is one of the essentials in programming.
 
 --
 
@@ -519,6 +517,8 @@ cat("The total execution time of the loop without concatenation is ", end_time -
 
 We can always stop a loop earlier (before the counter has been iterated over the vector for `for()` loop or satisfying the condition for `while()` loop), using the `break` statement.
 
+--
+
 ```{r}
 n = 10
 log_vec = c()
@@ -654,6 +654,8 @@ cat("The vectorization takes ", end_time - start_time, " seconds to execute.")
 # `for()` Loop Versus Vectorization
 
 However, imagine what happen if the lengths of vectors are $n=100000$. Here is the `for()` loop implementation.
+
+--
 
 ```{r}
 set.seed(123)
@@ -935,8 +937,8 @@ The function `tapply()` takes inputs as: `tapply(x, INDEX = my.index, FUN = my.f
 ```{r}
 n = 17
 fac = factor(rep_len(1:3, n), levels = 1:5)
-1:17
 fac
+1:17
 
 tapply(1:n, fac, sum)
 ```
@@ -980,4 +982,4 @@ family_df_sp[[1]]
 
 - The family of `apply` functions can also make our code more efficient.
 
-Submit Lab 3 on Gradescope by the end of Monday (January 29)!!
+Submit Lab 3 on Gradescope by the end of Tuesday (January 30)!!

@@ -211,6 +211,8 @@ Recall that R packages encapsulate functions written by different R developers.
 
 --
 
+Why do we need to learn data manipulation through `tidyverse`?
+
 - Learning pipes `%>%` will facilitate our learning of the `dplyr` and `tidyr` verbs (or functions).
 
 - The functions in `dplyr` are analogous to SQL counterparts, so learning `dplyr` will get some SQL syntax for free!
