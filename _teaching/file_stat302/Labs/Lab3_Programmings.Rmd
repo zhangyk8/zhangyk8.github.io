@@ -82,7 +82,7 @@ rio =
 # Your code starts from here
 ```
 
-2. How many athletes competed the 2016 Summer Olympics? How many countries were represented? How many athletes had duplicate name? (Hint: Look at the function `duplicate()`.) 
+2. How many athletes competed the 2016 Summer Olympics? How many countries were represented? How many athletes had duplicate name? (Hint: Look at the function `duplicated()`.) 
 
 ```{r}
 # Your code starts from here
