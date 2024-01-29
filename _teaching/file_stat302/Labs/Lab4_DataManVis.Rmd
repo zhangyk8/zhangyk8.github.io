@@ -1,7 +1,7 @@
 ---
 title: "Lab 4: Data Manipulation and Visualization"
 author: "INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)"
-date: "Due by 23:59pm on Feb 12, 2024"
+date: "Due by 23:59pm on Feb 13, 2024"
 output:
   pdf_document: default
   html_document: default

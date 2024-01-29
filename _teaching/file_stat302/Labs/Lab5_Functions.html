@@ -12,7 +12,7 @@
 <meta name="author" content="INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)" />
 
 
-<title>Lab 2: Data Types</title>
+<title>Lab 5: Writing Functions And Debugging</title>
 
 <script>// Pandoc 2.9 adds attributes on both header and div. We remove the former (to
 // be compatible with the behavior of Pandoc < 2.8).
@@ -351,203 +351,382 @@ display: none;
 
 
 
-<h1 class="title toc-ignore">Lab 2: Data Types</h1>
+<h1 class="title toc-ignore">Lab 5: Writing Functions And Debugging</h1>
 <h4 class="author">INSERT YOUR NAME HERE (INSERT YOUR UW NETID
 HERE)</h4>
-<h4 class="date">Due by 23:59pm on Jan 23, 2024</h4>
+<h4 class="date">Due by 23:59pm on Feb 22, 2024</h4>
 
 </div>
 
 
-<div id="total-points-40" class="section level3">
-<h3>Total Points: 40</h3>
+<div id="total-points-50" class="section level3">
+<h3>Total Points: 50</h3>
 </div>
-<div id="part-1.-review-questions-253-pts" class="section level2">
-<h2>Part 1. Review Questions (2+5+3 pts)</h2>
+<div id="part-1.-writing-functions-in-r-i-311-pts" class="section level2">
+<h2>Part 1. Writing Functions in R (I) (3+1+1 pts)</h2>
 <ol style="list-style-type: decimal">
-<li><p>Multiply the inverse of a matrix <span class="math inline">\(\begin{bmatrix} 3 &amp; 2 &amp; 1\\ 4 &amp; 8
-&amp; 1\\ 5 &amp; 9 &amp; 16 \end{bmatrix}\)</span> with itself.</p>
-<p>Also, return those entries that are bigger than <span class="math inline">\(10^{-9}\)</span>.</p></li>
+<li>The soft-threshold function is defined as <span class="math display">\[
+g_\lambda(x) = \begin{cases}
+\text{sign}(x)\cdot(|x| - \lambda) &amp; |x| \geq \lambda,\\
+0 &amp; |x| &lt; \lambda.
+\end{cases}
+\]</span> Write an R function that takes two arguments, numeric vector
+<code>x</code> and a threshold value <code>lambda</code>. Your function
+should return the value of <span class="math inline">\(g_\lambda(x)\)</span> and work for vector input
+<code>x</code> of any length.</li>
 </ol>
-<pre class="r"><code># Your code here</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Make a list <code>lst1</code> with components</li>
+<li>Set <span class="math inline">\(\lambda = 4\)</span>, demonstrate
+your soft-threshold function on the vector
+<code>c(-5, -3, 0, 3, 6)</code>.</li>
 </ol>
-<ul>
-<li><code>1:15</code> under the name <code>num_vec</code>;</li>
-<li><code>matrix(15:1, ncol = 3)</code> under the name
-<code>mat</code>;</li>
-<li><code>rep(c(&quot;a&quot;, &quot;x&quot;), each = 3)</code> under the name
-<code>char_vec</code>;</li>
-<li><code>list(x = c(1,2), y=&quot;STAT 302&quot;)</code> under the name
-<code>sublst</code>.</li>
-</ul>
-<p>Answer the following questions using R:</p>
-<ul>
-<li>Compute the sum of the component <code>num_vec</code>;</li>
-<li>What is the element in position [2,3] in the component
-<code>mat</code>?</li>
-<li>What is the third element in the component
-<code>char_vec</code>?</li>
-<li>Use the function <code>strsplit()</code> with argument
-<code>split = &quot;&quot;</code> to split the subcomponent <code>y</code> in the
-component <code>sublst</code>. What is the data type for the result
-<code>strsplit()</code>?</li>
-<li>Subset the result after <code>strsplit()</code> via
-<code>[[1]]</code>. What is the fifth element of this character
-vector?</li>
-</ul>
-<pre class="r"><code># Your code here</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Download the <code>family.txt</code> shown in Lecture 2 to your
-laptop. Then, read the file into R using the function
-<code>read.delim()</code>. Then, compute the following statistics in
-R:</li>
+<li>Set <span class="math inline">\(\lambda = 2\)</span>, demonstrate
+your function on the vector <code>c(-8, -5, -3, 0, 3, 5, 7)</code>.</li>
 </ol>
-<ul>
-<li>What is the standard deviation of ages in
-<code>family.txt</code>?</li>
-<li>What is the percentage of males in <code>family.txt</code>?</li>
-<li>What is the maximum BMI within all the female individuals?</li>
-</ul>
-<pre class="r"><code># Your code here</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
 </div>
-<div id="part-2-normal-distribution-2534-pts" class="section level2">
-<h2>Part 2: Normal Distribution (2+5+3+4 pts)</h2>
-<p>R provides several functions for the normal/Gaussian
-distribution:</p>
-<ul>
-<li><code>dnorm()</code> computes the density function of a normal
-distribution;</li>
-<li><code>pnorm()</code> calculates the percentiles (or equivalently,
-the cumulative distribution function) of a normal distribution;</li>
-<li><code>qnorm()</code> returns the quantiles of a normal
-distribution;</li>
-<li><code>rnorm()</code> generates the normally distributed random
-variables.</li>
-</ul>
-<p>Use R to answer the following questions:</p>
+<div id="part-2.-writing-functions-for-the-median-of-means-estimator-753233-pts" class="section level2">
+<h2>Part 2. Writing Functions for the Median-of-Means Estimator
+(7+5+3+2+3+3 pts)</h2>
+<p>Recall from Lab 2 Part 3-2 that we computed the means of every 10
+elements from a vector of length 100 with random points from the
+binomial distribution <span class="math inline">\(\text{Bin}(m=300,
+p=0.25)\)</span> and then output the median of these 10 mean values.
+Indeed, we utilized the “Median-of-Means” estimator to estimate the mean
+of the binomial distribution <span class="math inline">\(\text{Bin}(m=300, p=0.25)\)</span> based on its
+random sample. The idea of this estimator is to divide the random sample
+with <span class="math inline">\(n\)</span> observations into several
+subsamples (or buckets) with size <span class="math inline">\(K\)</span>
+and then compute the mean within each bucket. Then, for all the means
+from these buckets (there are <span class="math inline">\(\lfloor n/K
+\rfloor\)</span> in total), we will return the median of them as the
+final output of this estimator. One advantage of the “Median-of-Means”
+estimator over the usual mean/average estimator of the random sample is
+its robustness to the outliers; recall Lab 2 Part 3-3.</p>
+<p>In this question, we are going to write our own function to implement
+the “Median-of-Means” estimator.</p>
 <ol style="list-style-type: decimal">
-<li>Create and store a vector <code>norm_vec</code> with <span class="math inline">\(100,000\)</span> random variables from a Normal
-distribution with mean 6 and standard deviation 2. Print out the first 7
-elements of <code>norm_vec</code> using the function
-<code>head()</code>.</li>
+<li>Generate a random vector <code>rand_vec</code> with length
+<code>n=160</code> from the binomial distribution <span class="math inline">\(\text{Bin}(m=300, p=0.25)\)</span>. Then, we
+compute the “Median-of-Means” estimator on <code>rand_vec</code> as
+follows:</li>
 </ol>
+<ul>
+<li>Assign a bucket size variable with value 10 (i.e.,
+<code>bucket_size = 10</code>).</li>
+<li>Compute the number of buckets <code>num_bucket</code> using the
+integer division <code>n %/% bucket_size</code>.</li>
+<li>Leverage the <code>rep_len()</code> function to generate a vector
+with the same length as <code>rand_vec</code>, whose elements are
+<code>1:num_bucket</code>, and then coerce it into a factor vector
+<code>group_vec</code>.</li>
+<li>Use the <code>tapply()</code> function to compute the mean within
+each factor level.</li>
+<li>Finally, compute the median of those mean values from the result of
+the <code>tapply()</code> function. Output this final median value,
+which will be the “Median-of-Means” estimator on the
+<code>rand_vec</code>.</li>
+</ul>
 <pre class="r"><code>set.seed(123)  ## Don&#39;t change this line. It makes the result reproducible.
-# Your code starts from here</code></pre>
+# Your code goes here</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Plot two histograms, one with the first 100 elements of
-<code>norm_vec</code>, and the other with all the elements of
-<code>norm_vec</code>. Set the argument <code>freq = FALSE</code> for
-both histograms for better comparisons.</li>
+<li>Change the length of a random vector to <span class="math inline">\(n=206\)</span>, i.e., generate a new random vector
+<code>rand_vec2</code> with length <code>n=206</code> from the binomial
+distribution <span class="math inline">\(\text{Bin}(m=300,
+p=0.25)\)</span>. Redo the steps in the above subquestion to compute the
+“Median-of-Means” estimator on this new vector
+<code>rand_vec2</code>.</li>
 </ol>
 <ul>
-<li>Change the x axis labels for both histograms to “Observations”.</li>
-<li>Set their titles as “Histogram of N(6,2) distributed random sample
-with n=THE CORRECT NUMBER OF SAMPLE POINTS”. Remember to change “THE
-CORRECT NUMBER OF SAMPLE POINTS”.</li>
-<li>Answer it by words: Which one looks more symmetric?</li>
+<li>Answer in words: Are the sizes of those subsamples (or buckets) the
+same in this case? Why does our code still work even when the length of
+the random vector <code>rand_vec2</code> is not a multiple of the bucket
+size? (Hint: Recall Slide 52 in Lecture 3. What R mechanism plays a role
+here?)</li>
 </ul>
-<pre class="r"><code># Your code starts from here</code></pre>
+<pre class="r"><code>set.seed(123)  ## Don&#39;t change this line. It makes the result reproducible.
+# Your code goes here</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Standardize the vector <code>norm_vec</code> to <span class="math inline">\(N(0,1)\)</span> by subtracting its mean and then
-dividing it by its standard deviation. Name it as
-<code>norm_vec_std</code>. Compute the standard deviation of
-<code>norm_vec_std</code>. Also, what is the percentage of observations
-in <code>norm_vec_std</code> that are greater than 1.644854?</li>
-</ol>
-<pre class="r"><code># Your code here</code></pre>
-<ol start="4" style="list-style-type: decimal">
-<li>Apply the function <code>pnorm()</code> (without specifying any
-other arguments) to the vector <code>norm_vec_std</code>. Then, compute
-its mean and variance after applying the function <code>pnorm()</code>.
-Finally, plot its histogram after applying the function
-<code>pnorm()</code> with the argument <code>freq = FALSE</code>.</li>
+<li>Now, we will abstract the above procedure into a function called
+<code>MedianOfMean()</code> with two input arguments:</li>
 </ol>
 <ul>
-<li>Describe in words what do you see from the histogram. (Hint: How is
-the height of each bin compared with others?)</li>
+<li><code>x</code> stands for the input random vector on which we want
+to estimate the mean (Abstracting the <code>rand_vec</code> above).</li>
+<li><code>bucket_size</code> is the bucket size (i.e., the number of
+observations in each subsample).</li>
 </ul>
-<pre class="r"><code># Your code here</code></pre>
+<p>The return value of the function <code>MedianOfMean()</code> is the
+“Median-of-Means” estimator on <code>x</code>. Then, evaluate your
+function <code>MedianOfMean()</code> on the random vector
+<code>rand_vec2</code> in subquestion 2 with bucket size 10 and check if
+the outputs are the same. (Hint: Change the <code>rand_vec</code> in
+subquestion 1 to <code>x</code> in the body of the function. Be careful
+about whether other variable names need to change or assign within the
+function.)</p>
+<pre class="r"><code># Your code goes here</code></pre>
+<ol start="4" style="list-style-type: decimal">
+<li>We should also let the user know when the length of the input vector
+<code>x</code> is not a multiple of the bucket size
+<code>bucket_size</code>. Modify the above <code>MedianOfMean()</code>
+function so that, as a side effect, it prints out the following two
+messages when the length of the input vector <code>x</code> is not a
+multiple of the bucket size <code>bucket_size</code>.</li>
+</ol>
+<ul>
+<li>“The length of the input vector <code>x</code> is not a multiple of
+the <code>bucket_size</code> parameter.”</li>
+<li>“There are some buckets that have one more observation than
+others.”</li>
+</ul>
+<p>Then, evaluate your function <code>MedianOfMean()</code> on the
+random vector <code>rand_vec2</code> in subquestion 2 with bucket size
+<strong>12</strong>.</p>
+<pre class="r"><code># Your code goes here</code></pre>
+<ol start="5" style="list-style-type: decimal">
+<li>Based on the <code>MedianOfMean()</code> function in subquestion 4,
+return not just the “Median-of-Means” estimator on <code>x</code> but
+also the bucket size and the bucket affiliation of <code>x</code> (i.e.,
+the factor vector that we create for using <code>tapply()</code>).
+(Hint: Create a list with three components:</li>
+</ol>
+<ul>
+<li><code>MoM_est</code>: the final value of the “Median-of-Means”
+estimator on <code>x</code>;</li>
+<li><code>bucket_size</code>: the bucket size as the input
+argument;</li>
+<li><code>group_aff</code>: the factor vector that indicates the bucket
+affiliation of <code>x</code>. )</li>
+</ul>
+<p>Then, evaluate your function <code>MedianOfMean()</code> on the
+random vector <code>rand_vec2</code> in subquestion 2 with bucket size
+<strong>12</strong>.</p>
+<pre class="r"><code># Your code goes here</code></pre>
+<ol start="6" style="list-style-type: decimal">
+<li>Since the input parameter <code>x</code> must be a numeric vector,
+add a check to the function <code>MedianOfMean()</code> in subquestion 5
+to ensure that the input <code>x</code> has length greater than 1 and is
+of the data type <code>numeric</code>. (Hint: Use the
+<code>stop()</code> function when the conditions are not met and print
+out the message
+<code>&quot;\n The input vector should be of its length greater than 1 and of the numeric data type.&quot;</code>.)</li>
+</ol>
+<p>Then, evaluate your function <code>MedianOfMean()</code> on the
+vector <code>letters</code> with bucket size <strong>12</strong>.</p>
+<pre class="r"><code># Your code goes here (Don&#39;t change the option `error=TRUE` in this chunk!!)</code></pre>
 </div>
-<div id="part-3-binomial-distribution-4pts-per-question" class="section level2">
-<h2>Part 3: Binomial Distribution (4pts per question)</h2>
-<p>The binomial distribution <span class="math inline">\(\mathrm{Bin}(m,p)\)</span> is defined by the
-number of successes in <span class="math inline">\(m\)</span>
-independent trials, each have probability <span class="math inline">\(p\)</span> of success. Think of flipping an
-(unfair) coin <span class="math inline">\(m\)</span> times, where the
-coin could be biased and has probability <span class="math inline">\(p\)</span> of landing on heads.</p>
-<p>Similar to the above normal distribution, R also provides several
-functions for the binomial distribution:</p>
-<ul>
-<li><code>dbinom()</code> computes the probability mass function of a
-binomial distribution;</li>
-<li><code>pbinom()</code> calculates the percentiles (or equivalently,
-the cumulative distribution function) of a binomial distribution;</li>
-<li><code>qbinom()</code> returns the quantiles of a binomial
-distribution;</li>
-<li><code>rbinom()</code> generates the random variables from a binomial
-distribution.</li>
-</ul>
+<div id="part-3-exploring-function-environments-424-pts" class="section level2">
+<h2>Part 3: Exploring Function Environments (4+2+4 pts)</h2>
 <ol style="list-style-type: decimal">
-<li>Initialize a matrix <code>binom_mat</code> with 3 columns and 100
-rows, whose entries are all <code>NA</code>.</li>
+<li>Copy and paste your <code>MedianOfMean()</code> function in the Part
+2-6 to the below chunk. Assign a value 10 to the variable
+<code>bucket_size</code> in the global environment (simply by writing
+<code>bucket_size = 10</code> outside of your function body). Then,
+evaluate your function <code>MedianOfMean()</code> on the random vector
+<code>rand_vec2</code> in Part 2-2 with bucket size
+<strong>12</strong>.</li>
 </ol>
 <ul>
-<li>Then, fill in each column with random samples from binomial
-distributions with <span class="math inline">\(m=300, p=0.25\)</span>
-(first column), <span class="math inline">\(m=300, p=0.5\)</span>
-(second column), and <span class="math inline">\(m=300, p=0.75\)</span>
-(third column), respectively.</li>
-<li>Compute the column means of <code>binom_mat</code>.</li>
+<li><p>Answer in words: Is the final value of the “Median-of-Means”
+estimator equal to the one in Part 2-3 or Part 2-5? Explain
+why?</p></li>
+<li><p>Print out the value of <code>bucket_size</code> in the global
+environment. Is it equal to 10 or 12?</p></li>
 </ul>
-<pre class="r"><code>set.seed(1234)  ## Don&#39;t change this line. It makes the result reproducible.
-# Your code starts from here</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
 <ol start="2" style="list-style-type: decimal">
-<li>Compute the means of every 10 elements in the first column of
-<code>binom_mat</code>. There should be 10 mean values in total. Then,
-output the median of these 10 mean values. Assign it to a variable
-<code>MoM</code>.</li>
+<li>We are going to explain the difference between <code>=</code> and
+<code>&lt;-</code> in this subquestion. The equal sign <code>=</code>
+and assignment operator <code>&lt;-</code> are often used
+interchangeably in R, and some people (including myself) will often
+consider that a choice between the two is mostly a matter of stylistic
+taste. To my surprise, this is not the full story. Indeed,
+<code>=</code> and <code>&lt;-</code> behave very differently when used
+to set input arguments in a function call. As we showed above, setting,
+say, <code>bucket_size = 12</code> as the input to
+<code>MedianOfMean()</code> has no effect on the global assignment for
+<code>bucket_size</code>. However, replacing
+<code>bucket_size = 12</code> with <code>bucket_size &lt;- 12</code> in
+the call to <code>MedianOfMean()</code> is entirely different in terms
+of its effect on <code>bucket_size</code>. Demonstrate this, and explain
+what you are seeing in terms of global assignment. (Hint: As in
+subquestion 1, first assign a value 10 to the variable
+<code>bucket_size</code> in the global environment. Then call the
+function <code>MedianOfMean()</code> as above, but replace
+<code>bucket_size = 12</code> with <code>bucket_size &lt;- 12</code> in
+its input argument. Finally, print out the value of
+<code>bucket_size</code> in the global environment. See whether it is
+equal to 10 or 12.)</li>
 </ol>
-<ul>
-<li>Compared with the mean of the first column of
-<code>binom_mat</code>, is <code>MoM</code> closer to the expected mean
-<code>75</code>? (Output a logical TRUE/FALSE using R!)</li>
-</ul>
-<pre class="r"><code># Your code here</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
 <ol start="3" style="list-style-type: decimal">
-<li>Now, change the first element in the first column of
-<code>binom_mat</code> to -100. Then, repeat what we did in Question 2
-(i.e., compute the means of every 10 elements in the first column of
-<code>binom_mat</code> and then calculate the median as
-<code>MoM2</code>.)</li>
+<li>The story now gets even more subtle. It turns out that the
+assignment operator <code>&lt;-</code> allows us to define new global
+variables even when we are specifying inputs to a function. Pick a
+variable name that has not been defined yet in your workspace, say
+<code>b</code> (or something else, if this has already been used in your
+R Markdown document). Call
+<code>MedianOfMeans(x = rand_vec2, b &lt;- 15)</code>, then display the
+value of <code>b</code> — this variable should now exist in the global
+environment, and it should be equal to 15! Also, can you explain the
+output of <code>MedianOfMeans(x = rand_vec2, b &lt;- 15)</code>? (Hint:
+Is the output from <code>MedianOfMeans</code> computed based on the
+<code>bucket_size = 15</code> or other values? Why?)</li>
 </ol>
+<pre class="r"><code># Your code goes here</code></pre>
+</div>
+<div id="part-4-practice-with-browser-3423-pts" class="section level2">
+<h2>Part 4: Practice with <code>browser()</code> (3+4+2+3 pts)</h2>
+<ol style="list-style-type: decimal">
+<li>Below is a function <code>add_inv_powers()</code> that computes
+<span class="math inline">\(1^1+2^{1/2}+\ldots+(n-1)^{1/(n-1)}+n^{1/n}\)</span>,
+via a <code>for()</code> loop, for some value of <span class="math inline">\(n\)</span> specified in the first argument. The
+second argument is <code>verbose</code>; if this is <code>TRUE</code>
+(the default is <code>FALSE</code>), then the function will print out
+the current summand to the console, as a roman numeral. A short demo is
+given below. You will use <code>add_inv_powers()</code> and
+<code>roman_cat()</code> to do a bit of exploration with
+<code>browser()</code> in the next several questions. But before this,
+for good vectorization practice, show that you can compute the same
+expression as done in <code>add_inv_powers()</code>, but without any
+explicit looping, i.e., just using vectorization and <code>sum()</code>.
+Check that you get the same answers for the demo inputs. (Hint: you can
+use <code>all.equal()</code> to check for “very near” equality, since
+you may not get exact equality in all digits.)</li>
+</ol>
+<pre class="r"><code>add_inv_powers = function(n, verbose=FALSE) {
+  x = 0
+  for (i in 1:n) {
+    x = x + i^(1/i)
+    if (verbose) roman_cat(i)
+  }
+  if (verbose) cat(&quot;\n&quot;)
+  return(x)
+}
+
+roman_cat = function(num) {
+  roman.num = as.roman(num)
+  roman.str = as.character(roman.num)
+  cat(roman.str, &quot;... &quot;)
+}
+
+add_inv_powers(n=3, verb=FALSE)</code></pre>
+<pre><code>## [1] 3.856463</code></pre>
+<pre class="r"><code>add_inv_powers(n=5, verb=FALSE)</code></pre>
+<pre><code>## [1] 6.650406</code></pre>
+<pre class="r"><code>add_inv_powers(n=10, verb=FALSE)</code></pre>
+<pre><code>## [1] 13.15116</code></pre>
+<pre class="r"><code># Your code goes here</code></pre>
+<ol start="2" style="list-style-type: decimal">
+<li>Running the code chunk below will enter you to the RStudio browser
+mode.</li>
+</ol>
+<pre class="r"><code>add_inv_powers = function(n, verbose=FALSE) {
+  x = 0
+  browser()
+  for (i in 1:n) {
+    x = x + i^(1/i)
+    if (verbose) roman_cat(i)
+  }
+  if (verbose) cat(&quot;\n&quot;)
+  return(x)
+}
+
+add_inv_powers(n = 5, verb = TRUE)</code></pre>
+<p>First, just look around: you should see the “Console” panel (as
+always), the “Source Viewer” panel, the “Environment” panel, and the
+“Traceback” panel. (The console is arguably the most important but the
+others add nice graphical displays.) Hit the return key repeatedly
+(while your cursor is in the console) to step through the function line
+by line, until you get to the last line of the function. Once this last
+line is run, you’ll immediately exit the browser mode. Try the whole
+process again a few times, each time looking at the various R Studio
+panels and familiarizing yourself with what they are displaying. Instead
+of hitting the return key, note that you can type “n” in the console to
+step to the next line. Note also that you can type in variable names in
+the console and hit enter, to see their current values (alternatively,
+the “Environment” panel will show you this too).</p>
+<p>Answer the following questions, exploring what you can do in the
+browser mode.</p>
 <ul>
-<li>Now, compared with the mean of the first column of
-<code>binom_mat</code>, is <code>MoM2</code> closer to the expected mean
-<code>m*p = 75</code>? (Output a logical TRUE/FALSE using R!)</li>
+<li>How do you display the value of the variable <code>n</code> defined
+in the <code>add_inv_powers()</code> function? (Recall that typing “n”
+just gives you the next line.)</li>
 </ul>
-<pre class="r"><code># Your code here</code></pre>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
+<ul>
+<li>How do you exit the browser mode prematurely, before the last line
+is reached?</li>
+</ul>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
+<ul>
+<li>Suppose that you are running the browser mode with a call like
+<code>new_num = 6</code> in the console. After you run the browser mode
+to completion, would the variable <code>new_num</code> be defined in
+your console?</li>
+</ul>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
+<ul>
+<li>Can you redefine existing variables in the browser? What happens,
+for example, if you were to redefine <code>x</code> the moment you
+entered the browser mode?</li>
+</ul>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
+<ol start="3" style="list-style-type: decimal">
+<li>Typing the “f” key in browser mode, as soon as you enter a
+<code>for()</code> loop, will skip to the end of the loop. Try this a
+few times. What happens if you type “f” after say a few iterations of
+the loop? What happens if you type “f” right before the loop?</li>
+</ol>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
+<p>Now, typing the “c” key in browser mode will exit browser mode and
+continue on with normal evaluation. Try this too. Lastly, typing the “s”
+key in browser mode will put you into an even more in-depth mode, call
+it “follow-the-rabit-hole” mode, where you step into each function being
+evaluated, and enter browser mode for that function. Try this, and
+describe what you find. Can you step into <code>roman_cat()</code>? Can
+you step into even those build-in functions?</p>
+<p><strong>Answer:</strong> YOU ANSWER GOES HERE.</p>
 <ol start="4" style="list-style-type: decimal">
-<li>Create a list <code>binom_lst</code> with 3 components:</li>
+<li>Now, you’ve had good practice with the <code>browser()</code>
+function. Use it to find and fix bugs in the function
+<code>fibonacci()</code> below. This function is supposed to generate
+the <span class="math inline">\(n\)</span>-th number in the Fibonacci
+sequence 1, 1, 2, 3, 5, 8, 13, 21, 34, …, which begins with 1, 1, and
+where every number after this is the sum of the previous two. Describe
+what bugs you found, how you found them, and what you did to fix them.
+Once this is done, your function should be producing outputs on the test
+cases below that match those described in the comments.</li>
 </ol>
-<ul>
-<li><p>A vector with 500 elements from a <span class="math inline">\(\mathrm{Bin}(300,0.75)\)</span> and name it as
-<code>binom500</code>;</p></li>
-<li><p>A vector with 1000 elements from a <span class="math inline">\(\mathrm{Bin}(300,0.75)\)</span> and name it as
-<code>binom1000</code>;</p></li>
-<li><p>A vector with 20000 elements from a <span class="math inline">\(\mathrm{Bin}(300,0.75)\)</span> and name it as
-<code>binom20000</code>.</p></li>
-<li><p>Compute the mean of each component of <code>binom_lst</code>.
-Which one is closest to the expected mean <code>m*p = 225</code>? Can
-you explain why?</p></li>
-<li><p>Look at the documentation of the functions <code>qqnorm()</code>
-and <code>qqline()</code>. Make QQ-plots with diagonal lines for each
-component of <code>binom_lst</code>. Which QQ-plot is most aligned with
-the diagonal line? Can you explain why?</p></li>
-</ul>
-<pre class="r"><code>set.seed(1234)  ## Don&#39;t change this line. It makes the result reproducible.
-# Your code starts from here</code></pre>
+<p><strong>Answer:</strong> YOU SHORT DESCRIPTION GOES HERE.</p>
+<pre class="r"><code>Fibonacci = function(n) {
+  my_fib = c(1, 1)
+  for (i in 2:(n-1)) my_fib[i+1] = my_fib[i] + my_fib[i-1]  
+  return(my_fib[i])
+}
+
+Fibonacci(1) # Should be 1</code></pre>
+<pre><code>## Error in my_fib[i + 1] &lt;- my_fib[i] + my_fib[i - 1]: replacement has length zero</code></pre>
+<pre class="r"><code>Fibonacci(2) # Should be 1</code></pre>
+<pre><code>## Error in my_fib[i + 1] &lt;- my_fib[i] + my_fib[i - 1]: replacement has length zero</code></pre>
+<pre class="r"><code>Fibonacci(3) # Should be 2</code></pre>
+<pre><code>## [1] 1</code></pre>
+<pre class="r"><code>Fibonacci(5) # Should be 5</code></pre>
+<pre><code>## [1] 3</code></pre>
+<pre class="r"><code>Fibonacci(9) # Should be 34</code></pre>
+<pre><code>## [1] 21</code></pre>
+<pre class="r"><code># Your correct function code goes here
+
+
+## Uncomment the following code lines once you have your correct function.
+# fibonacci(1)
+# fibonacci(2)
+# fibonacci(3)
+# fibonacci(5)
+# fibonacci(9)</code></pre>
 </div>
 
 

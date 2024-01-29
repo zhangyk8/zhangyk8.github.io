@@ -1,7 +1,7 @@
 ---
 title: "Lab 2: Data Types"
 author: "INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)"
-date: "Due by 23:59pm on Jan 22, 2024"
+date: "Due by 23:59pm on Jan 23, 2024"
 output:
   pdf_document: default
   html_document: default
