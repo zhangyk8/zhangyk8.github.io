@@ -491,7 +491,7 @@ mtcars %>%
 ```{r}
 # Base R syntax
 mpg_inds_decr = order(mtcars$mpg, decreasing = TRUE)
-head(mtcars[mpg_inds_decr, ], 4)
+head(mtcars[mpg_inds_decr, ], 3)
 ```
 
 ---
@@ -503,7 +503,7 @@ We can order by multiple columns as well.
 ```{r}
 mtcars %>% 
   arrange(desc(gear), desc(hp)) %>%
-  head(5)
+  head(7)
 ```
 
 ---
@@ -533,7 +533,9 @@ head(mtcars[, c("cyl", "disp", "hp")], 3)
 mtcars %>% 
   select(starts_with("d")) %>% 
   head(3)
+```
 
+```{r}
 # Base R syntax
 d_colnames = grep(x = colnames(mtcars), pattern = "^d")
 head(mtcars[, d_colnames], 3)
@@ -628,7 +630,17 @@ Learning `dplyr` also facilitates our understanding of SQL syntax.
 
 # `tidyr` Functions
 
-Two of the most important `tidyr` verbs (functions):
+Recall the tidy data principle for data (or a data frame/table) that we discussed in [Lecture 2](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Lecture2_Data_Structures.html#79):
+
+1. Each variable must have its own column.
+
+2. Each observation must have its own row.
+
+3. Each value must have its own cell.
+
+--
+
+There are two of the most important `tidyr` verbs (functions) that help us achieve the tidy data principle:
 
 - `pivot_longer()`: make "wide" data longer.
 
@@ -644,7 +656,11 @@ There are many other verbs, such as `spread()`, `gather()`, `nest()`, `unnest()`
 # devtools::install_github("rstudio/EDAWR")
 library(EDAWR) # Load some nice data sets
 EDAWR::cases
+```
 
+--
+
+```{r}
 EDAWR::cases %>% 
   pivot_longer(names_to = "year", values_to = "n", cols = 2:4) 
 ```
@@ -976,7 +992,7 @@ class: inverse
 
 `ggplot2` is a R package for "declaratively" creating graphics. 
 
-- We provide the data, tell `ggplot2` how to map variables to aesthetics and what graphical primitives to use, and it takes care of the details.
+- We provide the data and tell `ggplot2` how to map variables to aesthetics and what graphical primitives to use. Then, it takes care of the details.
 
 - Plots in `ggplot2` are built sequentially using layers.
 
