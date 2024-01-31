@@ -17,6 +17,8 @@ STAT 512 is the first course of the statistical inference sequence for first-yea
 - discussing important concepts that supplement the lectures;
 - going through some exercises that help strengthen the understanding of lecture materials or providing insights into other related study fields.
 
+I composed the notes for every quiz session on my own (see below) in Autumn 2022, and they have been the key materials for STAT 512 quiz sessions since 2022.
+
 ### Lecture Notes
 
 - <A href="http://faculty.washington.edu/yenchic/20A_stat512.html" style="color: #52adc8; text-decoration=underline"> Current Version </A> written by <A href="http://faculty.washington.edu/yenchic/index.html" style="color: #52adc8; text-decoration=underline"> Prof. Yen-Chi Chen</A>; 
