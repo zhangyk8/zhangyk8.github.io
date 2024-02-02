@@ -72,13 +72,17 @@ class: inverse
 
 Functional programming in R comprises two basic types of things/objects: **data** and **functions**.
 
-* We already discussed different data types in R.
+* We already discussed different data structures in R.
 
   - Vectors, arrays/matrices, lists, data frames, etc.
   
 --
 
-* **Functions** are some programs that turns input objects, or *arguments*, into an output object or a return value (possibly with side effects), according to a definite rule.
+* **Functions** are some programs that turn input objects, or *arguments* (or *parameters*), into an output object or a return value (possibly with side effects), according to a definite rule.
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/functions-r.png" width="410"/&gt;
+&lt;/p&gt;
 
 ---
 
@@ -93,6 +97,10 @@ Functional programming in R comprises two basic types of things/objects: **data*
 * Good programming is writing functions to correctly and efficiently transform inputs into outputs.
 
   - The principle of good programming is to take a big transformation and break it down into smaller ones so that we can efficiently implement these smaller tasks (using built-in functions and/or control flows).
+  
+&lt;p align="center"&gt;
+&lt;img src="./figures/programming.png" width="350"/&gt;
+&lt;/p&gt;
 
 ---
 
@@ -1473,13 +1481,13 @@ test_that("Testing if the input value is numeric", {
 ```
 
 ```
-## ── Failure ('&lt;text&gt;:4:3'): Testing if the input value is numeric ───────────────
+## ── Failure: Testing if the input value is numeric ──────────────────────────────
 ## is.numeric(input) is not TRUE
 ## 
 ## `actual`:   FALSE
 ## `expected`: TRUE 
 ## 
-## ── Error ('&lt;text&gt;:5:3'): Testing if the input value is numeric ─────────────────
+## ── Error: Testing if the input value is numeric ────────────────────────────────
 ## &lt;assertError/simpleError/error/condition&gt;
 ## Error: The input temperature must be a numeric value!!
 ## Backtrace:
@@ -1489,7 +1497,7 @@ test_that("Testing if the input value is numeric", {
 ```
 
 ```
-## Error in `reporter$stop_if_needed()`:
+## Error:
 ## ! Test failed
 ```
 
