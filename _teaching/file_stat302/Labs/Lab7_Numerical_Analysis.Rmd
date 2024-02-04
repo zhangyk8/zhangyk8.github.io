@@ -1,0 +1,54 @@
+---
+title: "Lab 7: Numerical Analysis"
+author: "INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)"
+date: "Due by 23:59pm on Mar 7, 2024"
+output:
+  pdf_document: default
+  html_document: default
+---
+
+### Total Points: 30
+
+## Part 1. Basic Root-Finding Problems (8 pts)
+
+Use both the bisection method and fixed-point iteration to find an approximation to $\sqrt[3]{25}$ that is accurate to within $10^{-7}$.
+
+1. For the bisection method, use $f(x)=x^3-25$ with the search interval $[1,3]$.
+
+2. For the fixed-point iteration, use $g(x)=\frac{2x^3+25}{3x^2}$ to identify the fixed point $g(x)=x$ with some initial point (says, $p_0=1$ or $p_0=2$).
+
+```{r}
+# Your code goes here
+```
+
+
+## Part 2. Non-quadratic Convergence of Newton's Method (10 pts)
+
+Recall that Newton's method does not exhibit quadratic convergence when one of the following two cases occur:
+
+- _Case 1_: The derivative of the function $f$ is zero at the root $p$ with $f(p)=0$.
+
+- _Case 2_: The second-order derivative of the function $f$ does not exist at the root $p$ with $f(p)=0$.
+
+We already demonstrate the exact linear convergence of Newton's method under _Case 1_ in the Lecture 8 slides. Now, we will explore _Case 2_ by implementing Newton's method on $f(x)=x+x^{\frac{4}{3}}$. In addition, output the limiting point $p^*$ of Newton's method under the initialization $p_0=3$ and the tolerance level $\epsilon=10^{-13}$. Moreover, apply the Aitken's $\Delta^2$ method to the sequence produced by Newton's method. Finally, plot the **logarithm** of the error $|p_n-p^*|$ against the number of iterations for both the Newton's method and Aitken's $\Delta^2$ method in the same plot. (Hint: You can adopt the code in Lecture 8 slides, but the `ylim` and legend location for the plot need adjusting.)
+
+```{r}
+library(latex2exp)
+# Your code goes here
+```
+
+
+## Part 3. Numerical Differentiation and Integration (6+6 pts)
+
+1. Compute the first-order derivative of $f(x)=\log(x) + cos(x)-\sqrt{x}$ at $x=2$ using the forward-difference, three-point endpoint formula, and five-point midpoint formula with $h=0.005$. Then, also compute its second-order derivative at $x=2$ using the second-order derivative midpoint formula. Output all these values. Finally, also output $f'(2)$ and $f''(2)$ that are computed by hand with R as your calculator.
+
+```{r}
+# Your code goes here
+```
+
+2. Compute the integral $\int_0^{\pi}\exp(2\cos(x)) dx$ using the trapezoidal rule, Simpson's rule, composite Simpson's rule with $n=60$, and composite Trapezoidal rule with $n=30$. Output all these values. In addition, output the integral value using the build-in function `integrate()`.
+
+```{r}
+# Your code goes here
+```
+
