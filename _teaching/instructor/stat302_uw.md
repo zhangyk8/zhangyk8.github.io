@@ -39,6 +39,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lab 3 -- Programming Fundamentals: [.pdf](file_stat302/Labs/Lab3_Programmings.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab3_Programmings.Rmd), [.html](file_stat302/Labs/Lab3_Programmings.html).
 - Lab 4 -- Data Manipulation and Visualization: [.pdf](file_stat302/Labs/Lab4_DataManVis.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab4_DataManVis.Rmd), [.html](file_stat302/Labs/Lab4_DataManVis.html).
 - Lab 5 -- Writing Functions And Debugging: [.pdf](file_stat302/Labs/Lab5_Functions.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab5_Functions.Rmd), [.html](file_stat302/Labs/Lab5_Functions.html).
+- Lab 6 -- Simulations: [.pdf](file_stat302/Labs/Lab6_Simulations.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab6_Simulations.Rmd), [.html](file_stat302/Labs/Lab6_Simulations.html).
 
 Acknowledgement: Some of my lab problems are modified from the lab questions of [Statistical Computing](https://www.stat.cmu.edu/~ryantibs/statcomp/) at CMU by [Professor Ryan Tibshirani](https://www.stat.cmu.edu/~ryantibs/).
 
