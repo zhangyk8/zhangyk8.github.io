@@ -755,7 +755,8 @@ Strive to have function names based on verbs. Otherwise, we apply standard varia
 
 ```{r, eval = FALSE}
 # Good
-add_row()
+add_row() # snake case
+addRow() # camel case
 permute()
 
 # Bad
