@@ -1,7 +1,7 @@
 ---
 title: "Lab 7: Numerical Analysis"
 author: "INSERT YOUR NAME HERE (INSERT YOUR UW NETID HERE)"
-date: "Due by 23:59pm on Mar 7, 2024"
+date: "Due by 23:59pm on Mar 8, 2024"
 output:
   pdf_document: default
   html_document: default
