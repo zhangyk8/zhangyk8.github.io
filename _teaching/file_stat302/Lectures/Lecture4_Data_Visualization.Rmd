@@ -377,7 +377,7 @@ Some of the most important `dplyr` verbs (functions):
 The `filter()` function is to subset rows based on a condition.
 
 ```{r}
-# Built in data frame of cars data, 32 cars x 11 variables
+# Built-in data frame of cars data, 32 cars x 11 variables
 mtcars %>% head(2)
 ```
 

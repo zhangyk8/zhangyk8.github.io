@@ -108,7 +108,7 @@ function_name = function(param1, param2 = "default") {
 
 * `function_name` is the name of our function, i.e., what we will use to call it.
 
-* `function()` is a build-in statement for defining a function.
+* `function()` is a built-in statement for defining a function.
 
 --
 
@@ -914,7 +914,7 @@ Figure out the exact line or portion of the code went wrong.
 
 --
 
-* Luckily, there are some R build-in functions that can assist us to locate the bugs: `traceback()`, and `cat()`, `print()` are also very helpful.
+* Luckily, there are some R built-in functions that can assist us to locate the bugs: `traceback()`, and `cat()`, `print()` are also very helpful.
 
 * We can also leverage the interactive debugging tool triggered by `browser()` in R.
 

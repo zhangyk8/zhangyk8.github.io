@@ -236,9 +236,9 @@ sum(x > 9)
 
 ---
 
-# Build-in Functions for Vectors
+# Built-in Functions for Vectors
 
-Many build-in functions can take vectors as arguments:
+Many built-in functions can take vectors as arguments:
 
 * `mean(), median(), sd(), var(), max(), min(), length()`, and `sum()` return single numbers.
 
@@ -371,7 +371,7 @@ rbind(c(1, 2, 3), c("a", "b", "c"))
 
 --
 
-* We can also apply (build-in) functions to matrices as vectors.
+* We can also apply (built-in) functions to matrices as vectors.
 
 ```{r}
 mean(arr1)

@@ -834,7 +834,7 @@ What kinds of data type will `apply()` return? It depends on what function we pa
 
 # Don't Overuse the `apply()` Function
 
-There are lots of special (or build-in) functions that are **optimized** and will be simpler and faster than using `apply()`. 
+There are lots of special (or built-in) functions that are **optimized** and will be simpler and faster than using `apply()`. 
 
 --
 
@@ -876,7 +876,7 @@ As an example, how can we count the number of positive entries in each row of a 
 set.seed(123)
 x = matrix(rnorm(90000), 300, 300)
 start_time = Sys.time()
-# Using the build-in function is much faster for big matrices
+# Using the built-in function is much faster for big matrices
 res2 = rowSums(x > 0)
 end_time = Sys.time()
 cat("The total execution time of a direct computations is ", end_time - start_time, " seconds!")
