@@ -882,11 +882,13 @@ We now provide some useful guidelines for debugging.
 
 When we see an error code that we don't understand, always Google it or ask ChatGPT!
 
---
-
 Seriously? 
 
 Yes, the error message that we saw might already be asked or solved by other people on some online forums/posts.
+
+<p align="center">
+<img src="./figures/debug.png" width="500"/>
+</p>
 
 ---
 
@@ -1125,14 +1127,14 @@ undebug(lm)
 undebug(f)
 ```
 
-Note: We can also use `debugonce()`, which will automatically "undebug" the function as soon as we exit the interactive debugging.
+Note: We can use `debugonce()`, which will automatically "undebug" the function as soon as we exit the interactive debugging.
 
 ---
 
 # Debugging Resources
 
 
-* [Advanced R Debugging - Hadley Wickham ](https://adv-r.hadley.nz/debugging.html).
+* [Advanced R Debugging - Hadley Wickham](https://adv-r.hadley.nz/debugging.html).
 
 * [What they Forgot to Teach You About R - Jennifer Bryan and Jim Hester](https://rstats.wtf/debugging-r-code.html).
 
@@ -1218,6 +1220,9 @@ FahToCel = function(temp_fah) {
 }
 temp_cel2 = FahToCel(temp_fah = "50F")
 ```
+
+Note: `require()` will output a warning if a package is not installed and then continue to execute the code, while `library()` will output an error and stop the execution of the code.
+
 
 ---
 
