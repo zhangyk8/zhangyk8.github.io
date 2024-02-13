@@ -11,10 +11,12 @@ source "https://rubygems.org"
 
 gem "github-pages", group: :jekyll_plugins
 
+
 # If you want to use Jekyll native, uncomment the line below.
 # To upgrade, run `bundle update`.
 
 # gem "jekyll"
+gem "jekyll", github: "jekyll/jekyll", ref: "refs/pull/9248/head"
 
 gem "wdm", "~> 0.1.0" if Gem.win_platform?
 
