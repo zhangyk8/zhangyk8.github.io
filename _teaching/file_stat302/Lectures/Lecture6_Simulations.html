@@ -228,7 +228,7 @@ Recall from Lab 2 that we have the utility functions:
 
 - `rnorm()`: generates the normally distributed random variables/observations.
 
-- `rbinom()`: generates the random variables from a binomial distribution.
+- `rbinom()`: generates the random variables/observations from a binomial distribution.
 
 We can replace "norm" or "binom" with the name of another distribution, and the same function applies, e.g., "t", "unif", "exp", "gamma", "chisq", "pois", etc. 
 
@@ -325,6 +325,10 @@ plot(c(seed, rand_num[1:(n-1)]), rand_num, xlab = "Input Numbers", ylab = "Outpu
 - The default algorithm in R (and in nearly all software languages) is called the "Mersenne-Twister" algorithm.
 
 - Type `?Random` in our R console to read more about this (and to read how to change the algorithm used for the pseudo-random number generation, which we should never really have to do that).
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/random_number.webp" width="400"/&gt;
+&lt;/p&gt;
 
 ---
 
