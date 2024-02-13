@@ -9,6 +9,7 @@ source "https://rubygems.org"
 # This will help ensure the proper Jekyll version is running.
 # Happy Jekylling!
 
+gem "jekyll", "=3.9.3"
 gem "github-pages", group: :jekyll_plugins
 
 
