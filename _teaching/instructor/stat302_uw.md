@@ -29,7 +29,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lecture 5 -- Writing Functions And Debugging: [Slides.html](file_stat302/Lectures/Lecture5_Function_Debug.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture5_Function_Debug.Rmd).
 - Lecture 6 -- Simulations: [Slides.html](file_stat302/Lectures/Lecture6_Simulations.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture6_Simulations.Rmd).
 - Lecture 7 -- [Midterm Review](file_stat302/Lectures/Lecture7_Midterm_review.pdf).
-- Lecture 8 -- Numerical Analysis: [Autumn2023.html](file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis_Aut23.Rmd) (Old versions).
+- Lecture 8 -- Numerical Analysis: [Slides.html](file_stat302/Lectures/Lecture8_Numerical_Analysis.html), [Source_Code.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture8_Numerical_Analysis.Rmd).
 - Lecture 9 -- Statistical Prediction: [Autumn2023.html](file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.html), [Autumn2023.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Lectures/Lecture9_Statistical_Prediction_Aut23.Rmd) (Old versions).
 
 ### Lab Assignments
@@ -40,6 +40,7 @@ Driven by the era of big data, computational data analysis has become an indispe
 - Lab 4 -- Data Manipulation and Visualization: [.pdf](file_stat302/Labs/Lab4_DataManVis.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab4_DataManVis.Rmd), [.html](file_stat302/Labs/Lab4_DataManVis.html).
 - Lab 5 -- Writing Functions And Debugging: [.pdf](file_stat302/Labs/Lab5_Functions.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab5_Functions.Rmd), [.html](file_stat302/Labs/Lab5_Functions.html).
 - Lab 6 -- Simulations: [.pdf](file_stat302/Labs/Lab6_Simulations.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab6_Simulations.Rmd), [.html](file_stat302/Labs/Lab6_Simulations.html).
+- Lab 7 -- Numerical Analysis: [.pdf](file_stat302/Labs/Lab7_Numerical_Analysis.pdf), [.Rmd](https://raw.githubusercontent.com/zhangyk8/zhangyk8.github.io/master/_teaching/file_stat302/Labs/Lab7_Numerical_Analysis.Rmd), [.html](file_stat302/Labs/Lab7_Numerical_Analysis.html).
 
 Acknowledgement: Some of my lab problems are modified from the lab questions of [Statistical Computing](https://www.stat.cmu.edu/~ryantibs/statcomp/) at CMU by [Professor Ryan Tibshirani](https://www.stat.cmu.edu/~ryantibs/).
 
