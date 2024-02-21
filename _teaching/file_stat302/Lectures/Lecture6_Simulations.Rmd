@@ -1413,14 +1413,14 @@ class: inverse
 
 ---
 
-# Completely Connected Ad Hoc Network
+# Connected Ad Hoc Network
 
-- We are interested in those completely connected networks.
+- We are interested in those connected networks.
   
 <!-- - There is at least one path between each pair of devices in the network.
 -->
   
-- Given a particular configuration of nodes, we want to know the smallest radius $R_c$ that makes a completely connected network.
+- Given a particular configuration of nodes, we want to know the smallest radius $R_c$ that makes a connected network.
 
 <p align="center">
 <img src="./figures/ad_hoc_con.png" width="500"/>
@@ -1469,7 +1469,7 @@ class: inverse
 
 1. We will randomly generate $n$ nodes for an ad hoc network according to some pre-specified node density (generally determined by the geographical information).
 
-2. Find the smallest $R_c$ such that the nodes are completely connected.
+2. Find the smallest $R_c$ such that the nodes are connected through paths in the network.
 
 3. Repeat several times for each $n$.
 
