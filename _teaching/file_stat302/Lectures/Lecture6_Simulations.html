@@ -39,7 +39,7 @@ class: center, top, title-slide
 
 5. Distribution Estimation and Sampling via Monte Carlo Methods
 
-6. Bootstrap
+6. Bootstrapping
 
 7. Ad hoc Network (Final Project)
 
@@ -768,7 +768,7 @@ where the numbers `\(x_0,x_1,...,x_n\)` satisfy `\(a=x_0\leq x_1\leq \cdots \leq
 
 # Monte Carlo Integration
 
-The Monte Carlo methods give us an alternative approach to evaluate this integral `\(\int_0^1 e^{-x^3} dx\)`.
+The Monte Carlo method gives us an alternative approach to evaluate this integral `\(\int_0^1 e^{-x^3} dx\)`.
 
 --
 
@@ -798,6 +798,19 @@ mean(exp(-x^3))
 ## [1] 0.8080956
 ```
 
+
+
+```r
+inteFun1 = function(x) {
+  exp(-x^3)
+}
+integrate(inteFun1, lower = 0, upper = 1)
+```
+
+```
+## 0.8075112 with absolute error &lt; 9e-15
+```
+
 ---
 
 # Importance Sampling
@@ -808,13 +821,13 @@ where `\(g\)` is a known function and `\(X\)` is a random variable with density 
 
 --
 
-We can approximate `\(I\)` using a technique called _importance sampling_.
+We can approximate `\(I\)` using a technique called **importance sampling**.
 
 1. Pick a proposal density function (also called sampling density) `\(q\)` from which we know how to generate random samples.
 
 2. Generate random points `\(Y_1,...,Y_n\)` from the proposal density `\(q\)`.
 
-3. Then, the importance sampling estimator is defined as:
+3. Then, the importance sampling estimator for `\(I\)` is defined as:
 `$$\hat{I}_n = \frac{1}{n} \sum_{i=1}^n \frac{g(Y_i) \cdot p(Y_i)}{q(Y_i)}.$$`
 
 ---
@@ -916,7 +929,7 @@ What if we don't have a built-in function for the probability distribution?
 
 --
 
-- If we know the density function `\(f\)` (or an upper bound `\(M\geq \sup_x \frac{f(x)}{p(x)}\)` with respect to some known density function `\(p\)`) and want to generate some random samples from `\(f\)`, we can consider using the Acceptance-Rejection sampling.
+- If we know the density function `\(f\)` (or an upper bound `\(M\geq \sup_x \frac{f(x)}{p(x)}\)` with respect to some known density function `\(p\)`) and want to generate some random samples from `\(f\)`, we can consider using the **Acceptance-Rejection sampling**.
 
 ---
 
@@ -959,7 +972,7 @@ lines(x, pnorm(x, mean = 0, sd = 3), lwd=2)
 legend("topleft", legend=c("Empirical", "Actual"), lwd=2, col=c("red", "black"))
 ```
 
-&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-24-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -993,7 +1006,7 @@ B = Sig_half %*% rnorm(n)
 plot(t, B, type="l")
 ```
 
-&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-25-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-26-1.png" style="display: block; margin: auto;" /&gt;
 
 ---
 
@@ -1163,7 +1176,7 @@ This shows that the accepted sampling point `\(X\)` does have its density functi
 ---
 class: inverse
 
-# Part 6: Bootstrap
+# Part 6: Bootstrapping
 
 ---
 
@@ -1358,7 +1371,7 @@ plant_wt = PlantGrowth$weight
 hist(plant_wt, breaks = 6)
 ```
 
-&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-27-1.png" style="display: block; margin: auto;" /&gt;
+&lt;img src="Lecture6_Simulations_files/figure-html/unnamed-chunk-28-1.png" style="display: block; margin: auto;" /&gt;
 
 Let's first consider the statistic `\(T_1=\bar{X}_n = 5.073\)` for this data set.
 
@@ -1666,9 +1679,9 @@ class: inverse
 
 - To make our simulation results reproducible, we must set the seed via `set.seed()`.
 
-- Monte Carlo methods provides us with feasible ways to compute integrals or sample observations from a given density function.
+- Monte Carlo methods provide us with feasible ways to compute integrals or sample observations from a given density function.
 
-- Bootstrap presents an almost distribution-free way to quantify the uncertainties of our statistical estimators. 
+- The bootstrap principle presents an almost distribution-free way to quantify the uncertainties of our statistical estimators. 
 
 Submit Lab 6 on Canvas by the end of Thursday (February 29) and the final project by the end of March 13!!
     </textarea>
