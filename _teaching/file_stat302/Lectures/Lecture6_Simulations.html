@@ -986,7 +986,7 @@ where `\(F_n\)` is the ECDF of `\(X_1,\ldots,X_n \sim F\)` and `\(G_n\)` is the 
 
 --
 
-- Under the null hypothesis `\(F=G\)` (two distributions are the same), as `\(n \to \infty\)`, the KS statistic approaches the supremum of a Brownian bridge as:
+- Under the null hypothesis `\(F=G\)` (two distributions are the same), when `\(n \to \infty\)`, the KS statistic approaches the supremum of a Brownian bridge as:
 `$$\sup_{t \in [0,1]} |B(t)|,$$`
 where `\(B\)` is a Gaussian process with `\(B(0)=B(1)=0\)`, mean `\(\mathbb{E}(B(t))=0\)` for any `\(t\in [0,1]\)`, and covariance function `\(\mathrm{Cov}(B(s), B(t)) = \min\{s,t\} - st\)` for any `\(t,s\in [0,1]\)`.
 
@@ -1140,7 +1140,7 @@ For the numerator, we compute that
 
 For the denominator, we compute that
 `\begin{align*}
-P\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \right) &amp;= \int p\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \Big| Y=y \right) \cdot p(y) \, dy\\
+P\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \right) &amp;= \int P\left(U &lt; \frac{f(Y)}{M \cdot p(Y)} \Big| Y=y \right) \cdot p(y) \, dy\\
 &amp;= \int P\left(U &lt; \frac{f(y)}{M \cdot p(y)} \right) \cdot p(y) \, dy\\
 &amp;= \int \frac{f(y)}{M \cdot p(y)} \cdot p(y) \, dy\\
 &amp;= \frac{1}{M} \int f(y)\, dy \\
