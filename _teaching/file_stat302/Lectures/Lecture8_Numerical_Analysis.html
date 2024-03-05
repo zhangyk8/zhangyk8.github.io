@@ -785,9 +785,9 @@ This is called `\(k\)`-digit _decimal machine numbers_.
 
 Note: We make two remarks for rounding.
 
-- When `\(d_{k+1} \geq 5\)`, we add `\(1\)` to the digit `\(d_k\)` to obtain the final floating point number `\(fl(y)\)`, i.e., we _round up_.
+- When `\(\delta_{k+1} \geq 5\)`, we add `\(1\)` to the digit `\(\delta_k\)` to obtain the final floating point number `\(fl(y)\)`, i.e., we _round up_.
 
-- When `\(d_{k+1} &lt; 5\)`, we simply chopp off all but the first `\(k\)` digits, i.e., we _round down_.
+- When `\(\delta_{k+1} &lt; 5\)`, we simply chop off all but the first `\(k\)` digits, i.e., we _round down_.
 
 ---
 
@@ -851,7 +851,7 @@ sigDigit(p_hat, p_star)
 
 # Floating Point Operations in Computers
 
-Assume that the floating-point representations `\(fl(x)\)` and `\(fl(y)\)` are given for the real numbers `\(x\)` and `\(y\)`. Let `\(\oplus, \ominus, \otimes, \oslash\)` represent machine addition, subtraction, multiplication, and division operations.
+Assume that the floating-point representations `\(fl(x)\)` and `\(fl(y)\)` are given for real numbers `\(x\)` and `\(y\)`. Let `\(\oplus, \ominus, \otimes, \oslash\)` represent machine addition, subtraction, multiplication, and division operations.
 
 --
 
@@ -867,8 +867,6 @@ x \ominus y &amp;= fl\left(fl(x) - fl(y) \right), \quad x\oslash y = fl\left(fl(
 
 
 ```r
-x = round(1/3, digits = 4)
-y = round(5/7, digits = 4)
 print(1/3 + 5/7)
 ```
 
@@ -878,6 +876,8 @@ print(1/3 + 5/7)
 
 ```r
 # 3-digit arithmetic
+x = round(1/3, digits = 4)
+y = round(5/7, digits = 4)
 round(x + y, digits = 4)
 ```
 
@@ -1237,13 +1237,13 @@ Suppose that we want to search for an item in a (discrete) ordered list or a sol
 
 # Searching for `\(R_c\)` in the Final Project
 
-We will write a function `findRc()` in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf) to search for `\(R_c\)`, which is the smallest possible radius such that a given ad hoc network is completely connected.
+We will write a function `findRc()` in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf) to search for `\(R_c\)`, which is the smallest possible radius such that a given ad hoc network is connected.
 
 1. Denote the endpoints of the interval returned from `findRange()` (i.e., a helper function in the [final project](https://zhangyk8.github.io/teaching/file_stat302/Lectures/Final_Project.pdf)) by `\(\bar{R}_{\min}\)` and `\(\bar{R}_{\max}\)`, respectively.
 
 2. Compute the middle point as `\(\bar{R}_0=\frac{\bar{R}_{\min}+\bar{R}_{\max}}{2}\)`. 
 
-3. If `\(\bar{R}_0\)` gives a completely connected network, then we assign `\(\bar{R}_{\max}\gets \bar{R}_0\)`. Otherwise, we assign `\(\bar{R}_{\min}\gets \bar{R}_0\)`.
+3. If `\(\bar{R}_0\)` gives a connected network, then we assign `\(\bar{R}_{\max}\gets \bar{R}_0\)`. Otherwise, we assign `\(\bar{R}_{\min}\gets \bar{R}_0\)`.
 	
 4. Repeat Steps 2 and 3 until `\(|\bar{R}_{\min} - \bar{R}_{\max}|\)` is less than the tolerance level `tol`.
 
@@ -2922,7 +2922,7 @@ which is remarkably accurate even for relatively small `\(\lambda\)`.
   
   - We study Trapezoidal rule, Simpson's rule, and their composite versions for numerical integration.
 
-Submit Lab 7 on Gradescope by the end of Friday (March 8) and the final project by the end of March 13!!
+Submit Lab 7 on Gradescope by the end of Monday (March 11) and the final project by the end of Friday (March 15)!!
     </textarea>
 <style data-target="print-only">@media screen {.remark-slide-container{display:block;}.remark-slide-scaler{box-shadow:none;}}</style>
 <script src="https://remarkjs.com/downloads/remark-latest.min.js"></script>
