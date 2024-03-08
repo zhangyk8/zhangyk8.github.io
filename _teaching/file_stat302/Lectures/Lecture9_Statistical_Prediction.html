@@ -88,7 +88,7 @@ The regression model provides us with a statistical approach to conduct
 The linear model is arguably the _most widely used_ statistical model, which has a place in nearly every application domain of statistics.
 
 Given response `\(Y\)` and predictors `\(X_1,...,X_p\)` in a **linear regression model**, we posit that
-`$$Y = \beta_0+\beta_1 X_1 + \cdots \beta_p X_p + \epsilon \quad \text{ with } \quad \epsilon \sim N(0,\sigma^2).$$`
+`$$Y = \beta_0+\beta_1 X_1 + \cdots +\beta_p X_p + \epsilon \quad \text{ with } \quad \epsilon \sim N(0,\sigma^2).$$`
 
 --
 
@@ -473,7 +473,7 @@ ggplot(my_df, aes(x = fitted, y = actual)) +
 
 We use the function `predict()` to predict the responses given new covariates. This is also known as the **out-of-sample prediction**.
 
-- For example, suppose that we observe two new cars with horse powers of `100` and `150`, respectively, and weights of `3000` and `3500`, respectively.
+- For example, suppose that we observe two new cars with gross horse powers of `100` and `150`, respectively, and weights of `3000` lbs and `3500` lbs, respectively.
 
 
 ```r
@@ -559,7 +559,7 @@ Training error: `\(\frac{1}{n} \sum\limits_{i=1}^n L\left(Y_i,\hat{Y}_i\right) =
 - The definition of the _test error_ relies on the out-of-sample prediction `\(\hat{Y}^*\)` from the model.
 
 - The _training error_, on the contrary, is defined through the in-sample predictions
-`$$\hat{Y}_i = \hat{\beta}_0+\hat{\beta}_1X_{i,1} + \cdots + \hat{\beta}_p X_{i,p} \quad \text{ for } i=1,...,n.$$`
+`$$\hat{Y}_i = \hat{\beta}_0+\hat{\beta}_1X_{i,1} + \cdots + \hat{\beta}_p X_{i,p} \quad \text{ for } \quad i=1,...,n.$$`
 
 ---
 
@@ -918,7 +918,7 @@ plot(dat$x, dat$y, pch=20, col=inds+1, main=paste("Degree 1 (Test error:", round
 lines(xx, predict(lm.1, data.frame(x=xx)), lwd=2, lty=2) 
 legend("topleft", legend=paste("Fold",1:k), pch=20, col=2:(k+1))
 
-plot(dat$x, dat$y, pch=20, col=inds+1, main=paste("Degree 1 (Test error:", round(cv.errs[2], 3), ")"), xlab = "X", ylab = "Y")
+plot(dat$x, dat$y, pch=20, col=inds+1, main=paste("Degree 10 (Test error:", round(cv.errs[2], 3), ")"), xlab = "X", ylab = "Y")
 lines(xx, predict(lm.10, data.frame(x=xx)), lwd=2, lty=2) 
 legend("topleft", legend=paste("Fold",1:k), pch=20, col=2:(k+1))
 ```
@@ -1014,9 +1014,31 @@ There are several ways to pursue the "sweet-spot" model from a given class of mo
 
 - Use the cross-validation to select the optimal parameters for the model.
 
-- Add some regularization to the complex model to present overfitting.
+- Add some regularization to the complex model to prevent overfitting.
 
 - Pick a relatively simple model from the candidate class ([Occam's razor](https://en.wikipedia.org/wiki/Occam%27s_razor)).
+
+---
+
+# Machine Learning Practice
+
+To become a machine learning or artificial intelligence (AI) engineer, we only need to
+
+1. Understand the bias-variance trade-off principle.
+
+2. Know how to do computer programming.
+
+3. Avoid overfitting with the preceding standard techniques.
+
+--
+
+&lt;p align="center"&gt;
+&lt;img src="./figures/Kid_Prom.jpeg" width="300"/&gt;
+&lt;/p&gt;
+&lt;p align="center"&gt;
+&lt;font size="4"&gt; The picture is an AI textbook designed for children at the kindergarten level in China. There are some news saying that several
+kindergartens are teaching computer programming to their 3-5 years-old kids.&lt;/font&gt;
+&lt;/p&gt;
 
 ---
 
