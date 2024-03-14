@@ -464,7 +464,7 @@ $$\hat{Y}^*=\hat{\beta}_0+\hat{\beta}_1X_1^* + \cdots + \hat{\beta}_p X_p^*.$$
 # Training and Test Errors
 
 We define the **test error**, also called prediction error, under the square loss function $L(Y,Y')=(Y-Y')^2$ by 
-$$\mathbb{E}\left[L(Y^*, \hat{Y}^*) \right] = \mathbb{E}\left[(Y^* - \hat{Y}^*)^2 \right],$$
+$$\mathbb{E}\left[L\left(Y^*, \hat{Y}^*\right) \right] = \mathbb{E}\left[\left(Y^* - \hat{Y}^*\right)^2 \right],$$
 where the expectation is taken over every random quantity: the training data $\{(Y_i,X_{i,1},...,X_{i,p})\}_{i=1}^n$ and test data $(Y^*, X_1^*,...,X_p^*)$.
 
 --
@@ -478,7 +478,7 @@ Note: We explain the training and test errors for a linear model, but the same d
 
 # Training and Test Errors
 
-Test error: $\mathbb{E}\left[L(Y^*, \hat{Y}^*) \right] = \mathbb{E}\left[(Y^* - \hat{Y}^*)^2 \right]$.
+Test error: $\mathbb{E}\left[L\left(Y^*, \hat{Y}^*\right) \right] = \mathbb{E}\left[\left(Y^* - \hat{Y}^*\right)^2 \right]$.
 
 Training error: $\frac{1}{n} \sum\limits_{i=1}^n L\left(Y_i,\hat{Y}_i\right) = \frac{1}{n}\sum\limits_{i=1}^n \left(Y_i - \hat{Y}_i\right)^2$.
 
@@ -491,7 +491,7 @@ $$\hat{Y}_i = \hat{\beta}_0+\hat{\beta}_1X_{i,1} + \cdots + \hat{\beta}_p X_{i,p
 
 # Estimating Test Error
 
-The test error, $\mathbb{E}\left[L(Y^*, \hat{Y}^*) \right] = \mathbb{E}\left[(Y^* - \hat{Y}^*)^2 \right]$, quantifies the expected squared difference between a new prediction and the truth.
+The test error, $\mathbb{E}\left[L\left(Y^*, \hat{Y}^*\right) \right] = \mathbb{E}\left[\left(Y^* - \hat{Y}^*\right)^2 \right]$, quantifies the expected squared difference between a new prediction and the truth.
 
   - **Predictive Assessment:** It provides us with a valid way to assess the magnitude of errors of our model in making future predictions!
   
@@ -894,7 +894,7 @@ class: inverse
 # Bias-Variance Trade-off
 
 The test error can be decomposed as a function of the bias and variance of our estimates. For instance, under the square loss $L(Y,Y')=(Y-Y')^2$, we have that 
-$$\mathbb{E}\left[(Y^* - \hat{Y}^*)^2 \right] = \underbrace{\mathbb{E}\left[(Y^* - \mathbb{E}\hat{Y}^*)^2 \right]}_{\mathbb{E}\left(\text{Bias}^2\right)} + \underbrace{\mathbb{E}\left[(\hat{Y}^* - \mathbb{E}\hat{Y}^*)^2 \right]}_{\text{Variance}}$$
+$$\mathbb{E}\left[\left(Y^* - \hat{Y}^*\right)^2 \right] = \underbrace{\mathbb{E}\left[\left(Y^* - \mathbb{E}\hat{Y}^*\right)^2 \right]}_{\mathbb{E}\left(\text{Bias}^2\right)} + \underbrace{\mathbb{E}\left[\left(\hat{Y}^* - \mathbb{E}\hat{Y}^*\right)^2 \right]}_{\text{Variance}}$$
 
 * **Bias:** the expected difference between our estimates and the truth values.
 
