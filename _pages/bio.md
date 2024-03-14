@@ -23,7 +23,7 @@ Research Experience
   * Advisors: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and [Prof. Alexander Giessing](https://agiessing.github.io/)
 * Jun 2021 - Jul 2022: Visiting Research Student at Shanghai Astronomical Observatory
   * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
-  * Host: [Prof. Rafael S. de Souza](https://www.rafaelsdesouza.com/)
+  * Host: [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584)
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
   * Host: Prof. Jiming Liu
