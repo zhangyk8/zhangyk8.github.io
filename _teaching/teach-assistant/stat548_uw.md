@@ -25,5 +25,5 @@ CSE547 / STAT548 is a graduate-level machine learning course jointly offered by 
 
 ### My Recitation Notes
 
-- [Probability and Proof Techniques](file_stat548/CS547_Proof_Probability_new.pdf)
-- [Linear Algebra](file_stat548/CS547_LinAlg_review_new.pdf)
+- [Probability and Proof Techniques](file_stat548/CSE547_Proofs_Probability.pdf)
+- [Linear Algebra](file_stat548/CSE547_LinAlg_Review.pdf)
