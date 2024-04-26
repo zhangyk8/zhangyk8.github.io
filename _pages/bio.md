@@ -60,6 +60,7 @@ Professional Service
 
 Scholarships & Awards
 -----------
+* [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
 * Best Undergraduate Thesis Award, Jun 2018
 * Kwang-Hua Education Scholarship, Dec 2017
   * _The only awarded student among roughly 1000 students in our department_
