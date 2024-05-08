@@ -56,7 +56,7 @@ Professional Service
 -----------
 **Reviewer:**
 * Journal of Machine Learning Research, Electronic Journal of Statistics
-* AISTATS (2024, 2023, 2022)
+* International Conference on Artificial Intelligence and Statistics (AISTATS 2024, 2023, 2022), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 Scholarships & Awards
 -----------
