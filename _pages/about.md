@@ -13,10 +13,11 @@ I am a Ph.D. student in the [Department of Statistics](https://stat.uw.edu/) at 
 
 Research Interests
 -----------
-My current theoretical research interests are on 
+My current theoretical research interests lie in
 * Nonparametric Statistics (kernel smoothing),
 * Optimization on Nonlinear Manifolds,
-* High-dimensional Inference with Missing Data.
+* High-dimensional Inference with Missing Data,
+* Causal Inference for Continuous Treatments.
 
 On the applied side, I am broadly interested in challenging problems in astronomy, with a focus on how to detect and analyze the large-scale structure of the Universe (i.e., cosmic web) in a statistically motivated way.
 
