@@ -19,7 +19,7 @@ author_profile: false
 
 ## Preprints
 4. **Yikun Zhang**, Yen-Chi Chen, and Alexander Giessing (2024) <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> 
-Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> _arXiv: 2405.09003_ [<A href="https://github.com/zhangyk8/npDoseResponse" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/NonpDoseResponse.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>]
+Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> _arXiv: 2405.09003_ [<A href="https://github.com/zhangyk8/npDoseResponse" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDR2024.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/NonpDoseResponse.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>]
 
 3. **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen (2023) <A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> 
 Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> _arXiv: 2309.06429_ [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>]
