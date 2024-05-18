@@ -19,7 +19,8 @@ Research Experience
 -----------
 * Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
   * Research Focus 1: Nonparametric Density Estimation With Manifold Constraints, Mode Clustering, and Optimization on Manifolds
-  * Research Focus 2: High-Dimensional Statistical Inference with Incomplete Data
+  * Research Focus 2: High-Dimensional Statistical Inference With Incomplete Data
+  * Research Focus 3: Nonparametric Methods for Causal Inference With Continuous Treatments
   * Advisors: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and [Prof. Alexander Giessing](https://agiessing.github.io/)
 * Jun 2021 - Jul 2022: Visiting Research Student at Shanghai Astronomical Observatory
   * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
@@ -37,10 +38,10 @@ Teaching Experience
 -->
 
 **Instructor:** 
-* [Statistical Computing (Autumn 2023 & Winter 2024)](../teaching/stat302_uw)
+* [Statistical Computing (Winter 2024, Autumn 2023)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
-* [Machine Learning for Big Data (Winter 2023)](../teaching/stat548_uw)
+* [Machine Learning for Big Data (Spring 2024, Winter 2023)](../teaching/stat548_uw)
 * [Statistical Inference (Autumn 2022)](../teaching/stat512_uw)
 * [Matrix Analysis and its Applications (Spring 2018)](../teaching/spring_2018)
 * [Fourier Analysis and its Applications (Fall 2017)](../teaching/fall_2017)
@@ -60,6 +61,7 @@ Professional Service
 
 Scholarships & Awards
 -----------
+* [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
 * Best Undergraduate Thesis Award, Jun 2018
 * Kwang-Hua Education Scholarship, Dec 2017
@@ -73,7 +75,7 @@ Scholarships & Awards
 * SYSU Outstanding Student Scholarship (First Prize), Sep 2016 & Sep 2017
 * SYSU Outstanding Student Scholarship (Second Prize), Sep 2015
 * SYSU Freshman Soccer Cup, _Second Place_, Dec 2015
-  * _I played as the Captain and led our team to the final_ (I no longer play any offical soccer match starting from the beginning of 2020; see my <A href="https://zhangyk8.github.io/portfolio/portfolio-3/" style="color: #52adc8; text-decoration=underline">retirement letter</A>. However, I would occasionally play some noncompetitive soccer games in my spare time.)
+  * _Played as the captain and led our team to the final_
 
 Skills
 -----------
