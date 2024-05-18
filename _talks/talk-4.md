@@ -5,7 +5,15 @@ collection: talks
 permalink: /talks/talk-4
 type: ""
 date: 2023-11-08
-excerpt: "- Causal and Missing Data Reading Group, Seattle USA (November 2023)"
+excerpt: "- Joint Statistical Meeting 2024, Portland USA (August 2024)
+
+          - [2024 ICSA Applied Statistics Symposium](https://symposium2024.icsa.org/student-paper-winners/), Nashville USA (June 2024)
+
+          - The 37th New England Statistics Symposium, University of Connecticut USA (May 2024)
+
+          - [NISS Graduate Student Network Research Conference 2024](https://www.niss.org/events/niss-graduate-student-network-research-conference-2024) (May 2024, Virtual)
+
+          - Causal and Missing Data Reading Group, Seattle USA (November 2023)"
 ---
 
 ## Efficient Inference on High-Dimensional Linear Models With Missing Outcomes
