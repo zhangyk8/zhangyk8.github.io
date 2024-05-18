@@ -7,7 +7,7 @@ type: ""
 date: 2023-11-08
 excerpt: "- Joint Statistical Meeting 2024, Portland USA (August 2024)
 
-          - [2024 ICSA Applied Statistics Symposium](https://symposium2024.icsa.org/student-paper-winners/), Nashville USA (June 2024)
+          - [2024 ICSA Applied Statistics Symposium](https://symposium2024.icsa.org/), Nashville USA (June 2024)
 
           - The 37th New England Statistics Symposium, University of Connecticut USA (May 2024)
 
