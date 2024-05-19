@@ -11,7 +11,7 @@ excerpt: "- Clubear Online Seminar Series (狗熊会); [Recording in Chinese](ht
 
           - Cosmic Cartography, 2022 at Kashiwa, Japan (March 2022, Virtual)
 
-          - Shanghai Astronomical Observatory, Chinese Academy of Sciences (July 2021)"
+          - Shanghai Astronomical Observatory, Chinese Academy of Sciences, China (July 2021)"
 ---
 
 ## Cosmic Filament Detection Through Directional Density Ridges
