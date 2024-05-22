@@ -28,8 +28,8 @@ The talk is based on a joint work with [Prof. Alexander Giessing](https://agiess
 
 <br>
 
-Talk Slides: [Slides](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes.pdf)
+Talk Slides: [Long Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes.pdf), [Short Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes_Short.pdf).
 
 Code Link on GitHub: [Debias-Infer](https://github.com/zhangyk8/Debias-Infer).
 
-Paper Reference: **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. Efficient Inference on High-Dimensional Linear Models With Missing Outcomes. _ArXiv preprint_, [arXiv: 2309.06429](https://arxiv.org/abs/2309.06429).
+Paper Reference: **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. Efficient Inference on High-Dimensional Linear Models With Missing Outcomes. _arXiv preprint_, [arXiv: 2309.06429](https://arxiv.org/abs/2309.06429).
