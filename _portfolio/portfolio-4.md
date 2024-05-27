@@ -30,8 +30,11 @@ Notes: The title "Resonance" of this page is inspired and adopted from a probabi
 
 5. A very inspiring and encouraging poem written by William Ernest Henley: [Invictus](https://www.poetryfoundation.org/poems/51642/invictus). 
    * The poem empowered Nelson Mandela, a former President of South Africa and Nobel Peace Prize Laureate, to get through the darkest moment in his life.
-   * It also supports me whenever my research life does not go well.
+   * It also supports me whenever my research life does not go as expected.
   
 6. "I can accept failure, everyone fails at something. But I can't accept not trying and giving up."
-   * This quote was modified from [some inspiring comments](https://medium.com/upchapter/i-can-accept-failure-everyone-fails-at-something-ce9b0881ab33) from the basketball superstar, Michael Jordan.
+   * This quote is modified from [some inspiring comments](https://medium.com/upchapter/i-can-accept-failure-everyone-fails-at-something-ce9b0881ab33) from the basketball superstar, Michael Jordan.
    * It inspires me to keep learning new things and fighting for what I dream about.
+
+7. "Legends aren't defined by their successes. They're defined by how they bounce back from their failures."
+   * This quote was from Chris Bosh's Naismith Memorial Basketball Hall of Fame speech in 2022, where he reflected a lesson that he learned from the basketball legend Kobe Bryant during their time together on the 2008 Olympic team.
