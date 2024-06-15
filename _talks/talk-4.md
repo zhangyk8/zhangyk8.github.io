@@ -13,7 +13,7 @@ excerpt: "- Joint Statistical Meeting 2024, Portland, USA (August 2024)
 
           - [NISS Graduate Student Network Research Conference 2024](https://www.niss.org/events/niss-graduate-student-network-research-conference-2024) (May 2024, Virtual)
 
-          - Causal and Missing Data Reading Group, University of Washington, Seattle USA (November 2023)"
+          - Causal Inference and Missing Data Reading Group, University of Washington, Seattle USA (November 2023)"
 ---
 
 ## Efficient Inference on High-Dimensional Linear Models With Missing Outcomes
