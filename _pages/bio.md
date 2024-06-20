@@ -62,6 +62,7 @@ Professional Service
 Scholarships & Awards
 -----------
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
+* [2024 NESS Student Research Award](https://symposium.nestat.org/awards.html), May 2024
 * [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
 * Best Undergraduate Thesis Award, Jun 2018
 * Kwang-Hua Education Scholarship, Dec 2017
