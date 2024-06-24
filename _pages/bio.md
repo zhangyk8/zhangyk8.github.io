@@ -21,7 +21,7 @@ Research Experience
   * Research Focus 1: Nonparametric Density Estimation With Manifold Constraints, Mode Clustering, and Optimization on Manifolds
   * Research Focus 2: High-Dimensional Statistical Inference With Incomplete Data
   * Research Focus 3: Nonparametric Methods for Causal Inference With Continuous Treatments
-  * Advisors: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
+  * Advisor: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
 * Jun 2021 - Jul 2022: Visiting Research Student at Shanghai Astronomical Observatory
   * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
   * Host: [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584)
