@@ -66,13 +66,8 @@ Scholarships & Awards
 * [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
 * Best Undergraduate Thesis Award, Jun 2018
 * Kwang-Hua Education Scholarship, Dec 2017
-  * _The only awarded student among roughly 1000 students in our department_
-  * _Awarded by the Kwang-Hua Education Foundation_
-* Shenzhen Financial Institute (SFI) Scholarship (Academic), May 2017
-  * _One of the only two students among more than 300 junior (Year 3) students in our department_
-  * _Awarded by the Chinese University of Hong Kong, Shenzhen_
+* Shenzhen Financial Institute (SFI) Scholarship (Academic) by the Chinese University of Hong Kong, Shenzhen, May 2017
 * AEON Donation Scholarship for Excellent Students, Dec 2016
-  * _The only awarded student among roughly 1000 students in our department_
 * SYSU Outstanding Student Scholarship (First Prize), Sep 2016 & Sep 2017
 * SYSU Outstanding Student Scholarship (Second Prize), Sep 2015
 * SYSU Freshman Soccer Cup, _Second Place_, Dec 2015
