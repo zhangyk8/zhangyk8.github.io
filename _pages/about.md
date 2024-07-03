@@ -14,7 +14,7 @@ I am a Ph.D. student in the [Department of Statistics](https://stat.uw.edu/) at 
 Research Interests
 -----------
 My current theoretical research interests lie in
-* Nonparametric Statistics (kernel smoothing),
+* Nonparametric Statistics (Kernel Smoothing),
 * Optimization on Nonlinear Manifolds,
 * High-dimensional Inference with Missing Data,
 * Causal Inference for Continuous Treatments.
