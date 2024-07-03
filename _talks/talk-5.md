@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
-excerpt: "- The 6th Pacific Causal Inference Conference, Shanghai, China (July 2024, Virtual)
+excerpt: "- Causal Inference and Missing Data Reading Group, University of Washington, Seattle USA (October 2024)
 "
 ---
 
