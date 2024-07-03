@@ -263,12 +263,12 @@ x = "Artificial Intelligence"
 x_split = strsplit(x, split = "")[[1]]
 
 if ((length(x_split) > 20) & (x_split[1] == "a")) {
-  print("x is a pretty short string!")
+  print("x is a pretty long string!")
   if (x_split[1] == "a") 
     # This comparison is case-sensitive.
     print('The first character of x is "a".')
 } else {
-  cat("x is a pretty long string!")
+  cat("x is a pretty short string!")
 }
 ```
 
@@ -286,12 +286,12 @@ x = "Artificial Intelligence"
 x_split = tolower(strsplit(x, split = "")[[1]])
 
 if ((length(x_split) > 20) & (x_split[1] == "a")) {
-  print("x is a pretty short string!")
+  print("x is a pretty long string!")
   if (x_split[1] == "a") 
     # This comparison is case-sensitive.
     print("The first character of x is 'a'.")
 } else {
-  cat("x is a pretty long string!")
+  cat("x is a pretty short string!")
 }
 ```
 
