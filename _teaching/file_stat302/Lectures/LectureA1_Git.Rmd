@@ -32,6 +32,8 @@ library(kableExtra)
 
 <p><font size="4">* Acknowledgement: Parts of the slides are modified from the web-based resources "<a href="https://happygitwithr.com/">Happy Git and GitHub for the useR</a>" by Jennifer Bryan. </font></p>
 
+<p><font size="4">* Note: Those slides with (*) can be skipped for a high-level presentation. </font></p>
+
 ---
 class: inverse
 
@@ -65,7 +67,7 @@ $\hspace{5em} \vdots$
 <p align="center">
 <img src="./figures/phdcomics.png" width="370"/>
 
-- [Git](https://git-scm.com/) can help us keep track of changes and comments without creating multiple files.
+- Fortunately, [Git](https://git-scm.com/) can help us keep track of changes and comments without creating multiple files.
 
 ---
 
@@ -80,15 +82,17 @@ $\hspace{5em} \vdots$
 
   - It was created by Linus Torvalds in 2005 for the Linux kernel.
 
+--
+
   - It was originally developed to help groups of developers work collaboratively on big software projects.
 
 --
 
   - It manages the evolution of a set of files called a **repository** in a highly structured way.
   
-  - The Git-based projects can be hosted on some online services such as [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/), etc.
-
 --
+
+  - The Git-based projects can be hosted on some online services such as [GitHub](https://github.com/), [GitLab](https://about.gitlab.com/), [Bitbucket](https://bitbucket.org/), etc.
 
 - Online Git-based projects are similar to Google Drive or Dropbox but works better for projects with intensive coding and software developments.
 
@@ -98,9 +102,13 @@ $\hspace{5em} \vdots$
 
 1. Keep old versions of our files indefinitely (tracking changes so that making any reversions is simple).
 
+--
+
 2. Work with multiple collaborators:
 
   - Keeps track of who changed what and when they changed it.
+  
+--
   
 3. Changes are automatically integrated into the most recent version, and conflicts receive warnings.
 
@@ -152,6 +160,8 @@ class: inverse
 
 - We don't need to access to the Internet for proper version controls on our computer.
 
+--
+
 However, if we want to share our work or collaborate with others, we need to use some online repository services.
 
 <p align="center">
@@ -165,23 +175,25 @@ However, if we want to share our work or collaborate with others, we need to use
 
 # Benefits of Using GitHub
 
-On the one hand, like RStudio with R, GitHub adds many user-friendly features to Git.
+1. Like RStudio with R, GitHub adds many user-friendly features to Git.
 
-* Effective collaboration and code distribution.
+  * Effective collaboration and code distribution.
 
-* Allow others to comment on our code and suggest changes (pull requests/issues).
+  * Allow others to comment on our code and suggest changes (pull requests/issues).
 
-* Building our coding portfolio!
+  * Building our coding portfolio!
 
-On the other hand, we can benefit from using R and Rstudio with GitHub.
+--
 
-- There is an active R package development community on GitHub.
+2. We can benefit from using R and Rstudio with GitHub.
 
-- Rstudio has Git- and GitHub-related features.
+  - There is an active R package development community on GitHub.
+
+  - Rstudio has Git- and GitHub-related features.
 
 ---
 
-# Special features of GitHub
+# Special features of GitHub (*)
 
 In addition to a well-designed user interface, GitHub offers two especially important features:
 
@@ -203,7 +215,7 @@ In addition to a well-designed user interface, GitHub offers two especially impo
 
 ---
 
-# Special features of GitHub
+# Special features of GitHub (*)
 
 In addition to a well-designed user interface, GitHub offers two especially important features:
 
@@ -215,7 +227,6 @@ In addition to a well-designed user interface, GitHub offers two especially impo
 
 ---
 # Register A GitHub Account
-
 
 Go to [https://github.com](https://github.com) and register a free account!
 
@@ -234,7 +245,7 @@ Go to [https://github.com](https://github.com) and register a free account!
   * All lowercase is recommended.
 
 ---
-# Set Up Git (Optional)
+# Set Up Git (Optional) (*)
 
 Run the following in our shell/terminal (fill in your information):
 
@@ -259,7 +270,7 @@ use_git_config(user.name = "Firstname Lastname", user.email = "email@website.com
 Check out [Software Carpentry's guide](https://swcarpentry.github.io/git-novice/02-setup.html) for more examples of what line to run for different editor-operating system combinations.
 
 ---
-# Install a Git Client (Optional)
+# Install a Git Client (Optional) (*)
 
 Sometimes it could be useful to install a GUI for git. 
 
@@ -293,7 +304,7 @@ We will discuss more about using Git with Rstudio later. Here is a [summary guid
 6. Choose a license (optional).
 
 ---
-# Add Collaborators to A GitHub Repo
+# Add Collaborators to A GitHub Repo (*)
 
 We can always add collaborators to our GitHub repos through their usernames or emails.
 
@@ -311,7 +322,11 @@ class: inverse
 
 We now connect the fundamental concepts of Git to the data science workflow:
 
+--
+
 - **repository:** A repository or repo is just a directory of files that Git manages holistically. 
+
+--
 
 - **commit:** A commit functions like a snapshot of all the files in the repo, at a specific moment.
 
@@ -333,7 +348,7 @@ We now connect the fundamental concepts of Git to the data science workflow:
   - We can inspect the diffs between any two commits and keep track of the **history** of our project.
 
 ---
-# Run the Git Commands With the Shell
+# Run the Git Commands With the Shell (*)
 
 The **shell** is a program on our computer that runs other programs. 
 Sometimes, people use the terms `Terminal`, `Console`, `Command Line`, and `Shell` interchangeably.
@@ -347,7 +362,7 @@ We can also open a shell within RStudio:
   * Confirm that RStudio detected the presence of Git Bash. This should have happened automatically if we installed in the default location, but check by going to *Tools > Global Options > Terminal* and make sure we see `Git Bash` under "_New terminals open with:_".
 
 ---
-# Basic Shell Commands
+# Basic Shell Commands (*)
 
 * `pwd` (**p**rint **w**orking **d**irectory). Shows the current working directory of our shell.
 
@@ -367,7 +382,7 @@ We can also open a shell within RStudio:
 $\hspace{5em} \vdots$
 
 ---
-# Basic Git Commands
+# Basic Git Commands (*)
 
 These commands are used within the Shell/Terminal, and we will show how to run some of these commands in Rstudio as well.
 
@@ -386,7 +401,7 @@ git clone https://github.com/zhangyk8/git_intro.git
 * `git commit -m "COMMIT MESSAGE"` commit all staged changes.
 
 ---
-# Basic Git Commands
+# Basic Git Commands (*)
 
 * `git status` informs us of our current branch, any changes or untracked files, and whether we are in sync with our remotes.
 
@@ -407,7 +422,7 @@ git clone https://github.com/zhangyk8/git_intro.git
 The detailed documentation can be found at [https://git-scm.com/docs](https://git-scm.com/docs).
 
 ---
-# Clone Our Git Repo from GitHub
+# Clone Our Git Repo from GitHub (*)
 
 .middler-nocent[
 1. Open a shell/Terminal window.
@@ -431,7 +446,7 @@ git status
 ]
 
 ---
-# Commit and Push A Local Change
+# Commit and Push A Local Change (*)
 
 1. Edit our README within shell by using the following line.
   ```{bash, eval = FALSE}
@@ -459,7 +474,7 @@ git status
 Now check the repository online at GitHub. What changed?
 
 ---
-# Notes on GitHub Credentials
+# Notes on GitHub Credentials (*)
 
 When we interact with GitHub, we have to include credentials in the request.
 
@@ -476,7 +491,7 @@ On [GitHub](https://github.com/), after signing in, we can manage our personal a
 We could click on "Generate new token" here, or call `usethis::create_github_token()` from R.
 
 ---
-# Notes on GitHub Credentials
+# Notes on GitHub Credentials (*)
 
 <p align="center">
 <img src="./figures/git_token.png" width="750"/>
@@ -485,7 +500,7 @@ We could click on "Generate new token" here, or call `usethis::create_github_tok
 Read more detailed instructions [here](https://docs.github.com/en/authentication/keeping-your-account-and-data-secure/managing-your-personal-access-tokens).
 
 ---
-# Collaboration on Repo Through Branches
+# Collaboration on Repo Through Branches (*)
 
 Branching allows one or many people to work in parallel without overwriting each other's work.
 
@@ -503,7 +518,7 @@ git merge BRANCH-NAME
 ```
 
 ---
-# Dealing With Conflicts in Merging
+# Dealing With Conflicts in Merging (*)
 
 Most of the time, the merge will go smoothly. However if both the branches we are merging changed the same part of the same file, we will get a merge conflict.
 ```{bash, eval=FALSE}
@@ -529,7 +544,7 @@ git status
 ```
 
 ---
-# Dealing With Conflicts in Merging
+# Dealing With Conflicts in Merging (*)
 
 - This shows only `index.html` is unmerged and needs to be resolved. We can open the file using any editor to see what lines are in conflict.
 ```{bash, eval=FALSE}
@@ -545,7 +560,7 @@ git status
 - In this conflict, the lines between `<<<<<< HEAD:index.html` and `======` are the content from the branch we are currently on. The lines between `=======` and `>>>>>>> issue-5:index.html` are from the feature branch we are merging.
 
 ---
-# Dealing With Conflicts in Merging
+# Dealing With Conflicts in Merging (*)
 
 - To resolve the conflict, edit this section until it reflects the state we want in the merged result. Pick one version or the other or create a hybrid. Also remove the conflict markers `<<<<<<`, `======`, and `>>>>>>`.
 ```{bash, eval=FALSE}
@@ -575,11 +590,11 @@ For new or existing projects, we recommend doing the followings:
 
 - Make it a Git repository.
 
-We will discuss 
+We will discuss in the sequel that
 
-- how to create a new Rstudio project based on our existing GitHub repo;
+1. how to create a new Rstudio project based on our existing GitHub repo;
 
-- how to connect our existing project with a GitHub repo.
+2. how to connect our existing project with a GitHub repo.
 
 ---
 # Create Rstudio Project From GitHub Repo
@@ -603,7 +618,7 @@ usethis::create_from_github(
 
 **This is the recommended set up for all of our R projects!** 
 
-That is, first create on GitHub, then clone through RStudio.
+That is, **first create on GitHub, then clone through RStudio.**
 
 ---
 # Edit Our Repo Through RStudio
@@ -635,22 +650,22 @@ We should associate an R project with our GitHub repo.
 
 - Make or verify that our existing project is an RStudio Project.
 
-- Make or verify a Git repo. If not, we have several options:
+- Make or verify a Git repo. If not, we can use either of the following three options:
 
-  - In the R Console, call `usethis::use_git()`.
+  1. In the R Console, call `usethis::use_git()`.
     
-  - In RStudio, go to "Tools > Project Options > Git/SVN". Under "Version control system", select "Git". Confirm New Git Repository? Yes!
+  2. In RStudio, go to "Tools > Project Options > Git/SVN". Under "Version control system", select "Git". Confirm New Git Repository? Yes!
   
-  - In the shell, with working directory set to the project's directory, do `git init`.
+  3. In the shell, with working directory set to the project's directory, do `git init`.
   
 ---
 # Connect Existing R Project to GitHub Repo
   
-- Create and connect a GitHub repo. We have three options:
+- Create and connect a GitHub repo. We can use either of the following three options:
 
   1. In the R console, call `usethis::use_github()`.
   
-  2. Via the RStudio IDE:
+  2. Use the RStudio IDE:
       - Create a GitHub repo on [GitHub](https://github.com/) as before. 
       - Click on the "two purple boxes and a white square" in the Git pane of Rstudio.
       - Click "Add remote". 
