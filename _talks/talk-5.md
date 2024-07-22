@@ -15,7 +15,7 @@ Existing statistical methods in causal inference often rely on the assumption th
 
 In this talk, we present a novel integral estimator of the causal effects with continuous treatments (i.e., dose-response curves) without requiring the positivity condition. Our approach involves estimating the derivative function of the treatment effect on each observed data sample and integrating it to the treatment level of interest so as to address the bias resulting from the lack of the positivity condition. The validity of our approach relies on a weaker assumption that can be satisfied by additive confounding models in spatial confounding problems. We provide a fast and reliable numerical recipe for computing our proposed estimator in practice and derive its related asymptotic theory. To conduct valid inference on the dose-response curve and its derivative function, we propose using the nonparametric bootstrap and establish its consistency. The practical performances of our proposed estimators are validated through simulation studies and an analysis of the effect of air pollution exposure (PM2.5) on cardiovascular mortality rates.
 
-The talk is based on a joint work with  [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/) and [Prof. Alexander Giessing](https://agiessing.github.io/).
+The talk is based on a joint work with  [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/).
 
 <br>
 
