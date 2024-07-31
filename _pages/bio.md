@@ -27,7 +27,7 @@ Research Experience
   * Host: [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584)
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
-  * Host: Prof. Jiming Liu
+  * Host: [Prof. Jiming Liu](http://www.comp.hkbu.edu.hk/~jiming/)
 
 Teaching Experience
 -----------
