@@ -59,6 +59,9 @@ Professional Service
 * Journal of Machine Learning Research, Electronic Journal of Statistics
 * International Conference on Artificial Intelligence and Statistics (AISTATS 2024, 2023, 2022), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
+**Conference Session Chair:**
+* 2024 Joint Statistical Meetings
+
 Scholarships & Awards
 -----------
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
@@ -71,7 +74,7 @@ Scholarships & Awards
 * SYSU Outstanding Student Scholarship (First Prize), Sep 2016 & Sep 2017
 * SYSU Outstanding Student Scholarship (Second Prize), Sep 2015
 * SYSU Freshman Soccer Cup, _Second Place_, Dec 2015
-  * _Played as the captain and led our team to the final_
+  * _I played as the captain and led our team to the final._
 
 Skills
 -----------
