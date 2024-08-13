@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
-excerpt: "- Causal Inference and Missing Data Reading Group, University of Washington, Seattle USA (October 2024)
+excerpt: "- Causal Inference and Missing Data Reading Group, University of Washington, Seattle, USA (October 2024)
+
+          - School of Mathematics, Sun Yat-Sen University, Guangzhou, China (September 2024)
 "
 ---
 
