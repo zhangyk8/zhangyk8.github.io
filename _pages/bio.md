@@ -60,7 +60,7 @@ Professional Service
 * International Conference on Artificial Intelligence and Statistics (AISTATS 2024, 2023, 2022), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 **Conference Session Chair:**
-* 2024 Joint Statistical Meetings
+* 2024 Joint Statistical Meetings: "Recent Advances in Ensemble Learning"
 
 Scholarships & Awards
 -----------
