@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I am a Ph.D. student in the [Department of Statistics](https://stat.uw.edu/) at University of Washington (UW), Seattle, where I am fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/). I also work with [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584) and [Prof. Alexander Giessing](https://agiessing.github.io/) during my graduate studies. During 2019-2020, I served as the Master Student Representative for our department. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics at Sun Yat-Sen University (SYSU) in 2018. During my undergraduate, I was also selected as an honor student at the Yat-Sen Honor College, an elite liberal undergraduate institution of SYSU. 
+I am a Ph.D. student in the [Department of Statistics](https://stat.uw.edu/) at University of Washington (UW), Seattle, where I am fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/). During 2019-2020, I served as the Master Student Representative for our department. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics at Sun Yat-Sen University (SYSU) in 2018. During my undergraduate, I was also selected as an honor student at the Yat-Sen Honor College, an elite liberal undergraduate institution of SYSU. 
 
 Research Interests
 -----------
