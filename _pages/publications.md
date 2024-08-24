@@ -45,7 +45,7 @@ author_profile: false
 ## Conferences
 
 2. <A href="https://zhangyk8.github.io/publications/AAAIWorkshop.pdf" style="color: #52adc8; text-decoration=underline"> Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy </A> <br/>
-    **Yikun Zhang**, Yang Liu, and Jiming Liu. _In Proceedings of the Workshops of the Thirty-Second (AAAI-18) Conference on Artificial Intelligence, New Orleans, Louisiana, USA_, pages 530-537. (2018) [<A href="https://zhangyk8.github.io/publications/Workshop_Talk.pdf" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/BN_long2018.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
+    **Yikun Zhang**, Yang Liu, and Jiming Liu. _In Proceedings of the Workshops of the Thirty-Second (AAAI-18) Conference on Artificial Intelligence, New Orleans, Louisiana, USA_, pages 530-537. (2018) [<A href="https://zhangyk8.github.io/publications/Workshop_Talk.pdf" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>] [<A href="https://github.com/zhangyk8/TSCB-strategy" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/BN_long2018.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 <!---
 https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 -->
@@ -56,7 +56,7 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 ## Other Collaborations
 
 1. <A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> BLADE: Benchmarking Language Model Agents for Data-Driven Science </A> <br/>
-    Ken Gu, Ruoxi Shang, Ruien Jiang, Keying Kuang, Richard-John Lin, Donghe Lyu, Yue Mao, Youran Pan, Teng Wu, Jiaqian Yu, **Yikun Zhang**, Tianmai M. Zhang, Lanyi Zhu, Mike A. Merrill, Jeffrey Heer, Tim Althoff. _arXiv: 2408.09667_. (2024+)
+    Ken Gu, Ruoxi Shang, Ruien Jiang*, Keying Kuang*, Richard-John Lin*, Donghe Lyu*, Yue Mao*, Youran Pan*, Teng Wu*, Jiaqian Yu*, **Yikun Zhang***, Tianmai M. Zhang*, Lanyi Zhu*, Mike A. Merrill, Jeffrey Heer, Tim Althoff (*=equal contributions). _arXiv: 2408.09667_. (2024+) 
 
 ## Dissertation
 
