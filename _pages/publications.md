@@ -60,7 +60,7 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 
 ## Dissertation
 
-  Undergraduate Thesis: **Yikun Zhang** (2018) <A href="https://zhangyk8.github.io/publications/Thesis.pdf" style="color: #52adc8; text-decoration=underline"> Bayesian Network Structure Learning: The Two-Step Clustering-Based Strategy and Algorithm Combination </A>.
+  Undergraduate Thesis: **Yikun Zhang** (2018) <A href="https://zhangyk8.github.io/publications/Thesis.pdf" style="color: #52adc8; text-decoration=underline"> Bayesian Network Structure Learning: The Two-Step Clustering-Based Strategy and Algorithm Combination</A>.
 
 <!--
 ## Technical Report
