@@ -56,7 +56,7 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 ## Other Collaborations
 
 1. <A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> BLADE: Benchmarking Language Model Agents for Data-Driven Science </A> <br/>
-   Ken Gu, Ruoxi Shang, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _arXiv: 2408.09667_. (2024+) 
+   Ken Gu, Ruoxi Shang<span>&#8224;</span>, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _arXiv: 2408.09667_. (2024+) 
 
 ## Dissertation
 
