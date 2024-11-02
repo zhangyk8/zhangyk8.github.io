@@ -57,7 +57,7 @@ Professional Service
 -----------
 **Reviewer:**
 * Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
-* International Conference on Artificial Intelligence and Statistics (AISTATS 2025, 2024, 2023, 2022), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
+* International Conference on Artificial Intelligence and Statistics (AISTATS 2025, 2024, 2023, 2022), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 **Conference Session Chair:**
 * 2024 Joint Statistical Meetings: "Recent Advances in Ensemble Learning"
