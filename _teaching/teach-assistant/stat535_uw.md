@@ -15,10 +15,10 @@ location: "Seattle, WA, USA"
 STAT535 is a graduate-level statistical machine learning course that aims at giving some board introductions to popular topics in the modern statistical learning research, including likelihood methods, mixture models, high-dimensional linear models, graphs and networks, nonparametric methods, clustering, dimension reduction, Monte Carlo inference, boostrap, missing data, and causal inference. Besides maintaining the course logistics throughout the quarter, the TA will
 - hold weekly hour office;
 - prepare solutions to homework assignments and grade them;
-- provide detailed feedback on the final projects;
 - answer questions on the course discussion platform.
 
 ### Lecture Notes
 
 - [Current lecture notes](https://faculty.washington.edu/yenchic/19A_stat535.html) written by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/index.html).
+- I served as the guest lecturer discussing decision tree, random forest, neural network, and some optimization perspectives of classification algorithms; see [my notes](file_stat535/1107-535-add.pdf) for details.
 
