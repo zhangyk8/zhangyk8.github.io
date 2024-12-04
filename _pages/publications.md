@@ -40,7 +40,7 @@ author_profile: false
     **Yikun Zhang**, Yen-Chi Chen. _Information and Inference: A Journal of the IMA_, **12**(1): 210-311. (2023) [<A href="https://arxiv.org/abs/2104.14977" style="color: #52adc8; text-decoration=underline"> Arxiv Version </A>] [<A href="https://github.com/zhangyk8/EuDirSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DirSCMS2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 1. <A href="https://jmlr.org/papers/v22/20-1194.html" style="color: #52adc8; text-decoration=underline"> Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data </A> <br/>
-    **Yikun Zhang**, Yen-Chi Chen. _Journal of Machine Learning Research_ **22**(154): 1-92. (2021) [<A href="https://arxiv.org/abs/2010.13523" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/DirMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/talks/DirMS_Slides.pdf" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DirMS2020.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
+    **Yikun Zhang**, Yen-Chi Chen. _Journal of Machine Learning Research_ **22**(154): 1-92. (2021) [<A href="https://arxiv.org/abs/2010.13523" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/DirMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DirMS2020.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 ## Conferences
 
@@ -55,8 +55,8 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 
 ## Other Collaborations
 
-1. <A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> BLADE: Benchmarking Language Model Agents for Data-Driven Science </A> <br/>
-   Ken Gu, Ruoxi Shang<span>&#8224;</span>, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _arXiv: 2408.09667_. (2024+) 
+1. <A href="https://aclanthology.org/2024.findings-emnlp.815/" style="color: #52adc8; text-decoration=underline"> BLADE: Benchmarking Language Model Agents for Data-Driven Science </A> <br/>
+   Ken Gu, Ruoxi Shang<span>&#8224;</span>, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _Findings of the Association for Computational Linguistics: EMNLP 2024, pages 13936–13971, Miami, Florida, USA._ (2024) [<A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> Arxiv Version </A>] [<A href="https://github.com/behavioral-data/BLADE" style="color: #52adc8; text-decoration=underline"> Code </A>]
 
 ## Dissertation
 
