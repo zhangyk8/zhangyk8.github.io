@@ -41,6 +41,7 @@ Teaching Experience
 * [Statistical Computing (Winter 2024, Autumn 2023)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
+* [Statistical Learning: Modeling, Prediction, and Computing (Autumn 2024)](../teaching/stat535_uw)
 * [Machine Learning for Big Data (Spring 2024, Winter 2023)](../teaching/stat548_uw)
 * [Statistical Inference (Autumn 2022)](../teaching/stat512_uw)
 * [Matrix Analysis and its Applications (Spring 2018)](../teaching/spring_2018)
