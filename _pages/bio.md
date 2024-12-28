@@ -57,13 +57,14 @@ Professional Service
 -----------
 **Reviewer:**
 * Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
-* International Conference on Artificial Intelligence and Statistics (AISTATS 2025, 2024, 2023, 2022), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
+* International Conference on Machine Learning (ICML 2025), International Conference on Artificial Intelligence and Statistics (AISTATS 2025, 2024, 2023, 2022), Conference on Uncertainty in Artificial Intelligence (UAI 2025), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 **Conference Session Chair:**
 * 2024 Joint Statistical Meetings: "Recent Advances in Ensemble Learning"
 
 Scholarships & Awards
 -----------
+* [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [2024 NESS Student Research Award](https://nestat.org/researchawards/nessresearch2024/), May 2024
 * [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
