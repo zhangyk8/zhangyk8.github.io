@@ -1,0 +1,8 @@
+numpy>=1.16
+sphinx>=1.4
+scipy
+scikit-learn
+torch>=2.0
+sphinx-rtd-theme
+ipykernel
+nbsphinx
