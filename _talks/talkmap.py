@@ -35,7 +35,7 @@ for file in g:
             location = lines_trim[:loc_end]
                             
            
-        location_dict[location] = geocoder.geocode(location)
+        location_dict[location] = geocoder.geocode(location, timeout=None)
         print(location, "\n", location_dict[location])
 
 
