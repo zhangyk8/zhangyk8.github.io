@@ -2,9 +2,9 @@
 layout: splash
 title: "Paper Reading Notes and Presentation Slides"
 excerpt: "Here are some of my notes and slides for reading and commenting other people's paper."
-<!-- date: 2019-08-18 -->
+# (date: 2024-12-03)
 collection: portfolio
-permalink: /portfolio/
+permanent link: /portfolio-1/
 ---
 
 <h1>Paper Reading Notes and Presentation Slides</h1>
