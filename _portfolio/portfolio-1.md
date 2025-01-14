@@ -17,7 +17,7 @@ permanent link: /portfolio-1/
     <a href="https://arxiv.org/abs/2006.06843">Link for the Paper</a>,
   </li>
   <li> 
-  <a href="Paper_Reading/Robust_Opt_Manifolds.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
+  <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Robust_Opt_Manifolds.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
   </li>
 </ul>
 <br>
@@ -29,7 +29,7 @@ permanent link: /portfolio-1/
     <a href="https://arxiv.org/abs/2206.08051">Link for the Paper I</a>, <a href="https://arxiv.org/abs/2210.03964">Link for the Paper II</a>
   </li>
   <li> 
-  <a href="Paper_Reading/Radial_VDE.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
+  <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Radial_VDE.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
   </li>
 </ul>
 <br>
@@ -53,7 +53,7 @@ permanent link: /portfolio-1/
     <a href="https://arxiv.org/pdf/2112.03334">Link for the Paper</a>,
   </li>
   <li> 
-  <a href="Paper_Reading/Density_Scaled_Complexes.pdf">My Slides</a> at the Topological Data Analysis course.
+  <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Density_Scaled_Complexes.pdf">My Slides</a> at the Topological Data Analysis course.
   </li>
 </ul>
 <br>
