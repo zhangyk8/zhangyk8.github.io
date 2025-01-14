@@ -12,8 +12,8 @@ Education
 * Ph.D. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep 2022 -- Present
 * M.S. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep 2018 -- Mar 2020
 * B.S. in Mathematics and Applied Mathematics, [Sun Yat-Sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug 2014 -- Jun 2018
-* Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
-* Honor Student in Applied Mathematics Group, Yat-Sen Honor College, Sun Yat-Sen University, Sep 2015 -- Jun 2018
+  * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
+  * Honor Student in Applied Mathematics Group, Yat-Sen Honor College, Sun Yat-Sen University, Sep 2015 -- Jun 2018
 
 Research Experience
 -----------
