@@ -4,7 +4,7 @@ title: "My Dear Soccer"
 excerpt: "A poem summarizing my soccer journey one year before my final retirement."
 # (date: 2020-01-03)
 collection: portfolio
-permanent link: /portfolio-3/
+permanent link: /portfolio-5/
 author_profile: false
 ---
 
@@ -73,3 +73,15 @@ With a smile from the bottom of his heart… <br/>
 
 Love you always, <br/>
 Kun _(Jan 03, 2020)_
+
+<br/>
+<br/>
+
+Honors
+-----------
+
+* Departmental Soccer Competition, _Championship_, Jun 2017
+  * _I scored the only goal in the final._
+
+* Sun Yat-Sen University Freshman Soccer Cup, _Second Place_, Dec 2015
+  * _I played as the captain and led our team to the final._
