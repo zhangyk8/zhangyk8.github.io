@@ -75,8 +75,6 @@ Scholarships & Awards
 * AEON Donation Scholarship for Excellent Students, Dec 2016
 * SYSU Outstanding Student Scholarship (First Prize), Sep 2016 & Sep 2017
 * SYSU Outstanding Student Scholarship (Second Prize), Sep 2015
-* SYSU Freshman Soccer Cup, _Second Place_, Dec 2015
-  * _I played as the captain and led our team to the final._
 
 Skills
 -----------
