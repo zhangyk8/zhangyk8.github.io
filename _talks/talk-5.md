@@ -7,7 +7,9 @@ type: ""
 date: 2024-07-06
 excerpt: "- Causal Inference Working Group, Johns Hopkins University, Baltimore, USA (March 2025)
 
-          - Causal Inference and Missing Data Reading Group, University of Washington, Seattle, USA (October 2024)
+          - Causal Inference and Missing Data Reading Group, University of Washington, Seattle, USA (November 2024)
+
+          - TGIF Meeting, University of Washington, Seattle, USA (October 2024)
 
           - School of Mathematics, Sun Yat-Sen University, Guangzhou, China (September 2024)
 "
