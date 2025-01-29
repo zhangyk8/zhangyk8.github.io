@@ -59,3 +59,17 @@ permanent link: /portfolio-1/
 <br>
 <br>
 <br>
+
+5. Synthetic Multimodal Data Modelling for Data Imputation (by <i>Francisco Carrillo-Perez, Marija Pizurica, Kathleen Marchal, and Olivier Gevaert</i>): 
+<br>
+<ul>
+  <li>
+    <a href="https://www.nature.com/articles/s41551-024-01324-1">Link for the Paper</a>,
+  </li>
+  <li> 
+  <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Synthetic_Multimodal_Yikun.pdf">My Slides</a> at the AI health reading group.
+  </li>
+</ul>
+<br>
+<br>
+<br>
