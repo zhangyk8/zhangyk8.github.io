@@ -9,7 +9,7 @@ permanent link: /portfolio-1/
 
 <h1>Paper Reading Notes and Presentation Slides</h1>
 
-<br>
+
 1. Robust Optimization and Inference on Manifolds (by <i>Lizhen Lin, Drew Lazar, Bayan Sarpabayeva, David B. Dunson</i>): 
 <br>
 <ul>
@@ -23,7 +23,6 @@ permanent link: /portfolio-1/
 <br>
 
 2. An Efficient and Continuous Voronoi Density Estimator (by <i>Giovanni Luca Marchetti, Vladislav Polianskii, Anastasiia Varava, Florian T. Pokorny, Danica Kragic</i>): 
-<br>
 <ul>
   <li>
     <a href="https://arxiv.org/abs/2206.08051">Link for the Paper I</a>, <a href="https://arxiv.org/abs/2210.03964">Link for the Paper II</a>
@@ -35,7 +34,6 @@ permanent link: /portfolio-1/
 <br>
 
 3. Smoothed Nonparametric Derivative Estimation using Weighted Difference Quotients (by <i>Yu Liu and Kris De Brabanter</i>): 
-<br>
 <ul>
   <li>
     <a href="https://www.jmlr.org/papers/volume21/19-246/19-246.pdf">Link for the Paper</a>,
@@ -47,7 +45,6 @@ permanent link: /portfolio-1/
 <br>
 
 4. A Family of Density-Scaled Filtered Complexes (by <i>Abigail Hickok</i>): 
-<br>
 <ul>
   <li>
     <a href="https://arxiv.org/pdf/2112.03334">Link for the Paper</a>,
@@ -57,11 +54,8 @@ permanent link: /portfolio-1/
   </li>
 </ul>
 <br>
-<br>
-<br>
 
 5. Synthetic Multimodal Data Modelling for Data Imputation (by <i>Francisco Carrillo-Perez, Marija Pizurica, Kathleen Marchal, and Olivier Gevaert</i>): 
-<br>
 <ul>
   <li>
     <a href="https://www.nature.com/articles/s41551-024-01324-1">Link for the Paper</a>,
