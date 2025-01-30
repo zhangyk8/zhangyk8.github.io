@@ -11,7 +11,6 @@ permanent link: /portfolio-1/
 
 
 1. Robust Optimization and Inference on Manifolds (by <i>Lizhen Lin, Drew Lazar, Bayan Sarpabayeva, David B. Dunson</i>): 
-<br>
 <ul>
   <li>
     <a href="https://arxiv.org/abs/2006.06843">Link for the Paper</a>,
