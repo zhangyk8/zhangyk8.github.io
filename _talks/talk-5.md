@@ -11,7 +11,7 @@ excerpt: "- Causal Inference and Missing Data Analysis Lab, North Carolina State
 
           - Causal Inference and Missing Data Reading Group, University of Washington, Seattle, USA (November 2024)
 
-          - ``Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (October 2024)
+          - ''Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (October 2024)
 
           - School of Mathematics, Sun Yat-Sen University, Guangzhou, China (September 2024)
 "
