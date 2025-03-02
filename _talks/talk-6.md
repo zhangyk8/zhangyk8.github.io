@@ -7,7 +7,7 @@ type: ""
 date: 2025-01-21
 excerpt: "- Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (March 2025)
 
-          - ``Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (February 2025)
+          - "Thank Goodness for Influence Functions (TGIF)" Lab, University of Washington, Seattle, USA (February 2025)
 "
 ---
 
