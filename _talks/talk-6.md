@@ -5,9 +5,9 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (February 2025)
+excerpt: "- Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (March 2025)
 
-          - Statistical and Machine Learning Approaches for the Social Science Group, University of Washington, Seattle, USA (February 2025)
+          - ``Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (February 2025)
 "
 ---
 
