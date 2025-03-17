@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (March 2025)
+excerpt: "- ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
+
+          - Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (March 2025)
 
           - ''Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (February 2025)
 "
@@ -21,7 +23,7 @@ The talk is based on a joint work with  [Prof. Yen-Chi Chen](http://faculty.wash
 
 <br>
 
-Talk Slides: [Long Version](https://zhangyk8.github.io/talks/DRDeriv.pdf).
+Talk Slides: [Short Version](https://zhangyk8.github.io/talks/DRDeriv_Short.pdf), [Long Version](https://zhangyk8.github.io/talks/DRDeriv.pdf).
 
 Code Link on GitHub: [npDoseResponse](https://github.com/zhangyk8/npDRDeriv).
 
