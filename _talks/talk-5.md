@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
-excerpt: "- Causal Inference and Missing Data Analysis Lab, North Carolina State University, Raleigh, USA (March 2025)
+excerpt: "- ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
+
+          - Causal Inference and Missing Data Analysis Lab, North Carolina State University, Raleigh, USA (March 2025)
 
           - Causal Inference Working Group, Johns Hopkins University, Baltimore, USA (March 2025)
 
@@ -27,7 +29,7 @@ The talk is based on a joint work with  [Prof. Yen-Chi Chen](http://faculty.wash
 
 <br>
 
-Talk Slides: [Long Version](https://zhangyk8.github.io/talks/DoseResponseNP.pdf).
+Talk Slides: [Short Version](https://zhangyk8.github.io/talks/DoseResponseNP_Short.pdf), [Long Version](https://zhangyk8.github.io/talks/DoseResponseNP.pdf).
 
 Code Link on GitHub: [npDoseResponse](https://github.com/zhangyk8/npDoseResponse).
 
