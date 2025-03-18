@@ -4,7 +4,7 @@ title: "Machine Learning for Big Data (CSE 547 / STAT 548)"
 collection: teaching
 type: "Graduate-level machine learning Course"
 permalink: /teaching/stat548_uw
-venue: "Paul G. Allen School of Computer Science & Engineering, University of Washington (Spring 2024, Winter 2023)"
+venue: "Paul G. Allen School of Computer Science & Engineering, University of Washington (Spring 2025, Spring 2024, Winter 2023)"
 location: "Seattle, WA, USA"
 ---
 
