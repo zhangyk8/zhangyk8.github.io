@@ -51,6 +51,8 @@ Work Experience
 -----------
 * Jun 2023 - Sep 2023: Applied Scientist PhD Intern
   * Ads Data Science and Analytics, Uber Technologies Inc
+* Jun 2020 - Jul 2022: Advanced Algorithmic Engineer
+  * Hotel Research & Development Department, Trip.com Group
 * May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
@@ -64,8 +66,13 @@ Professional Service
 * 2025 ENAR Spring Meeting: "Emerging Statistical Methods for Omics and Multimodal Data Integration"
 * 2024 Joint Statistical Meetings: "Recent Advances in Ensemble Learning"
 
+**Conference Volunteer:**
+* International Conference on Learning Representations (ICLR 2022)
+* Conference on Neural Information Processing Systems (NeurIPS 2021)
+
 Scholarships & Awards
 -----------
+* [2025 ENAR Distinguished Student Paper Award](https://www.linkedin.com/posts/eastern-north-american-region-enar_enar2025-enar-studentawards-activity-7305928056618037248-Gu--/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACUac3sBuIRqTwK-wP5k4F-CwWdKy_RJ-0Y), Mar 2025
 * [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [2024 NESS Student Research Award](https://nestat.org/researchawards/nessresearch2024/), May 2024
