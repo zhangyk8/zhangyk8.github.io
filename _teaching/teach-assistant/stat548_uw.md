@@ -21,10 +21,12 @@ CSE547 / STAT548 is a graduate-level machine learning course jointly offered by 
 
 ### Course Website
 
+- [CSEP 590A: Machine Learning for Big Data (Spring 2025)](https://courses.cs.washington.edu/courses/csep590a/25sp/)
 - [CSE547/STAT548: Machine Learning for Big Data (Spring 2024)](https://courses.cs.washington.edu/courses/cse547/24sp/)
 - [CSE547/STAT548: Machine Learning for Big Data (Winter 2023)](https://courses.cs.washington.edu/courses/cse547/23wi/)
 
 ### My Recitation Notes
 
+- [Spark Tutorial](file_stat548/spark_intro.pdf)
 - [Probability and Proof Techniques](file_stat548/CSE547_Proofs_Probability.pdf)
 - [Linear Algebra](file_stat548/CSE547_LinAlg_Review.pdf)
