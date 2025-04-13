@@ -10,6 +10,9 @@ permanent link: /portfolio-2/
 <h1>Technical Notes and Slides</h1>
 
 <br>
+[Sampling Methods for the von Mises-Fisher Distributions and Smoothed Bootstrap](../Lecture_Notes/vMF_Sampling_SmoothBoot.pdf)
+<br>
+<br>
 [Shall We Always Avoid Overfitting? -- A generalized framework of the classical bias-variance trade-off in modern deep learning regime](https://zhangyk8.github.io/portfolio/Lecture_Notes/Hitting_distBM.pdf) (Slides for a brief introduction to the double-descent phenomenon)
 <br>
 <br>
