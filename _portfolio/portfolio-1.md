@@ -9,7 +9,7 @@ permanent link: /portfolio-1/
 
 <h1>Paper Reading Notes and Presentation Slides</h1>
 
-
+<p>
 1. Robust Optimization and Inference on Manifolds (by <i>Lizhen Lin, Drew Lazar, Bayan Sarpabayeva, David B. Dunson</i>): 
 <ul>
   <li>
@@ -19,6 +19,9 @@ permanent link: /portfolio-1/
   <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Robust_Opt_Manifolds.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
   </li>
 </ul>
+</p>
+
+<p>
 2. An Efficient and Continuous Voronoi Density Estimator (by <i>Giovanni Luca Marchetti, Vladislav Polianskii, Anastasiia Varava, Florian T. Pokorny, Danica Kragic</i>): 
 <ul>
   <li>
@@ -28,6 +31,9 @@ permanent link: /portfolio-1/
   <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Radial_VDE.pdf">My Slides</a> at the <a href="https://uwgeometry.github.io/">UW Geometric Data Analysis (GDA) Reading Group</a>.
   </li>
 </ul>
+</p>
+
+<p>
 3. Smoothed Nonparametric Derivative Estimation using Weighted Difference Quotients (by <i>Yu Liu and Kris De Brabanter</i>): 
 <ul>
   <li>
@@ -37,6 +43,9 @@ permanent link: /portfolio-1/
   <a href="https://github.com/zhangyk8/NonDeriDQ/raw/main/Final_Report_Slides/Final_Report.pdf">Final Report</a>, <a href="https://github.com/zhangyk8/NonDeriDQ/raw/main/Final_Report_Slides/NonparDeriv.pdf">Presentation Slides</a>, and <a href="https://github.com/zhangyk8/NonDeriDQ/tree/main">Code Repository</a> for my preliminary exam at UW.
   </li>
 </ul>
+</p>
+
+<p>
 4. A Family of Density-Scaled Filtered Complexes (by <i>Abigail Hickok</i>): 
 <ul>
   <li>
@@ -46,6 +55,9 @@ permanent link: /portfolio-1/
   <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Density_Scaled_Complexes.pdf">My Slides</a> at the Topological Data Analysis course.
   </li>
 </ul>
+</p>
+
+<p>
 5. Synthetic Multimodal Data Modelling for Data Imputation (by <i>Francisco Carrillo-Perez, Marija Pizurica, Kathleen Marchal, and Olivier Gevaert</i>): 
 <ul>
   <li>
@@ -55,5 +67,5 @@ permanent link: /portfolio-1/
   <a href="https://zhangyk8.github.io/portfolio/Paper_Reading/Synthetic_Multimodal_Yikun.pdf">My Slides</a> at the AI health reading group.
   </li>
 </ul>
-<br>
+</p>
 <br>
