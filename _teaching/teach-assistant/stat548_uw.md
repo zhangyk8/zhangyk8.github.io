@@ -30,3 +30,4 @@ CSE547 / STAT548 is a graduate-level machine learning course jointly offered by 
 - [Spark Tutorial](file_stat548/spark_intro.pdf)
 - [Probability and Proof Techniques](file_stat548/CSE547_Proofs_Probability.pdf)
 - [Linear Algebra](file_stat548/CSE547_LinAlg_Review.pdf)
+- [Big Data Trick and Debugging Tutorial](https://colab.research.google.com/drive/1MFKJ0Yt6tNtCREJQH09RTJ-lZo7Kzm_n?usp=sharing)
