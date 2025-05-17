@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
+excerpt: "- Measurement Science Team at Pinterest, Seattle, USA (May 2025)
+
+          - ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
 
           - Geometric Data Analysis Reading Group, University of Washington, Seattle, USA (March 2025)
 
