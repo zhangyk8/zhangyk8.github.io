@@ -19,22 +19,22 @@ author_profile: false
 
 ## Preprints
 
-5. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
+4. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2501.06969_. (2025+) [<A href="https://github.com/zhangyk8/npDRDeriv" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDRDeriv2025.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] 
 
-4. <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> <br/>
+3. <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> <br/>
     **Yikun Zhang**, Yen-Chi Chen, and Alexander Giessing. _arXiv: 2405.09003_. (2024+) [<A href="https://github.com/zhangyk8/npDoseResponse" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDR2024.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/NonpDoseResponse.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-5" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
-3. <A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> <br/>
+2. <A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> <br/>
     **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. _arXiv: 2309.06429_. (2023+) [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-4" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
-
-2. <A href="https://arxiv.org/abs/2110.08505" style="color: #52adc8; text-decoration=underline"> Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Shift Approach </A> <br/>
-    **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2110.08505_. (2021+) [<A href="https://github.com/zhangyk8/ProdSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DLSCMSProd2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 1. <A href="https://arxiv.org/abs/2101.10058" style="color: #52adc8; text-decoration=underline"> The EM Perspective of Directional Mean Shift Algorithm </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2101.10058_. (2021+) [<A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 ## Journals
+
+4. <A href="https://doi.org/10.1080/10618600.2025.2505734" style="color: #52adc8; text-decoration=underline"> Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Shift Approach </A> <br/>
+    **Yikun Zhang** and Yen-Chi Chen. To appear in the _Journal of Computational and Graphical Statistics_. (2025+) [<A href="https://arxiv.org/abs/2110.08505" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/ProdSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DLSCMSProd2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 3. <A href="https://doi.org/10.1093/mnras/stac2504" style="color: #52adc8; text-decoration=underline"> SCONCE: A Cosmic Web Finder for Spherical and Conic Geometries </A> <br/>
     **Yikun Zhang**, Rafael S. de Souza, and Yen-Chi Chen. _Monthly Notices of the Royal Astronomical Society_, **517**(1): 1197–1217. (2022) [<A href="https://arxiv.org/abs/2207.07001" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://pypi.org/project/sconce-scms/0.1.2/" style="color: #52adc8; text-decoration=underline"> Python Package </A>] [<A href="https://sconce-scms.readthedocs.io/en/latest/" style="color: #52adc8; text-decoration=underline"> Package Documentation </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/SCONCE2022.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Cosmic_Web_Poster.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-3" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
