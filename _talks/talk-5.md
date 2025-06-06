@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
-excerpt: "- Statistical and Machine Learning Approaches for the Social Science Group, Seattle, USA (May 2025)
+excerpt: "- NISS New Researchers Conference, Virtual (June 2025)
+
+          - Statistical and Machine Learning Approaches for the Social Science Group, Seattle, USA (May 2025)
 
           - ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
 
