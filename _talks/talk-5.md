@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
-excerpt: "- NISS New Researchers Conference, Virtual (June 2025)
+excerpt: "- [NISS Virtual New Researchers Conference](https://www.niss.org/events/niss-virtual-new-researchers-conference) (Virtual, June 2025)
 
           - Statistical and Machine Learning Approaches for the Social Science Group, Seattle, USA (May 2025)
 
