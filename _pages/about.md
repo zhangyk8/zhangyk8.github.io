@@ -19,7 +19,7 @@ My current theoretical research interests lie in
 * High-dimensional Inference with Missing Data,
 * Causal Inference for Continuous Treatments.
 
-On the applied side, I am broadly interested in challenging problems in astronomy, with a focus on how to detect and analyze the large-scale structure of the Universe (i.e., cosmic web) in a statistically motivated way.
+On the applied side, I am broadly interested in tackling challenging problems in astronomy, particularly those related to detecting and analyzing the large-scale structure of the Universe (i.e., the cosmic web) through statistically principled approaches.
 
 Education
 -----------
