@@ -58,6 +58,12 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 
 ## Other Collaborations
 
+3. <A href="http://arxiv.org/abs/2506.18652" style="color: #52adc8; text-decoration=underline"> A Practical Introduction to Regression-based Causal Inference in Meteorology (II): Unmeasured confounders </A> <br/>
+   Caren Marzban, **Yikun Zhang**, Nicholas Bond, and Michael Richman. _arXiv: 2506.18652_. (2025+)
+
+2. <A href="http://arxiv.org/abs/2506.18808" style="color: #52adc8; text-decoration=underline"> A Practical Introduction to Regression-based Causal Inference in Meteorology (I): All confounders measured </A> <br/>
+   Caren Marzban, **Yikun Zhang**, Nicholas Bond, and Michael Richman. _arXiv: 2506.18808_. (2025+)
+
 1. <A href="https://aclanthology.org/2024.findings-emnlp.815/" style="color: #52adc8; text-decoration=underline"> BLADE: Benchmarking Language Model Agents for Data-Driven Science </A> <br/>
    Ken Gu, Ruoxi Shang<span>&#8224;</span>, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _Findings of the Association for Computational Linguistics: EMNLP 2024, pages 13936–13971, Miami, Florida, USA._ (2024) [<A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> Arxiv Version </A>] [<A href="https://github.com/behavioral-data/BLADE" style="color: #52adc8; text-decoration=underline"> Code </A>]
 
