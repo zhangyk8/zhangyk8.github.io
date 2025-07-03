@@ -61,6 +61,7 @@ Professional Service
 **Reviewer:**
 * Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
 * International Conference on Machine Learning (ICML 2025), International Conference on Artificial Intelligence and Statistics (AISTATS 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022), Conference on Uncertainty in Artificial Intelligence (UAI 2025), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
+* Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
 
 **Conference Session Chair:**
 * 2025 ENAR Spring Meeting: "Emerging Statistical Methods for Omics and Multimodal Data Integration"
@@ -72,7 +73,9 @@ Professional Service
 
 Scholarships & Awards
 -----------
-* [2025 ENAR Distinguished Student Paper Award](https://www.linkedin.com/posts/eastern-north-american-region-enar_enar2025-enar-studentawards-activity-7305928056618037248-Gu--/?utm_source=share&utm_medium=member_desktop&rcm=ACoAACUac3sBuIRqTwK-wP5k4F-CwWdKy_RJ-0Y), Mar 2025
+* First Place Presentation Award of the NISS Virtual New Researchers Conference, Jun 2025
+* Graduate School Conference Presentation Award by the University of Washington, May 2025
+* [2025 ENAR Distinguished Student Paper Award](https://www.enar.org/meetings/spring2025/award_winners.cfm), Mar 2025
 * [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [2024 NESS Student Research Award](https://nestat.org/researchawards/nessresearch2024/), May 2024
@@ -81,8 +84,7 @@ Scholarships & Awards
 * Kwang-Hua Education Scholarship, Dec 2017
 * Shenzhen Financial Institute (SFI) Scholarship (Academic) by the Chinese University of Hong Kong, Shenzhen, May 2017
 * AEON Donation Scholarship for Excellent Students, Dec 2016
-* SYSU Outstanding Student Scholarship (First Prize), Sep 2016 & Sep 2017
-* SYSU Outstanding Student Scholarship (Second Prize), Sep 2015
+* SYSU Outstanding Student Scholarship (First Prize: Sep 2016 & Sep 2017; Second Prize: Sep 2015)
 
 Skills
 -----------
