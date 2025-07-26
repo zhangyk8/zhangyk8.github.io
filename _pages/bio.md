@@ -73,6 +73,7 @@ Professional Service
 
 Scholarships & Awards
 -----------
+* ASA Student and Early Career Travel Award for Attending JSM 2025, Aug 2025
 * First Place Presentation Award of the NISS Virtual New Researchers Conference, Jun 2025
 * Graduate School Conference Presentation Award by the University of Washington, May 2025
 * [2025 ENAR Distinguished Student Paper Award](https://www.enar.org/meetings/spring2025/award_winners.cfm), Mar 2025
