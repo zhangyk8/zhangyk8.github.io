@@ -20,7 +20,7 @@ author_profile: false
 ## Preprints
 
 4. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
-    **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2501.06969_. (2025+) [<A href="https://github.com/zhangyk8/npDRDeriv" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDRDeriv2025.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] 
+    **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2501.06969_. (2025+) [<A href="https://github.com/zhangyk8/npDRDeriv" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDRDeriv2025.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/talks/talk-6" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
 3. <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> <br/>
     **Yikun Zhang**, Yen-Chi Chen, and Alexander Giessing. _arXiv: 2405.09003_. (2024+) [<A href="https://github.com/zhangyk8/npDoseResponse" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDR2024.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/NonpDoseResponse.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-5" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
