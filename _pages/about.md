@@ -16,7 +16,7 @@ Research Interests
 My current theoretical research interests lie in
 * Nonparametric Statistics (Kernel Smoothing),
 * Optimization on Nonlinear Manifolds,
-* High-dimensional Inference with Missing Data,
+* High-Dimensional Inference with Missing Data,
 * Causal Inference for Continuous Treatments.
 
 On the applied side, I am broadly interested in tackling challenging problems in astronomy, particularly those related to detecting and analyzing the large-scale structure of the Universe (i.e., the cosmic web) through statistically principled approaches.
