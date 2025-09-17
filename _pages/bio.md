@@ -41,7 +41,7 @@ Teaching Experience
 * [Statistical Computing (Winter 2024, Autumn 2023)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
-* [Statistical Learning: Modeling, Prediction, and Computing (Autumn 2024)](../teaching/stat535_uw)
+* [Statistical Learning: Modeling, Prediction, and Computing (Autumn 2025, Autumn 2024)](../teaching/stat535_uw)
 * [Machine Learning for Big Data (Spring 2025, Spring 2024, Winter 2023)](../teaching/stat548_uw)
 * [Statistical Inference (Autumn 2022)](../teaching/stat512_uw)
 * [Matrix Analysis and its Applications (Spring 2018)](../teaching/spring_2018)
@@ -49,19 +49,20 @@ Teaching Experience
    
 Work Experience
 -----------
-* Jun 2025 - Present: Research Scientist Intern
-  * Central Applied Science, Meta
-* Jun 2023 - Sep 2023: Applied Scientist PhD Intern
+* Research Scientist Intern, Jun 2025 - Present
+  * [Central Applied Science, Meta](https://research.facebook.com/teams/cas/)
+* Applied Scientist PhD Intern, Jun 2023 - Sep 2023
   * Ads Data Science and Analytics, Uber Technologies Inc
-* Jun 2020 - Jul 2022: Advanced Algorithmic Engineer
+* Advanced Algorithmic Engineer, Jun 2020 - Jul 2022
   * Hotel Research & Development Department, Trip.com Group
-* May 2018 - Aug 2018: Statistical Consulting Intern in Cyber Laboratory
+* Statistical Consulting Intern in Cyber Laboratory, May 2018 - Aug 2018
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
-Professional Service
+Academic Service & Leadership
 -----------
 **Reviewer:**
 * Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
+* Book Chapter of ``Environmental Statistics: Innovative Methods and Applications'' published by CRC Press
 * International Conference on Machine Learning (ICML 2025), International Conference on Artificial Intelligence and Statistics (AISTATS 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022), Conference on Uncertainty in Artificial Intelligence (UAI 2025), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
 
@@ -73,21 +74,35 @@ Professional Service
 * International Conference on Learning Representations (ICLR 2022)
 * Conference on Neural Information Processing Systems (NeurIPS 2021)
 
-Scholarships & Awards
+**Other Services:**
+* Student Organizer of the [Geometric Data Analysis](https://uwgeometry.github.io/) Group at UW, Sep 2024 -- Present
+* Statistical Consultant of the Tribal-UW Collaboration Program, Jun 2024 -- Aug 2024
+* Master Student Representative of the Department of Statistics at UW, Jan 2019 -- Mar 2020
+
+Honors & Awards
 -----------
-* ASA Student and Early Career Travel Award for JSM 2025, Aug 2025
+**Paper & Presentation Awards:**
 * First Place Presentation Award of the NISS Virtual New Researchers Conference, Jun 2025
-* Graduate School Conference Presentation Award by the University of Washington, May 2025
 * [2025 ENAR Distinguished Student Paper Award](https://www.enar.org/meetings/spring2025/award_winners.cfm), Mar 2025
-* [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [2024 NESS Student Research Award](https://nestat.org/researchawards/nessresearch2024/), May 2024
+* Sun Yat-Sen University Best Undergraduate Thesis Award, Jun 2018
+
+**Travel Awards:**
+* ASA Student and Early Career Travel Award for JSM 2025, Aug 2025
+* Graduate School Conference Presentation Award by the University of Washington, May 2025
 * [IMS Hannan Graduate Student Travel Award](https://imstat.org/2024/04/22/2024-hannan-graduate-student-travel-awards-recipients/), Apr 2024
-* SYSU Best Undergraduate Thesis Award, Jun 2018
+
+**Scholarships:**
 * Kwang-Hua Education Scholarship, Dec 2017
 * Shenzhen Financial Institute (SFI) Scholarship (Academic) by the Chinese University of Hong Kong, Shenzhen, May 2017
 * AEON Donation Scholarship for Excellent Students, Dec 2016
 * SYSU Outstanding Student Scholarship (First Prize: Sep 2016 & Sep 2017; Second Prize: Sep 2015)
+
+**Other Honors:**
+* Invited speaker for the 2025 Rising Stars in Data Science workshop, Nov 2025
+* Invited speaker for the 2025 ``Teaching@UW: Strategies for TAs'' panel, Sep 2025
+* [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 
 Skills
 -----------
