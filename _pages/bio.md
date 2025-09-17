@@ -49,6 +49,8 @@ Teaching Experience
    
 Work Experience
 -----------
+* Jun 2025 - Present: Research Scientist Intern
+  * Central Applied Science, Meta
 * Jun 2023 - Sep 2023: Applied Scientist PhD Intern
   * Ads Data Science and Analytics, Uber Technologies Inc
 * Jun 2020 - Jul 2022: Advanced Algorithmic Engineer
