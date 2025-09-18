@@ -1,7 +1,7 @@
 ---
 layout: splash
 title: "Paper Reading Notes and Other Presentation Slides"
-excerpt: "Here are some of my notes and slides for reading and commenting other people's paper."
+excerpt: "Here are some of my notes and other slides for reading and commenting other people's paper. The slides for my research talks are available in the ['Talks'](https://zhangyk8.github.io/talks/) session."
 # (date: 2024-12-03)
 collection: portfolio
 permanent link: /portfolio-1/
