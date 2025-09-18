@@ -1,13 +1,13 @@
 ---
 layout: splash
-title: "Paper Reading Notes and Presentation Slides"
+title: "Paper Reading Notes and Other Presentation Slides"
 excerpt: "Here are some of my notes and slides for reading and commenting other people's paper."
 # (date: 2024-12-03)
 collection: portfolio
 permanent link: /portfolio-1/
 ---
 
-<h1>Paper Reading Notes and Presentation Slides</h1>
+<h1>Paper Reading Notes and Other Presentation Slides</h1>
 
 <p>
 1. Robust Optimization and Inference on Manifolds (by <i>Lizhen Lin, Drew Lazar, Bayan Sarpabayeva, David B. Dunson</i>): 
