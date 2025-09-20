@@ -4,7 +4,7 @@ title: "My Dear Soccer"
 excerpt: "A poem summarizing my soccer journey one year before my final retirement."
 # (date: 2020-01-03)
 collection: portfolio
-permanent link: /portfolio-5/
+permanent link: /portfolio-4/
 author_profile: false
 ---
 
