@@ -4,7 +4,7 @@ title: "Resonance"
 excerpt: "Some thoughtful excerpts and sayings that encourage me."
 # (date: 2021-12-03)
 collection: portfolio
-permanent link: /portfolio-4/
+permanent link: /portfolio-3/
 ---
 
 <h1>Resonance</h1>
