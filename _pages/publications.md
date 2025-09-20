@@ -56,6 +56,11 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
 1. <A href="https://zhangyk8.github.io/publications/AAAIStudentAbstract.pdf" style="color: #52adc8; text-decaration=underline"> Bayesian Network Structure Learning: The Two-step Clustering-based Algorithm </A> <br/>
     **Yikun Zhang**, Jiming Liu, and Yang Liu. _In Proceedings of the Thirty-Second AAAI Conference on Artificial Intelligence (AAAI-18) Student Abstract and Poster Program_, pages 8183-8184. (2018) [<A href="https://zhangyk8.github.io/publications/poster_SA.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/BN_short2018.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
+## Catalog Data
+
+1. <A href="https://doi.org/10.5281/zenodo.6244866" style="color: #52adc8; text-decoration=underline"> SDSS-IV Cosmic Web Catalog </A> <br/>
+   **Yikun Zhang**. Published June 10, 2022 on Zenodo.
+
 ## Other Collaborations
 
 3. <A href="http://arxiv.org/abs/2506.18652" style="color: #52adc8; text-decoration=underline"> A Practical Introduction to Regression-based Causal Inference in Meteorology (II): Unmeasured confounders </A> <br/>
