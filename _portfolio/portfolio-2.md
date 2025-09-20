@@ -4,7 +4,7 @@ title: "Course Project Reports and Notes"
 excerpt: "Here are some of my course project reports, slides, posters, and notes."
 # (date: 2024-12-03)
 collection: portfolio
-permanent link: /portfolio-3/
+permanent link: /portfolio-2/
 ---
 
 <h1>Course Notes and Project Reports</h1>
