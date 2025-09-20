@@ -2,9 +2,6 @@
 main:
   - title: "Bio"
     url: /bio/
-    
-  #- title: "Honors"
-    #url: /honors/
 
   - title: "Publications"
     url: /publications/   
@@ -14,6 +11,9 @@ main:
     
   - title: "Talks"
     url: /talks/ 
+
+  - title: "Honors"
+    url: /honors/
     
   - title: "Notes & Others"
     url: /miscellaneous/
