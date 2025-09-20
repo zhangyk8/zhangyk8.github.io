@@ -1,11 +1,27 @@
 ---
 layout: splash
 title: "Paper Reading Notes and Other Presentation Slides"
-excerpt: "Here are some of my notes and other slides for reading and commenting other people's paper. The slides for my research talks are available in the ['Talks'](https://zhangyk8.github.io/talks/) session."
+excerpt: "Here are some technical notes and slides that I created when reading and commenting other people's papers. The slides for my research talks are available in the ['Talks'](https://zhangyk8.github.io/talks/) session."
 # (date: 2024-12-03)
 collection: portfolio
 permanent link: /portfolio-1/
 ---
+
+<h1>Technical Notes and Slides</h1>
+
+<br>
+[Sampling Methods for the von Mises-Fisher Distributions and Smoothed Bootstrap](../Lecture_Notes/vMF_Sampling_SmoothBoot.pdf)
+<br>
+<br>
+[Shall We Always Avoid Overfitting? -- A generalized framework of the classical bias-variance trade-off in modern deep learning regime](https://zhangyk8.github.io/portfolio/Lecture_Notes/Hitting_distBM.pdf) (Slides for a brief introduction to the double-descent phenomenon)
+<br>
+<br>
+[Hitting Distribution of 2-dimensional Brownian Motions on a Wedge](../Lecture_Notes/Hitting_distBM.pdf)
+<br>
+<br>
+[Conditional Quantile Regression With Applications to User-Preferred Price Prediction](../Lecture_Notes/QuanReg.pdf) (Slides for applying conditional quantile regression and conformal inference in a recommendation setting)
+<br>
+<br>
 
 <h1>Paper Reading Notes and Other Presentation Slides</h1>
 
