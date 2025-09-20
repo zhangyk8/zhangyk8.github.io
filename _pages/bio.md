@@ -101,7 +101,7 @@ Honors & Awards
 
 **Other Honors:**
 * Invited speaker for the 2025 Rising Stars in Data Science workshop, Nov 2025
-* Invited speaker for the 2025 ``Teaching@UW: Strategies for TAs'' panel, Sep 2025
+* Invited speaker for the 2025 "Teaching@UW: Strategies for TAs" panel, Sep 2025
 * [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
 
 Skills
