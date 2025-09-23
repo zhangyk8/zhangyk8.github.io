@@ -63,8 +63,12 @@ Academic Service & Leadership
 **Reviewer:**
 * Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
-* International Conference on Machine Learning (ICML 2025), International Conference on Artificial Intelligence and Statistics (AISTATS 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022), Conference on Uncertainty in Artificial Intelligence (UAI 2025), Conference on Causal Learning and Reasoning (CleaR 2025), Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
-* Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
+* International Conference on Machine Learning (ICML 2025)
+* AAAI Conference on Artificial Intelligence (AAAI 2026)
+* International Conference on Artificial Intelligence and Statistics (AISTATS 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
+* Conference on Uncertainty in Artificial Intelligence (UAI 2025)
+* Conference on Causal Learning and Reasoning (CleaR 2025)
+* Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 **Conference Session Chair:**
 * 2025 ENAR Spring Meeting: "Emerging Statistical Methods for Omics and Multimodal Data Integration"
