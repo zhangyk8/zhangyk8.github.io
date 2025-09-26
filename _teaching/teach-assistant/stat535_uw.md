@@ -4,7 +4,7 @@ title: "STAT 535 Statistical Learning: Modeling, Prediction, and Computing I (ST
 collection: teaching
 type: "Graduate-level statistical machine learning Course"
 permalink: /teaching/stat535_uw
-venue: "Department of Statistics, University of Washington (Autumn 2024)"
+venue: "Department of Statistics, University of Washington (Autumn 2025, Autumn 2024)"
 location: "Seattle, WA, USA"
 ---
 
@@ -12,7 +12,7 @@ location: "Seattle, WA, USA"
 
 ### Course Description
 
-STAT 535 is a graduate-level statistical machine learning course that aims at giving some board introductions to popular topics in the modern statistical learning research, including likelihood methods, mixture models, high-dimensional linear models, graphs and networks, nonparametric methods, clustering, dimension reduction, Monte Carlo inference, boostrap, missing data, and causal inference. Besides maintaining the course logistics throughout the quarter, the TA will
+STAT 535 is a graduate-level statistical machine learning course that aims at giving some board introductions to popular topics in the modern statistical learning research, including likelihood methods, mixture models, high-dimensional linear models, graphs and networks, nonparametric methods, clustering, dimension reduction, Monte Carlo inference, bootstrap, missing data, and causal inference. Besides maintaining the course logistics throughout the quarter, the TA will
 - hold weekly hour office;
 - prepare solutions to homework assignments and grade them;
 - answer questions on the course discussion platform.
