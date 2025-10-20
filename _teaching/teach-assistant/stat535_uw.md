@@ -21,4 +21,5 @@ STAT 535 is a graduate-level statistical machine learning course that aims at gi
 
 - [Current lecture notes](https://faculty.washington.edu/yenchic/19A_stat535.html) written by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/index.html).
 - I served as the guest lecturer discussing decision tree, random forest, neural network, and some optimization perspectives of classification algorithms; see [my notes](file_stat535/1107-535-add.pdf) for details.
+- Mock lecture on [Classification With Logistic Regression](file_stat535/Classification_LR.pdf).
 
