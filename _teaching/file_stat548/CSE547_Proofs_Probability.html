@@ -1,0 +1,1559 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE 547 / STAT 548 / CSEP 590A at the University of Washington" />
+  <title>Review of Proof Techniques and Probability</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Review of Proof Techniques and Probability</h1>
+<p class="author"><em>CSE 547 / STAT 548 / CSEP 590A at the University
+of Washington</em></p>
+</header>
+<p><strong>Acknowledgment:</strong> This document has been adapted from
+a similar review session for CS 224W at Standard with substantial
+modifications by Yikun Zhang in Winter 2023 and Spring 2024 for CSE 547
+/ STAT 548 / CSEP 590A at UW. Some good references about writing proofs
+and basic probability theory include the followings:</p>
+<ul>
+<li><p>Greg Baker, “Introduction to Proofs”: <span><a
+href="https://www.cs.sfu.ca/~ggbaker/zju/math/proof.html"
+class="uri">https://www.cs.sfu.ca/~ggbaker/zju/math/proof.html</a></span>.</p></li>
+<li><p>CS103 Winter 2016 at Stanford, “Guide to Proofs”: <span><a
+href="http://stanford.io/2dexnf9"
+class="uri">http://stanford.io/2dexnf9</a></span>.</p></li>
+<li><p>Eugenia Cheng, “How to write proofs: a quick guide”: <span><a
+href="https://deopurkar.github.io/teaching/algebra1/cheng.pdf"
+class="uri">https://deopurkar.github.io/teaching/algebra1/cheng.pdf</a></span>.</p></li>
+<li><p>“Quick tour to Basic Probability Theory”: <span><a
+href="http://snap.stanford.edu/class/cs224w-2015/recitation/prob_tutorial.pdf"
+class="uri">http://snap.stanford.edu/class/cs224w-2015/recitation/prob_tutorial.pdf</a></span>.</p></li>
+</ul>
+<h1 id="proof-techniques">Proof Techniques</h1>
+<p>In this section, we will review several mathematical techniques for
+writing rigorous proofs. They are useful in the field of machine
+learning when we want to formally state and verify some theoretical
+properties of our proposed algorithms.</p>
+<h2 id="terminologies">Terminologies</h2>
+<ul>
+<li><p><span><strong>Definition:</strong></span> an explanation of the
+mathematical concept in words.</p></li>
+<li><p><span><strong>Conjecture:</strong></span> a statement that we
+think might be true and can be proven (but hasn’t been proven
+yet).</p></li>
+<li><p><span><strong>Theorem:</strong></span> a key statement/result
+that has been rigorously proven.</p></li>
+<li><p><span><strong>Proof:</strong></span> a valid argument for showing
+why a statement/result is true.</p></li>
+<li><p><span><strong>Premise:</strong></span> a condition for the
+theorem.</p></li>
+<li><p><span><strong>Lemma:</strong></span> a small theorem (or
+preliminary result) used in proving the main theorems or other true
+statements.</p></li>
+<li><p><span><strong>Proposition:</strong></span> a less important but
+interesting and valid statement with a short proof.</p></li>
+<li><p><span><strong>Corollary:</strong></span> a true statement that is
+a simple deduction from a theorem or proposition.</p></li>
+<li><p><span><strong>Axiom:</strong></span> a basic assumption about a
+mathematical situation, which is also a statement that we assume to be
+true.</p></li>
+</ul>
+<h2 id="universal-and-existence-statements">Universal and Existence
+Statements</h2>
+<p><span><strong>Universal statement:</strong></span> To <em>prove</em>
+a universal statement, like “the square of any odd number is odd”, it is
+always easy to show that this is true for some specific cases – for
+example, <span class="math inline">\(3^2 = 9\)</span>, which is an odd
+number, and <span class="math inline">\(5^2 = 25\)</span>, which is
+another odd number. However, to rigorously prove the statement, we must
+show that it works for <em>all</em> odd numbers, which is difficult as
+we cannot enumerate all of them.</p>
+<p>On the contrary, if we want to <em>disprove</em> a universal
+statement, we only need to find one counterexample. For instance, if we
+want to disprove the statement “the square of any odd number is even”,
+it suffices to provide a specific example of an odd number whose square
+is not even. (For example, <span class="math inline">\(3^2 = 9\)</span>,
+which is not an even number.)</p>
+<p>As a summary, it leads to a <em>rule of thumb</em> for proving or
+disproving</p>
+<ul>
+<li><p>To <em>prove</em> a universal statement, we must show that it
+works for all cases.</p></li>
+<li><p>To <em>disprove</em> a universal statement, it suffices to find
+one counterexample.</p></li>
+</ul>
+<div id="eg:sq_odd" class="Example">
+<p><strong>Example 1</strong>. Prove that the square of any odd number
+is odd.</p>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">\(x\)</span> be an
+arbitrary odd number. By definition, an odd number is an integer that
+can be written in the form <span class="math inline">\(2k + 1\)</span>
+for some integer <span class="math inline">\(k\)</span>. This means that
+we can write <span class="math inline">\(x = 2k + 1\)</span>, where
+<span class="math inline">\(k\)</span> is some integer. Thus, <span
+class="math display">\[x^2 = (2k + 1)^2 = 4k^2 + 4k + 1 = 2(2k^2 + 2k) +
+1.\]</span> Since <span class="math inline">\(k\)</span> is an integer,
+<span class="math inline">\(2k^2 + 2k\)</span> is also an integer, so we
+can write <span class="math inline">\(x^2 = 2 \ell + 1\)</span>, where
+<span class="math inline">\(\ell = 2k^2 + 2k\)</span> is an integer.
+Therefore, <span class="math inline">\(x^2\)</span> is odd.</p>
+<p>Since the above argument works for <em>any</em> odd number <span
+class="math inline">\(x\)</span>, we have shown that the square of any
+odd number is odd. ◻</p>
+</div>
+</div>
+<div class="Remark">
+<p><strong>Remark 1</strong>. Using the statement that “the square of
+any odd number is odd” as an example, we showcase how to prove a
+universal statement. In particular, we pick an <em>arbitrary</em> odd
+number <span class="math inline">\(x\)</span> and try to prove the
+statement for that number. In the proof, we cannot assume anything about
+<span class="math inline">\(x\)</span> other than that it is an odd
+number. (In other words, we cannot simply set <span
+class="math inline">\(x\)</span> to be a specific number, like <span
+class="math inline">\(3\)</span>, because then our proof might rely on
+special properties of the number <span class="math inline">\(3\)</span>
+that do not generalize to all odd numbers).<br />
+</p>
+</div>
+<p><span><strong>Existence statement:</strong></span> The above rule of
+thumb is reversed when it comes to the “existence” statements. For
+example, if the statement to be proved is that “there exists at least
+one odd number whose square is odd, then proving the statement just
+requires finding one specific case, <em>e.g.</em>, <span
+class="math inline">\(3^2 = 9\)</span>, while disproving the statement
+would require showing that none of the odd numbers have squares that are
+odd.</p>
+<h2 id="special-proof-techniques">Special Proof Techniques</h2>
+<p>In addition to the technique of “picking an arbitrary element”, here
+are several other techniques commonly seen in proofs.</p>
+<p><span><strong>Proof by contrapositive:</strong></span> Consider the
+statement that</p>
+<div class="center">
+<p>(a) <em>“If it is raining today, then I do not go to class.”</em></p>
+</div>
+<p>This is logically equivalent to the statement that</p>
+<div class="center">
+<p>(b) <em>“If I go to class, then it is not raining today.”</em></p>
+</div>
+<p>Therefore, if we want to prove statement (a), then it suffices (or
+equivalent) to prove statement (b). Statement (b) is called the
+<strong>contrapositive</strong> of statement (a).</p>
+<p>It is worth mentioning that statement (a) is <strong>not</strong>
+logically equivalent to the statement:</p>
+<div class="center">
+<p>(c) <em>“If I do not go to class, then it is raining today.”</em></p>
+</div>
+<p>which is a <strong>converse</strong> of statement (a). This
+non-equivalence is also known as the fallacy of the converse.</p>
+<div class="Example">
+<p><strong>Example 2</strong>. Let <span
+class="math inline">\(x\)</span> be an integer. Prove that <span
+class="math inline">\(x\)</span> is an odd number if and only if <span
+class="math inline">\(x^2\)</span> is an odd number.</p>
+<div class="proof">
+<p><em>Proof.</em> The “if and only if” in this statement requires us to
+prove both directions of the implication. First, we must prove that
+(<span class="math inline">\(\Rightarrow\)</span>) if <span
+class="math inline">\(x\)</span> is an odd number, then <span
+class="math inline">\(x^2\)</span> is an odd number. Then, we should
+also prove that (<span class="math inline">\(\Leftarrow\)</span>) if
+<span class="math inline">\(x^2\)</span> is an odd number, then <span
+class="math inline">\(x\)</span> is an odd number.</p>
+<p>As we already proved the first statement (<span
+class="math inline">\(\Rightarrow\)</span>) in Example <a
+href="#eg:sq_odd" data-reference-type="ref+label"
+data-reference="eg:sq_odd">1</a>, we only need to prove the second
+statement (<span class="math inline">\(\Leftarrow\)</span>). The second
+statement is logically equivalent to its contrapositive, so it suffices
+to prove that “if <span class="math inline">\(x\)</span> is an even
+number, then <span class="math inline">\(x^2\)</span> is even.”</p>
+<p>Suppose <span class="math inline">\(x\)</span> is an even number.
+Then, we can write <span class="math inline">\(x = 2k\)</span> for some
+integer <span class="math inline">\(k\)</span>. It implies that <span
+class="math inline">\(x^2 = 4k^2 = 2(2k^2)\)</span>. Since <span
+class="math inline">\(k\)</span> is an integer, <span
+class="math inline">\(2k^2\)</span> is also an integer, so we can write
+<span class="math inline">\(x^2 = 2 \ell\)</span> for the integer <span
+class="math inline">\(\ell = 2k^2\)</span>. By definition, this means
+that <span class="math inline">\(x^2\)</span> is an even number. ◻</p>
+</div>
+</div>
+<p><span><strong>Proof by contradiction:</strong></span> When proving a
+statement by contradiction, we would assume that our statement is not
+true and then derive a contradiction. This is a special case of proving
+by contrapositive (where our “if” is all of mathematics, and our “then”
+is the statement to be proved).</p>
+<div class="defn">
+<p><strong>Definition 1</strong>. A <em>prime number</em> (or a
+<em>prime</em>) is a natural number strictly greater than 1 that is not
+a product of two smaller natural numbers. A natural number greater than
+1 that is not prime is called a <em>composite number</em>.</p>
+</div>
+<div class="Example">
+<p><strong>Example 3</strong>. Prove that <span
+class="math inline">\(\sqrt{2}\)</span> is irrational.</p>
+<div class="proof">
+<p><em>Proof.</em> Suppose that <span
+class="math inline">\(\sqrt{2}\)</span> was rational. By definition,
+this means that <span class="math inline">\(\sqrt{2}\)</span> can be
+written as <span class="math inline">\(m/n\)</span> for some integers
+<span class="math inline">\(m\)</span> and <span
+class="math inline">\(n\)</span>. Since <span
+class="math inline">\(\sqrt{2} = m/n\)</span>, it follows that <span
+class="math inline">\(2 = m^2 / n^2\)</span>, which in turn shows that
+<span class="math inline">\(m^2 = 2n^2\)</span>. Now any square number
+<span class="math inline">\(x^2\)</span> must have an even number of
+prime factors, since any prime factor found in the first <span
+class="math inline">\(x\)</span> must also appear in the second <span
+class="math inline">\(x\)</span>. Therefore, <span
+class="math inline">\(m^2\)</span> must have an even number of prime
+factors. However, since <span class="math inline">\(n^2\)</span> must
+also have an even number of prime factors, and <span
+class="math inline">\(2\)</span> is a prime number, <span
+class="math inline">\(2n^2\)</span> must have an odd number of prime
+factors. This is a contradiction, since we claimed that <span
+class="math inline">\(m^2 = 2n^2\)</span>, and no number can
+simultaneously have an even number of prime factors and an odd number of
+prime factors. Therefore, our initial assumption was wrong, and <span
+class="math inline">\(\sqrt{2}\)</span> must be irrational. ◻</p>
+</div>
+</div>
+<p><span><strong>Proof by cases:</strong></span> Sometimes, it might be
+difficult to prove the entire theorem at once. As a result, we consider
+splitting the proof into several cases and proving the theorem
+separately for each case.</p>
+<div class="Example">
+<p><strong>Example 4</strong>. Let <span
+class="math inline">\(n\)</span> be an integer. Show that if <span
+class="math inline">\(n\)</span> is not divisible by <span
+class="math inline">\(3\)</span>, then <span class="math inline">\(n^2 =
+3k + 1\)</span> for some integer <span
+class="math inline">\(k\)</span>.</p>
+<div class="proof">
+<p><em>Proof.</em> If <span class="math inline">\(n\)</span> is not
+divisible by <span class="math inline">\(3\)</span>, then either <span
+class="math inline">\(n = 3m + 1\)</span> or <span
+class="math inline">\(n = 3m + 2\)</span> for some integer <span
+class="math inline">\(m\)</span>.</p>
+<p><em>Case 1:</em> Suppose <span class="math inline">\(n = 3m +
+1\)</span>. Then <span class="math inline">\(n^2 = (3m + 1)^2 = 9m^2 +
+6m + 1 = 3(3m^2 + 2m) + 1\)</span>. Since <span
+class="math inline">\(3m^2 + 2m\)</span> is an integer, it follows that
+we can write <span class="math inline">\(n^2 = 3k + 1\)</span> for <span
+class="math inline">\(k = 3m^2 + 2m\)</span>.</p>
+<p><em>Case 2:</em> Suppose <span class="math inline">\(n = 3m +
+2\)</span>. Then <span class="math inline">\(n^2 = (3m + 2)^2 = 9m^2 +
+12m + 4 = 9m^2 + 12m + 3 + 1 = 3(3m^2 + 4m + 1) + 1\)</span>. Hence, we
+can write <span class="math inline">\(n^2 = 3k + 1\)</span> for <span
+class="math inline">\(k = 3m^2 + 4m + 1\)</span>.</p>
+<p>Since Case 1 and Case 2 reflect all possible possibilities, the proof
+is completed. ◻</p>
+</div>
+</div>
+<h2 id="proof-by-induction">Proof by induction</h2>
+<p>We can prove a statement by induction when showing that the statement
+is valid for all positive integers <span
+class="math inline">\(n\)</span>. Note that this is not the only
+situation in which we can use induction, and that induction is (usually)
+not the only way to prove a statement for all positive integers.</p>
+<p>To use induction, we need to establish two results:</p>
+<ol>
+<li><p><strong>Base case:</strong> The statement is true when <span
+class="math inline">\(n = 1\)</span>.</p></li>
+<li><p><strong>Inductive step:</strong> If the statement is true for
+<span class="math inline">\(n = k\)</span>, then the statement is also
+true for <span class="math inline">\(n = k + 1\)</span>.</p></li>
+</ol>
+<p>It allows for an infinite chain of implications:</p>
+<ul>
+<li><p>The statement is true for <span class="math inline">\(n =
+1\)</span></p></li>
+<li><p>If the statement is true for <span class="math inline">\(n =
+1\)</span>, then it is also true for <span class="math inline">\(n =
+2\)</span></p></li>
+<li><p>If the statement is true for <span class="math inline">\(n =
+2\)</span>, then it is also true for <span class="math inline">\(n =
+3\)</span></p></li>
+<li><p>If the statement is true for <span class="math inline">\(n =
+3\)</span>, then it is also true for <span class="math inline">\(n =
+4\)</span></p></li>
+<li><p>…</p></li>
+</ul>
+<p>Together, these implications prove the statement for all positive
+integer values of <span class="math inline">\(n\)</span>. (It does not
+prove the statement for non-integer values of <span
+class="math inline">\(n\)</span>, or values of <span
+class="math inline">\(n\)</span> less than <span
+class="math inline">\(1\)</span>.)</p>
+<div class="Example">
+<p><strong>Example 5</strong>. Prove that <span class="math inline">\(1
++ 2 + \dots + n = n(n + 1)/2\)</span> for all integers <span
+class="math inline">\(n \geq 1\)</span>.</p>
+<div class="proof">
+<p><em>Proof.</em> We proceed by induction.</p>
+<p><strong>Base case:</strong> If <span class="math inline">\(n =
+1\)</span>, then the statement becomes <span class="math inline">\(1 =
+1(1 + 1) / 2\)</span>, which is true.</p>
+<p><strong>Inductive step:</strong> Suppose that the statement is true
+for <span class="math inline">\(n = k\)</span>. This means <span
+class="math inline">\(1 + 2 + \dots + k = k(k + 1) / 2\)</span>. We want
+to show the statement is true for <span class="math inline">\(n = k +
+1\)</span>, <em>i.e.</em>, <span class="math display">\[1 + 2 + \dots +
+k + (k + 1) = (k + 1)(k + 2) / 2.\]</span></p>
+<p>By the induction hypothesis (<em>i.e.</em>, because the statement is
+true for <span class="math inline">\(n = k\)</span>), we have <span
+class="math inline">\(1 + 2 + \dots + k + (k + 1) = k(k + 1) / 2 + (k +
+1)\)</span>. This equals <span class="math inline">\((k + 1)(k/2 +
+1)\)</span>, which is equal to <span class="math inline">\((k + 1)(k +
+2)/2\)</span>. This proves the inductive step.</p>
+<p>Therefore, the statement is true for all integers <span
+class="math inline">\(n \geq 1\)</span>. ◻</p>
+</div>
+</div>
+<h3 id="strong-induction">Strong induction</h3>
+<p>Strong induction (or complete induction) is a useful variant of
+induction. Here, the inductive step is changed to</p>
+<ol>
+<li><p><strong>Base case:</strong> The statement is true when <span
+class="math inline">\(n = 1\)</span>.</p></li>
+<li><p><strong>Inductive step:</strong> If the statement is true for all
+values of <span class="math inline">\(1 \leq n &lt; k\)</span>, then the
+statement is also true for <span class="math inline">\(n =
+k\)</span>.</p></li>
+</ol>
+<p>This also produces an infinite chain of implications:</p>
+<ul>
+<li><p>The statement is true for <span class="math inline">\(n =
+1\)</span></p></li>
+<li><p>If the statement is true for <span class="math inline">\(n =
+1\)</span>, then it is true for <span class="math inline">\(n =
+2\)</span></p></li>
+<li><p>If the statement is true for both <span class="math inline">\(n =
+1\)</span> and <span class="math inline">\(n = 2\)</span>, then it is
+true for <span class="math inline">\(n = 3\)</span></p></li>
+<li><p>If the statement is true for <span class="math inline">\(n =
+1\)</span>, <span class="math inline">\(n = 2\)</span>, and <span
+class="math inline">\(n = 3\)</span>, then it is true for <span
+class="math inline">\(n = 4\)</span></p></li>
+<li><p>…</p></li>
+</ul>
+<p>Strong induction works on the same principle as weak induction, but
+is generally easier to prove theorems under its stronger induction
+hypothesis.</p>
+<div class="Example">
+<p><strong>Example 6</strong>. Prove that every integer <span
+class="math inline">\(n\)</span> greater than or equal to <span
+class="math inline">\(2\)</span> can be factored into prime numbers.</p>
+<div class="proof">
+<p><em>Proof.</em> We proceed by (strong) induction.</p>
+<p><strong>Base case:</strong> If <span class="math inline">\(n =
+2\)</span>, then <span class="math inline">\(n\)</span> is a prime
+number, and its factorization is itself.</p>
+<p><strong>Inductive step:</strong> Suppose that <span
+class="math inline">\(k\)</span> is some integer larger than <span
+class="math inline">\(2\)</span>, and assume that the statement is true
+for all numbers <span class="math inline">\(n &lt; k\)</span>. Then,
+there are two cases:</p>
+<p><em>Case 1:</em> <span class="math inline">\(k\)</span> is prime.
+Then, its prime factorization is <span class="math inline">\(k\)</span>
+itself.</p>
+<p><em>Case 2:</em> <span class="math inline">\(k\)</span> is composite.
+This means that it can be decomposed into a product <span
+class="math inline">\(xy\)</span>, where <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> are both greater than <span
+class="math inline">\(1\)</span> and less than <span
+class="math inline">\(k\)</span>. Since <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> are both less than <span
+class="math inline">\(k\)</span>, both <span
+class="math inline">\(x\)</span> and <span
+class="math inline">\(y\)</span> can be factored into prime numbers (by
+the inductive hypothesis). That is, <span class="math inline">\(x = p_1
+\cdots p_s\)</span> and <span class="math inline">\(y = q_1 \cdots
+q_t\)</span>, where <span class="math inline">\(p_1, \dots, p_s\)</span>
+and <span class="math inline">\(q_1, \dots, q_t\)</span> are prime
+numbers.</p>
+<p>Thus, <span class="math inline">\(k\)</span> can be written as <span
+class="math inline">\((p_1 \dots p_s) \cdot (q_1 \dots q_t)\)</span>,
+which is a factorization into prime numbers. It also completed the proof
+of the statement. ◻</p>
+</div>
+</div>
+<h1 id="Sec:result_cal">Useful Results in Calculus</h1>
+<p>The definition of the exponential function states that <span
+class="math display">\[e^x = \lim_{n \to \infty} \left(1 +
+\frac{x}{n}\right)^n.\]</span> In particular, it indicates that <span
+class="math inline">\(\lim\limits_{n \to \infty} \left(1 +
+\frac{1}{n}\right)^n = e\)</span> and <span
+class="math inline">\(\lim\limits_{n \to \infty}\left(1 -
+\frac{1}{n}\right)^n = \frac{1}{e}\)</span>.</p>
+<p><span><strong>Gamma Function and Stirling’s Formula:</strong></span>
+For <span class="math inline">\(x\in (0,\infty)\)</span>, the Gamma
+function is <span class="math inline">\(\Gamma(x) = \int_0^{\infty}
+t^{x-1} e^{-t} dt\)</span>. While the exact value of <span
+class="math inline">\(\Gamma(x+1)\)</span> is intractable for some <span
+class="math inline">\(x\in (0,\infty)\)</span>, one can approximate
+<span class="math inline">\(\Gamma(x+1)\)</span> when <span
+class="math inline">\(x\)</span> is large by <em>Stirling’s
+formula</em>: <span class="math display">\[\lim_{x\to\infty}
+\frac{\Gamma(x+1)}{(x/e)^x \sqrt{2\pi x}} = 1.\]</span> This implies
+that when <span class="math inline">\(x=n\)</span> is a sufficiently
+large integer, we can approximate <span
+class="math inline">\(\Gamma(n+1) = n!\)</span> by <span
+class="math inline">\(\sqrt{2\pi n} \left(\frac{n}{e}\right)^n\)</span>.
+More precisely, the following bound for <span
+class="math inline">\(n!\)</span> holds for all <span
+class="math inline">\(n\geq 1\)</span> rather than only asymptotically:
+<span class="math display">\[\sqrt{2\pi n} \left(\frac{n}{e}\right)^n
+e^{\frac{1}{12n+1}} &lt; n! &lt; \sqrt{2\pi n}
+\left(\frac{n}{e}\right)^n e^{\frac{1}{12n}}.\]</span></p>
+<h1 id="basic-probability-theory">Basic Probability Theory</h1>
+<p>Parts of this section are adapted from Chapter 1 of <span
+class="citation" data-cites="casella2002statistical"></span> and lecture
+notes of STAT 512 at UW by Professor Yen-Chi Chen’s <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and
+Professor Michael D. Perlman <span class="citation"
+data-cites="MDP"></span>.</p>
+<h2 id="probability-space">Probability Space</h2>
+<p><span><strong>Sample space:</strong></span> The <em>sample space</em>
+<span class="math inline">\(\Omega\)</span> is the collection of all
+possible outcomes of a random experiment. For example, if we roll a die
+with 6 faces, then the sample space will be <span
+class="math inline">\(\{1, 2, 3, 4, 5, 6\}\)</span>.</p>
+<p><span><strong>Events:</strong></span> A subset of the sample space,
+<span class="math inline">\(A\subset \Omega\)</span>, is called an
+<em>event</em>. For example, the event “the number from the above die is
+less than 4” can be represented by the subset <span
+class="math inline">\(\{1, 2, 3\}\)</span>. The event “we roll a 6 from
+the above die” can be represented by the subset <span
+class="math inline">\(\{6\}\)</span>.</p>
+<p><span><strong><span class="math inline">\(\sigma\)</span>-algebra<a
+href="#fn2" class="footnote-ref" id="fnref2"
+role="doc-noteref"><sup>2</sup></a>:</strong></span> While the
+collection of all possible events (<em>i.e.</em>, all subsets of <span
+class="math inline">\(\Omega\)</span>) is sometimes too large to define
+a valid probability space, we introduce the concept of <span
+class="math inline">\(\sigma\)</span>-algebra <span
+class="math inline">\(\mathcal{F}\)</span> as a collections of subsets
+of <span class="math inline">\(\Omega\)</span> satisfying:</p>
+<ol>
+<li><p>(<em>Nonemptiness</em>) <span class="math inline">\(\Omega\in
+\mathcal{F}\)</span> and <span class="math inline">\(\emptyset \in
+\mathcal{F}\)</span>, where <span
+class="math inline">\(\emptyset\)</span> is the empty set.</p></li>
+<li><p>(<em>Closure under complementation</em>) If <span
+class="math inline">\(A\in \mathcal{F}\)</span>, then <span
+class="math inline">\(A^c \in \mathcal{F}\)</span>.</p></li>
+<li><p>(<em>Closure under countable unions</em>) If <span
+class="math inline">\(A_1,A_2,...\in \mathcal{F}\)</span>, then <span
+class="math inline">\(\cup_{i=1}^{\infty} A_i \in
+\mathcal{F}\)</span>.</p></li>
+</ol>
+<p>The subsets of <span class="math inline">\(\Omega\)</span> in <span
+class="math inline">\(\mathcal{F}\)</span> are said to be
+<em>measurable</em>, and <span
+class="math inline">\((\Omega,\mathcal{F})\)</span> is called
+<em>measurable space</em>.</p>
+<p><span><strong>Probability measure:</strong></span> A probability
+measure (or probability function) <span class="math inline">\(P\)</span>
+is a mapping from <span class="math inline">\(\sigma\)</span>-algebra
+<span class="math inline">\(\mathcal{F}\)</span> to real numbers in
+<span class="math inline">\([0,1]\)</span> satisfying the following
+three axioms:</p>
+<ul>
+<li><p><span class="math inline">\(P(A) \geq 0\)</span> for all <span
+class="math inline">\(A\in \mathcal{F}\)</span>.</p></li>
+<li><p><span class="math inline">\(P(\Omega) = 1\)</span></p></li>
+<li><p>If <span class="math inline">\(A_1,A_2,...\in
+\mathcal{F}\)</span> are mutually exclusive events, then <span
+class="math inline">\(P\left(\cup_{i=1}^{\infty} A_i\right) =
+\sum_{i=1}^n P(A_i)\)</span>.</p></li>
+</ul>
+<p>The triplet <span
+class="math inline">\((\Omega,\mathcal{F},P)\)</span> is called a
+<em>probability space</em>.</p>
+<div class="Example">
+<p><strong>Example 7</strong>. For a fair dice with 6 faces, we can
+define the probability function as: <span
+class="math display">\[P\left(\{\text{we roll the face } i\}\right) =
+\frac{1}{6} \quad \text{ for i = 1,..., 6}.\]</span> Any event in the
+probability space can be represented as unions of these six disjoint
+events. For instance, <span class="math display">\[P\left(\text{we roll
+an odd number}\right) = \frac{1}{6} + \frac{1}{6} + \frac{1}{6} =
+\frac{1}{2}.\]</span> Note that we can add probabilities here because
+the events <span class="math inline">\(\{\text{we roll the face }
+1\}\)</span>, <span class="math inline">\(\{\text{we roll the face }
+3\}\)</span>, and <span class="math inline">\(\{\text{we roll the face }
+5\}\)</span> are disjoint.</p>
+</div>
+<h2 id="properties-of-probability-measure">Properties of Probability
+Measure</h2>
+<div id="thm:inex" class="theorem">
+<p><strong>Theorem 1</strong> (Principle of inclusion-exclusion).
+<em>Let <span class="math inline">\((\Omega,\mathcal{F},P)\)</span> be a
+probability space. Given two subsets <span class="math inline">\(A,B\in
+\mathcal{F}\)</span> that are not necessarily disjoint, we have that
+<span class="math display">\[P(A \cup B) = P(A) + P(B) - P(A \cap
+B).\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> We can derive this theorem from the probability
+axioms. Note that <span class="math inline">\(A \cup B\)</span> can be
+split into three disjoint events: <span class="math inline">\(A
+\setminus B = A\cap B^c\)</span>, <span class="math inline">\(A \cap
+B\)</span>, and <span class="math inline">\(B \setminus A = B\cap
+A^c\)</span>. Furthermore, <span class="math inline">\(A\)</span> can be
+split into <span class="math inline">\(A \setminus B\)</span> and <span
+class="math inline">\(A \cap B\)</span>, and <span
+class="math inline">\(B\)</span> can be split into <span
+class="math inline">\(B \setminus A\)</span> and <span
+class="math inline">\(A \cap B\)</span>. Thus, <span
+class="math display">\[\begin{eqnarray*}
+    P(A \cup B) &amp;= &amp;P(A \setminus B) + P(A \cap B) + P(B
+\setminus A) \\
+    &amp;=&amp; P(A \setminus B) + P(A \cap B) + P(B \setminus A) + P(A
+\cap B) - P(A \cap B) \\
+    &amp;=&amp; P(A) + P(B) - P(A \cap B)
+\end{eqnarray*}\]</span> The result follows. ◻</p>
+</div>
+<div class="Example">
+<p><strong>Example 8</strong>. Suppose <span
+class="math inline">\(k\)</span> is chosen uniformly at random from the
+integer set <span class="math inline">\(\{1, 2, \dots, 100\}\)</span>.
+(This means that the probability of getting each integer is <span
+class="math inline">\(1/100\)</span>.) Find the probability that <span
+class="math inline">\(k\)</span> is divisible by <span
+class="math inline">\(2\)</span> or <span
+class="math inline">\(5\)</span>.</p>
+<p><em>Solution</em>. By the principle of inclusion-exclusion (<a
+href="#thm:inex" data-reference-type="ref+label"
+data-reference="thm:inex">1</a>), <span
+class="math display">\[\begin{align*}
+P\left(\{\text{$k$ is divisible by $2$ or $5$}\}\right) &amp;=
+P\left(\{\text{$k$ is divisible by $2$}\}\right) + P\left(\{\text{$k$ is
+divisible by $5$}\}\right) \\
+&amp;\quad - P\left(\{\text{$k$ is divisible by both $2$ and
+$5$}\}\right).
+\end{align*}\]</span> There are <span class="math inline">\(50\)</span>
+numbers divisible by <span class="math inline">\(2\)</span>, <span
+class="math inline">\(20\)</span> numbers divisible by <span
+class="math inline">\(5\)</span>, and <span
+class="math inline">\(10\)</span> numbers divisible by <span
+class="math inline">\(10\)</span> (<em>i.e.</em>, divisible by both
+<span class="math inline">\(2\)</span> and <span
+class="math inline">\(5\)</span>). Therefore, the probability is <span
+class="math display">\[P\left(\{\text{$k$ is divisible by $2$ or
+$5$}\}\right) = \frac{50}{100} + \frac{20}{100} - \frac{10}{100} =
+0.6.\]</span></p>
+</div>
+<div id="thm:union_bnd" class="theorem">
+<p><strong>Theorem 2</strong> (Union bound or Boole’s inequality).
+<em>Let <span class="math inline">\((\Omega,\mathcal{F},P)\)</span> be a
+probability space. For any collection of <span
+class="math inline">\(n\)</span> events <span class="math inline">\(A_1,
+\dots, A_n \in \mathcal{F}\)</span>, we have that <span
+class="math display">\[P\left(\bigcup_{i = 1}^n A_i\right) \leq \sum_{i
+= 1}^n P(A_i).\]</span></em></p>
+</div>
+<div class="proof">
+<p><em>Proof.</em> We can prove this result by induction (for finite
+<span class="math inline">\(n\)</span>).</p>
+<p><strong>Base case:</strong> When <span
+class="math inline">\(n=1\)</span>, the statement becomes <span
+class="math inline">\(P(A_1) \leq P(A_1)\)</span>, which is true.</p>
+<p><strong>Inductive step:</strong> Suppose that the statement is true
+for <span class="math inline">\(n = k\)</span>. We must prove that the
+statement is true for <span class="math inline">\(n = k + 1\)</span>.
+Note that <span class="math display">\[\bigcup_{i = 1}^{k + 1} A_i =
+\left(\bigcup_{i = 1}^k A_i\right) \cup A_{k + 1}\]</span> and by the
+principle of inclusion-exclusion (<a href="#thm:inex"
+data-reference-type="ref+label" data-reference="thm:inex">1</a>), <span
+class="math display">\[P\left(\bigcup_{i = 1}^{k + 1} A_i\right) \leq
+P\left(\bigcup_{i = 1}^k A_i\right) + P(A_{k + 1}).\]</span> By the
+induction hypothesis, the first term is less than or equal to <span
+class="math inline">\(\sum_{i = 1}^k P(A_i)\)</span>. Hence, <span
+class="math display">\[P\left(\bigcup_{i = 1}^{k + 1} A_i\right) \leq
+\sum_{i = 1}^{k+1} P(A_i).\]</span> The proof is completed. ◻</p>
+</div>
+<div class="Example">
+<p><strong>Example 9</strong>. Suppose that the chance of winning a Mega
+Million is <span class="math inline">\(1\)</span> in <span
+class="math inline">\(100000\)</span> every time a person buys a lottery
+ticket. If Tim buys one ticket every day of the year, how likely will he
+win the Mega Million at least once?</p>
+<p><em>Answer.</em> The union bound will not tell us the exact
+probability for Tim winning the Mega Million. However, it gives us an
+upper bound of this probability as <span class="math inline">\(365 /
+100000\)</span>.</p>
+</div>
+<p><span><strong>Other useful properties of probability
+measure:</strong></span> Let <span
+class="math inline">\((\Omega,\mathcal{F},P)\)</span> be a probability
+space.</p>
+<ul>
+<li><p>If <span class="math inline">\(A\subset B\)</span>, then <span
+class="math inline">\(P(A) \leq P(B)\)</span>. More generally, <span
+class="math inline">\(P(B\setminus A) = P(B) - P(A\cap
+B)\)</span>.</p></li>
+<li><p>For any <span class="math inline">\(A\in \mathcal{F}\)</span> and
+some mutually exclusive <span class="math inline">\(C_1,C_2,...\)</span>
+with <span class="math inline">\(\cup_{i=1}^{\infty} C_i =
+\Omega\)</span>, <span class="math display">\[P(A) = \sum_{i=1}^{\infty}
+P(A\cap C_i).\]</span></p></li>
+<li><p><em>Monotone continuity</em>: For a sequence of subsets <span
+class="math inline">\(\{A_n\}_{n=1}^{\infty} \subset
+\mathcal{F}\)</span> with <span class="math inline">\(A_n\subset
+A_{n+1}\)</span> for all <span class="math inline">\(n\)</span>, we have
+that <span class="math inline">\(P\left(\bigcup\limits_{n=1}^{\infty}
+A_n\right) = \lim\limits_{n\to\infty} P(A_n)\)</span>. Similarly, if
+<span class="math inline">\(A_n \supset A_{n+1}\)</span> for all <span
+class="math inline">\(n\)</span>, we have that <span
+class="math inline">\(P\left(\bigcap\limits_{n=1}^{\infty} A_n\right) =
+\lim\limits_{n\to\infty} P(A_n)\)</span>.</p></li>
+</ul>
+<h2 id="conditional-probability-independence-and-bayes-rule">Conditional
+Probability, Independence, and Bayes’ Rule</h2>
+<p>We motivate the concept of conditional probability through the
+following example.</p>
+<div class="Example">
+<p><strong>Example 10</strong>. Suppose that you are administering the
+GRE, and you discover that 2.5% of students get a perfect score on the
+math section.<a href="#fn3" class="footnote-ref" id="fnref3"
+role="doc-noteref"><sup>3</sup></a> By itself, this is not a very useful
+statistic, because the scores on the math section vary substantially by
+major. You dive a little deeper and find that 7.5% of physical sciences
+students get a perfect score, 6.3% of engineering students get a perfect
+score, and most other majors do substantially worse.</p>
+<p>In the language of conditional probability, we would say that the
+probability of getting a perfect score conditional on engineering majors
+is 6.3%, <em>i.e.</em>, <span class="math display">\[P(\text{perfect
+score}~|~\text{engineering major}) = 0.063.\]</span> If we want to
+compute this probability, we would take the number of engineering majors
+that receive a perfect score, and divide it by the total number of
+engineering majors. This is equivalent to computing the formula: <span
+class="math display">\[P(\text{perfect score}~|~\text{engineering
+major}) = \frac{P(\text{perfect score} \cap \text{engineering
+major})}{P(\text{engineering major})}.\]</span> In general, we can
+replace “perfect score” and “engineering major” with any two events and
+obtain the formal definition of conditional probability.</p>
+</div>
+<p><span><strong>Conditional Probability:</strong></span> For two events
+<span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> with <span
+class="math inline">\(P(B)&gt;0\)</span>, the conditional probability of
+<span class="math inline">\(A\)</span> given <span
+class="math inline">\(B\)</span> is defined as: <span
+class="math display">\[P(A|B) = \frac{P(A\cap B)}{P(B)}.\]</span> Notice
+that when the event <span class="math inline">\(B\)</span> is fixed,
+<span class="math inline">\(P(\cdot|B)\)</span> is another probability
+measure.</p>
+<div class="Example">
+<p><strong>Example 11</strong>. Suppose that we toss a fair coin three
+times. What is the probability that all three tosses come up heads,
+given that the first toss came up heads?</p>
+<p><em>Answer.</em> This probability is <span
+class="math display">\[\frac{P\left(\{\text{all three tosses come up
+heads and the first toss came up heads}\}\right)}{P\left(\{\text{the
+first toss came up heads}\}\right)} = \frac{1/8}{1/2} =
+\frac{1}{4}.\]</span></p>
+</div>
+<p><span><strong>Independence and conditional
+independence:</strong></span> Two events <span
+class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are <em>independent</em> if <span
+class="math display">\[P(A|B)=P(A) \quad \text{ or equivalently, }\quad
+P(A\cap B) = P(A) \cdot P(B).\]</span> In other words, the occurrence of
+event <span class="math inline">\(B\)</span> does not affect the
+probability that event <span class="math inline">\(A\)</span>
+happens.</p>
+<p>For three events <span class="math inline">\(A,B,C\)</span>, we say
+that <span class="math inline">\(A\)</span> and <span
+class="math inline">\(B\)</span> are <em>conditionally independent</em>
+given <span class="math inline">\(C\)</span> if <span
+class="math display">\[P(A\cap B|C) = P(A|C) \cdot P(B|C).\]</span>
+<strong>There are no implications between independence and conditional
+independence!!</strong></p>
+<p><span><strong>Bayes’ rule:</strong></span> Given an event <span
+class="math inline">\(A\)</span> and some mutually exclusive events
+<span class="math inline">\(B_1,...,B_k\)</span> with <span
+class="math inline">\(\cup_{i=1}^k B_i=\Omega\)</span>, the <em>Bayes’
+rule</em> states that <span class="math display">\[P(B_j|A) =
+\frac{P(B_j\cap A)}{P(A)} = \frac{P(A|B_j) P(B_j)}{\sum_{i=1}^k P(A|B_i)
+P(B_i)} \quad \text{ for all } j=1,...,k.\]</span></p>
+<div class="Example">
+<p><strong>Example 12</strong>. Suppose that 5% of students enrolled in
+CSE 547 at UW will get 4.0, and a student with 4.0 in CSE 547 has 80%
+chance of getting recruited by Google. A student without getting 4.0 in
+CSE 547 still has 40% chance of getting recruited by Google. What is the
+probability of a student getting 4.0 in CSE 547, given that he/she has
+been recruited by Google?</p>
+<p><em>Answer.</em> By Bayes’ Rule, <span
+class="math display">\[\begin{align*}
+&amp;P(\text{Get 4.0}~|~\text{Recruited by Google}) \\
+&amp;= \frac{P(\text{Recruited by Google}~|~\text{Get 4.0}) \cdot
+P(\text{Get 4.0})}{P(\text{Recruited by Google})} \\
+&amp;= \frac{P(\text{Recruited by Google}~|~\text{Get 4.0}) \cdot
+P(\text{Get 4.0})}{P(\text{Recruited by Google}\big|\text{Get 4.0})
+P(\text{Get 4.0}) + P(\text{Recruited by Google}\big|\text{Not get 4.0})
+P(\text{Not get 4.0})} \\
+    &amp;= \frac{0.8 \times 0.05}{0.8 \times 0.05 + 0.4 \times 0.95}\\
+    &amp; \approx 9.52\%.
+\end{align*}\]</span></p>
+</div>
+<h2 id="random-variables">Random variables</h2>
+<p><span><strong>Random variable:</strong></span> Let <span
+class="math inline">\((\Omega,\mathcal{F},P)\)</span> be a probability
+space and <span
+class="math inline">\(\mathbb{R}=(-\infty,\infty)\)</span> be the set of
+all real numbers. A <em>random variable</em> <span
+class="math inline">\(X:\Omega\to \mathbb{R}\)</span> is a (measurable)
+function satisfying <span
+class="math display">\[X^{-1}\left((-\infty,c]\right) := \left\{\omega
+\in \Omega: X(\omega) \leq c\right\} \in \mathcal{F} \quad \text{ for
+all }c\in \mathbb{R}.\]</span> The probability that <span
+class="math inline">\(X\)</span> takes on a value in a Borel set<a
+href="#fn4" class="footnote-ref" id="fnref4"
+role="doc-noteref"><sup>4</sup></a> <span class="math inline">\(B\subset
+\mathbb{R}\)</span> is written as: <span class="math display">\[P(X\in
+B) = P\left(\{\omega\in \Omega: X(\omega)\in B\}\right).\]</span></p>
+<div class="Example">
+<p><strong>Example 13</strong>. Suppose that we are tossing three fair
+coins. Let <span class="math inline">\(X\)</span> be the number of coins
+that come up heads. Then, <span class="math inline">\(P(X = 0) =
+1/8\)</span>.</p>
+</div>
+<p><span><strong>Cumulative distribution function (CDF):</strong></span>
+The CDF <span class="math inline">\(F:\mathbb{R}\to [0,1]\)</span> of a
+random variable <span class="math inline">\(X\)</span> is a right
+continuous and nondecreasing function with left limits satisfying <span
+class="math display">\[F(x):= P(X\leq x)=P\left(\{\omega\in \Omega:
+X(\omega)\leq x\}\right).\]</span> In particular, <span
+class="math inline">\(\lim\limits_{x \to -\infty} F(x)=0\)</span> and
+<span class="math inline">\(\lim\limits_{x \to \infty}
+F(x)=1\)</span>.</p>
+<p><span><strong>Probability mass function (PMF) and probability density
+function (PDF):</strong></span></p>
+<ul>
+<li><p>If the range <span class="math inline">\(\mathcal{X} \subset
+\mathbb{R}\)</span> of a random variable <span
+class="math inline">\(X\)</span> is countable, it is called a
+<em>discrete</em> random variable, whose distribution can be
+characterized by the PMF as: <span class="math display">\[P(X=x)=F(x) -
+\lim_{\epsilon\to 0^+} F(x-\epsilon) \quad \text{ for all } x\in
+\mathcal{X}.\]</span></p></li>
+<li><p>If the range <span class="math inline">\(\mathcal{X} \subseteq
+\mathbb{R}\)</span> of a random variable <span
+class="math inline">\(X\)</span> has an absolutely continuous CDF <span
+class="math inline">\(F\)</span>, then we can describe its distribution
+through the PDF as: <span class="math display">\[p(x) = F&#39;(x) =
+\frac{d}{dx} F(x).\]</span> In this case, <span
+class="math inline">\(F(x) = P(X\leq x) =\int_{-\infty}^x p(u)\,
+du\)</span>, and <span class="math inline">\(P(X=x)=0\)</span> for a
+single number <span class="math inline">\(x\in
+\mathbb{R}\)</span>.</p></li>
+</ul>
+<h2 id="expectation-and-variance">Expectation and Variance</h2>
+<p><span><strong>Expectation:</strong></span> The <em>expected
+value</em> (or mean) of a random variable <span
+class="math inline">\(X\)</span> with range <span
+class="math inline">\(\mathcal{X}\subset \mathbb{R}\)</span> can be
+interpreted as a weighted average.</p>
+<ul>
+<li><p>For a discrete random variable, <span class="math inline">\(E(X)
+= \sum\limits_{x\in\mathcal{X}} x \cdot P(X=x)\)</span>.</p></li>
+<li><p>For a continuous random variable with PDF <span
+class="math inline">\(p_X\)</span>, <span class="math inline">\(E(X) =
+\int_{-\infty}^{\infty} x\cdot p_X(x) \, dx\)</span></p></li>
+</ul>
+<div class="Example">
+<p><strong>Example 14</strong>. Suppose that Tim’s happiness scores
+<span class="math inline">\(10\)</span> when it is sunny outside and
+<span class="math inline">\(2\)</span> when it is raining outside. It is
+sunny 60% of the time at Seattle and raining 40%. What is the expected
+value of Tim’s happiness at Seattle?</p>
+<p><em>Answer.</em> <span class="math inline">\(10 \times 0.6 + 2 \times
+0.4 = 6.8\)</span>.</p>
+</div>
+<p><span><strong>Linearity of expectation:</strong></span> If <span
+class="math inline">\(X,Y\)</span> are two random variables and <span
+class="math inline">\(a\)</span> is a constant in <span
+class="math inline">\(\mathbb{R}\)</span>, then <span
+class="math display">\[E(X + Y) = E(X) + E(Y) \quad \text{ and } \quad
+E(aX) = a\cdot E(X).\]</span> This is true even if <span
+class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span> are not independent.</p>
+<p><span><strong>Variance and covariance:</strong></span> The
+<em>variance</em> of a random variable measures how far away it is, on
+average, from the mean. It is defined as <span
+class="math display">\[\mathrm{Var}(X) = E[(X - E[X])^2] = E(X^2) -
+E(X)^2.\]</span> The covariance between random variables <span
+class="math inline">\(X,Y\)</span> is defined as: <span
+class="math display">\[\mathrm{Cov}(X,Y)=E\left[\left(X-E(X)\right)
+\left(Y-E(Y)\right)\right].\]</span> For a random variable <span
+class="math inline">\(X\)</span> and a constant <span
+class="math inline">\(a \in \mathbb{R}\)</span>, we have <span
+class="math inline">\(\mathrm{Var}(X + a) = \mathrm{Var}(X)\)</span> and
+<span class="math inline">\(\mathrm{Var}(aX) = a^2 \cdot
+\mathrm{Var}(X)\)</span>. We <strong>do not</strong> have <span
+class="math inline">\(\mathrm{Var}(X + Y) = \mathrm{Var}(X) +
+\mathrm{Var}(Y)\)</span> unless <span class="math inline">\(X\)</span>
+and <span class="math inline">\(Y\)</span> are uncorrelated (which means
+they have covariance <span class="math inline">\(0\)</span>). In
+particular, independent random variables are always uncorrelated,
+although the reverse doesn’t hold in general.</p>
+<p><span><strong>Pearson’s correlation coefficient:</strong></span> For
+two random variables <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>, their (Pearson’s) correlation
+coefficient is defined as: <span class="math display">\[\rho_{XY} =
+\mathrm{Cor}(X,Y) = \frac{\mathrm{Cov}(X,Y)}{\sqrt{\text{Var}(X) \cdot
+\mathrm{Var}(Y)}},\]</span> where <span
+class="math inline">\(\rho_{XY}\in [-1,1]\)</span> by the Cauchy-Schwarz
+inequality; see <a href="#Sec:inq" data-reference-type="ref+label"
+data-reference="Sec:inq">3.7</a>. It measures the <em>linear</em>
+relation between two random variables.</p>
+<h2 id="known-probability-distributions">Known Probability
+Distributions</h2>
+<h3 id="discrete-random-variables">Discrete random variables</h3>
+<p><span><strong>Bernoulli:</strong></span> If <span
+class="math inline">\(X\)</span> is a Bernoulli random variable denoted
+by <span class="math inline">\(X \sim \mathtt{Bernoulli}(p)\)</span>,
+then <span class="math display">\[P(X = 1) = p \quad \text{ and } \quad
+P(X = 0) = 1 - p.\]</span> A Bernoulli random variable with parameter
+<span class="math inline">\(p\)</span> can be interpreted as a coin flip
+that comes up heads with probability <span
+class="math inline">\(p\)</span> and tails with probability <span
+class="math inline">\(1 - p\)</span>. We know that <span
+class="math display">\[E(X) = p \quad \text{ and } \quad \mathrm{Var}(X)
+= p(1 - p).\]</span></p>
+<p><span><strong>Binomial:</strong></span> If <span
+class="math inline">\(X\)</span> is a binomial random variable denoted
+by <span class="math inline">\(X \sim \mathtt{Binomial}(n,p)\)</span>,
+then <span class="math display">\[P(X = k) = \binom{n}{k} p^k
+(1-p)^{n-k} \quad \text{ for } k=0,1,...,n.\]</span> A binomial random
+variable with parameters <span class="math inline">\(n\)</span> and
+<span class="math inline">\(p\)</span> models the number of successes in
+<span class="math inline">\(n\)</span> trials, each of which has a
+successful probability <span class="math inline">\(p\)</span>. When
+<span class="math inline">\(n=1\)</span>, it reduces to a Bernoulli
+random variable. We know that <span class="math display">\[E(X) = np
+\quad \text{ and } \quad \mathrm{Var}(X) = np(1 - p).\]</span></p>
+<p><span><strong>Geometric:</strong></span> If <span
+class="math inline">\(X\)</span> is a geometric random variable denoted
+by <span class="math inline">\(X \sim \mathtt{Geometric}(p)\)</span>,
+then <span class="math display">\[P(X = k) =(1-p)^{k-1}p \quad \text{
+for } k=0,1,....\]</span> A geometric random variable with parameter
+<span class="math inline">\(p\)</span> models the number of trials until
+the first success occurs, where each trial has a successful probability
+<span class="math inline">\(p\)</span>. We know that <span
+class="math display">\[E(X) = \frac{1}{p} \quad \text{ and } \quad
+\mathrm{Var}(X) = \frac{1 - p}{p^2}.\]</span></p>
+<p><span><strong>Poisson:</strong></span> If <span
+class="math inline">\(X\)</span> is a Poisson random variable denoted by
+<span class="math inline">\(X \sim \mathtt{Poisson}(\lambda)\)</span>,
+then <span class="math display">\[P(X = k) =
+\frac{\lambda^ke^{-\lambda}}{k!} \quad \text{ for } k=0,1,....\]</span>
+A Poisson random variable often appears in counting processes. For
+instance, the number of laser photons hitting a detector in a particular
+time interval can be modeled as a Poisson random variable. We know that
+<span class="math display">\[E(X) = \lambda \quad \text{ and } \quad
+\mathrm{Var}(X) = \lambda.\]</span></p>
+<p><span><strong>Indicator random variable:</strong></span> For an event
+<span class="math inline">\(A\)</span>, an indicator random variable
+takes value 1 when <span class="math inline">\(A\)</span> occurs and 0
+otherwise, <em>i.e.</em>, <span class="math display">\[I_A =
+\begin{cases}
+    1 &amp; \text{if event $A$ occurs}\\
+    0 &amp; \text{otherwise}
+\end{cases}\]</span></p>
+<p>The expectation of an indicator random variable is just the
+probability of the event occurring, <em>i.e.</em>, <span
+class="math display">\[\begin{align*}
+    E[I_A] &amp;= 1 \cdot P(I_A = 1) + 0 \cdot P(I_A = 0) \\
+    &amp;= P(I_A = 1) \\
+    &amp;= P(A),
+\end{align*}\]</span> and its variance is <span
+class="math inline">\(\mathrm{Var}(I_A) =
+P(A)\left[1-P(A)\right]\)</span>.</p>
+<p><span><strong>Multinomial:</strong></span> Suppose that <span
+class="math inline">\(Z\)</span> is a categorical random variable with
+range <span class="math inline">\(\{1,...,k\}\)</span> and <span
+class="math inline">\(P(Z=j)=p_j\)</span> for <span
+class="math inline">\(j=1,...,k\)</span>. We generate independently and
+identically distributed data <span
+class="math inline">\(Z_1,...,Z_n\)</span> with the above distribution
+and take <span class="math display">\[X_j= \sum_{i=1}^n I_{\{Z_i=j\}} =
+\text{Number of observations in Category }j.\]</span> Then, the random
+vector <span class="math inline">\(\boldsymbol{X}=(X_1,...,X_k)\)</span>
+follows a multinomial distribution denoted by <span
+class="math inline">\(\boldsymbol{X}\sim
+\mathtt{Multinomial}(n;p_1,...,p_k)\)</span> with <span
+class="math inline">\(\sum_{j=1}^k p_j=1\)</span>, whose PMF is given by
+<span class="math display">\[P(X_1=x_1,...,X_k=x_k) =
+\frac{n!}{x_1!\cdots x_k!} \cdot p_1^{x_1} \cdots p_k^{x_k}.\]</span>
+Here, <span class="math inline">\(\boldsymbol{X}\)</span> takes integer
+values within a simplex <span
+class="math inline">\(\left\{(x_1,...,x_k)\in \{0,1,...,k\}^n:
+\sum_{j=1}^n x_j=n \right\}\)</span>.</p>
+<h3 id="continuous-random-variables">Continuous random variables</h3>
+<p><span><strong>Uniform:</strong></span> If <span
+class="math inline">\(X\)</span> is a uniform random variable over the
+interval <span class="math inline">\([a,b]\)</span> denote by <span
+class="math inline">\(X\sim \mathtt{Uniform}[a,b]\)</span>, then its PDF
+is given by <span class="math display">\[p(x)=\frac{1}{b-a} \cdot
+I_{[a,b]}(x) =
+\begin{cases} \frac{1}{b - a} &amp; a \leq x \leq b, \\
+    0 &amp; \text{otherwise}. \end{cases}\]</span> We know that <span
+class="math display">\[E(X) = \frac{a+b}{2} \quad \text{ and } \quad
+\mathrm{Var}(X) = \frac{(b - a)^2}{12}.\]</span></p>
+<p><span><strong>Normal:</strong></span> If <span
+class="math inline">\(X\)</span> is a normal random variable with
+parameters <span class="math inline">\(\mu\)</span> and <span
+class="math inline">\(\sigma^2\)</span> denoted by <span
+class="math inline">\(X\sim N(\mu,\sigma^2)\)</span>, then its PDF is
+given by <span class="math display">\[p(x) = \frac{1}{\sqrt{2 \pi}
+\sigma} e^{-\frac{(x - \mu)^2}{2\sigma^2}},\]</span> where <span
+class="math inline">\(x\in (-\infty,\infty)\)</span>. We know that <span
+class="math display">\[E(X) = \mu \quad \text{ and } \quad
+\mathrm{Var}(X) = \sigma^2.\]</span></p>
+<p><span><strong>Cauchy:</strong></span> If <span
+class="math inline">\(X\)</span> is a Cauchy random variable with
+parameters <span class="math inline">\(\mu,\sigma^2\)</span> denoted by
+<span class="math inline">\(X\sim
+\mathtt{Cauchy}(\mu,\sigma^2)\)</span>, then its PDF is given by <span
+class="math display">\[p(x) = \frac{1}{\pi
+\sigma}\left[\frac{\sigma^2}{\sigma^2 + (x-\mu)^2} \right],\]</span>
+where <span class="math inline">\(x\in (-\infty, \infty)\)</span>. Note
+that both the expectation and variance of a Cauchy distribution <em>do
+not exist</em>. The parameter <span class="math inline">\(\mu\)</span>
+represents its median.</p>
+<p><span><strong>Student’s <span
+class="math inline">\(t\)</span>:</strong></span> If <span
+class="math inline">\(X\)</span> is a Student’s <span
+class="math inline">\(t\)</span> random variable with parameter <span
+class="math inline">\(\nu&gt;0\)</span> denoted by <span
+class="math inline">\(X\sim \mathtt{t}(\nu)\)</span>, then its PDF is
+given by <span class="math display">\[p(x) =
+\frac{\Gamma\left(\frac{\nu+1}{2}\right)}{\sqrt{\pi \nu}
+\Gamma\left(\frac{\nu}{2}\right)} \left(1+
+\frac{x^2}{\nu}\right)^{-\frac{\nu+1}{2}},\]</span> where <span
+class="math inline">\(x\in (-\infty, \infty)\)</span>. The parameter
+<span class="math inline">\(\nu&gt;0\)</span> is also called degrees of
+freedom. Note that when <span class="math inline">\(\nu=1\)</span>, the
+Student’s <span class="math inline">\(t\)</span> distribution reduces to
+a Cauchy distribution. The expectation of <span
+class="math inline">\(X\sim \mathtt{t}(\nu)\)</span> is 0 for <span
+class="math inline">\(\nu&gt;1\)</span> and undefined for <span
+class="math inline">\(0&lt;\nu \leq 1\)</span>. The variance of <span
+class="math inline">\(X\sim \mathtt{t}(\nu)\)</span> is <span
+class="math display">\[\mathrm{Var}(X)=\begin{cases}
+    \frac{\nu}{\nu-2} &amp; \text{ for } v&gt;2,\\
+    \infty &amp; \text{ for } 1&lt; \nu \leq 2,\\
+    \text{undefined} &amp; \text{ for } 0&lt; \nu \leq 1.
+\end{cases}\]</span></p>
+<p><span><strong>Exponential:</strong></span> If <span
+class="math inline">\(X\)</span> is an exponential random variable with
+parameter <span class="math inline">\(\lambda\)</span> denoted by <span
+class="math inline">\(X\sim \mathtt{Exp}(\lambda)\)</span>, then its PDF
+is given by <span class="math display">\[p(x) = \lambda e^{-\lambda x}
+\cdot I_{[0,\infty)}(x).\]</span> We know that <span
+class="math display">\[E(X) = \frac{1}{\lambda} \quad \text{ and } \quad
+\mathrm{Var}(X) = \frac{1}{\lambda^2}.\]</span> A <em>double
+exponential</em> random variable <span class="math inline">\(Y\)</span>
+satisfies that <span class="math inline">\(|Y|\sim
+\mathtt{Exp}(\lambda)\)</span>, so its PDF is given by <span
+class="math display">\[p(y) = \frac{\lambda}{2} e^{-\lambda|y|} \quad
+\text{ with } \quad y\in (-\infty,\infty).\]</span> In particular, <span
+class="math inline">\(E(Y) =0\)</span> and <span
+class="math inline">\(\mathrm{Var}(Y) = \frac{2}{\lambda^2}\)</span>.
+Sometimes, <span class="math inline">\(Y\)</span> is also called a
+<em>Laplace</em> random variable<a href="#fn5" class="footnote-ref"
+id="fnref5" role="doc-noteref"><sup>5</sup></a>.</p>
+<p><span><strong>Gamma:</strong></span> A Gamma random variable <span
+class="math inline">\(X\)</span> is characterized by two parameters
+<span class="math inline">\(\alpha,\lambda &gt;0\)</span> and has a PDF
+<span class="math display">\[p(x) =
+\frac{\lambda^{\alpha}}{\Gamma(\alpha)} x^{\alpha-1} e^{-\lambda x}
+\cdot I_{[0,\infty)}(x),\]</span> where <span
+class="math inline">\(\Gamma(\alpha) = \int_0^{\infty} u^{\alpha-1}
+e^{-u} du\)</span> is the Gamma function; see <a href="#Sec:result_cal"
+data-reference-type="ref+label" data-reference="Sec:result_cal">2</a>.
+We denote <span class="math inline">\(X\sim
+\mathtt{Gamma}(\alpha,\lambda)\)</span> and have that <span
+class="math display">\[E(X) = \frac{\alpha}{\lambda} \quad \text{ and }
+\quad \mathrm{Var}(X) = \frac{\alpha}{\lambda^2}.\]</span></p>
+<p><span><strong>Beta:</strong></span> A Beta random variable <span
+class="math inline">\(X\)</span> with parameters <span
+class="math inline">\(\alpha,\beta &gt;0\)</span> has its PDF as: <span
+class="math display">\[p(x) = \frac{1}{B(\alpha,\beta)} x^{\alpha -1}
+(1-x)^{\beta -1} \cdot I_{[0,1]}(x),\]</span> where <span
+class="math inline">\(B(\alpha,\beta) = \frac{\Gamma(\alpha)
+\Gamma(\beta)}{\Gamma(\alpha+\beta)}\)</span>. Given that the Beta
+random variable <span class="math inline">\(X\sim
+\mathtt{Beta}(\alpha,\beta)\)</span> has a continuous distribution on
+<span class="math inline">\([0,1]\)</span>, it is often used to model a
+ratio or probability. We know that <span class="math display">\[E(X) =
+\frac{\alpha}{\alpha+\beta} \quad \text{ and } \quad \mathrm{Var}(X) =
+\frac{\alpha\beta}{(\alpha+\beta)^2 (\alpha+\beta+1)}.\]</span></p>
+<p><span><strong>Logistic:</strong></span> A logistic random variable
+<span class="math inline">\(X\)</span> with parameters <span
+class="math inline">\(\alpha\in \mathbb{R},\beta&gt;0\)</span> has its
+CDF with the form of a logistic function as: <span
+class="math display">\[F(x) = P(X\leq x) = \frac{1}{1+e^{-\alpha-\beta
+x}}.\]</span> Thus, its PDF is given by <span
+class="math display">\[p(x) = \frac{d}{dx} F(x) = \frac{\beta
+e^{-\alpha-\beta x}}{\left(1+ e^{-\alpha-\beta x} \right)^2} =
+\frac{\beta e^{\alpha+\beta x}}{\left(1+ e^{\alpha+\beta x}
+\right)^2}.\]</span></p>
+<p><span><strong>Dirichlet:</strong></span> A Dirichlet random vector
+<span class="math inline">\(\boldsymbol{Z} = (Z_1,...,Z_k)\)</span>
+generalizes the Beta distribution to its multivariate version (or extend
+the multinomial distribution to its continuous version). It has a PDF
+defined on the simplex <span
+class="math inline">\(\left\{(z_1,...,z_k)\in [0,1]^k: \sum_{i=1}^k
+z_i=1\right\}\)</span> as: <span
+class="math display">\[p(z_1,...,z_k;\alpha_1,...,\alpha_k) =
+\frac{1}{B(\boldsymbol{\alpha})} \prod_{i=1}^k
+z_i^{\alpha_i-1},\]</span> where <span
+class="math inline">\(\boldsymbol{\alpha} =
+(\alpha_1,...,\alpha_k)\)</span> with <span
+class="math inline">\(\alpha_i &gt; 0,i=1,...,k\)</span> is a <span
+class="math inline">\(k\)</span>-dimensional parameter vector. The
+Dirichlet distribution is particularly useful in modeling the prior
+probabilities of a multinomial distribution that generates the latent
+topics of a document <span class="citation"
+data-cites="blei2003latent"></span>. When <span
+class="math inline">\(\boldsymbol{Z}\sim
+\mathtt{Dirichlet}(\alpha_1,...,\alpha_k)\)</span>, its mean vector is
+<span class="math inline">\(E(\boldsymbol{Z}) =
+\left(\frac{\alpha_1}{\sum_{i=1}^k
+\alpha_i},\dots,\frac{\alpha_k}{\sum_{i=1}^k \alpha_i}
+\right)\)</span>.</p>
+<h2 id="Sec:inq">Inequalities</h2>
+<p><span><strong>Markov’s inequality:</strong></span> Let <span
+class="math inline">\(X\)</span> be a nonnegative random variable. Then,
+for any <span class="math inline">\(\epsilon&gt;0\)</span>, <span
+class="math display">\[P(X\geq \epsilon) \leq
+\frac{E(X)}{\epsilon}.\]</span></p>
+<div class="proof">
+<p><em>Proof.</em> For any <span class="math inline">\(\epsilon &gt;
+0\)</span>, we consider splitting the expectation <span
+class="math inline">\(E(X)\)</span> into two parts as: <span
+class="math display">\[\begin{align*}
+E(X) &amp;= E\left(X\cdot I_{\{X\geq \epsilon\}}\right) + E\left(X \cdot
+I_{\{X&lt; \epsilon\}} \right)\\
+&amp;\geq E\left(X\cdot I_{\{X\geq \epsilon\}}\right)\\
+&amp;\geq E\left(\epsilon\cdot I_{\{X\geq \epsilon\}}\right)\\
+&amp;= \epsilon \cdot P(X\geq \epsilon).
+\end{align*}\]</span> The result follows by dividing <span
+class="math inline">\(\epsilon &gt;0\)</span> on both sides of the above
+inequality. ◻</p>
+</div>
+<p><span><strong>Chebyshev’s inequality:</strong></span> Let <span
+class="math inline">\(X\)</span> be a random variable with <span
+class="math inline">\(\mathrm{Var}(X) &lt; \infty\)</span>. Then, for
+any <span class="math inline">\(\epsilon&gt;0\)</span>, <span
+class="math display">\[P\left(|X- E(X)| \geq \epsilon \right) \leq
+\frac{\mathrm{Var}(X)}{\epsilon^2}.\]</span> The Chebyshev’s inequality
+can be proved by applying Markov’s inequality to the nonnegative random
+variable <span class="math inline">\(\left[X-E(X)\right]^2\)</span>. It
+is a simple instance of general concentration inequalities that give a
+probabilistic bound on the deviation of <span
+class="math inline">\(X\)</span> away from its mean.</p>
+<p><span><strong>Chernoff bound:</strong></span> Suppose that there is a
+constant <span class="math inline">\(b&gt;0\)</span> such that the
+<em>moment generating function</em> <span
+class="math inline">\(\varphi(\lambda) = E\left[e^{\lambda(X-\mu)}
+\right]\)</span> of a random variable <span
+class="math inline">\(X\)</span> exists when <span
+class="math inline">\(\lambda \leq |b|\)</span>, where <span
+class="math inline">\(\mu=E(X)\)</span>. Given that <span
+class="math display">\[P\left[(X-\mu) &gt; t \right] = P\left[e^{\lambda
+(X-\mu)} \geq e^{\lambda t} \right] \leq \frac{E\left[e^{\lambda(X-\mu)}
+\right]}{e^{\lambda t}} \quad \text{ for any } \lambda\in
+[0,b],\]</span> we can optimize our choice of <span
+class="math inline">\(\lambda\)</span> to obtain the <em>Chernoff
+bound</em> as: <span class="math display">\[P\left[(X-\mu) &gt; t
+\right] \leq \inf_{\lambda \in [0,b]} \frac{E\left[e^{\lambda(X-\mu)}
+\right]}{e^{\lambda t}}.\]</span></p>
+<p><span><strong>Cauchy-Schwarz inequality:</strong></span> Given two
+random variables <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>, <span
+class="math display">\[\left|E(XY)\right|^2 \leq E(X^2)
+\cdot  E(Y^2),\]</span> where equality holds if and only if either <span
+class="math inline">\(P(X=0)=0\)</span>, or <span
+class="math inline">\(P(Y=0)=0\)</span>, or <span
+class="math inline">\(P\left(X=cY \right)=1\)</span> for some nonzero
+constant <span class="math inline">\(c\in \mathbb{R}\)</span>. A useful
+corollary of the Cauchy-Schwarz inequality is that <span
+class="math display">\[|\text{Cov}(X,Y)|^2 \leq \text{Var}(X)
+\text{Var}(Y).\]</span></p>
+<p><span><strong>Hölder inequality:</strong></span> Given two random
+variables <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>, <span class="math display">\[E|XY|
+\leq \left(E|X|^p\right)^{\frac{1}{p}} \left(E|Y|^q
+\right)^{\frac{1}{q}} \equiv \left|\left| X \right|\right|_p
+\left|\left| Y \right|\right|_q\]</span> with <span
+class="math inline">\(p,q\in [1,\infty]\)</span> and <span
+class="math inline">\(\frac{1}{p}+\frac{1}{q}=1\)</span>, where equality
+holds if and only if <span class="math inline">\(P\left(|X|^p=c|Y|^q
+\right)=1\)</span> for some nonzero constant <span
+class="math inline">\(c\)</span>. Specifically, when <span
+class="math inline">\(p=\infty\)</span>, <span
+class="math inline">\(\left|\left| X \right|\right|_{\infty} =
+\inf\left\{M\geq 0: P(|X|&gt; M)=0\right\}\)</span>.</p>
+<p><span><strong>Minkowski Inequality:</strong></span> Given two random
+variables <span class="math inline">\(X\)</span> and <span
+class="math inline">\(Y\)</span>, <span
+class="math display">\[\left[E|X+Y|^p \right]^{\frac{1}{p}}
+\leq  \left[E|X|^p \right]^{\frac{1}{p}}+ \left[E|Y|^p
+\right]^{\frac{1}{p}}\]</span> for <span class="math inline">\(p\in
+[1,\infty)\)</span>, where equality holds if and only if <span
+class="math inline">\(P\left(X=cY \right)=1\)</span> for some nonzero
+constant <span class="math inline">\(c\)</span>, or <span
+class="math inline">\(P(Y=0)=1\)</span>, or <span
+class="math inline">\(P(X=0)=1\)</span>.</p>
+<p><span><strong>Jensen’s Inequality:</strong></span> Given a convex
+function <span class="math inline">\(\varphi\)</span> and a random
+variable <span class="math inline">\(X\)</span>, <span
+class="math display">\[\varphi\left(E(X)\right) \leq
+E\left[\varphi(X)\right],\]</span> where equality holds if and only if
+either <span class="math inline">\(P(X=c)=1\)</span> for some constant
+<span class="math inline">\(c\)</span> or for every line <span
+class="math inline">\(a+bx\)</span> that is tangent to <span
+class="math inline">\(\varphi\)</span> at <span
+class="math inline">\(E(X)\)</span>, <span
+class="math inline">\(P\left(\varphi(x)=a+bx \right)=1\)</span>.</p>
+<h1 id="big-o-and-o_p-symbols">Big <span
+class="math inline">\(O\)</span> and <span
+class="math inline">\(O_P\)</span> Symbols</h1>
+<p>In machine learning, big <span class="math inline">\(O\)</span> and
+little <span class="math inline">\(o\)</span> symbols are used to
+characterize the time or space complexity of our algorithm with respect
+to the sample size or data dimension. In general, these symbols describe
+the growth rate of functions as follows.</p>
+<p>Let <span class="math inline">\(f(x)\)</span> be the function to be
+estimated on <span class="math inline">\(\mathbb{R}\)</span> and <span
+class="math inline">\(g(x)\)</span> be the comparison function that is
+strictly positive when <span class="math inline">\(x\)</span> is large
+on <span class="math inline">\(\mathbb{R}\)</span>.</p>
+<p><span><strong>Big <span class="math inline">\(O\)</span>
+symbol:</strong></span> We write <span class="math inline">\(f(x) =
+O\left(g(x)\right)\)</span> if there exist constants <span
+class="math inline">\(M &gt;0\)</span> and <span
+class="math inline">\(x_0&gt;0\)</span> such that<a href="#fn6"
+class="footnote-ref" id="fnref6" role="doc-noteref"><sup>6</sup></a>
+<span class="math display">\[|f(x)| \leq M \cdot g(x) \quad \text{ for
+all } x\geq x_0.\]</span> Using the limit superior notation, we know
+that <span class="math display">\[f(x) = O\left(g(x)\right) \quad \iff
+\quad \limsup_{x\to \infty} \frac{|f(x)|}{g(x)} &lt; \infty.\]</span>
+Notice that <span class="math inline">\(\limsup\limits_{x\to \infty}
+h(x) = \lim\limits_{x_0\to \infty} \left[\sup\limits_{x\geq x_0}
+f(x)\right]\)</span>.</p>
+<p><span><strong>Little <span class="math inline">\(o\)</span>
+symbol:</strong></span> Similarly, we write <span
+class="math inline">\(f(x)=o\left(g(x)\right)\)</span> if for any <span
+class="math inline">\(\epsilon&gt;0\)</span>, there exists a constant
+<span class="math inline">\(x_0 &gt;0\)</span> such that <span
+class="math display">\[|f(x)| \leq \epsilon \cdot g(x) \quad \text{ for
+all } x\geq x_0.\]</span> Under the limit notation, we have that <span
+class="math display">\[f(x) = o\left(g(x)\right) \quad \iff \quad
+\lim_{x\to \infty} \frac{|f(x)|}{g(x)} =0.\]</span></p>
+<p><span><strong>Big <span class="math inline">\(\Omega\)</span>
+symbol:</strong></span> Sometimes, depending on the context, we may
+encounter the big <span class="math inline">\(\Omega\)</span> symbol in
+machine learning literature. In most cases, the definition of <span
+class="math inline">\(f(x) = \Omega\left(g(x) \right)\)</span> follows
+from <span class="citation" data-cites="knuth1976big"></span>, so we
+write <span class="math inline">\(f(x) = \Omega\left(g(x)
+\right)\)</span> if there exist constants <span
+class="math inline">\(m&gt;0\)</span> and <span
+class="math inline">\(x_0\)</span> such that <span
+class="math display">\[|f(x)| \geq m \cdot g(x) \quad \text{ for all }
+x\geq x_0,\]</span> or equivalently, <span class="math display">\[f(x) =
+\Omega\left(g(x) \right) \quad \iff \quad \liminf_{n\to \infty}
+\frac{f(x)}{g(x)} &gt; 0.\]</span></p>
+<p>Taking into account the randomness of input data, it may not be
+possible to bound a quantity or random variable in our algorithm through
+the above big <span class="math inline">\(O\)</span> and little <span
+class="math inline">\(o\)</span> symbols. We introduce the <span
+class="math inline">\(O_P\)</span> and <span
+class="math inline">\(o_P\)</span> symbols<a href="#fn7"
+class="footnote-ref" id="fnref7" role="doc-noteref"><sup>7</sup></a> to
+handle the stochastic rate of convergence for a sequence of random
+variables <span class="math inline">\(\{X_n\}_{n=1}^{\infty}\)</span>;
+see also Section 2.2 in <span class="citation"
+data-cites="VDV1998"></span>.</p>
+<p><span><strong>Little <span class="math inline">\(o_P\)</span>
+symbol:</strong></span> We write <span class="math inline">\(X_n=
+o_P(a_n)\)</span> for a sequence of constants <span
+class="math inline">\(\{a_n\}_{n=1}^{\infty}\)</span> if <span
+class="math inline">\(\frac{X_n}{a_n}\)</span> converges to 0 in
+probability as <span class="math inline">\(n\to \infty\)</span>. That
+is, for any <span class="math inline">\(\epsilon &gt;0\)</span>, <span
+class="math display">\[X_n= o_P(a_n)  \quad \iff \quad \lim_{n \to
+\infty} P\left(\left|\frac{X_n}{a_n}\right| \geq \epsilon
+\right)=0.\]</span></p>
+<p><span><strong>Big <span class="math inline">\(O_P\)</span>
+symbol:</strong></span> We write <span class="math inline">\(X_n=
+O_P(a_n)\)</span> for a sequence of constants <span
+class="math inline">\(\{a_n\}_{n=1}^{\infty}\)</span> if <span
+class="math inline">\(\frac{X_n}{a_n}\)</span> is bounded in probability
+when <span class="math inline">\(n\)</span> is large. That is, for any
+<span class="math inline">\(\epsilon &gt;0\)</span>, there exist a
+constant <span class="math inline">\(M&gt;0\)</span> and an integer
+<span class="math inline">\(N&gt;0\)</span> such that <span
+class="math display">\[X_n= O_P(a_n) \quad \iff \quad
+P\left(\left|\frac{X_n}{a_n}\right| &gt; M \right) &lt; \epsilon \text{
+when } n&gt;N.\]</span></p>
+<h1 id="basic-optimization-and-lagrange-multiplier">Basic Optimization
+and Lagrange Multiplier</h1>
+<p>For given function <span class="math inline">\(f,g_i,h_j:\mathbb{R}^n
+\to \mathbb{R}\)</span>, a (mathematical) optimization problem has the
+following form <span class="math display">\[\begin{align}
+\label{opt_prob}
+\begin{split}
+\min_{\boldsymbol{x}\in \mathbb{R}^n} &amp; f(\boldsymbol{x})\\
+\text{ subject to } \; &amp; g_i(\boldsymbol{x}) \leq 0, \quad \quad
+i=1,...,m,\\
+&amp; h_j(\boldsymbol{x}) = 0, \quad j=1,...,p.
+\end{split}
+\end{align}\]</span> Here, we call <span
+class="math inline">\(\boldsymbol{x}\in \mathbb{R}^n\)</span> the
+<em>optimization variable</em>, <span class="math inline">\(f\)</span>
+the <em>objective function</em>, <span
+class="math inline">\(g_i(\boldsymbol{x}) \leq 0, i=1,...,m\)</span> the
+<em>inequality constraints</em>, and <span
+class="math inline">\(h_j(\boldsymbol{x})=0,j=1,...,p\)</span> the
+<em>equality constraints</em>.</p>
+<p><span><strong>Unconstrained Optimization:</strong></span> If there
+are no constraints (<em>i.e.</em>, <span
+class="math inline">\(m=p=0\)</span>), then we say that the problem <a
+href="#opt_prob" data-reference-type="eqref"
+data-reference="opt_prob">[opt_prob]</a> is <em>unconstrained</em>.
+Solving the unconstrained optimization problem is relatively easy. When
+the objective function <span class="math inline">\(f\)</span> is
+differentiable, we can compute its gradient <span
+class="math inline">\(\nabla f(\boldsymbol{x})\)</span> and set it to 0
+for a equation <span class="math inline">\(\nabla
+f(\boldsymbol{x})=0\)</span> whose roots consist of a candidate set of
+solutions. Practically, we will discuss how to use the (stochastic)
+gradient descent algorithm to solve for a solution/minimizer <span
+class="math inline">\(\boldsymbol{x}^*\)</span> in the lecture (Lecture
+14: Large-Scale Machine Learning II).</p>
+<p><span><strong>Constrained Optimization:</strong></span> The general
+optimization problem <a href="#opt_prob" data-reference-type="eqref"
+data-reference="opt_prob">[opt_prob]</a> with constraints is more
+difficult to handle. A general approach is to convert <a
+href="#opt_prob" data-reference-type="eqref"
+data-reference="opt_prob">[opt_prob]</a> into an unconstrained
+optimization problem using the <em>method of Lagrange multipliers</em>.
+We define the <em>Lagrangian</em> <span
+class="math inline">\(L:\mathbb{R}^n\times \mathbb{R}^m \times
+\mathbb{R}^p \to \mathbb{R}\)</span> associated with the problem <a
+href="#opt_prob" data-reference-type="eqref"
+data-reference="opt_prob">[opt_prob]</a> as: <span
+class="math display">\[\begin{equation}
+\label{lagrangian}
+L(\boldsymbol{x},\boldsymbol{\lambda}, \boldsymbol{\nu}) =
+f(\boldsymbol{x}) + \sum_{i=1}^m \lambda_i g_i(\boldsymbol{x}) +
+\sum_{j=1}^p \nu_j h_j(\boldsymbol{x}).
+\end{equation}\]</span> We refer to <span
+class="math inline">\(\boldsymbol{\lambda}=(\lambda_1,...,\lambda_m)^T
+\in \mathbb{R}^m\)</span> and <span
+class="math inline">\(\boldsymbol{\nu} = (\nu_1,...,\nu_p)^T \in
+\mathbb{R}^p\)</span> as the Lagrange multipliers.<br />
+<em>Case 1:</em> If there are no inequality constraints, then the
+Lagrangian <a href="#lagrangian" data-reference-type="eqref"
+data-reference="lagrangian">[lagrangian]</a> becomes <span
+class="math display">\[L(\boldsymbol{x},\boldsymbol{\nu}) =
+f(\boldsymbol{x}) + \sum_{j=1}^p \nu_j h_j(\boldsymbol{x}),\]</span> and
+we can find the minimizer of <span class="math inline">\(f\)</span> by
+identifying the stationary points of <span
+class="math inline">\(L\)</span>. This means that we set all the partial
+derivatives of <span class="math inline">\(L\)</span> to 0 and solve the
+following system of equations: <span
+class="math display">\[\frac{\partial}{\partial \boldsymbol{x}}
+L(\boldsymbol{x},\boldsymbol{\nu}) = \nabla f(\boldsymbol{x}) +
+\sum_{j=1}^p \nu_j \nabla h_j(\boldsymbol{x})=\boldsymbol{0} \quad
+\text{ and } \quad \frac{\partial}{\partial \nu_j}
+L(\boldsymbol{x},\boldsymbol{\nu}) = h_j(\boldsymbol{x}) = 0 \quad
+\text{ for }\quad j=1,...,p.\]</span> However, not all the stationary
+points yield a solution of the original problem, as the method of
+Lagrange multipliers only gives a necessary condition for optimality in
+constrained problems. Thus, we need to verify whether a yielded solution
+<span class="math inline">\(\tilde{\boldsymbol{x}}\)</span> is a
+minimizer or not by checking other sufficient conditions (if exist) or
+comparing <span class="math inline">\(f(\tilde{\boldsymbol{x}})\)</span>
+with the values of <span class="math inline">\(f\)</span> (in a
+neighborhood of <span
+class="math inline">\(\tilde{\boldsymbol{x}}\)</span>).<br />
+<em>Case 2:</em> If there are some inequality constraints, then we
+define the Lagrange dual function <span
+class="math inline">\(D:\mathbb{R}^m \times \mathbb{R}^p \to
+\mathbb{R}\)</span> as the minimum value of the Lagrangian over <span
+class="math inline">\(\boldsymbol{x}\)</span> as: <span
+class="math display">\[\begin{equation}
+\label{Lagrange_dual}
+g(\boldsymbol{\lambda},\boldsymbol{\nu}) = \inf_{\boldsymbol{x}\in
+\mathbb{R}^n} L(\boldsymbol{x},\boldsymbol{\lambda},\boldsymbol{\nu}) =
+\inf_{\boldsymbol{x}\in \mathbb{R}^n} \left[f(\boldsymbol{x}) +
+\sum_{i=1}^m \lambda_i g_i(\boldsymbol{x}) + \sum_{j=1}^p \nu_j
+h_j(\boldsymbol{x})\right].
+\end{equation}\]</span> When the Lagrangian is unbounded below in <span
+class="math inline">\(\boldsymbol{x}\)</span>, the dual function takes
+on the value <span class="math inline">\(-\infty\)</span>. The dual
+function will provide lower bounds on the optimal value <span
+class="math inline">\(p^*\)</span> of the original problem <a
+href="#opt_prob" data-reference-type="eqref"
+data-reference="opt_prob">[opt_prob]</a>, <em>i.e.</em>, for any <span
+class="math inline">\(\boldsymbol{\lambda} \succeq
+\boldsymbol{0}\)</span> and any <span
+class="math inline">\(\boldsymbol{\nu}\in \mathbb{R}^p\)</span>, we have
+that <span
+class="math display">\[g(\boldsymbol{\lambda},\boldsymbol{\nu}) \leq
+p^*.\]</span> Here, <span class="math inline">\(\boldsymbol{\lambda}
+\succeq \boldsymbol{0}\)</span> means that each entry of <span
+class="math inline">\(\lambda_i,i=1,...,m\)</span> is bigger or equal to
+<span class="math inline">\(0\)</span>. Under some conditions (such as
+Slater’s condition<a href="#fn8" class="footnote-ref" id="fnref8"
+role="doc-noteref"><sup>8</sup></a>), the above equality holds, and by
+Karush–Kuhn–Tucker (KKT) conditions<a href="#fn9" class="footnote-ref"
+id="fnref9" role="doc-noteref"><sup>9</sup></a>, we can relate the
+solution to the primal problem <a href="#opt_prob"
+data-reference-type="eqref" data-reference="opt_prob">[opt_prob]</a>
+with the solution to its dual problem <span
+class="math display">\[\begin{align}
+\label{lagrange_dual}
+\begin{split}
+\max_{(\boldsymbol{\lambda},\boldsymbol{\nu}) \in \mathbb{R}^m \times
+\mathbb{R}^p} &amp; g(\boldsymbol{\lambda}, \boldsymbol{\nu})\\
+\text{ subject to } &amp; \boldsymbol{\lambda} \succeq \boldsymbol{0}.
+\end{split}
+\end{align}\]</span> See Chapter 5 of <span class="citation"
+data-cites="boyd2004convex"></span> for more details.</p>
+<div class="Remark">
+<p><strong>Remark 2</strong>. Since the dual function is the pointwise
+infimum of a family of affine functions of <span
+class="math inline">\((\boldsymbol{\lambda}, \boldsymbol{\nu})\)</span>,
+it is concave, even when the problem <a href="#opt_prob"
+data-reference-type="eqref" data-reference="opt_prob">[opt_prob]</a> is
+not convex.</p>
+</div>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>See <a
+href="http://faculty.washington.edu/yenchic/20A_stat512.html"
+class="uri">http://faculty.washington.edu/yenchic/20A_stat512.html</a>.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn2"><p>This is an advanced concept and can be skipped.<a
+href="#fnref2" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn3"><p>See <a
+href="https://www.ets.org/s/gre/pdf/gre_guide_table4.pdf"
+class="uri">https://www.ets.org/s/gre/pdf/gre_guide_table4.pdf</a> for a
+breakdown by specific majors. For some reason, computer science is
+counted as part of the physical sciences, and not as engineering.<a
+href="#fnref3" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn4"><p>A Borel set in <span
+class="math inline">\(\mathbb{R}\)</span> is a set that can be formed
+from open sets through the operations of countable unions/intersections
+and complements.<a href="#fnref4" class="footnote-back"
+role="doc-backlink">↩︎</a></p></li>
+<li id="fn5"><p>See <a
+href="https://en.wikipedia.org/wiki/Laplace_distribution"
+class="uri">https://en.wikipedia.org/wiki/Laplace_distribution</a>.<a
+href="#fnref5" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn6"><p>See <a
+href="https://en.wikipedia.org/wiki/Big_O_notation"
+class="uri">https://en.wikipedia.org/wiki/Big_O_notation</a>.<a
+href="#fnref6" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn7"><p>See <a
+href="https://en.wikipedia.org/wiki/Big_O_in_probability_notation"
+class="uri">https://en.wikipedia.org/wiki/Big_O_in_probability_notation</a>.<a
+href="#fnref7" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn8"><p>See <a
+href="https://en.wikipedia.org/wiki/Slater%27s_condition"
+class="uri">https://en.wikipedia.org/wiki/Slater%27s_condition</a>.<a
+href="#fnref8" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+<li id="fn9"><p>See <a
+href="ttps://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions"
+class="uri">ttps://en.wikipedia.org/wiki/Karush–Kuhn–Tucker_conditions</a>.<a
+href="#fnref9" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>

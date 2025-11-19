@@ -1,0 +1,1011 @@
+<!DOCTYPE html>
+<html xmlns="http://www.w3.org/1999/xhtml" lang="" xml:lang="">
+<head>
+  <meta charset="utf-8" />
+  <meta name="generator" content="pandoc" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, user-scalable=yes" />
+  <meta name="author" content="CSE 547 / STAT 548 / CSEP 590A at the University of Washington" />
+  <title>Review of Linear Algebra</title>
+  <style>
+    /* Default styles provided by pandoc.
+    ** See https://pandoc.org/MANUAL.html#variables-for-html for config info.
+    */
+    html {
+      color: #1a1a1a;
+      background-color: #fdfdfd;
+    }
+    body {
+      margin: 0 auto;
+      max-width: 36em;
+      padding-left: 50px;
+      padding-right: 50px;
+      padding-top: 50px;
+      padding-bottom: 50px;
+      hyphens: auto;
+      overflow-wrap: break-word;
+      text-rendering: optimizeLegibility;
+      font-kerning: normal;
+    }
+    @media (max-width: 600px) {
+      body {
+        font-size: 0.9em;
+        padding: 12px;
+      }
+      h1 {
+        font-size: 1.8em;
+      }
+    }
+    @media print {
+      html {
+        background-color: white;
+      }
+      body {
+        background-color: transparent;
+        color: black;
+        font-size: 12pt;
+      }
+      p, h2, h3 {
+        orphans: 3;
+        widows: 3;
+      }
+      h2, h3, h4 {
+        page-break-after: avoid;
+      }
+    }
+    p {
+      margin: 1em 0;
+    }
+    a {
+      color: #1a1a1a;
+    }
+    a:visited {
+      color: #1a1a1a;
+    }
+    img {
+      max-width: 100%;
+    }
+    svg {
+      height: auto;
+      max-width: 100%;
+    }
+    h1, h2, h3, h4, h5, h6 {
+      margin-top: 1.4em;
+    }
+    h5, h6 {
+      font-size: 1em;
+      font-style: italic;
+    }
+    h6 {
+      font-weight: normal;
+    }
+    ol, ul {
+      padding-left: 1.7em;
+      margin-top: 1em;
+    }
+    li > ol, li > ul {
+      margin-top: 0;
+    }
+    blockquote {
+      margin: 1em 0 1em 1.7em;
+      padding-left: 1em;
+      border-left: 2px solid #e6e6e6;
+      color: #606060;
+    }
+    code {
+      font-family: Menlo, Monaco, Consolas, 'Lucida Console', monospace;
+      font-size: 85%;
+      margin: 0;
+      hyphens: manual;
+    }
+    pre {
+      margin: 1em 0;
+      overflow: auto;
+    }
+    pre code {
+      padding: 0;
+      overflow: visible;
+      overflow-wrap: normal;
+    }
+    .sourceCode {
+     background-color: transparent;
+     overflow: visible;
+    }
+    hr {
+      border: none;
+      border-top: 1px solid #1a1a1a;
+      height: 1px;
+      margin: 1em 0;
+    }
+    table {
+      margin: 1em 0;
+      border-collapse: collapse;
+      width: 100%;
+      overflow-x: auto;
+      display: block;
+      font-variant-numeric: lining-nums tabular-nums;
+    }
+    table caption {
+      margin-bottom: 0.75em;
+    }
+    tbody {
+      margin-top: 0.5em;
+      border-top: 1px solid #1a1a1a;
+      border-bottom: 1px solid #1a1a1a;
+    }
+    th {
+      border-top: 1px solid #1a1a1a;
+      padding: 0.25em 0.5em 0.25em 0.5em;
+    }
+    td {
+      padding: 0.125em 0.5em 0.25em 0.5em;
+    }
+    header {
+      margin-bottom: 4em;
+      text-align: center;
+    }
+    #TOC li {
+      list-style: none;
+    }
+    #TOC ul {
+      padding-left: 1.3em;
+    }
+    #TOC > ul {
+      padding-left: 0;
+    }
+    #TOC a:not(:hover) {
+      text-decoration: none;
+    }
+    code{white-space: pre-wrap;}
+    span.smallcaps{font-variant: small-caps;}
+    div.columns{display: flex; gap: min(4vw, 1.5em);}
+    div.column{flex: auto; overflow-x: auto;}
+    div.hanging-indent{margin-left: 1.5em; text-indent: -1.5em;}
+    /* The extra [class] is a hack that increases specificity enough to
+       override a similar rule in reveal.js */
+    ul.task-list[class]{list-style: none;}
+    ul.task-list li input[type="checkbox"] {
+      font-size: inherit;
+      width: 0.8em;
+      margin: 0 0.8em 0.2em -1.6em;
+      vertical-align: middle;
+    }
+  </style>
+  <script
+  src="https://cdn.jsdelivr.net/npm/mathjax@3/es5/tex-chtml-full.js"
+  type="text/javascript"></script>
+</head>
+<body>
+<header id="title-block-header">
+<h1 class="title">Review of Linear Algebra</h1>
+<p class="author"><em>CSE 547 / STAT 548 / CSEP 590A at the University
+of Washington</em></p>
+</header>
+<p><span><strong>Acknowledgment:</strong></span> This note was
+originally compiled by Jessica Su for CS 224W at Standard with
+substantial modifications by Yikun Zhang in Winter 2023 and Spring 2024
+for CSE 547 / STAT 548 / CSEP 590A at UW. Parts of this note are adapted
+from Lecture 8 of Professor Yen-Chi Chen’s <a href="#fn1"
+class="footnote-ref" id="fnref1" role="doc-noteref"><sup>1</sup></a> and
+Professor Michael Perlman’s lecture notes <span class="citation"
+data-cites="MDP"></span> for STAT 512 at UW. Other good references about
+linear algebra includes <span class="citation"
+data-cites="horn2012matrix axler2015linear"></span> and notes from CS
+224W at Stanford:</p>
+<ul>
+<li><p><span><a
+href="http://snap.stanford.edu/class/cs224w-2014/recitation/linear_algebra/LA_Slides.pdf"
+class="uri">http://snap.stanford.edu/class/cs224w-2014/recitation/linear_algebra/LA_Slides.pdf</a></span>,</p></li>
+<li><p><span><a
+href="http://snap.stanford.edu/class/cs224w-2015/recitation/linear_algebra.pdf"
+class="uri">http://snap.stanford.edu/class/cs224w-2015/recitation/linear_algebra.pdf</a>.</span></p></li>
+</ul>
+<p><span><strong>Note:</strong></span> We only discuss the vectors and
+matrices with real entries in this note, though the stated results also
+hold for complex entries.</p>
+<h1 id="vector-space-span-and-linear-independence">Vector Space, Span,
+and Linear Independence</h1>
+<p><span><strong>Vector space:</strong></span> A <em>vector space</em>
+<span class="math inline">\(\mathcal{V}\)</span> over the real numbers
+<span class="math inline">\(\mathbb{R}\)</span> is a set of vectors that
+is closed under additions with an identity as the zero vector <span
+class="math inline">\(\boldsymbol{0}\)</span> and additive inverses in
+the set. It is also closed under scalar multiplications of the vectors
+by elements in <span class="math inline">\(\mathbb{R}\)</span>. That
+is,</p>
+<ul>
+<li><p><span class="math inline">\(\boldsymbol{0}\in
+\mathcal{V}\)</span>, and</p></li>
+<li><p>if <span
+class="math inline">\(\boldsymbol{v}_1,\boldsymbol{v}_2\in
+\mathcal{V}\)</span> and <span class="math inline">\(a\in
+\mathbb{R}\)</span>, then <span class="math inline">\(a\cdot
+\boldsymbol{v}_1+\boldsymbol{v}_2 \in \mathcal{V}\)</span> and <span
+class="math inline">\(-\boldsymbol{v}_1\in
+\mathcal{V}\)</span>.</p></li>
+</ul>
+<p>The most common vector space in Machine Learning is the Euclidean
+space <span class="math inline">\(\mathbb{R}^n\)</span>, which consists
+of all ordered <span class="math inline">\(n\)</span>-tuples of real
+numbers. A vector of <span class="math inline">\(\mathbb{R}^n\)</span>
+can be denoted by <span class="math display">\[\boldsymbol{x}=
+\begin{bmatrix}
+    x_1 \\
+    x_2 \\
+    \vdots \\
+    x_n
+\end{bmatrix}\]</span> or a row vector <span
+class="math inline">\(\boldsymbol{x}^T=\left[x_1,...,x_n\right]\)</span>,
+where <span class="math inline">\(x_i, i=1,...,n\)</span> are called its
+<em>components</em> or <em>coordinates</em>.</p>
+<h2 id="vector-operations">Vector Operations</h2>
+<p><span><strong>Dot/Inner product:</strong></span> The geometric
+properties of <span class="math inline">\(\mathbb{R}^n\)</span> are
+derived from the <em>Euclidean dot product</em> defined as: <span
+class="math display">\[\langle \boldsymbol{x}, \boldsymbol{y}
+\rangle=\boldsymbol{x}^T\boldsymbol{y}=x_1 y_1 + \cdots + x_n
+y_n=\sum_{i=1}^n x_iy_i,\]</span> where <span
+class="math inline">\(\boldsymbol{x}=\left[x_1,...,x_n\right]^T\)</span>
+and <span
+class="math inline">\(\boldsymbol{y}=\left[y_1,...,y_n\right]^T\)</span>
+are in <span class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p><span><strong>Orthogonality:</strong></span> Two vectors in <span
+class="math inline">\(\mathbb{R}^n\)</span> are <em>orthogonal</em> if
+and only if their dot product is zero. In <span
+class="math inline">\(\mathbb{R}^2\)</span>, we also call orthogonal
+vectors <em>perpendicular</em>.</p>
+<p><span><strong>Norm:</strong></span> The standard <span
+class="math inline">\(\ell_2\)</span>-norm or length of a vector <span
+class="math inline">\(\boldsymbol{x}=[x_1,..., x_n]^T\in
+\mathbb{R}^n\)</span> is given by <span
+class="math display">\[\left|\left| \boldsymbol{x} \right|\right|_2 =
+\sqrt{x_1^2 + \cdots + x_n^2}.\]</span> Other possible norms in <span
+class="math inline">\(\mathbb{R}^n\)</span> include</p>
+<ul>
+<li><p><span class="math inline">\(\ell_p\)</span>-norm: <span
+class="math inline">\(\left|\left| \boldsymbol{x} \right|\right|_p =
+\left(\sum\limits_{i=1}^n x_i^p\right)^{\frac{1}{p}}\)</span>. It
+reduces to the above <span class="math inline">\(\ell_2\)</span>-norm
+when <span class="math inline">\(p=2\)</span>.</p></li>
+<li><p><span class="math inline">\(\ell_{\infty}\)</span>-norm: <span
+class="math inline">\(\left|\left| \boldsymbol{x}
+\right|\right|_{\infty} = \max\limits_{i=1,...,n} |x_i|\)</span>. Notice
+that <span class="math inline">\(\left|\left| \boldsymbol{x}
+\right|\right|_{\infty} \leq \left|\left| \boldsymbol{x}
+\right|\right|_p\leq n^{\frac{1}{p}} \left|\left| \boldsymbol{x}
+\right|\right|_{\infty}\)</span>.</p></li>
+</ul>
+<p>When the context is clear, we often write the norm of a vector <span
+class="math inline">\(\boldsymbol{x}\)</span> as <span
+class="math inline">\(\left|\left| \boldsymbol{x}
+\right|\right|\)</span>. The norms in <span
+class="math inline">\(\mathbb{R}^n\)</span> can be used to measure
+distances between data points (or vectors) in <span
+class="math inline">\(\mathbb{R}^n\)</span>.</p>
+<p><span><strong>Triangle inequality:</strong></span> For two vectors
+<span class="math inline">\(\boldsymbol{x},\boldsymbol{y}\)</span> and
+any norm <span class="math inline">\(\left|\left| \cdot
+\right|\right|\)</span> in <span
+class="math inline">\(\mathbb{R}^n\)</span>, the <em>triangle
+inequality</em> states that <span class="math display">\[\left|\left|
+\boldsymbol{x}+\boldsymbol{y} \right|\right| \leq \left|\left|
+\boldsymbol{x} \right|\right| + \left|\left| \boldsymbol{y}
+\right|\right|,\]</span> and its reverse version goes as <span
+class="math display">\[\left|\left| \boldsymbol{x}-\boldsymbol{y}
+\right|\right| \geq \Big|\left|\left| \boldsymbol{x} \right|\right|
+-\left|\left| \boldsymbol{y} \right|\right| \Big|.\]</span></p>
+<h2 id="subspaces-and-span">Subspaces and Span</h2>
+<p><span><strong>Subspace of <span
+class="math inline">\(\mathbb{R}^n\)</span>:</strong></span> A
+<em>subspace</em> of <span class="math inline">\(\mathbb{R}^n\)</span>
+is a subset of <span class="math inline">\(\mathbb{R}^n\)</span> that
+is, by itself, a vector space over <span
+class="math inline">\(\mathbb{R}\)</span> using the same operations of
+vector addition and scalar multiplication in <span
+class="math inline">\(\mathbb{R}^n\)</span>. In other words, a subset of
+<span class="math inline">\(\mathbb{R}^n\)</span> is a subspace
+precisely when it is closed under these two operations.</p>
+<p><span><strong>Linear combination:</strong></span> A <em>linear
+combination</em> of the vectors <span
+class="math inline">\(\boldsymbol{v}_1,..., \boldsymbol{v}_k\)</span>
+(in <span class="math inline">\(\mathbb{R}^n\)</span>) is any expression
+of the form <span class="math inline">\(a_1 \boldsymbol{v}_1 + \cdots +
+a_k \boldsymbol{v}_k\)</span>, where <span
+class="math inline">\(k\)</span> is a positive integer and <span
+class="math inline">\(a_1,..., a_k \in \mathbb{R}\)</span>. Note that
+some of <span class="math inline">\(a_1,..., a_k\)</span> may be
+zero.</p>
+<p><span><strong>Span:</strong></span> The <em>span</em> of a set <span
+class="math inline">\(\mathcal{S}\)</span> of vectors consists of all
+possible linear combinations of finitely many vectors in <span
+class="math inline">\(\mathcal{S}\)</span>, <em>i.e.</em>, <span
+class="math display">\[\mathrm{span}\,\mathcal{S} = \left\{a_1
+\boldsymbol{v}_1 + \cdots + a_k \boldsymbol{v}_k:
+\boldsymbol{v}_1,...,\boldsymbol{v}_k \in \mathcal{S}, a_1,...,a_k\in
+\mathbb{R}, \text{ and } k=1,2,... \right\}.\]</span></p>
+<h2 id="linear-independence">Linear Independence</h2>
+<p>The vectors <span class="math inline">\(\boldsymbol{v}_1,...,
+\boldsymbol{v}_k\)</span> (in <span
+class="math inline">\(\mathbb{R}^n\)</span>) are <em>linearly
+dependent</em> if and only if there exist <span
+class="math inline">\(a_1,...,a_k \in \mathbb{R}\)</span>, <strong>not
+all zero</strong>, such that <span class="math inline">\(a_1
+\boldsymbol{v}_1 + \cdots + a_k \boldsymbol{v}_k =
+\boldsymbol{0}\)</span>.</p>
+<p>A finite set of vectors <span
+class="math inline">\(\boldsymbol{v}_1,..., \boldsymbol{v}_k\)</span>
+(in <span class="math inline">\(\mathbb{R}^n\)</span>) is <em>linearly
+independent</em> if it is not linearly dependent. In other words, we
+cannot write any vector in <span
+class="math inline">\(\boldsymbol{v}_1,..., \boldsymbol{v}_k\)</span> in
+terms of a linear combination of the other vectors.</p>
+<h1 id="matrices">Matrices</h1>
+<p>A <span class="math inline">\(m\times n\)</span> matrix <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> is an array
+of <span class="math inline">\(mn\)</span> numbers as <span
+class="math display">\[A =
+\begin{bmatrix}
+    A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1n}\\
+    A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2n}\\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+    A_{m1} &amp; A_{m2} &amp; \cdots &amp; A_{mn}
+\end{bmatrix}.\]</span> It represents the <em>linear mapping</em> (or
+<em>linear transformation</em>) from <span
+class="math inline">\(\mathbb{R}^n\)</span> to <span
+class="math inline">\(\mathbb{R}^m\)</span> as <span
+class="math display">\[\boldsymbol{x} \mapsto A\boldsymbol{x} =
+\begin{bmatrix}
+    A_{11} &amp; A_{12} &amp; \cdots &amp; A_{1n}\\
+    A_{21} &amp; A_{22} &amp; \cdots &amp; A_{2n}\\
+    \vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+    A_{m1} &amp; A_{m2} &amp; \cdots &amp; A_{mn}
+\end{bmatrix}
+\begin{bmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+\end{bmatrix}=
+\begin{bmatrix}
+    \sum\limits_{i=1}^n A_{1i} x_i\\
+    \sum\limits_{i=1}^n A_{2i} x_i\\
+    \vdots\\
+    \sum\limits_{i=1}^n A_{mi} x_i\\
+\end{bmatrix}\quad \text{ for any } \boldsymbol{x} = \begin{bmatrix}
+    x_1\\
+    x_2\\
+    \vdots\\
+    x_n
+\end{bmatrix}\in \mathbb{R}^n.\]</span> Here, the linearity means that
+<span class="math inline">\(A(a\boldsymbol{x}+b\boldsymbol{y}) =
+aA\boldsymbol{x} + bA\boldsymbol{y}\)</span> for any <span
+class="math inline">\(\boldsymbol{x},\boldsymbol{y}\in
+\mathbb{R}^n\)</span> and <span class="math inline">\(a,b\in
+\mathbb{R}\)</span>. In particular, when <span
+class="math inline">\(m=n\)</span>, <span class="math inline">\(A\in
+\mathbb{R}^{n\times n}\)</span> is called a square matrix.</p>
+<h2 id="matrix-operations">Matrix Operations</h2>
+<p><span><strong>Matrix addition:</strong></span> If <span
+class="math inline">\(A,B\)</span> are both <span
+class="math inline">\(m\times n\)</span> matrices, then the matrix
+addition is defined as elementwise additions as: <span
+class="math display">\[[A+B]_{ij} = A_{ij} + B_{ij}.\]</span></p>
+<div class="Example">
+<p><strong>Example 1</strong>. Here is an example of a matrix addition
+for two matrices in <span class="math inline">\(\mathbb{R}^{2\times
+2}\)</span> as <span class="math display">\[\begin{bmatrix}1 &amp; 2 \\
+3 &amp; 4 \end{bmatrix} + \begin{bmatrix}5 &amp; 6 \\ 7 &amp; 8
+\end{bmatrix} =
+\begin{bmatrix}
+    1 + 5 &amp; 2 + 6\\
+    3 + 7 &amp; 4 + 8
+\end{bmatrix} =
+\begin{bmatrix}
+    6 &amp; 8\\
+    10 &amp; 12
+\end{bmatrix}.\]</span></p>
+</div>
+<p><span><strong>Matrix multiplication:</strong></span> For two matrices
+<span class="math inline">\(A\in \mathbb{R}^{m\times n}, B\in
+\mathbb{R}^{n\times p}\)</span>, the product <span
+class="math inline">\(AB\)</span> is a <span
+class="math inline">\(m\times p\)</span> matrix, whose <span
+class="math inline">\((i,j)\)</span>-entry is <span
+class="math display">\[[AB]_{ij} = \sum_{k=1}^n A_{ik} B_{kj}\]</span>
+for all <span class="math inline">\(1\leq i\leq m\)</span> and <span
+class="math inline">\(1\leq j\leq p\)</span>.</p>
+<div class="Example">
+<p><strong>Example 2</strong>. Here is an example of the matrix
+multiplication for two square matrices in <span
+class="math inline">\(\mathbb{R}^{2\times 2}\)</span> as <span
+class="math display">\[\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4
+\end{bmatrix} \cdot \begin{bmatrix}5 &amp; 6 \\ 7 &amp; 8 \end{bmatrix}
+=
+\begin{bmatrix}
+    1 \times 5 + 2 \times 7 &amp; 1 \times 6 + 2 \times 8 \\
+    3 \times 5 + 4 \times 7 &amp; 3 \times 6 + 4 \times 8
+\end{bmatrix} =
+\begin{bmatrix}
+    19 &amp; 22 \\
+    43 &amp; 50
+\end{bmatrix}.\]</span> We can also multiply non-square matrices when
+their dimensions are matched (<em>i.e.</em>, the number of columns of
+the first matrix should be equal to the number of rows of the second
+matrix) as <span class="math display">\[\begin{bmatrix}1 &amp; 2 \\ 3
+&amp; 4 \\ 5 &amp; 6\end{bmatrix} \cdot \begin{bmatrix} 1 &amp; 2 &amp;
+3 \\ 4 &amp; 5 &amp; 6 \end{bmatrix} =
+\begin{bmatrix}
+    1 \cdot 1 + 2 \cdot 4 &amp; 1 \cdot 2 + 2 \cdot 5 &amp; 1 \cdot 3 +
+2 \cdot 6 \\
+    3 \cdot 1 + 4 \cdot 4 &amp; 3 \cdot 2 + 4 \cdot 5 &amp; 3 \cdot 3 +
+4 \cdot 6 \\
+    5 \cdot 1 + 6 \cdot 4 &amp; 5 \cdot 2 + 6 \cdot 5 &amp; 5 \cdot 3 +
+6 \cdot 6
+\end{bmatrix} =
+\begin{bmatrix}
+    9 &amp; 12 &amp; 15 \\
+    19 &amp; 26 &amp; 33 \\
+    29 &amp; 40 &amp; 51
+\end{bmatrix}.\]</span></p>
+</div>
+<p><span><strong>Properties of matrix
+multiplications:</strong></span></p>
+<ul>
+<li><p><em>Associativity</em>: <span class="math inline">\((AB)C =
+A(BC)\)</span>.</p></li>
+<li><p><em>Distributivity:</em> <span class="math inline">\(A(B + C) =
+AB + AC\)</span>.</p></li>
+<li><p>However, matrix multiplication is in general <strong>not</strong>
+commutative. That is, <span class="math inline">\(AB\)</span> is not
+necessarily equal to <span class="math inline">\(BA\)</span>.</p></li>
+<li><p>The matrix multiplication between a <span
+class="math inline">\(1\)</span>-by-<span
+class="math inline">\(n\)</span> matrix and an <span
+class="math inline">\(n\)</span>-by-<span
+class="math inline">\(1\)</span> matrix is the same as taking the dot
+product of the corresponding vectors.</p></li>
+</ul>
+<p><span><strong>Matrix transpose:</strong></span> If <span
+class="math inline">\(A = [A_{ij}] \in \mathbb{R}^{m\times n}\)</span>,
+then its <em>transpose</em> <span class="math inline">\(A^T\)</span> is
+a <span class="math inline">\(n\times m\)</span> matrix, whose <span
+class="math inline">\((i,j)\)</span>-entry is <span
+class="math inline">\(A_{ji}\)</span>. That is, <span
+class="math inline">\([A^T]_{ij} = A_{ji}\)</span>.</p>
+<div class="Example">
+<p><strong>Example 3</strong>. Here is an example of transposing a <span
+class="math inline">\(3\times 2\)</span> matrix, where we switch the
+matrix’s rows with its columns as <span
+class="math display">\[\begin{bmatrix}1 &amp; 2 \\ 3 &amp; 4 \\ 5 &amp;
+6\end{bmatrix}^T = \begin{bmatrix}1 &amp; 3 &amp; 5 \\ 2 &amp; 4 &amp;
+6\end{bmatrix}.\]</span></p>
+</div>
+<p><span><strong>Properties of matrix transpose:</strong></span></p>
+<ul>
+<li><p><span class="math inline">\((A^T)^T = A\)</span> for any matrix
+<span class="math inline">\(A \in \mathbb{R}^{m\times
+n}\)</span>.</p></li>
+<li><p><span class="math inline">\((A+B)^T = A^T + B^T\)</span> with
+<span class="math inline">\(A,B \in \mathbb{R}^{m\times
+n}\)</span>.</p></li>
+<li><p><span class="math inline">\((AB)^T = B^T A^T\)</span> with <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> and <span
+class="math inline">\(B\in \mathbb{R}^{n\times p}\)</span>.</p>
+<div class="proof">
+<p><em>Proof.</em> Let <span class="math inline">\(AB=C\)</span> and
+<span class="math inline">\((AB)^T=D\)</span>. Then, <span
+class="math display">\[\begin{align*}
+    (AB)^T_{ij} &amp;= D_{ij} = C_{ji} \\
+    &amp;= \sum_{k}A_{jk}B_{ki}\\
+    &amp;= \sum_{k}(A^T)_{kj}(B^T)_{ik}\\
+    &amp;= \sum_{k}(B^T)_{ik}(A^T)_{kj}.
+  
+\end{align*}\]</span> It shows that <span
+class="math inline">\(D=B^TA^T\)</span> and the result follows. ◻</p>
+</div></li>
+</ul>
+<p><span><strong>Identity matrix:</strong></span> The identity matrix
+<span class="math inline">\(\boldsymbol{I}_n\)</span> is an <span
+class="math inline">\(n\times n\)</span> (square) matrix given by <span
+class="math display">\[\boldsymbol{I}_n =
+\begin{bmatrix}
+1 &amp;  0 &amp; \cdots &amp; 0 \\
+0 &amp; 1 &amp;  \cdots &amp; 0\\
+\vdots &amp; \vdots &amp; \ddots &amp; \vdots\\
+0 &amp; 0 &amp;  \cdots &amp; 1
+\end{bmatrix},\]</span> where it has all <span
+class="math inline">\(1\)</span>’s on the diagonal and <span
+class="math inline">\(0\)</span>’s everywhere else. It is sometimes
+abbreviated <span class="math inline">\(\boldsymbol{I}\)</span> when the
+dimension of the matrix is clear. For any <span class="math inline">\(A
+\in \mathbb{R}^{m\times n}\)</span>, it holds that <span
+class="math inline">\(A\boldsymbol{I}_n = \boldsymbol{I}_m
+A\)</span>.</p>
+<p><span><strong>Matrix inverse:</strong></span> Given a square matrix
+<span class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>, its
+<em>inverse</em> <span class="math inline">\(A^{-1}\)</span> (if it
+exists) is the unique matrix satisfying <span class="math display">\[A
+A^{-1} = A^{-1} A=\boldsymbol{I}_n.\]</span> Notice that the inverse of
+a matrix may not always exist. Those matrices that have an inverse are
+called <em>invertible</em> or <em>nonsingular</em>.</p>
+<p><span><strong>Properties of matrix inverse:</strong></span> Whenever
+the matrices <span class="math inline">\(A,B\in \mathbb{R}^{n\times
+n}\)</span> are invertible, we have the following properties.</p>
+<ul>
+<li><p><span class="math inline">\((A^{-1})^{-1} = A\)</span>.</p></li>
+<li><p><span class="math inline">\((AB)^{-1} =
+B^{-1}A^{-1}\)</span>.</p></li>
+<li><p><span class="math inline">\((A^{-1})^T = (A^T)^{-1}\)</span>. (It
+can be proved by noting that <span
+class="math inline">\((A^{-1})^T(A^T)=(AA^{-1})^T=\boldsymbol{I}_n\)</span>.)</p></li>
+<li><p>All the columns (or rows) of <span
+class="math inline">\(A\)</span> are linearly independent,
+<em>i.e.</em>, <span
+class="math inline">\(\mathrm{rank}(A)=n\)</span>.</p></li>
+<li><p><span class="math inline">\(\det(A) \neq 0\)</span>.</p></li>
+</ul>
+<p><span><strong>Matrix rank:</strong></span> The <em>rank</em> of a
+matrix <span class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span>
+is the dimension of the linear space spanned by its rows (or columns).
+One can verify that</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{rank}(A) \leq
+\min\{m,n\}\)</span> and <span class="math inline">\(\mathrm{rank}(A) =
+\mathrm{rank}(A^T)\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{rank}(AB)\leq
+\min\left\{\mathrm{rank}(A), \mathrm{rank}(B)\right\}\)</span> for any
+<span class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> and
+<span class="math inline">\(B\in \mathbb{R}^{n\times
+p}\)</span>.</p></li>
+</ul>
+<p><span><strong>Matrix trace:</strong></span> For a square matrix <span
+class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>, the
+<em>trace</em> of <span class="math inline">\(A\)</span> is defined as
+<span class="math display">\[\mathrm{tr}(A) = \sum_{i=1}^n
+A_{ii},\]</span> <em>i.e.</em>, it is the sum of all the diagonal
+entries of <span class="math inline">\(A\)</span>. Specifically, the
+traces of matrices satisfy the following properties:</p>
+<ul>
+<li><p><span class="math inline">\(\mathrm{tr}(aA+ bB) = a\cdot
+\mathrm{tr}(A) + b\cdot \mathrm{tr}(B)\)</span> for any <span
+class="math inline">\(A,B\in \mathbb{R}^{n\times n}\)</span> and <span
+class="math inline">\(a,b\in \mathbb{R}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{tr}(A) =
+\mathrm{tr}(A^T)\)</span> for any <span class="math inline">\(A\in
+\mathbb{R}^{n\times n}\)</span>.</p></li>
+<li><p><span class="math inline">\(\mathrm{tr}(AB) =
+\mathrm{tr}(BA)\)</span> for any <span class="math inline">\(A\in
+\mathbb{R}^{m\times n}\)</span> and <span class="math inline">\(B\in
+\mathbb{R}^{n\times m}\)</span>.</p>
+<div class="proof">
+<p><em>Proof.</em> By direct calculations, <span
+class="math display">\[\begin{align*}
+            \mathrm{tr}(AB) = \sum_{i=1}^m [AB]_{ii} &amp;= \sum_{i=1}^m
+\left(\sum_{k=1}^n A_{ik} B_{ki} \right)\\
+            &amp;= \sum_{k=1}^n \left(\sum_{i=1}^m B_{ki} A_{ik} \right)
+= \sum_{k=1}^n [BA]_{kk} = \mathrm{tr}(BA).
+        
+\end{align*}\]</span> ◻</p>
+</div></li>
+</ul>
+<p><span><strong>Determinant:</strong></span> For a square matrix <span
+class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>, its
+<em>determinant</em> <span class="math inline">\(\det(A)\)</span> or
+<span class="math inline">\(|A|\)</span> is defined as <span
+class="math display">\[\det(A) = \sum_{\pi} \left(\mathrm{sign}(\pi)
+\prod_{i=1}^n A_{i\pi(i)}\right),\]</span> where the sum is over all
+<span class="math inline">\(n!\)</span> permutations <span
+class="math inline">\(\pi:\{1,...,n\} \to \{1,...,n\}\)</span> and <span
+class="math inline">\(\mathrm{sign}(\pi)=1\)</span> or <span
+class="math inline">\(-1\)</span> according to whether the minimum
+number of transpositions (<em>i.e.</em>, pairwise interchanges)
+necessary to achieve it starting from <span
+class="math inline">\(\{1,...,n\}\)</span> is even or odd. One can also
+calculate <span class="math inline">\(\det(A)\)</span> through the
+Laplace expansion by minor along row <span
+class="math inline">\(i\)</span> or column <span
+class="math inline">\(j\)</span> as <span class="math display">\[\det(A)
+= \sum_{k=1}^n (-1)^{i+k} A_{ik} \, \det(M_{ik}) = \sum_{k=1}^n
+(-1)^{k+j} A_{kj} \,\det(M_{kj}),\]</span> where <span
+class="math inline">\(M_{ik} \in \mathbb{R}^{(n-1)\times (n-1)}\)</span>
+denotes the submatrix of <span class="math inline">\(A\)</span> obtained
+by removing row <span class="math inline">\(i\)</span> and column <span
+class="math inline">\(k\)</span> of <span
+class="math inline">\(A\)</span>. Geometrically, the determinant of
+<span class="math inline">\(A = \left[\boldsymbol{a}_1,
+\boldsymbol{a}_2,...,\boldsymbol{a}_n\right]\in \mathbb{R}^{n\times
+n}\)</span> gives the signed volume of a <span
+class="math inline">\(n\)</span>-dimensional parallelotope <span
+class="math inline">\(\mathcal{P}=\left\{c_1\boldsymbol{a}_1+\cdots
++c_n\boldsymbol{a}_n: c_1,...,c_n \in [0,1]\right\}\)</span>,
+<em>i.e.</em>, <span class="math display">\[\det A = \pm
+\mathrm{Volume}(\mathcal{P}),\]</span> where <span
+class="math inline">\(\boldsymbol{a}_1,...,\boldsymbol{a}_n\)</span> are
+column vectors of <span class="math inline">\(A\)</span>.</p>
+<div class="Example">
+<p><strong>Example 4</strong>. We give explicit formulae for computing
+the determinants of square matrices with dimension less than 3 as: <span
+class="math display">\[\begin{align*}
+\det[A_{11}] &amp;= A_{11}, \\
+\det\begin{bmatrix}
+A_{11} &amp; A_{12}\\
+A_{21} &amp; A_{22}
+\end{bmatrix} &amp;= A_{11} A_{22} - A_{12} A_{21},\\
+\det\begin{bmatrix}
+A_{11} &amp; A_{12} &amp; A_{13}\\
+A_{21} &amp; A_{22} &amp; A_{23}\\
+A_{31} &amp; A_{23} &amp; A_{33}
+\end{bmatrix} &amp;= A_{11} A_{22} A_{33} + A_{12} A_{23} A_{31} +
+A_{13} A_{21} A_{32} \\
+&amp;\quad - A_{11} A_{23} A_{32} - A_{12} A_{21} A_{33} - A_{13} A_{22}
+A_{31}.
+\end{align*}\]</span></p>
+</div>
+<p><span><strong>Properties of determinant:</strong></span> For any
+<span class="math inline">\(A,B\in \mathbb{R}^{n\times n}\)</span>,</p>
+<ul>
+<li><p><span class="math inline">\(\det(AB) = \det(A) \cdot
+\det(B)\)</span>.</p></li>
+<li><p><span class="math inline">\(\det(A^{-1}) =
+\left[\det(A)\right]^{-1}\)</span> and <span
+class="math inline">\(\det(A^T) = \det(A)\)</span>.</p></li>
+</ul>
+<h2 id="sec:mat_type">Special Types of Matrices</h2>
+<p><span><strong>Diagonal matrix:</strong></span> A matrix <span
+class="math inline">\(D\in \mathbb{R}^{n\times n}\)</span> is
+<em>diagonal</em> if <span class="math inline">\(D_{ij}=0\)</span>
+whenever <span class="math inline">\(i\neq j\)</span>. We write a
+diagonal matrix <span class="math inline">\(D\)</span> as <span
+class="math display">\[D = \mathrm{diag}(d_1, d_2, \dots,
+d_n)=\begin{bmatrix}d_1 &amp; 0 &amp; \cdots &amp; 0\\ 0 &amp; d_2 &amp;
+\cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0
+&amp; 0 &amp; \cdots &amp; d_n\end{bmatrix}.\]</span></p>
+<p>One can verify that <span class="math display">\[D^k =
+\begin{bmatrix}d_1^k &amp; 0 &amp; \cdots &amp; 0\\ 0 &amp; d_2^k &amp;
+\cdots &amp; 0 \\ \vdots &amp; \vdots &amp; \ddots &amp; \vdots \\ 0
+&amp; 0 &amp; \cdots &amp; d_n^k\end{bmatrix}.\]</span></p>
+<p><span><strong>Triangular matrix:</strong></span> A matrix <span
+class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span> is <em>lower
+triangular</em> if <span class="math inline">\(A_{ij}=0\)</span>
+whenever <span class="math inline">\(i&lt;j\)</span>. That is, a lower
+triangular matrix has all its nonzero elements on or below the diagonal.
+Similarly, a matrix <span class="math inline">\(A\)</span> is <em>upper
+triangular</em> if its transpose <span
+class="math inline">\(A^T\)</span> is lower triangular. When <span
+class="math inline">\(A\)</span> is a lower or upper triangular matrix,
+<span class="math inline">\(\det(A) = \prod_{i=1}^n A_{ii}\)</span>.</p>
+<p><span><strong>Orthogonal matrix:</strong></span> A square matrix
+<span class="math inline">\(U\in \mathbb{R}^{n\times n}\)</span> is
+orthogonal if <span class="math inline">\(UU^T = U^TU =
+\boldsymbol{I}_n\)</span>. This implies that</p>
+<ul>
+<li><p><span class="math inline">\(U^{-1} = U^T\)</span>, <em>i.e.</em>,
+the inverse of an orthogonal matrix is its transpose. Moreover, <span
+class="math inline">\(\det(U)=\pm 1\)</span>.</p></li>
+<li><p>the rows (or columns) of <span class="math inline">\(U\)</span>
+form an orthonormal basis for <span
+class="math inline">\(\mathbb{R}^n\)</span>.</p></li>
+<li><p><span class="math inline">\(U\)</span> preserves angles and
+lengths, <em>i.e.</em>, for any vectors <span
+class="math inline">\(\boldsymbol{x},\boldsymbol{y} \in
+\mathbb{R}^n\)</span>, <span class="math display">\[\langle
+U\boldsymbol{x}, U\boldsymbol{y} \rangle = (U\boldsymbol{x})^T
+(U\boldsymbol{y}) = \boldsymbol{x}^T U^T U \boldsymbol{y} = \langle
+\boldsymbol{x}, \boldsymbol{y} \rangle \quad \text{ and } \quad
+\left|\left| U\boldsymbol{x} \right|\right|_2^2 = \left|\left| x
+\right|\right|_2^2.\]</span></p></li>
+</ul>
+<p><span><strong>Symmetric matrix:</strong></span> A square matrix <span
+class="math inline">\(A \in \mathbb{R}^{n\times n}\)</span> is symmetric
+if <span class="math inline">\(A = A^T\)</span>, <em>i.e.</em>, <span
+class="math inline">\(A_{ij} = A_{ji}\)</span> for all entries of <span
+class="math inline">\(A\)</span>.</p>
+<p><span><strong>Projection matrix:</strong></span> A square matrix
+<span class="math inline">\(P\in \mathbb{R}^{n\times n}\)</span> is a
+<em>projection matrix</em> if it is symmetric and idempotent: <span
+class="math inline">\(P^2=P\)</span>.</p>
+<p><span><strong>Positive definite matrix:</strong></span> A (real)
+symmetric matrix <span class="math inline">\(S \in \mathbb{R}^{n\times
+n}\)</span> is <em>positive semi-definite (PSD)</em> if its quadratic
+form is nonnegative, <em>i.e.</em>, <span
+class="math display">\[\boldsymbol{x}^T S\boldsymbol{x} \geq 0\]</span>
+for all <span class="math inline">\(\boldsymbol{x}\in
+\mathbb{R}^n\)</span>. Furthermore, <span
+class="math inline">\(S\)</span> is <em>positive definite (PD)</em> if
+its quadratic form is strictly positive, <em>i.e.</em>, <span
+class="math display">\[\boldsymbol{x}^T S\boldsymbol{x} &gt; 0\]</span>
+for all <span class="math inline">\(\boldsymbol{x}\in
+\mathbb{R}^n\)</span> with <span class="math inline">\(\boldsymbol{x}
+\neq \boldsymbol{0}\)</span>. Here are some useful properties of PSD or
+PD matrices.</p>
+<ul>
+<li><p>A diagonal matrix <span
+class="math inline">\(D=\mathrm{diag}(d_1,...,d_n)\)</span> is PSD if
+and only if <span class="math inline">\(d_i\geq 0\)</span> for all <span
+class="math inline">\(i=1,...,n\)</span>. It is PD if and only if <span
+class="math inline">\(d_i&gt; 0\)</span> for all <span
+class="math inline">\(i=1,...,n\)</span>. In particular, the identity
+matrix <span class="math inline">\(\boldsymbol{I}_n\)</span> is
+PD.</p></li>
+<li><p>If <span class="math inline">\(S \in \mathbb{R}^{n\times
+n}\)</span> is PSD, then <span class="math inline">\(ASA^T\)</span> is
+also PSD for any matrix <span class="math inline">\(A\in
+\mathbb{R}^{m\times n}\)</span>.</p></li>
+<li><p>If <span class="math inline">\(S \in \mathbb{R}^{n\times
+n}\)</span> is PD, then <span class="math inline">\(ASA^T\)</span> is
+also PD for any matrix <span class="math inline">\(A\in
+\mathbb{R}^{m\times n}\)</span> with full rank <span
+class="math inline">\(\mathrm{rank}(A) =m \leq n\)</span>.</p></li>
+<li><p><span class="math inline">\(AA^T\)</span> is PSD for any matrix
+<span class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span>. <span
+class="math inline">\(AA^T\)</span> is PD for any matrix <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> with full
+rank <span class="math inline">\(\mathrm{rank}(A) =m \leq
+n\)</span>.</p></li>
+<li><p><span class="math inline">\(S \in \mathbb{R}^{n\times n}\)</span>
+is PD <span class="math inline">\(\implies\)</span> <span
+class="math inline">\(S\)</span> has full rank <span
+class="math inline">\(\implies\)</span> <span
+class="math inline">\(S^{-1}\)</span> exists <span
+class="math inline">\(\implies\)</span> <span
+class="math inline">\(S^{-1} = (S^{-1}) S (S^{-1})^T\)</span> is
+PD.</p></li>
+</ul>
+<h2 id="eigenvalues-and-eigenvectors">Eigenvalues and Eigenvectors</h2>
+<p>Given a square matrix <span class="math inline">\(A \in
+\mathbb{R}^{n\times n}\)</span>, <span class="math inline">\(\lambda \in
+\mathbb{R}\)</span> is an eigenvalue of <span
+class="math inline">\(A\)</span> with the corresponding eigenvector
+<span class="math inline">\(\boldsymbol{x} \in \mathbb{R}^n\)</span> and
+<span class="math inline">\(\boldsymbol{x} \neq \boldsymbol{0}\)</span>
+if <span class="math inline">\(A\boldsymbol{x} = \lambda
+\boldsymbol{x}\)</span>.</p>
+<p>Here, <span class="math inline">\(\boldsymbol{0} \in
+\mathbb{R}^n\)</span> stands for a vector whose entries are all zero. By
+convention, the zero vector cannot be an eigenvector of any matrix.</p>
+<div class="Example">
+<p><strong>Example 5</strong>. If <span class="math inline">\(A =
+\begin{bmatrix}2 &amp; 1 \\ 1 &amp; 2\end{bmatrix}\)</span>, then the
+vector <span class="math inline">\(\boldsymbol{x}=\begin{bmatrix}3 \\
+-3\end{bmatrix}\)</span> is an eigenvector with eigenvalue <span
+class="math inline">\(1\)</span>, because <span
+class="math display">\[A\boldsymbol{x} = \begin{bmatrix}2 &amp; 1 \\ 1
+&amp; 2\end{bmatrix}\begin{bmatrix}3 \\ -3\end{bmatrix} =
+\begin{bmatrix}3 \\ -3\end{bmatrix} = 1 \times \begin{bmatrix}3 \\
+-3\end{bmatrix}.\]</span></p>
+</div>
+<h3 id="solving-for-eigenvalues-and-eigenvectors">Solving for
+eigenvalues and eigenvectors</h3>
+<p>We exploit the fact that <span class="math inline">\(A\boldsymbol{x}
+= \lambda \boldsymbol{x}\)</span> if and only if <span
+class="math display">\[\begin{equation}
+\label{eigen_eq}
+(A - \lambda \boldsymbol{I}_n) \boldsymbol{x} = 0.
+\end{equation}\]</span> (Note that <span class="math inline">\(\lambda
+\boldsymbol{I}_n\)</span> is the diagonal matrix where all the diagonal
+entries are <span class="math inline">\(\lambda\)</span>, and all other
+entries are zero.)</p>
+<p>The equation <a href="#eigen_eq" data-reference-type="eqref"
+data-reference="eigen_eq">[eigen_eq]</a> has a nonzero solution <span
+class="math inline">\(\boldsymbol{x}\)</span> if and only if <span
+class="math inline">\(\det(A - \lambda \boldsymbol{I}_n)=0\)</span>; see
+Section 1.1 in <span class="citation"
+data-cites="horn2012matrix"></span>. Therefore, we can obtain the
+eigenvalues of a matrix <span class="math inline">\(A\)</span> by
+solving the <em>characteristic equation</em> <span
+class="math inline">\(\det(A - \lambda \boldsymbol{I}_n) = 0\)</span>
+for <span class="math inline">\(\lambda\)</span>. Once we have done
+that, you can find the corresponding eigenvector for each eigenvalue
+<span class="math inline">\(\lambda\)</span> by solving the system of
+equations <span class="math inline">\((A - \lambda \boldsymbol{I}_n)
+\boldsymbol{x} = \boldsymbol{0}\)</span> for <span
+class="math inline">\(\boldsymbol{x}\)</span>.</p>
+<div class="Example">
+<p><strong>Example 6</strong>. If <span class="math inline">\(A =
+\begin{bmatrix}2 &amp; 1 \\ 1 &amp; 2\end{bmatrix}\)</span>, then <span
+class="math display">\[A - \lambda \boldsymbol{I}_n = \begin{bmatrix}2 -
+\lambda &amp; 1 \\ 1 &amp; 2 - \lambda\end{bmatrix}\]</span> and <span
+class="math display">\[\det(A - \lambda \boldsymbol{I}_n) = (2 -
+\lambda)^2 - 1 = \lambda^2 - 4 \lambda + 3.\]</span> Setting it to <span
+class="math inline">\(0\)</span> yields that <span
+class="math inline">\(\lambda = 1\)</span> and <span
+class="math inline">\(\lambda = 3\)</span> are possible eigenvalues.</p>
+<p>(i) To find the eigenvectors for <span class="math inline">\(\lambda
+= 1\)</span>, we plug <span class="math inline">\(\lambda\)</span> into
+the equation <span class="math inline">\((A - \lambda \boldsymbol{I}_n)
+\boldsymbol{x} = 0\)</span>. This gives us <span
+class="math display">\[\begin{bmatrix}1 &amp; 1 \\ 1 &amp;
+1\end{bmatrix} \begin{bmatrix}x_1 \\ x_2\end{bmatrix} = \begin{bmatrix}0
+\\ 0\end{bmatrix}\]</span> Any vector with <span
+class="math inline">\(x_2 = -x_1\)</span> is a solution to this
+equation, and in particular, <span class="math inline">\(\begin{bmatrix}
+3 \\ -3\end{bmatrix}\)</span> is one solution.</p>
+<p>(ii) To find the eigenvectors for <span class="math inline">\(\lambda
+= 3\)</span>, we again plug <span class="math inline">\(\lambda\)</span>
+into the equation and obtain that <span
+class="math display">\[\begin{bmatrix}-1 &amp; 1 \\ 1 &amp;
+-1\end{bmatrix}\begin{bmatrix} x_1 \\ x_2 \end{bmatrix} =
+\begin{bmatrix}0 \\ 0\end{bmatrix}\]</span> Any vector where <span
+class="math inline">\(x_2 = x_1\)</span> is a solution to this
+equation.</p>
+<p><span class="math inline">\(\star\)</span>
+<span><strong>Note:</strong></span> The above method is never used to
+calculate eigenvalues and eigenvectors for large matrices in practice.
+We will introduce the power iterative method in the lecture (Lecture 6:
+Dimensionality Reduction) to find eigenpairs instead.</p>
+</div>
+<h3 id="properties-of-eigenvalues-and-eigenvectors">Properties of
+eigenvalues and eigenvectors</h3>
+<ul>
+<li><p>If <span class="math inline">\(A \in \mathbb{R}^{n\times
+n}\)</span> is symmetric, then all its eigenvalues are real.</p></li>
+<li><p>The eigenvalues of any (lower or upper) triangular matrix <span
+class="math inline">\(A \in \mathbb{R}^{n\times n}\)</span> are its
+diagonal entries.</p></li>
+<li><p>The trace of a matrix <span class="math inline">\(A \in
+\mathbb{R}^{n\times n}\)</span> is equal to the sum of its eigenvalues,
+<em>i.e.</em>, <span class="math inline">\(\mathrm{tr}(A) = \sum_{i=1}^n
+\lambda_i\)</span> with <span
+class="math inline">\(\lambda_1,...,\lambda_n\)</span> being the
+eigenvalues of <span class="math inline">\(A\)</span>.</p></li>
+<li><p><span class="math inline">\(\det(A) = \prod_{i=1}^n
+\lambda_i\)</span>, where <span
+class="math inline">\(\lambda_1,...,\lambda_n\)</span> is the
+eigenvalues of <span class="math inline">\(A \in \mathbb{R}^{n\times
+n}\)</span>.</p></li>
+<li><p>A symmetric matrix is PSD (PD) if all its eigenvalues are
+nonnegative (positive).</p></li>
+<li><p>The eigenvalues of a projection matrix are either 1 or
+0.</p></li>
+</ul>
+<h2 id="matrix-norms">Matrix Norms</h2>
+<p><span><strong>Frobenius norm:</strong></span> Given a matrix <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span>, its
+<em>Frobenius norm</em> is defined as <span
+class="math display">\[\left|\left| A \right|\right|_F =
+\sqrt{\sum_{i,j} A_{ij}^2} = \mathrm{tr}(A^TA).\]</span> We can compute
+<span class="math inline">\(\left|\left| A \right|\right|_F\)</span> as
+<span class="math inline">\(\left|\left| A \right|\right|_F =
+\sqrt{\sigma_1(A)^2 + \cdots \sigma_q(A)^2}\)</span>, where <span
+class="math inline">\(\sigma_i(A), i=1,...,q\)</span> are singular
+values of <span class="math inline">\(A\)</span> and <span
+class="math inline">\(q=\min\{m,n\}\)</span>; see <a href="#sec:svd"
+data-reference-type="ref+label" data-reference="sec:svd">3</a> for the
+definition of singular values. In particular, if <span
+class="math inline">\(A\)</span> is a symmetric matrix in <span
+class="math inline">\(\mathbb{R}^{n\times n}\)</span>, then <span
+class="math inline">\(\left|\left| A \right|\right|_F =
+\sqrt{\sum_{i=1}^n \lambda_i^2}\)</span> with <span
+class="math inline">\(\lambda_1,...,\lambda_n\)</span> being the
+eigenvalues of <span class="math inline">\(A\)</span>.</p>
+<p><span><strong>Maximum norm:</strong></span> The maximum norm (or
+<span class="math inline">\(\ell_{\infty}\)</span>-norm) for <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> is defined as
+<span class="math inline">\(\left|\left| A \right|\right|_{\max} =
+\max_{i,j} |A_{ij}|\)</span>. Strictly speaking, <span
+class="math inline">\(\left|\left| \cdot \right|\right|_{\max}\)</span>
+is <em>not</em> a matrix norm because it does not satisfy the
+submultiplicativity <span class="math inline">\(\left|\left| A B
+\right|\right| \leq \left|\left| A \right|\right| \left|\left| B
+\right|\right|\)</span>. However, it is a vector norm when we consider
+<span class="math inline">\(\mathbb{R}^{m\times n}\)</span> as a <span
+class="math inline">\(mn\)</span>-dimensional vector space; see Section
+5.6 in <span class="citation" data-cites="horn2012matrix"></span>.</p>
+<p><span><strong>Operator norm:</strong></span> For any matrix <span
+class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span> and <span
+class="math inline">\(\ell_p\)</span>-norm for vectors in <span
+class="math inline">\(\mathbb{R}^m\)</span> and <span
+class="math inline">\(\mathbb{R}^n\)</span>, then the corresponding
+operator norm <span class="math inline">\(\left|\left| A
+\right|\right|_p\)</span> is defined as <span
+class="math display">\[\left|\left| A \right|\right|_p =
+\sup_{\boldsymbol{x}\neq \boldsymbol{0}} \frac{\left|\left|
+A\boldsymbol{x} \right|\right|_p}{\left|\left| \boldsymbol{x}
+\right|\right|_p}.\]</span> For the special cases when <span
+class="math inline">\(p=1,2,\infty\)</span>, these (induced) operator
+norms can be computed as</p>
+<ul>
+<li><p><span class="math inline">\(\left|\left| A \right|\right|_1 =
+\max\limits_{1\leq j\leq n} \sum_{i=1}^m |A_{ij}|\)</span>, which is
+simply the maximum absolute column sum of the matrix.</p></li>
+<li><p><span class="math inline">\(\left|\left| A
+\right|\right|_{\infty} = \max\limits_{1\leq i \leq m} \sum_{j=1}^n
+|A_{ij}|\)</span>, which is simply the maximum absolute row sum of the
+matrix.</p></li>
+<li><p><span class="math inline">\(\left|\left| A \right|\right|_2 =
+\sqrt{\lambda_{\max}(AA^T)} = \sigma_{\max}(A)\)</span>, where <span
+class="math inline">\(\lambda_{\max}(AA^T)\)</span> is the maximum
+eigenvalue of <span class="math inline">\(AA^T\)</span> and <span
+class="math inline">\(\sigma_{\max}(A)\)</span> is the maximum singular
+value of <span class="math inline">\(A\)</span>.</p></li>
+</ul>
+<p>There are several useful inequalities between these matrix norms. For
+any <span class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span>,
+<span class="math display">\[\left|\left| A \right|\right|_2 \leq
+\left|\left| A \right|\right|_F \leq \sqrt{n} \left|\left| A
+\right|\right|_2, \; \left|\left| A \right|\right|_{\max} \leq
+\left|\left| A \right|\right|_2 \leq \sqrt{mn} \left|\left| A
+\right|\right|_{\max}, \; \text{ and } \; \left|\left| A
+\right|\right|_F \leq \sqrt{mn} \left|\left| A
+\right|\right|_{\max}.\]</span></p>
+<h1 id="sec:svd">Spectral Decomposition and Singular Value Decomposition
+(SVD)</h1>
+<div id="thm:spect_decomp" class="theorem">
+<p><strong>Theorem 1</strong> (Spectral Decomposition of a Real
+Symmetric Matrix). <em>For a symmetric (square) matrix <span
+class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>, there exists
+a real orthogonal matrix <span class="math inline">\(U\in
+\mathbb{R}^{n\times n}\)</span> such that <span
+class="math display">\[A= U\Lambda U^T = \sum_{i=1}^n \lambda_i
+\boldsymbol{u}_i \boldsymbol{u}_i^T,\]</span> where <span
+class="math inline">\(\Lambda =
+\mathrm{diag}(\lambda_1,...,\lambda_n)\)</span>, <span
+class="math inline">\(U=\left[\boldsymbol{u}_1,
+\boldsymbol{u}_2,...,\boldsymbol{u}_n\right]\)</span>, and <span
+class="math inline">\(\boldsymbol{u}_1,...,\boldsymbol{u}_n\)</span> are
+orthonormal eigenvectors of <span class="math inline">\(A\)</span>
+associated with eigenvalues <span
+class="math inline">\(\lambda_1,...,\lambda_n\)</span>.</em></p>
+</div>
+<p>The spectral decomposition also provides us with a convenient method
+for computing the power <span class="math inline">\(A^k = U \Lambda^k
+U^T\)</span> and exponentiation <span class="math inline">\(\exp(A) = U
+\exp(\Lambda) U^T\)</span> of a real symmetric matrix <span
+class="math inline">\(A\in \mathbb{R}^{n\times n}\)</span>.</p>
+<p>While the spectral decomposition (<a href="#thm:spect_decomp"
+data-reference-type="ref+label" data-reference="thm:spect_decomp">1</a>)
+only works for symmetric (square) matrices, it is also feasible to
+diagonalize a rectangular matrix <span class="math inline">\(A\in
+\mathbb{R}^{m\times n}\)</span> through orthogonal matrices.</p>
+<div id="thm:svd" class="theorem">
+<p><strong>Theorem 2</strong> (Singular Value Decomposition (SVD)).
+<em>Let <span class="math inline">\(A\in \mathbb{R}^{m\times n}\)</span>
+with <span class="math inline">\(q=\min\{m,n\}\)</span>. There exist
+orthogonal matrices <span
+class="math inline">\(\widetilde{U}=\left[\boldsymbol{u}_1,...,\boldsymbol{u}_m\right]\in
+\mathbb{R}^{m\times m}\)</span> and <span
+class="math inline">\(\widetilde{V}=\left[\boldsymbol{v}_1,...,\boldsymbol{v}_n\right]\in
+\mathbb{R}^{n\times n}\)</span> as well as a (square) diagonal matrix
+<span class="math inline">\(\Sigma_q =
+\mathrm{diag}(\sigma_1,...,\sigma_q) \in \mathbb{R}^{q\times q}\)</span>
+such that <span class="math display">\[A = \widetilde{U}\Sigma
+\widetilde{V}^T = \sum_{i=1}^q \sigma_q \boldsymbol{u}_i
+\boldsymbol{v}_i^T = U \Sigma_q V^T,\]</span> where <span
+class="math inline">\(U =
+\left[\boldsymbol{u}_1,...,\boldsymbol{u}_q\right] \in
+\mathbb{R}^{m\times q}\)</span>, <span
+class="math inline">\(V=\left[\boldsymbol{v}_1,...,\boldsymbol{v}_q\right]
+\in \mathbb{R}^{n\times q}\)</span>, and <span
+class="math display">\[\begin{align*}
+\Sigma &amp;= \Sigma_q \text{ if } m=n,\\
+\Sigma &amp;= \left[\Sigma_q \; \boldsymbol{0} \right] \in
+\mathbb{R}^{m\times n} \text{ if } n&gt;m,\\
+\Sigma &amp;= \begin{bmatrix}
+    \Sigma_q\\
+    \boldsymbol{0}
+\end{bmatrix} \in \mathbb{R}^{m\times n} \text{ if } m&gt;n.
+\end{align*}\]</span> Here, <span class="math inline">\(\sigma_1 \geq
+\cdots \geq \sigma_q \geq 0\)</span> are called the <strong>singular
+values</strong> of <span class="math inline">\(A\)</span>, which are
+eigenvalues of <span class="math inline">\(AA^T\)</span> when <span
+class="math inline">\(m\leq n\)</span> or <span
+class="math inline">\(A^T A\)</span> when <span
+class="math inline">\(m&gt;n\)</span>.</em></p>
+</div>
+<p>Notice that the number of nonzero singular values of <span
+class="math inline">\(A\)</span> determines the rank of <span
+class="math inline">\(A\)</span>. During the lecture (Lecture 6:
+Dimensionality Reduction), we will leverage the singular value
+decomposition to reduce the dimension (or matrix rank) of a user-movie
+rating matrix.</p>
+<section id="footnotes" class="footnotes footnotes-end-of-document"
+role="doc-endnotes">
+<hr />
+<ol>
+<li id="fn1"><p>See <a
+href="http://faculty.washington.edu/yenchic/20A_stat512.html"
+class="uri">http://faculty.washington.edu/yenchic/20A_stat512.html</a>.<a
+href="#fnref1" class="footnote-back" role="doc-backlink">↩︎</a></p></li>
+</ol>
+</section>
+</body>
+</html>
