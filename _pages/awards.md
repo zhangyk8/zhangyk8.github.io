@@ -9,7 +9,7 @@ author_profile: true
 
 Paper & Presentation Awards:
 -----------
-* First Place Presentation Award of the NISS Virtual New Researchers Conference, Jun 2025
+* [First Place Presentation Award of the NISS Virtual New Researchers Conference](https://www.niss.org/news/emerging-talent-showcased-2025-niss-virtual-new-researchers-conference), Jun 2025
 * [2025 ENAR Distinguished Student Paper Award](https://www.enar.org/meetings/spring2025/award_winners.cfm), Mar 2025
 * [2024 ICSA Student Paper Award](https://symposium2024.icsa.org/student-paper-winners/), Jun 2024
 * [2024 NESS Student Research Award](https://nestat.org/researchawards/nessresearch2024/), May 2024
