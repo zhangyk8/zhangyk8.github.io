@@ -5,7 +5,13 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- Measurement Science Team at Pinterest, Seattle, USA (May 2025)
+excerpt: "- Statistics Seminar at the Department of Mathematical Sciences, Indiana University Indianapolis, USA (November 2025)
+
+          - IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
+
+          - Rising Stars in Data Science Workshop, Stanford, USA (November 2025)
+
+          - Measurement Science Team at Pinterest, Seattle, USA (May 2025)
 
           - ENAR 2025 Spring Meeting, New Orleans, USA (March 2025)
 
