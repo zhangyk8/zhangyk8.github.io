@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- Statistics Seminar at the Department of Mathematical Sciences, Indiana University Indianapolis, USA (November 2025)
+excerpt: "- Statistics Seminar at he Department of Mathematical Sciences, Indiana University Indianapolis, USA (November 2025)
 
           - IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
 
