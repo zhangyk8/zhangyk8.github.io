@@ -9,7 +9,7 @@ excerpt: "- Statistics Seminar at the Department of Mathematical Sciences, India
 
           - IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
 
-          - Rising Stars in Data Science Workshop, Stanford, USA (November 2025)
+          - [Rising Stars in Data Science Workshop](https://datascience.stanford.edu/programs/rising-stars-data-science/workshop-agenda), Stanford, USA (November 2025)
 
           - Measurement Science Team at Pinterest, Seattle, USA (May 2025)
 
