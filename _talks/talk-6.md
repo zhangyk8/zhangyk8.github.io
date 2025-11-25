@@ -5,9 +5,7 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- Statistics Seminar at the Department of Mathematical Sciences, Indiana University Indianapolis, USA (December 2025)
-
-          - IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
+excerpt: "- IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
 
           - [Rising Stars in Data Science Workshop](https://datascience.stanford.edu/programs/rising-stars-data-science/workshop-agenda), Stanford, USA (November 2025)
 
