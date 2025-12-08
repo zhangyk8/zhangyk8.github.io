@@ -30,6 +30,7 @@ Scholarships:
 
 Other Honors:
 -----------
+* [2024-2025 Z.W. Birnbaum Award](https://stat.uw.edu/news-resources/articles/2024-2025-zw-birnbaum-award-and-dorothy-m-gilford-teaching-award), Dec 2025
 * Invited speaker for the [2025 Rising Stars in Data Science Workshop](https://datascience.stanford.edu/programs/rising-stars-data-science/2025-rising-stars-cohort), Nov 2025
 * Invited speaker for the 2025 "Teaching@UW: Strategies for TAs" panel, Sep 2025
 * [AISTATS 2025 Best Reviewer Award](https://aistats.org/aistats2025/awards.html), Apr 2025
