@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
-excerpt: "- IMS Young Mathematical Scientists Forum (Statistics and Data Science), Singapore (November 2025)
+excerpt: "- [IMS Young Mathematical Scientists Forum (Statistics and Data Science)](https://ims.nus.edu.sg/events/ims_forum2025_stats/), Singapore (November 2025)
 
           - [Rising Stars in Data Science Workshop](https://datascience.stanford.edu/programs/rising-stars-data-science/workshop-agenda), Stanford, USA (November 2025)
 
