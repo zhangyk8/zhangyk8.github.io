@@ -41,7 +41,8 @@ Teaching Experience
 * [Statistical Computing (Winter 2024, Autumn 2023)](../teaching/stat302_uw)
 
 **Teaching Assistant:**
-* [Statistical Learning: Modeling, Prediction, and Computing (Autumn 2025, Autumn 2024)](../teaching/stat535_uw)
+* [Statistical Learning: Modeling, Prediction, and Computing II (Winter 2026, Winter 2024)](../teaching/stat538_uw)
+* [Statistical Learning: Modeling, Prediction, and Computing I (Autumn 2025, Autumn 2024)](../teaching/stat535_uw)
 * [Machine Learning for Big Data (Spring 2025, Spring 2024, Winter 2023)](../teaching/stat548_uw)
 * [Statistical Inference (Autumn 2022)](../teaching/stat512_uw)
 * [Matrix Analysis and its Applications (Spring 2018)](../teaching/spring_2018)
@@ -49,7 +50,7 @@ Teaching Experience
    
 Work Experience
 -----------
-* Research Scientist Intern, Jun 2025 - Present
+* Research Scientist Intern, Jun 2025 - Jan 2026
   * [Central Applied Science, Meta](https://research.facebook.com/teams/cas/)
 * Applied Scientist PhD Intern, Jun 2023 - Sep 2023
   * Ads Data Science and Analytics, Uber Technologies Inc
@@ -65,8 +66,8 @@ Academic Service & Leadership
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
 * International Conference on Machine Learning (ICML 2025)
 * AAAI Conference on Artificial Intelligence (AAAI 2026)
-* International Conference on Artificial Intelligence and Statistics (AISTATS 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
-* Conference on Uncertainty in Artificial Intelligence (UAI 2025)
+* International Conference on Artificial Intelligence and Statistics (AISTATS 2026, 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
+* Conference on Uncertainty in Artificial Intelligence (UAI 2026, 2025)
 * Conference on Causal Learning and Reasoning (CleaR 2025)
 * Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
