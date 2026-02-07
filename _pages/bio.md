@@ -62,9 +62,9 @@ Work Experience
 Academic Service & Leadership
 -----------
 **Reviewer:**
-* Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Journal of Classification
+* Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Statistica Sinica, Journal of Classification
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
-* International Conference on Machine Learning (ICML 2025)
+* International Conference on Machine Learning (ICML 2026, 2025)
 * AAAI Conference on Artificial Intelligence (AAAI 2026)
 * International Conference on Artificial Intelligence and Statistics (AISTATS 2026, 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
 * Conference on Uncertainty in Artificial Intelligence (UAI 2026, 2025)
