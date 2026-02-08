@@ -19,6 +19,9 @@ author_profile: false
 
 ## Preprints
 
+5. <A href="http://arxiv.org/abs/2602.02358" style="color: #52adc8; text-decoration=underline"> Transfer Learning Through Conditional Quantile Matching </A> <br/>
+    **Yikun Zhang**, Steven Wilkins-Reeves, Wesley Lee, and Aude Hofleitner. _arXiv: 2602.02358_. (2026+) [<A href="https://github.com/facebookresearch/TLCQM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/TLCQM2026.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
+
 4. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2501.06969_. (2025+) [<A href="https://github.com/zhangyk8/npDRDeriv" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDRDeriv2025.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/talks/talk-6" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
