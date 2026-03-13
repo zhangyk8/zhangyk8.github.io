@@ -69,6 +69,7 @@ Academic Service & Leadership
 * International Conference on Artificial Intelligence and Statistics (AISTATS 2026, 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
 * Conference on Uncertainty in Artificial Intelligence (UAI 2026, 2025)
 * Conference on Causal Learning and Reasoning (CleaR 2025)
+* AISTATS 2026 Workshop Causality in the Age of AI Scaling (CauScale 2026)
 * Symposium on Advances in Approximate Bayesian Inference (AABI 2024)
 
 **Conference Session Chair:**
