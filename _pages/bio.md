@@ -17,13 +17,13 @@ Education
 
 Research Experience
 -----------
-* Apr 2019 - Present: Research Student at Department of Statistics, University of Washington, Seattle
+* Apr 2019 -- Jun 2026: Research Student at Department of Statistics, University of Washington, Seattle
   * Research Focus 1: Nonparametric Density Estimation With Manifold Constraints, Mode Clustering, and Optimization on Manifolds
   * Research Focus 2: High-Dimensional Statistical Inference With Incomplete Data
   * Research Focus 3: Nonparametric Methods for Causal Inference With Continuous Treatments
   * Advisor: [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/)
-* Jun 2021 - Jul 2022: Visiting Research Student at Shanghai Astronomical Observatory
-  * Research Focus: Cosmic Web Detection and Analysis Under the Spherical and Conic Geometries
+* Jun 2021 -- Jul 2022: Visiting Research Student at Shanghai Astronomical Observatory
+  * Research Focus: Cosmic Web Detection and Analysis Under Spherical and Conic Geometries
   * Host: [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584)
 * Summer 2017: Summer PhD Research Experience Program at Department of Computer Science, Hong Kong Baptist University
   * Research Focus: Bayesian Network Structure Learning
@@ -50,13 +50,13 @@ Teaching Experience
    
 Work Experience
 -----------
-* Research Scientist Intern, Jun 2025 - Jan 2026
+* Research Scientist Intern, Jun 2025 -- Jan 2026
   * [Central Applied Science, Meta](https://research.facebook.com/teams/cas/)
-* Applied Scientist PhD Intern, Jun 2023 - Sep 2023
+* Applied Scientist PhD Intern, Jun 2023 -- Sep 2023
   * Ads Data Science and Analytics, Uber Technologies Inc
-* Advanced Algorithmic Engineer, Jun 2020 - Jul 2022
+* Advanced Algorithmic Engineer, Jun 2020 -- Jul 2022
   * Hotel Research & Development Department, Trip.com Group
-* Statistical Consulting Intern in Cyber Laboratory, May 2018 - Aug 2018
+* Statistical Consulting Intern in Cyber Laboratory, May 2018 -- Aug 2018
   * Risk Assurance Department, PricewaterhouseCoopers Business Consulting (Shanghai) Co Limited, Guangzhou Branch
 
 Academic Service & Leadership
@@ -64,7 +64,7 @@ Academic Service & Leadership
 **Reviewer:**
 * Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Statistica Sinica, Journal of Classification, Transactions on Knowledge Discovery from Data
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
-* International Conference on Machine Learning (ICML 2026, 2025)
+* International Conference on Machine Learning (ICML 2026 ([Received the Gold Reviewer Award](https://icml.cc/Conferences/2026/ProgramCommittee)), 2025)
 * AAAI Conference on Artificial Intelligence (AAAI 2026)
 * International Conference on Artificial Intelligence and Statistics (AISTATS 2026, 2025 ([Received the Best Reviewer Award](https://aistats.org/aistats2025/awards.html)), 2024, 2023, 2022)
 * Conference on Uncertainty in Artificial Intelligence (UAI 2026, 2025)
