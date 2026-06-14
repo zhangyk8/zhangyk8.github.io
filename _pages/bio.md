@@ -9,7 +9,7 @@ author_profile: true
 
 Education
 -----------
-* Ph.D. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep 2022 -- Present
+* Ph.D. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep 2022 -- Jun 2026
 * M.S. in Statistics, [University of Washington, Seattle](http://www.washington.edu/), Sep 2018 -- Mar 2020
 * B.S. in Mathematics and Applied Mathematics, [Sun Yat-Sen University](http://www.sysu.edu.cn/2012/en/index.htm), Aug 2014 -- Jun 2018
   * Exchange Student in Mathematics and Statistics, [University of California, Berkeley](http://www.berkeley.edu/), Fall 2016
