@@ -9,7 +9,7 @@ redirect_from:
 ---
 
 
-I am a Ph.D. candidate in the [Department of Statistics](https://stat.uw.edu/) at the University of Washington (UW), Seattle, where I am fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/). Previously, I obtained my master's degree in Statistics at UW in 2020. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics at Sun Yat-Sen University (SYSU) in 2018. 
+I received my Ph.D. degree in Statistics at the University of Washington (UW), Seattle, where I was fortunate to be advised by [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/). Previously, I obtained my master's degree in Statistics at UW in 2020. Before joining UW, I received my Bachelor of Science degree in Mathematics and Applied Mathematics at Sun Yat-Sen University (SYSU) in 2018. 
 
 Research Interests
 -----------
