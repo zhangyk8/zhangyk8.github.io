@@ -30,7 +30,7 @@ The talk is based on a joint work with [Prof. Alexander Giessing](https://agiess
 
 <br>
 
-Talk Slides: [Long Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes.pdf), [Short Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes_Short.pdf).
+Talk Slides: [Long Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes.pdf), [Short Version](https://zhangyk8.github.io/talks/HighD_Missing_Outcomes_Short.pdf), [Poster](https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf).
 
 Code Link on GitHub: [Debias-Infer](https://github.com/zhangyk8/Debias-Infer).
 
