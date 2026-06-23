@@ -16,7 +16,7 @@ Structure learning is a fundamental and challenging issue in dealing with Bayesi
 
 <br>
 
-Talk Slides: [PDF](https://zhangyk8.github.io/publications/Workshop_Talk.pdf)
+Talk Slides: [PDF](https://zhangyk8.github.io/publications/Workshop_Talk.pdf), [Poster](https://zhangyk8.github.io/publications/poster_SA.pdf).
 
 Code Link on GitHub: [TSCB-strategy](https://github.com/zhangyk8/TSCB-strategy).
 
