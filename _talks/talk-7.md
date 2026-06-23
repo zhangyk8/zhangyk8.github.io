@@ -19,7 +19,7 @@ In this talk, we introduce a general framework for regression under heterogeneou
 
 <br>
 
-Talk Slides: [Slides](https://zhangyk8.github.io/talks/TLCQM_Short.pdf).
+Talk Slides: [Slides](https://zhangyk8.github.io/talks/TLCQM_Short.pdf), [Poster](https://zhangyk8.github.io/publications/TLCQM_Poster.pdf).
 
 Code Link on GitHub: [TLCQM](https://github.com/facebookresearch/TLCQM).
 
