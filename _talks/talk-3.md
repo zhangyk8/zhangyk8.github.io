@@ -5,9 +5,9 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
-excerpt: "- The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, United States (October 2025)
+excerpt: "- The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, USA (October 2025)
 
-          - Jane Street Graduate Research Fellowship Research Workshop, New York, United States (Poster, April 2024)
+          - Jane Street Graduate Research Fellowship Research Workshop, New York, USA (Poster, April 2024)
           
           - Clubear Online Seminar Series (狗熊会); [Recording in Chinese](https://www.xiong99.com.cn/p/t_pc/course_pc_detail/video/v_64873594e4b0b2d1c4238cc9) (June 2023)
 
@@ -27,7 +27,7 @@ On megaparsec scales, matter in our Universe is not uniformly distributed but ra
 In this talk, we will present the methodology of recovering filaments from galaxy samples in the Sloan Digital Sky Survey (SDSS-IV) \[5\] through directional density ridges, which can be practically estimated via our proposed _Directional Subspace Constrained Mean Shift_ (DirSCMS) algorithm \[1,2\]. Compared to previous filament detection algorithms \[6,7\], the DirSCMS algorithm takes into account the nonlinear geometry of a celestial sphere on which the galaxy samples lie and thus potentially yields less biased estimators of the underlying filament structures. The correlations between some natural properties of galaxies fitted by the Firefly stellar population model \[8\] and their distances to our detected filaments will be studied. If time permits, we will also discuss how to incorporate galaxy properties into the filament detection via a weighted DirSCMS algorithm and address some missing data issues along this process. The talk is based on my recent works with [Prof. Yen-Chi Chen](http://faculty.washington.edu/yenchic/index.html) and [Prof. Rafael S. de Souza](https://orcid.org/0000-0001-7207-4584).
 
 
-Talk Slides: [Slides at SIAM PNWS](https://zhangyk8.github.io/talks/Cosmic_Web_PNW.pdf), [Slides at SYSU](https://zhangyk8.github.io/talks/Kernel_Cosmic_SYSU.pdf), [Slides at SHAO](https://zhangyk8.github.io/talks/Cosmic_Filaments.pdf), [Slides at Kavli IPMU](https://zhangyk8.github.io/talks/Cosmic_Web_Survey_Geo.pdf).
+Talk Slides: [Slides at SIAM PNWS](https://zhangyk8.github.io/talks/Cosmic_Web_PNW.pdf), [Slides at SYSU](https://zhangyk8.github.io/talks/Kernel_Cosmic_SYSU.pdf), [Slides at SHAO](https://zhangyk8.github.io/talks/Cosmic_Filaments.pdf), [Slides at Kavli IPMU](https://zhangyk8.github.io/talks/Cosmic_Web_Survey_Geo.pdf), [Poster](https://zhangyk8.github.io/publications/Cosmic_Web_Poster.pdf).
 
 <!---
 Code Link: [GitHub: EuDirSCMS](https://github.com/zhangyk8/EuDirSCMS).
