@@ -22,6 +22,8 @@ excerpt: "- Joint Statistical Meeting 2025, Nashville, USA (August 2025)
           - ''Thank Goodness for Influence Functions (TGIF)'' Lab, University of Washington, Seattle, USA (October 2024)
 
           - School of Mathematics, Sun Yat-Sen University, Guangzhou, China (September 2024)
+
+          - American Causal Inference Conference, Seattle, USA (Poster, May 2024)
 "
 ---
 
@@ -35,7 +37,7 @@ The talk is based on a joint work with  [Prof. Yen-Chi Chen](http://faculty.wash
 
 <br>
 
-Talk Slides: [Short Version](https://zhangyk8.github.io/talks/DoseResponseNP_Short.pdf), [Long Version](https://zhangyk8.github.io/talks/DoseResponseNP.pdf).
+Talk Slides: [Short Version](https://zhangyk8.github.io/talks/DoseResponseNP_Short.pdf), [Long Version](https://zhangyk8.github.io/talks/DoseResponseNP.pdf), [Poster](https://zhangyk8.github.io/publications/NonpDoseResponse.pdf).
 
 Code Link on GitHub: [npDoseResponse](https://github.com/zhangyk8/npDoseResponse).
 
