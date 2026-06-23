@@ -6,6 +6,8 @@ permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
 excerpt: "- The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, United States (October 2025)
+
+          - Jane Street Graduate Research Fellowship Research Workshop, New York, United States (Poster, April 2024)
           
           - Clubear Online Seminar Series (狗熊会); [Recording in Chinese](https://www.xiong99.com.cn/p/t_pc/course_pc_detail/video/v_64873594e4b0b2d1c4238cc9) (June 2023)
 
