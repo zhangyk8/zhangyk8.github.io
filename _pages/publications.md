@@ -19,25 +19,26 @@ author_profile: false
 
 ## Preprints
 
-6. <A href="http://arxiv.org/abs/2607.05279" style="color: #52adc8; text-decoration=underline"> Emputation: Identification-Guided Neural Imputation Framework </A> <br/>
+5. <A href="http://arxiv.org/abs/2607.05279" style="color: #52adc8; text-decoration=underline"> Emputation: Identification-Guided Neural Imputation Framework </A> <br/>
     Yanjiao Yang, **Yikun Zhang**, Xinwei Shen, and Yen-Chi Chen. _arXiv: 2607.05279_. (2026+) [<A href="https://github.com/yjyang00/emputation" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/emputation2026.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] 
 
-5. <A href="http://arxiv.org/abs/2602.02358" style="color: #52adc8; text-decoration=underline"> Transfer Learning Through Conditional Quantile Matching </A> <br/>
+4. <A href="http://arxiv.org/abs/2602.02358" style="color: #52adc8; text-decoration=underline"> Transfer Learning Through Conditional Quantile Matching </A> <br/>
     **Yikun Zhang**, Steven Wilkins-Reeves, Wesley Lee, and Aude Hofleitner. _arXiv: 2602.02358_. (2026+) [<A href="https://github.com/facebookresearch/TLCQM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/TLCQM2026.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/TLCQM_Poster.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-7" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
-4. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
+3. <A href="http://arxiv.org/abs/2501.06969" style="color: #52adc8; text-decoration=underline"> Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2501.06969_. (2025+) [<A href="https://github.com/zhangyk8/npDRDeriv" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDRDeriv2025.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/talks/talk-6" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
-3. <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> <br/>
+2. <A href="http://arxiv.org/abs/2405.09003" style="color: #52adc8; text-decoration=underline"> Nonparametric Inference on Dose-Response Curves Without the Positivity Condition </A> <br/>
     **Yikun Zhang**, Yen-Chi Chen, and Alexander Giessing. _arXiv: 2405.09003_. (2024+) [<A href="https://github.com/zhangyk8/npDoseResponse" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/npDR2024.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/NonpDoseResponse.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-5" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
-2. <A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> <br/>
-    **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. _arXiv: 2309.06429_. (2023+) [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-4" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
 1. <A href="https://arxiv.org/abs/2101.10058" style="color: #52adc8; text-decoration=underline"> The EM Perspective of Directional Mean Shift Algorithm </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2101.10058_. (2021+) [<A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
 ## Journals
+
+5.  <A href="https://doi.org/10.1214/26-EJS2583" style="color: #52adc8; text-decoration=underline"> Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> <br/>
+    **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. _Electronic Journal of Statistics_, **20**(2): 4256-4377. (2026) [<A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-4" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
 4. <A href="https://doi.org/10.1080/10618600.2025.2505734" style="color: #52adc8; text-decoration=underline"> Mode and Ridge Estimation in Euclidean and Directional Product Spaces: A Mean Shift Approach </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _Journal of Computational and Graphical Statistics_, **35**(1): 101-100. (2026) [<A href="https://arxiv.org/abs/2110.08505" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/ProdSCMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DLSCMSProd2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
