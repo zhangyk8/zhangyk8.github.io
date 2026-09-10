@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
-excerpt: "- The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, USA (October 2025)
+excerpt: "- Open SkAI 2026, Chicago, USA (Poster, September 2026)
+
+          - The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, USA (October 2025)
 
           - Jane Street Graduate Research Fellowship Research Workshop, New York, USA (Poster, April 2024)
           
