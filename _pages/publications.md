@@ -35,7 +35,7 @@ author_profile: false
 1. <A href="https://arxiv.org/abs/2101.10058" style="color: #52adc8; text-decoration=underline"> The EM Perspective of Directional Mean Shift Algorithm </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2101.10058_. (2021+) [<A href="https://github.com/zhangyk8/DirMS/tree/main/DMS_EM" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DMS_EM2021.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>]
 
-## Journals
+## Journal Publications
 
 5.  <A href="https://doi.org/10.1214/26-EJS2583" style="color: #52adc8; text-decoration=underline"> Efficient Inference on High-Dimensional Linear Models with Missing Outcomes </A> <br/>
     **Yikun Zhang**, Alexander Giessing, and Yen-Chi Chen. _Electronic Journal of Statistics_, **20**(2): 4256-4377. (2026) [<A href="https://arxiv.org/abs/2309.06429" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/Debias-Infer" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DebiasInfer2023.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/publications/Debiased_Inf_Poster_Biostat.pdf" style="color: #52adc8; text-decoration=underline"> Poster </A>] [<A href="https://zhangyk8.github.io/talks/talk-4" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
@@ -52,7 +52,7 @@ author_profile: false
 1. <A href="https://jmlr.org/papers/v22/20-1194.html" style="color: #52adc8; text-decoration=underline"> Kernel Smoothing, Mean Shift, and Their Learning Theory with Directional Data </A> <br/>
     **Yikun Zhang** and Yen-Chi Chen. _Journal of Machine Learning Research_ **22**(154): 1-92. (2021) [<A href="https://arxiv.org/abs/2010.13523" style="color: #52adc8; text-decoration=underline"> ArXiv Version </A>] [<A href="https://github.com/zhangyk8/DirMS" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/DirMS2020.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/talks/talk-2" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
 
-## Conferences
+## Conference Proceedings
 
 2. <A href="https://zhangyk8.github.io/publications/AAAIWorkshop.pdf" style="color: #52adc8; text-decoration=underline"> Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy </A> <br/>
     **Yikun Zhang**, Yang Liu, and Jiming Liu. _In Proceedings of the Workshops of the Thirty-Second (AAAI-18) Conference on Artificial Intelligence, New Orleans, Louisiana, USA_, pages 530-537. (2018) [<A href="https://github.com/zhangyk8/TSCB-strategy" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/BN_long2018.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] [<A href="https://zhangyk8.github.io/talks/talk-1" style="color: #52adc8; text-decoration=underline"> Talk Slides </A>]
@@ -80,9 +80,8 @@ https://aaai.org/ocs/index.php/WS/AAAIW18/paper/view/17111/
    Ken Gu, Ruoxi Shang<span>&#8224;</span>, Ruien Jiang<span>&#8224;</span>, Keying Kuang<span>&#8224;</span>, Richard-John Lin<span>&#8224;</span>, Donghe Lyu<span>&#8224;</span>, Yue Mao<span>&#8224;</span>, Youran Pan<span>&#8224;</span>, Teng Wu<span>&#8224;</span>, Jiaqian Yu<span>&#8224;</span>, **Yikun Zhang<span>&#8224;</span>**, Tianmai M. Zhang<span>&#8224;</span>, Lanyi Zhu<span>&#8224;</span>, Mike A. Merrill, Jeffrey Heer, Tim Althoff (<span>&#8224;</span>=equal contributions). _Findings of the Association for Computational Linguistics: EMNLP 2024, pages 13936–13971, Miami, Florida, USA._ (2024) [<A href="https://arxiv.org/abs/2408.09667" style="color: #52adc8; text-decoration=underline"> Arxiv Version </A>] [<A href="https://github.com/behavioral-data/BLADE" style="color: #52adc8; text-decoration=underline"> Code </A>]
 
 
-<!--
-## Technical Report
+## PhD Dissertation
 
-1. **Yikun Zhang**, Fengjie Chen (2019) <A href="https://zhangyk8.github.io/portfolio/Lecture_Notes/STAT548_Report.pdf" style="color: #52adc8; text-decoration=underline"> Overlapping Community Detection via Edge-Space Representation </A>.
--->
+1. <A href="https://www.proquest.com/docview/3385891600" style="color: #52adc8; text-decoration=underline"> Geometry-Aware Statistical Learning and Causal Inference for Complex Observational Data </A> <br/>
+**Yikun Zhang** (2026).
 
