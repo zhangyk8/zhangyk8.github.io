@@ -30,6 +30,7 @@ Scholarships:
 
 Other Honors:
 -----------
+* [ICML 2026 Gold Reviewer Award](https://icml.cc/Conferences/2026/ProgramCommittee), May 2026
 * [2024-2025 Z.W. Birnbaum Award](https://stat.uw.edu/news-resources/articles/2024-2025-zw-birnbaum-award-and-dorothy-m-gilford-teaching-award), Dec 2025
 * Invited speaker for the [2025 Rising Stars in Data Science Workshop](https://datascience.stanford.edu/programs/rising-stars-data-science/2025-rising-stars-cohort), Nov 2025
 * Invited speaker for the 2025 "Teaching@UW: Strategies for TAs" panel, Sep 2025
@@ -37,4 +38,3 @@ Other Honors:
 * [2023-2024 Dorothy M. Gilford Teaching Award](https://stat.uw.edu/news-resources/articles/2023-24-dorothy-m-gilford-teaching-award), Dec 2024
   
 
-  
