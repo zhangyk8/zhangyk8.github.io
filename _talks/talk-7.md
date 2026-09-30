@@ -5,9 +5,9 @@ collection: talks
 permalink: /talks/talk-7
 type: ""
 date: 2025-08-28
-excerpt: "- The Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS 2026), Atlanta, USA (December 2026, Poster)
+excerpt: "- The Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS 2026), Atlanta, USA (Poster, December 2026)
 
-          - [Statistical Foundations of Generative Modeling](https://www.imsi.institute/activities/statistical-foundations-of-generative-modeling/), Chicago, USA (October 2026, Poster)
+          - [Statistical Foundations of Generative Modeling](https://www.imsi.institute/activities/statistical-foundations-of-generative-modeling/), Chicago, USA (Poster, October 2026)
 
           - [New Horizons on Model Transportability and Data Integration](https://www.imsi.institute/activities/new-horizons-on-model-transportability-and-data-integration/), Chicago, USA (June 2026)
 
