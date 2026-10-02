@@ -20,7 +20,7 @@ My current theoretical research interests lie in
 * Causal Inference for Continuous Treatments,
 * Transfer Learning and Domain Adaptation.
 
-On the applied side, I am broadly interested in tackling challenging problems in astronomy and beyond with statistically principled and AI-driven approaches, with a particular focus on detecting, characterizing, and understanding the large-scale structure of the Universe detecting and analyzing the large-scale structure of the Universe (i.e., the cosmic web). 
+On the applied side, I am broadly interested in developing statistically principled and AI-driven methods for challenging problems in astronomy and related scientific domains. A central focus of my applied research is to detect, characterize, and extract scientific insights from the large-scale structure of the Universe (i.e., the cosmic web), with the broader goal of turning modern statistical learning tools into reliable instruments for uncovering previously inaccessible physical information.
 
 
 
