@@ -19,6 +19,9 @@ author_profile: false
 
 ## Preprints
 
+6. <A href="http://arxiv.org/abs/2610.01050" style="color: #52adc8; text-decoration=underline"> Gradient-Guided Density Peak Clustering </A> <br/>
+    **Yikun Zhang** and Yen-Chi Chen. _arXiv: 2610.01050_. (2026+) [<A href="https://github.com/zhangyk8/GGDPC" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/ggdpc2026.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] 
+
 5. <A href="http://arxiv.org/abs/2607.05279" style="color: #52adc8; text-decoration=underline"> Emputation: Identification-Guided Neural Imputation Framework </A> <br/>
     Yanjiao Yang, **Yikun Zhang**, Xinwei Shen, and Yen-Chi Chen. _arXiv: 2607.05279_. (2026+) [<A href="https://github.com/yjyang00/emputation" style="color: #52adc8; text-decoration=underline"> Code </A>] [<A href="https://zhangyk8.github.io/publications/bib_files/emputation2026.bib" style="color: #52adc8; text-decoration=underline"> Bib </A>] 
 
