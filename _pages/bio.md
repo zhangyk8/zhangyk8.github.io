@@ -50,6 +50,8 @@ Teaching Experience
    
 Work Experience
 -----------
+* Applied Scientist Intern, Jun 2026 -- Sep 2026
+  * Customer Behavior Analytics, Amazon
 * Research Scientist Intern, Jun 2025 -- Jan 2026
   * [Central Applied Science, Meta](https://research.facebook.com/teams/cas/)
 * Applied Scientist PhD Intern, Jun 2023 -- Sep 2023
@@ -82,7 +84,7 @@ Academic Service & Leadership
 * Conference on Neural Information Processing Systems (NeurIPS 2021)
 
 **Other Services:**
-* Student Organizer of the [Geometric Data Analysis](https://uwgeometry.github.io/) Group at UW, Sep 2024 -- Present
+* Student Organizer of the [Geometric Data Analysis](https://uwgeometry.github.io/) Group at UW, Sep 2024 -- Jun 2026
 * Statistical Consultant of the Tribal-UW Collaboration Program, Jun 2024 -- Aug 2024
 * Master Student Representative of the Department of Statistics at UW, Jan 2019 -- Mar 2020
 
