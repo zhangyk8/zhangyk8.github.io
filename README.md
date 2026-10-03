@@ -8,6 +8,6 @@ bundle3.2 install
 bundle3.2 exec jekyll serve --config _config.yml,_config.dev.yml
 ```
 
-Open http://localhost:4000. Use `bundle` in place of `bundle3.2` on systems where the default Bundler launcher works. Restart the server after changing `_config.yml` or `_config.dev.yml`.
+Open http://localhost:4001. Use `bundle` in place of `bundle3.2` on systems where the default Bundler launcher works. Restart the server after changing `_config.yml` or `_config.dev.yml`.
 
 
