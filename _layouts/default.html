@@ -11,14 +11,14 @@ layout: compress
     {% include head/custom.html %}
   </head>
 
-  <body>
+  <body class="academic-site layout-{{ page.layout | default: 'single' }}{% if page.url == '/' %} is-home{% endif %}">
+
+    <a class="skip-link" href="#main">Skip to content</a>
 
     {% include browser-upgrade.html %}
     {% include masthead.html %}
 
     {{ content }}
-
-    </script>
 
     <div class="page__footer">
       <footer>

@@ -1,0 +1,9 @@
+<svg xmlns="http://www.w3.org/2000/svg" width="360" height="150" viewBox="0 0 360 150">
+  <rect x="14" y="12" width="332" height="126" rx="8" fill="none" stroke="#9ba9b3" stroke-width="1" stroke-dasharray="5 5" opacity=".6"/>
+  <g fill="none" stroke="#7d8d99" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round">
+    <rect x="163" y="35" width="34" height="27" rx="3"/>
+    <circle cx="173" cy="44" r="3"/>
+    <path d="m165 59 9-9 6 6 5-5 10 10"/>
+  </g>
+  <text x="180" y="96" text-anchor="middle" fill="#6c7c89" font-family="Arial, Helvetica, sans-serif" font-size="13">Figure placeholder</text>
+</svg>

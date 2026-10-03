@@ -1,0 +1,13 @@
+{% assign paper = include.paper %}
+<article class="publication" data-paper-id="{{ paper.id }}">
+  <div class="publication__year">{{ paper.year }}</div>
+  <div class="publication__body">
+    <h3><a href="{{ paper.url }}">{{ paper.title }}</a></h3>
+    <div class="publication__citation">{{ paper.citation | markdownify }}</div>
+    {% if paper.links.size > 0 %}
+    <ul class="publication__links" aria-label="Resources for {{ paper.title | escape }}">
+      {% for resource in paper.links %}<li><a href="{{ resource.url }}">{{ resource.label }}</a></li>{% endfor %}
+    </ul>
+    {% endif %}
+  </div>
+</article>

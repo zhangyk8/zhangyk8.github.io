@@ -1,6 +1,6 @@
 ---
 layout: archive
-title: "Biographical Sketch"
+title: "Background and Experience"
 permalink: /bio/
 author_profile: true
 ---
