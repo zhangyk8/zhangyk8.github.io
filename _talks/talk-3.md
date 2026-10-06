@@ -5,7 +5,9 @@ collection: talks
 permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
-excerpt: "- Open SkAI 2026, Chicago, USA (Poster, September 2026)
+excerpt: "- Theory Group Meetings at CIERA, Northwestern University, Evanston, IL, USA (October 2026)
+
+          - Open SkAI 2026, Chicago, USA (Poster, September 2026)
 
           - The Fifth biennial meeting of the Pacific Northwest Section of SIAM, Seattle, USA (October 2025)
 
