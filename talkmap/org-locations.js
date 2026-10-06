@@ -1,8 +1,8 @@
 var addressPoints = [
   [
     "New Orleans, USA",
-    29.9561422,
-    -90.0733934
+    29.9574657,
+    -90.0629493
   ],
   [
     "Stanford, USA",
@@ -28,6 +28,11 @@ var addressPoints = [
     "Atlanta, USA",
     33.7544657,
     -84.3898151
+  ],
+  [
+    "Evanston, USA",
+    42.0470043,
+    -87.6846053
   ],
   [
     "Seattle, USA",
