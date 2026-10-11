@@ -364,7 +364,9 @@ papers:
     **Yikun Zhang**. Doctoral Dissertation. (2026)
   selected: false
   home_venue: ''
-  links: []
+  links:
+  - label: Poster
+    url: https://zhangyk8.github.io/publications/Geometry_Causality_Poster.pdf
 ---
 
 <!-- Page introduction and view controls. Edit paper records in the front matter above. -->
