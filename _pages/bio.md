@@ -64,7 +64,7 @@ Work Experience
 Academic Service & Leadership
 -----------
 **Reviewer:**
-* Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Statistica Sinica, Journal of Classification, Transactions on Knowledge Discovery from Data
+* Journal of the Royal Statistical Society Series B, Biometrika, Journal of American Statistical Association, Journal of Machine Learning Research, Electronic Journal of Statistics, Statistica Sinica, Journal of Classification, Transactions on Knowledge Discovery from Data
 * Book Chapter of "Environmental Statistics: Innovative Methods and Applications" published by CRC Press
 * International Conference on Machine Learning (ICML 2026 ([Received the Gold Reviewer Award](https://icml.cc/Conferences/2026/ProgramCommittee)), 2025)
 * AAAI Conference on Artificial Intelligence (AAAI 2026)
