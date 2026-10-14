@@ -19,6 +19,6 @@ In this talk, we introduce gradient-guided density peak clustering (GGDPC), whic
 
 Talk Slides: [Slides](https://zhangyk8.github.io/talks/).
 
-Code Link on GitHub: [TLCQM](https://github.com/facebookresearch/TLCQM).
+Code Link on GitHub: [GGDPC](https://github.com/zhangyk8/GGDPC).
 
 Paper Reference: **Yikun Zhang** and Yen-Chi Chen. Gradient-Guided Density Peak Clustering. _arXiv preprint_, [arXiv: 2610.01050](https://arxiv.org/abs/2610.01050).
