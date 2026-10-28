@@ -2,7 +2,6 @@
 layout: splash
 title: "Cosmic Filament Detection Through Directional Density Ridges"
 collection: talks
-permalink: /talks/talk-3
 type: "Invited Talk"
 date: 2021-07-19; 2022-03-11
 excerpt: "- Theory Group Meetings at CIERA, Northwestern University, Evanston, IL, USA (October 2026)
