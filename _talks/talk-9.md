@@ -2,7 +2,7 @@
 layout: splash
 title: "Gradient-Guided Density Peak Clustering"
 collection: talks
-permalink: /talks/talk-8
+permalink: /talks/talk-9
 type: ""
 date: 2026-10-29
 excerpt: "- [Computational and Applied Mathematics Colloquium](https://cam.uchicago.edu/events/event/2233/), University of Chicago, Chicago, USA (October 2026)
