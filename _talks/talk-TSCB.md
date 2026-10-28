@@ -2,7 +2,6 @@
 layout: splash
 title: " Learning Bayesian Network Structure by Self-Generating Prior Information: The Two-step Clustering-based Strategy"
 collection: talks
-permalink: /talks/talk-1
 type: "Invited Talk"
 date: 2018-02-03
 excerpt: "- AAAI-18 Health Intelligence Workshop at New Orleans, USA (February 2018)"
