@@ -2,7 +2,6 @@
 layout: splash
 title: "Emputation: Identification-Guided Neural Imputation Network"
 collection: talks
-permalink: /talks/talk-9
 type: ""
 date: 2026-07-03
 excerpt: "- 20th International Joint Conference on Computational and Financial Econometrics and Computational and Methodological Statistics (CFE-CMStatistics 2026), University of Applied Sciences, Berlin, Germany (December 2026)
