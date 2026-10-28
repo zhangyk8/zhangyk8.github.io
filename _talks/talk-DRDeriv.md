@@ -2,7 +2,6 @@
 layout: splash
 title: "Doubly Robust Inference on Causal Derivative Effects for Continuous Treatments"
 collection: talks
-permalink: /talks/talk-6
 type: ""
 date: 2025-01-21
 excerpt: "- [IMS Young Mathematical Scientists Forum (Statistics and Data Science)](https://ims.nus.edu.sg/events/ims_forum2025_stats/), Singapore (November 2025)
