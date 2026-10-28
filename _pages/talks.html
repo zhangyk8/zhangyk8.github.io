@@ -13,6 +13,8 @@ sidebar: false
   <li> <em><strong> Click through the links of listed talks to view the detailed abstracts and slides! </strong></em> </li>
 </ol> 
 
-{% for post in site.talks reversed %}
+
+{% assign sorted_talks = site.talks | sort: "date" | reverse %}
+{% for post in sorted_talks %}
   {% include archive-single-talk.html %}
 {% endfor %}
