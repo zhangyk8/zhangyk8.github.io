@@ -2,7 +2,6 @@
 layout: splash
 title: "Nonparametric Inference on Dose-Response Curves Without the Positivity Condition"
 collection: talks
-permalink: /talks/talk-5
 type: ""
 date: 2024-07-06
 excerpt: "- Joint Statistical Meeting 2025, Nashville, USA (August 2025)
