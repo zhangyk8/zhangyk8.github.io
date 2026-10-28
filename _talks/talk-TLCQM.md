@@ -2,7 +2,6 @@
 layout: splash
 title: "Transfer Learning Through Conditional Quantile Matching"
 collection: talks
-permalink: /talks/talk-7
 type: ""
 date: 2025-08-28
 excerpt: "- The Fortieth Annual Conference on Neural Information Processing Systems (NeurIPS 2026), Atlanta, USA (Poster, December 2026)
