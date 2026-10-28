@@ -2,7 +2,6 @@
 layout: splash
 title: "Efficient Inference on High-Dimensional Linear Models With Missing Outcomes"
 collection: talks
-permalink: /talks/talk-4
 type: ""
 date: 2023-11-08
 excerpt: "- Joint Statistical Meeting 2024, Portland, USA (August 2024)
