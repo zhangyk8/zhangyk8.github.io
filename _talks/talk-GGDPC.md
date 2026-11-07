@@ -5,7 +5,7 @@ collection: talks
 permalink: /talks/talk-GGDPC/
 type: ""
 date: 2026-10-29
-excerpt: "- [Computational and Applied Mathematics Colloquium](https://cam.uchicago.edu/events/event/2233/), University of Chicago, Chicago, USA (October 2026)
+excerpt: "- [Computational and Applied Mathematics Colloquium](https://cam.uchicago.edu/events/event/2233/?past=y), University of Chicago, Chicago, USA (October 2026)
 "
 ---
 
