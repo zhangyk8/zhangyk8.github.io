@@ -10,6 +10,9 @@ permanent link: /portfolio-1/
 <h1>Technical Notes and Slides</h1>
 
 <br>
+[A Short Note on Heavy-Tail Combination Test](../Lecture_Notes/CCT.pdf)
+<br>
+<br>
 [Sampling Methods for the von Mises-Fisher Distributions and Smoothed Bootstrap](../Lecture_Notes/vMF_Sampling_SmoothBoot.pdf)
 <br>
 <br>
