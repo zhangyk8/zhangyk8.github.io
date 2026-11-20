@@ -15,6 +15,6 @@ Missing data are prevalent in real-world datasets across a wide range of scienti
 In this talk, we introduce "Emputation", a deep generative framework for learning imputation models under explicit identification assumptions. Emputation targets the extrapolation distribution of missing variables conditional on observed variables. Its training objective, called the emputation risk, is based on the energy score, with the identification assumption determining how observed entries are masked and which observations contribute to training. The resulting framework enables direct conditional sampling for multiple imputation. We show that the population minimizer of the emputation risk recovers the target extrapolation distribution under a broad class of identification assumptions, including several missing-not-at-random assumptions. Simulations demonstrate strong pointwise and distributional performance, and an application to an Alzheimer’s disease dataset illustrates the practical utility of the framework.
 <br>
 
-Talk Slides: [Slides](https://zhangyk8.github.io/talks/emputation.pdf).
+Talk Slides: [Slides](https://zhangyk8.github.io/talks/Emputation_Talk.pdf).
 
 Paper Reference: Yanjiao Yang, **Yikun Zhang**, Xinwei Shen, and Yen-Chi Chen. Emputation: Identification-Guided Neural Imputation Network. _arXiv preprint_, [arXiv: 2607.05279](https://arxiv.org/abs/2607.05279).
